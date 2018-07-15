@@ -12,5 +12,6 @@
         "privacy"
     ],
     "homepage": "https://github.com/bookmoons/cashshufflejs",
+    "repository": "github:bookmoons/cashshufflejs",
     "bugs": "https://github.com/bookmoons/cashshufflejs/issues"
 }
