@@ -18,13 +18,20 @@
         "lib": "src",
         "test": "test"
     },
+    "dependencies": {
+        "jssha": "2"
+    },
     "devDependencies": {
+        "@babel/register": "^7.0.0-beta.53",
         "ava": "1.0.0-beta.6",
+        "babel-cli": "^7.0.0-beta.3",
+        "babel-preset-env": "^7.0.0-beta.3",
         "jsdoc": "3",
         "snazzy": "7",
         "standard": "11"
     },
     "scripts": {
-        "doc": "jsdoc -c .jsdoc.json --pedantic"
+        "doc": "jsdoc -c .jsdoc.json --pedantic",
+        "test": "NODE_PATH=src ava"
     }
 }
