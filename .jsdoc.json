@@ -1,0 +1,15 @@
+{
+    "opts": {
+        "destination": "api",
+        "encoding": "utf8",
+        "recurse": true
+    },
+    "tags": {
+        "allowUnknownTags": false
+    },
+    "source": {
+        "include": [
+            "src"
+        ]
+    }
+}
