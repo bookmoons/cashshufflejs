@@ -2,6 +2,7 @@
     "name": "cashshufflejs",
     "description": "JavaScript CashShuffle client library",
     "version": "0.1.0-dev",
+    "license": "Unlicense",
     "keywords": [
         "bitcoin",
         "coinjoin",
