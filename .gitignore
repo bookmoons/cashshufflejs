@@ -6,3 +6,6 @@ node_modules/
 
 # npm lockfile
 package-lock.json
+
+# Generated documentation
+api/
