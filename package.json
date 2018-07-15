@@ -17,5 +17,8 @@
     "directories": {
         "lib": "src",
         "test": "test"
+    },
+    "devDependencies": {
+        "standard": "11"
     }
 }
