@@ -1,5 +1,13 @@
 {
     "name": "cashshufflejs",
     "description": "JavaScript CashShuffle client library",
-    "version": "0.1.0-dev"
+    "version": "0.1.0-dev",
+    "keywords": [
+        "bitcoin",
+        "coinjoin",
+        "coinshuffle",
+        "cashshuffle",
+        "mixing",
+        "privacy"
+    ]
 }
