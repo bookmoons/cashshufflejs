@@ -11,6 +11,12 @@ import { VError } from 'verror'
  *     for constructor parameters.
  */
 class CashShuffleError extends VError {
+  /**
+   * Error type name.
+   *
+   * @constant {string}
+   * @default 'CashShuffleError'
+   */
   get name () {
     return 'CashShuffleError'
   }
