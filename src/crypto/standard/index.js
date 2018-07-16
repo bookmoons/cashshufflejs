@@ -9,10 +9,12 @@
  */
 
 import Crypto from './main'
+import exportPrivateKey from './exportpriv'
 import generateKeyPair from './generate'
 import hash from './hash'
 
 Object.assign(Crypto, {
+  exportPrivateKey,
   generateKeyPair,
   hash
 })
