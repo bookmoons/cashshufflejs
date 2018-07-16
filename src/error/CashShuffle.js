@@ -7,7 +7,8 @@ import { VError } from 'verror'
  *
  * @memberof module:cashshuffle/error
  * @extends module:verror.VError
- * @see {@link https://www.npmjs.com/package/verror#constructors}
+ * @see The
+ *     {@link https://www.npmjs.com/package/verror#constructors|verror docs}
  *     for constructor parameters.
  */
 class CashShuffleError extends VError {
