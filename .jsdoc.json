@@ -10,6 +10,11 @@
     "plugins": [
         "plugins/markdown"
     ],
+    "templates": {
+        "default": {
+            "outputSourceFiles": false
+        }
+    },
     "source": {
         "include": [
             "src"
