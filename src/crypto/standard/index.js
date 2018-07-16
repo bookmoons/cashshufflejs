@@ -13,12 +13,14 @@ import exportPrivateKey from './exportpriv'
 import exportPublicKey from './exportpub'
 import generateKeyPair from './generate'
 import hash from './hash'
+import restoreKeyPair from './restore'
 
 Object.assign(Crypto, {
   exportPrivateKey,
   exportPublicKey,
   generateKeyPair,
-  hash
+  hash,
+  restoreKeyPair
 })
 
 export default Crypto
