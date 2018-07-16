@@ -69,5 +69,5 @@
  * @memberof module:cashshuffle/crypto~Crypto
  * @instance
  *
- * @param {string} privateKey - Private key as hex string.
+ * @param {string} privateKeyString - Private key as hex string.
  */
