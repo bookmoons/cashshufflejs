@@ -23,6 +23,20 @@
  */
 
 /**
+ * Export private key as hex string.
+ *
+ * Key pair must be generated or restored prior to use.
+ *
+ * @method exportPrivateKey
+ * @memberof module:cashshuffle/crypto~Crypto
+ * @instance
+ *
+ * @return {string} Private key as hex string.
+ *
+ * @throws {MissingValueError} If key pair has not been generated or restored.
+ */
+
+/**
  * Hash a string with SHA-224.
  *
  * @method hash
