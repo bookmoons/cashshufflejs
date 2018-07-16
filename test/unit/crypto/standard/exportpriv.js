@@ -1,5 +1,4 @@
 import test from 'ava'
-import privs from 'crypto/standard/privs'
 import Crypto from 'crypto/standard/main'
 import generateKeyPair from 'crypto/standard/generate'
 import exportPrivateKey from 'crypto/standard/exportpriv'
