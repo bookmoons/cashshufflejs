@@ -1,11 +1,10 @@
 # Dependencies
 node_modules/
 
-# npm cache
+# npm files
 .npm/
-
-# npm lockfile
 package-lock.json
+npm-debug.log
 
 # Generated documentation
 api/
