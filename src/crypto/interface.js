@@ -70,4 +70,8 @@
  * @instance
  *
  * @param {string} privateKeyString - Private key as hex string.
+ *     May be an uncompressed key of 65 bytes
+ *     or a compressed key of 33 bytes.
+ *
+ * @throws {TypeError} If key has an uncrecognized length.
  */
