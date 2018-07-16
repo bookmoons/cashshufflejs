@@ -10,11 +10,13 @@
 
 import Crypto from './main'
 import exportPrivateKey from './exportpriv'
+import exportPublicKey from './exportpub'
 import generateKeyPair from './generate'
 import hash from './hash'
 
 Object.assign(Crypto, {
   exportPrivateKey,
+  exportPublicKey,
   generateKeyPair,
   hash
 })
