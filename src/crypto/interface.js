@@ -12,17 +12,6 @@
  */
 
 /**
- * Generate ECDSA key pair for message encryption.
- *
- * Generated key pair is saved internally and used for subsequent operations.
- * No return value. Subsequent calls discard and replace old key pair.
- *
- * @method generateKeyPair
- * @memberof module:cashshuffle/crypto~Crypto
- * @instance
- */
-
-/**
  * Export private key as hex string.
  *
  * Generate or restore key pair prior to use.
@@ -34,6 +23,17 @@
  * @return {string} Private key as hex string.
  *
  * @throws {MissingValueError} If key pair has not been generated or restored.
+ */
+
+/**
+ * Generate ECDSA key pair for message encryption.
+ *
+ * Generated key pair is saved internally and used for subsequent operations.
+ * No return value. Subsequent calls discard and replace old key pair.
+ *
+ * @method generateKeyPair
+ * @memberof module:cashshuffle/crypto~Crypto
+ * @instance
  */
 
 /**
