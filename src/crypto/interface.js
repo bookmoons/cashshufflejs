@@ -70,8 +70,7 @@
  * @instance
  *
  * @param {string} privateKeyString - Private key as hex string.
- *     May be an uncompressed key of 65 bytes
- *     or a compressed key of 33 bytes.
- *
- * @throws {TypeError} If key has an uncrecognized length.
+ * @param {boolean} [compressed=true] - Whether to encode with compressed flag.
+ *     Causes wallets to generate a compressed public key.
+ * @param {number} [version=128] - Version to encode. Default is mainnet.
  */
