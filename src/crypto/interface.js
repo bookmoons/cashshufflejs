@@ -12,7 +12,7 @@
  */
 
 /**
- * Generate key pair for message encryption.
+ * Generate ECDSA key pair for message encryption.
  *
  * Generated key pair is saved internally and used for subsequent operations.
  * No return value. Subsequent calls discard and replace old key pair.
