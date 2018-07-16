@@ -25,7 +25,7 @@
 /**
  * Export private key as hex string.
  *
- * Key pair must be generated or restored prior to use.
+ * Generate or restore key pair prior to use.
  *
  * @method exportPrivateKey
  * @memberof module:cashshuffle/crypto~Crypto
