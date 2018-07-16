@@ -2,8 +2,5 @@
     "verbose": true,
     "require": [
         "@babel/register"
-    ],
-    "files": [
-        "test/**/*.js"
     ]
 }
