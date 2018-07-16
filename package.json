@@ -21,7 +21,8 @@
     "dependencies": {
         "bitcoinjs-lib": "^3.3.2",
         "jssha": "^2.3.1",
-        "verror": "1"
+        "verror": "1",
+        "wif": "^2.0.6"
     },
     "devDependencies": {
         "@babel/register": "^7.0.0-beta.53",
