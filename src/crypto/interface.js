@@ -61,3 +61,13 @@
  *
  * @return {ArrayBuffer} SHA-224 hash of the text.
  */
+
+/**
+ * Restore key pair from private key hex string.
+ *
+ * @method restoreKeyPair
+ * @memberof module:cashshuffle/crypto~Crypto
+ * @instance
+ *
+ * @param {string} privateKey - Private key as hex string.
+ */
