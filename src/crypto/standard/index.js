@@ -2,7 +2,9 @@
  * Standard implementation of
  *     {@link module:cashshuffle/crypto~Crypto|message encryption}.
  *
- * Uses [jssha](https://www.npmjs.com/package/jssha) for hashing.
+ * Uses: [jssha](https://www.npmjs.com/package/jssha) for hashing.
+ * [bitcoinjs-lib](https://www.npmjs.com/package/bitcoinjs-lib) and
+ * [wif](https://www.npmjs.com/package/wif) for key and encryption operations.
  * @module cashshuffle/crypto/standard
  */
 
