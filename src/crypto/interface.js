@@ -48,6 +48,8 @@
  * @method generateKeyPair
  * @memberof module:cashshuffle/crypto~Crypto
  * @instance
+ *
+ * @param {number} [network=mainnet] - Network to generate for.
  */
 
 /**
