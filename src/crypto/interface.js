@@ -74,5 +74,5 @@
  * @param {string} privateKeyString - Private key as hex string.
  * @param {boolean} [compressed=true] - Whether to encode with compressed flag.
  *     Causes wallets to generate a compressed public key.
- * @param {number} [version=128] - Version to encode. Default is mainnet.
+ * @param {number} [version=0x80] - Version to encode. Default is mainnet.
  */
