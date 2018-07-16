@@ -1,6 +1,6 @@
 import test from 'ava'
 import arrayBufferToHex from 'array-buffer-to-hex'
-import hash from 'crypto/hash'
+import hash from 'crypto/standard/hash'
 
 const text = 'The quick brown fox jumps over the lazy dog.'
 const correctHashHex =
