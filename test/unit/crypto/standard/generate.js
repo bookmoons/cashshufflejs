@@ -11,9 +11,9 @@ test.before(t => {
   })
 })
 
-test('generate', t => {
+test('generate', async t => {
   const crypto = new Crypto()
-  crypto.generateKeyPair()
+  await crypto.generateKeyPair()
   const priv = privs.get(crypto)
-  t.not(priv.keyPair, undef)
+  await t.not(priv.keyPair, undef)
 })
