@@ -39,6 +39,7 @@
         "doc": "jsdoc -c .jsdoc.json --pedantic",
         "test-int": "NODE_PATH=src ava test/int",
         "test-unit": "NODE_PATH=src ava test/unit",
-        "test": "NODE_PATH=src ava test"
+        "test": "NODE_PATH=src ava test",
+        "test-hoc": "NODE_PATH=src ava"
     }
 }
