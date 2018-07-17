@@ -2,7 +2,7 @@ import wif from 'wif'
 import { MissingValueError } from '../../error'
 import privs from './privs'
 
-function exportPrivateKey () {
+async function exportPrivateKey () {
   const priv = privs.get(this)
   if (!priv.keyPair) throw new MissingValueError('no key pair')
   const privateKeyWif = priv.keyPair.toWIF()

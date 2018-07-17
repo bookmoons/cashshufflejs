@@ -14,23 +14,23 @@ test.before(t => {
   })
 })
 
-test('missing key pair', t => {
+test('missing key pair', async t => {
   const crypto = new Crypto()
-  t.throws(() => {
-    crypto.exportPrivateKey()
+  await t.throws(async () => {
+    await crypto.exportPrivateKey()
   })
 })
 
-test('string', t => {
+test('string', async t => {
   const crypto = new Crypto()
-  crypto.generateKeyPair()
-  const privateKey = crypto.exportPrivateKey()
-  t.is(typeof privateKey, 'string')
+  await crypto.generateKeyPair()
+  const privateKey = await crypto.exportPrivateKey()
+  await t.is(typeof privateKey, 'string')
 })
 
-test('length', t => {
+test('length', async t => {
   const crypto = new Crypto()
-  crypto.generateKeyPair()
-  const privateKey = crypto.exportPrivateKey()
-  t.is(privateKey.length, keySizeChars)
+  await crypto.generateKeyPair()
+  const privateKey = await crypto.exportPrivateKey()
+  await t.is(privateKey.length, keySizeChars)
 })
