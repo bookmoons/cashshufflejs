@@ -12,6 +12,20 @@
  */
 
 /**
+ * Encrypt message for public key.
+ *
+ * @method encrypt
+ * @memberof module:cashshuffle/crypto~Crypto
+ * @instance
+ * @async
+ *
+ * @param {string} message - Message to encrypt.
+ * @param {string} recipient - Public key of recipient as hex string.
+ *
+ * @return {string} The encrypted message.
+ */
+
+/**
  * Export private key as hex string.
  *
  * Generate or restore key pair prior to use.
@@ -19,6 +33,7 @@
  * @method exportPrivateKey
  * @memberof module:cashshuffle/crypto~Crypto
  * @instance
+ * @async
  *
  * @return {string} Private key as hex string.
  *
@@ -33,6 +48,7 @@
  * @method exportPublicKey
  * @memberof module:cashshuffle/crypto~Crypto
  * @instance
+ * @async
  *
  * @return {string} Public key as hex string.
  *
@@ -48,6 +64,7 @@
  * @method generateKeyPair
  * @memberof module:cashshuffle/crypto~Crypto
  * @instance
+ * @async
  *
  * @param {number} [network=mainnet] - Network to generate for.
  */
@@ -58,6 +75,7 @@
  * @method hash
  * @memberof module:cashshuffle/crypto~Crypto
  * @instance
+ * @async
  *
  * @param {string} text - Text to hash.
  *
@@ -70,6 +88,7 @@
  * @method restoreKeyPair
  * @memberof module:cashshuffle/crypto~Crypto
  * @instance
+ * @async
  *
  * @param {string} privateKeyString - Private key as hex string.
  * @param {boolean} [compressed=true] - Whether to encode with compressed flag.
