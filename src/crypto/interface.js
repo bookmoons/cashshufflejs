@@ -14,6 +14,10 @@
 /**
  * Encrypt message for public key.
  *
+ * Performs ECIES encryption.
+ * Cipher AES-128-CBC.
+ * MAC HMAC-SHA256.
+ *
  * @method encrypt
  * @memberof module:cashshuffle/crypto~Crypto
  * @instance
