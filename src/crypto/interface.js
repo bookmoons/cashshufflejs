@@ -14,6 +14,8 @@
 /**
  * Encrypt message for public key.
  *
+ * Generate or restore key pair prior to use.
+ *
  * @method encrypt
  * @memberof module:cashshuffle/crypto~Crypto
  * @instance
@@ -23,6 +25,8 @@
  * @param {string} recipient - Public key of recipient as hex string.
  *
  * @return {string} The encrypted message.
+ *
+ * @throws {MissingValueError} If key pair has not been generated or restored.
  */
 
 /**
