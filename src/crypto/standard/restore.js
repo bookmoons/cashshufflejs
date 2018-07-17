@@ -4,7 +4,7 @@ import privs from './privs'
 
 const mainnet = 0x80
 
-function restorePrivateKey (
+async function restorePrivateKey (
   privateKeyString, compressed = true, version = mainnet
 ) {
   const priv = privs.get(this)

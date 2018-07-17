@@ -15,9 +15,9 @@ test.before(t => {
   })
 })
 
-test('restore', t => {
+test('restore', async t => {
   const crypto = new Crypto()
-  crypto.restoreKeyPair(privateKeyString)
+  await crypto.restoreKeyPair(privateKeyString)
   const priv = privs.get(crypto)
-  t.not(priv.keyPair, undef)
+  await t.not(priv.keyPair, undef)
 })
