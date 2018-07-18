@@ -14,11 +14,11 @@
 /**
  * Encrypt message for public key.
  *
- * Performs [ECIES](
- * https://cryptopp.com/wiki/Elliptic_Curve_Integrated_Encryption_Scheme)
- * encryption. Parameters:
+ * Performs [ECIES][1] encryption. Parameters:
  * - Symmetric encryption scheme `AES-128-CBC`.
  * - Message authentication code `HMAC-SHA256`.
+ *
+ * [1]: https://cryptopp.com/wiki/Elliptic_Curve_Integrated_Encryption_Scheme
  *
  * @method encrypt
  * @memberof module:cashshuffle/crypto~Crypto
