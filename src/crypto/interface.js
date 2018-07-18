@@ -14,7 +14,9 @@
 /**
  * Encrypt message for public key.
  *
- * Performs ECIES encryption. Parameters:
+ * Performs [ECIES](
+ * https://cryptopp.com/wiki/Elliptic_Curve_Integrated_Encryption_Scheme)
+ * encryption. Parameters:
  * - Symmetric encryption scheme `AES-128-CBC`.
  * - Message authentication code `HMAC-SHA256`.
  *
