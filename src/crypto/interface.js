@@ -14,9 +14,9 @@
 /**
  * Encrypt message for public key.
  *
- * Performs ECIES encryption.
- * Cipher AES-128-CBC.
- * MAC HMAC-SHA256.
+ * Performs ECIES encryption. Parameters:
+ * - Symmetric encryption scheme `AES-128-CBC`.
+ * - Message authentication code `HMAC-SHA256`.
  *
  * @method encrypt
  * @memberof module:cashshuffle/crypto~Crypto
