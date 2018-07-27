@@ -8,9 +8,9 @@
  *
  * Supports key generation, encryption, decryption, and hashing.
  *
- * Performs [ECIES][1] encryption. Parameters:
- * - Symmetric encryption scheme `AES-128-CBC`.
- * - Message authentication code `HMAC-SHA256`.
+ * Performs [ECIES][1] encryption with the following configuration.
+ * - Symmetric encryption scheme: `AES-128-CBC`.
+ * - Message authentication code: `HMAC-SHA256`.
  *
  * [1]: https://cryptopp.com/wiki/Elliptic_Curve_Integrated_Encryption_Scheme
  *
