@@ -9,6 +9,7 @@
  * Supports key generation, encryption, decryption, and hashing.
  *
  * Performs [ECIES][1] encryption with the following configuration.
+ * - Key agreement function: `DH`, no cofactor.
  * - Symmetric encryption scheme: `AES-128-CBC`.
  * - Message authentication code: `HMAC-SHA256`.
  *
