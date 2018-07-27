@@ -8,17 +8,17 @@
  *
  * Supports key generation, encryption, decryption, and hashing.
  *
- * @interface Crypto
- */
-
-/**
- * Encrypt message for public key.
- *
  * Performs [ECIES][1] encryption. Parameters:
  * - Symmetric encryption scheme `AES-128-CBC`.
  * - Message authentication code `HMAC-SHA256`.
  *
  * [1]: https://cryptopp.com/wiki/Elliptic_Curve_Integrated_Encryption_Scheme
+ *
+ * @interface Crypto
+ */
+
+/**
+ * Encrypt message for public key.
  *
  * @method encrypt
  * @memberof module:cashshuffle/crypto~Crypto
