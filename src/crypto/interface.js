@@ -15,8 +15,8 @@
  * - Symmetric encryption scheme: `AES-128-CBC`.
  * - Message authentication code: `HMAC-SHA256`.
  *
- * [1]: https://cryptopp.com/wiki/Elliptic_Curve_Integrated_Encryption_Scheme
- * [2]: https://digital.csic.es/handle/10261/32674
+ * [1]: http://hdl.handle.net/10261/32671
+ * [2]: http://hdl.handle.net/10261/32674
  *
  * @interface Crypto
  */
