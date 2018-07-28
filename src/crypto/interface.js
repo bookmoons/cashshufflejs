@@ -11,7 +11,7 @@
  * Performs [ECIES][1] encryption with the following configuration.
  * Abbreviations from
  * [A Comparison of the Standardized Versions of ECIES][2].
- * - Key agreement function: `DH`, no cofactor.
+ * - Key agreement: `DH`, no cofactor.
  * - Symmetric encryption scheme: `AES-128-CBC`.
  * - Message authentication code: `HMAC-SHA-256`.
  *
