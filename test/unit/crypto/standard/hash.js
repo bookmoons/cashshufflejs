@@ -10,5 +10,4 @@ test('text', async t => {
   const textHash = await hash(text)
   const textHashHex = arrayBufferToHex(textHash)
   await t.true(textHashHex === correctHashHex)
-  await t.pass()
 })
