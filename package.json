@@ -21,6 +21,7 @@
     "dependencies": {
         "@babel/polyfill": "^7.0.0-beta.54",
         "bitcoinjs-lib": "^3.3.2",
+        "bitcore-lib": "^0.15.0",
         "jssha": "^2.3.1",
         "verror": "1",
         "wif": "^2.0.6"
