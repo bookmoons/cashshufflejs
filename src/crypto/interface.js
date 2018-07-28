@@ -13,7 +13,7 @@
  * [A Comparison of the Standardized Versions of ECIES][2].
  * - Key agreement function: `DH`, no cofactor.
  * - Symmetric encryption scheme: `AES-128-CBC`.
- * - Message authentication code: `HMAC-SHA256`.
+ * - Message authentication code: `HMAC-SHA-256`.
  *
  * [1]: http://hdl.handle.net/10261/32671
  * [2]: http://hdl.handle.net/10261/32674
