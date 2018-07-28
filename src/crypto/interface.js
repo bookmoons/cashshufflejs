@@ -8,15 +8,10 @@
  *
  * Supports key generation, encryption, decryption, and hashing.
  *
- * Performs [ECIES][1] encryption with the following configuration.
- * Abbreviations from
- * [A Comparison of the Standardized Versions of ECIES][2].
- * - Key agreement: `DH`, no cofactor.
- * - Symmetric encryption scheme: `AES-128-CBC`.
- * - Message authentication code: `HMAC-SHA-256`.
+ * Performs [ECIES][1] encryption with the [bitcore-ecies][2] configuration.
  *
  * [1]: http://hdl.handle.net/10261/32671
- * [2]: http://hdl.handle.net/10261/32674
+ * [2]: https://www.npmjs.com/package/bitcore-ecies
  *
  * @interface Crypto
  */
