@@ -19,10 +19,12 @@
 import Crypto from './main'
 import generateKeyPair from './generate'
 import hash from './hash'
+import restoreKeyPair from './restoreKeyPair'
 
 Object.assign(Crypto, {
   generateKeyPair,
-  hash
+  hash,
+  restoreKeyPair
 })
 
 export default Crypto
