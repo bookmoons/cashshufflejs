@@ -17,11 +17,13 @@
  */
 
 import Crypto from './main'
+import exportPrivateKey from './exportpriv'
 import generateKeyPair from './generate'
 import hash from './hash'
 import restoreKeyPair from './restoreKeyPair'
 
 Object.assign(Crypto, {
+  exportPrivateKey,
   generateKeyPair,
   hash,
   restoreKeyPair
