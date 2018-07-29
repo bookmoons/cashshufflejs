@@ -1,16 +1,17 @@
 /**
- * Bitcore based implementation of
+ * [Bitcore][1] based implementation of
  *     {@link module:cashshuffle/crypto~Crypto|message encryption}.
  *
  * Uses:
- * - [crypto][1] for hashing.
- * - [bitcore-lib][2] for key operations.
+ * - [crypto][2] for hashing.
+ * - [bitcore-lib][3] for key operations.
  *
  * Network values are bitcore-lib `Network` instances. Standard networks are
  * available through `bitcore.Networks`.
  *
- * [1]: https://nodejs.org/dist/latest-v10.x/docs/api/crypto.html
- * [2]: https://www.npmjs.com/package/bitcore-lib
+ * [1]: https://bitcore.io/
+ * [2]: https://nodejs.org/dist/latest-v10.x/docs/api/crypto.html
+ * [3]: https://www.npmjs.com/package/bitcore-lib
  *
  * @module cashshuffle/crypto/bitcore
  */
