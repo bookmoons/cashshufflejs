@@ -71,7 +71,7 @@
  * @instance
  * @async
  *
- * @param {*} [network=mainnet] - Network to generate for.
+ * @param {*} [network=<mainnet>] - Network to generate for.
  *     Type implementation defined.
  */
 
@@ -99,6 +99,6 @@
  * @param {string} privateKeyString - Private key as hex string.
  * @param {boolean} [compressed=true] - Whether to encode with compressed flag.
  *     Causes wallets to generate a compressed public key.
- * @param {*} [network=mainnet] - Network to restore for.
+ * @param {*} [network=<mainnet>] - Network to restore for.
  *     Type implementation defined.
  */
