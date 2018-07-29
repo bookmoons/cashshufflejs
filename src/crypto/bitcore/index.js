@@ -4,6 +4,10 @@
  *
  * Uses: [crypto](https://nodejs.org/dist/latest-v10.x/docs/api/crypto.html)
  * for hashing.
+ *
+ * Network values are bitcore-lib `Network` instances. Standard networks are
+ * available through `bitcore.Networks`.
+ *
  * @module cashshuffle/crypto/bitcore
  */
 
