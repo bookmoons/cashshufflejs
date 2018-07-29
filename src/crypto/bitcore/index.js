@@ -10,7 +10,7 @@
  * available through `bitcore.Networks`.
  *
  * [1]: https://bitcore.io/
- * [2]: https://nodejs.org/dist/latest-v10.x/docs/api/crypto.html
+ * [2]: https://nodejs.org/dist/latest/docs/api/crypto.html
  * [3]: https://www.npmjs.com/package/bitcore-lib
  *
  * @module cashshuffle/crypto/bitcore
