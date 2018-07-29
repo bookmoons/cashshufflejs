@@ -1,4 +1,4 @@
-import bitcore from 'bitcore-lib'
+import bitcore from 'bitcore-lib-cash'
 import privs from './privs'
 
 const mainnet = bitcore.Networks.mainnet
