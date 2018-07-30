@@ -41,6 +41,7 @@
     "scripts": {
         "lint": "standard",
         "doc": "jsdoc -c .jsdoc.json --pedantic",
+        "test-com": "NODE_PATH=src ava test/com",
         "test-int": "NODE_PATH=src ava test/int",
         "test-unit": "NODE_PATH=src ava test/unit",
         "test": "NODE_PATH=src ava test",
