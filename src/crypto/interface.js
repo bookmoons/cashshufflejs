@@ -27,7 +27,7 @@
  * @param {string} message - Message to encrypt.
  * @param {string} recipient - Public key of recipient as hex string.
  *
- * @return {string} The encrypted message.
+ * @return {string} The encrypted message as a Base64 encoded string.
  */
 
 /**
