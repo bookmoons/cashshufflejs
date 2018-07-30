@@ -8,7 +8,8 @@
  *
  * Supports key generation, encryption, decryption, and hashing.
  *
- * Performs [ECIES][1] encryption with the [bitcore-ecies][2] configuration.
+ * Performs [ECIES][1] encryption with the [bitcore-ecies][2] 1.0.3
+ * default configuration.
  *
  * [1]: http://hdl.handle.net/10261/32671
  * [2]: https://www.npmjs.com/package/bitcore-ecies
