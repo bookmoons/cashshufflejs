@@ -19,6 +19,7 @@
  */
 
 import Crypto from './main'
+import decrypt from './decrypt'
 import exportPrivateKey from './exportpriv'
 import exportPublicKey from './exportpub'
 import generateKeyPair from './generate'
@@ -26,6 +27,7 @@ import hash from './hash'
 import restoreKeyPair from './restoreKeyPair'
 
 Object.assign(Crypto, {
+  decrypt,
   exportPrivateKey,
   exportPublicKey,
   generateKeyPair,
