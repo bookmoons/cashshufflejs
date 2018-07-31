@@ -1,4 +1,4 @@
-# cashshufflejs
+# <img src="img/cashshufflejs.png" width="68px" height="68px" /> cashshufflejs
 
 JavaScript [CashShuffle](https://cashshuffle.com/) client library.
 
