@@ -20,6 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'cashshufflejs'
+author = ''
 
 # The short X.Y version
 version = ''
