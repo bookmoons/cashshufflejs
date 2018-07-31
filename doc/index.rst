@@ -1,5 +1,9 @@
-cashshufflejs documentation
-===========================
+.. |avatar| image:: /../img/cashshufflejs.png
+    :width: 68
+    :height: 68
+
+|avatar| cashshufflejs documentation
+====================================
 
 | JavaScript implementation of `CashShuffle`_.
 
