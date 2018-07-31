@@ -5,7 +5,9 @@
 |avatar| cashshufflejs documentation
 ====================================
 
-| JavaScript implementation of `CashShuffle`_.
+| JavaScript `CashShuffle`_ client library.
+
+| Enhance the privacy of your Bitcoin Cash transactions.
 
 .. _CashShuffle: https://cashshuffle.com/
 
