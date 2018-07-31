@@ -20,7 +20,6 @@
 # -- Project information -----------------------------------------------------
 
 project = 'cashshufflejs'
-author = 'Book Moons'
 
 # The short X.Y version
 version = ''
