@@ -20,7 +20,6 @@
 # -- Project information -----------------------------------------------------
 
 project = 'cashshufflejs'
-copyright = '2018, Book Moons'
 author = 'Book Moons'
 
 # The short X.Y version
@@ -92,6 +91,12 @@ html_theme = 'sphinx_rtd_theme'
 # documentation.
 #
 # html_theme_options = {}
+
+# If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
+html_show_sphinx = False
+
+# If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
+html_show_copyright = False
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
