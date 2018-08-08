@@ -51,6 +51,9 @@ js_source_path = '../src'
 # JSDoc configuration file
 jsdoc_config_path = 'jsdoc.json'
 
+# sphinx-js markdown processing
+js_markdown = True
+
 # Primary domain
 primary_domain = 'js'
 

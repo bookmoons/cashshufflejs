@@ -7,9 +7,6 @@
     "tags": {
         "allowUnknownTags": false
     },
-    "plugins": [
-        "plugins/markdown"
-    ],
     "templates": {
         "default": {
             "outputSourceFiles": false
