@@ -1,0 +1,5 @@
+Logchan
+-------
+
+.. autointerface:: Logchan
+   :members:
