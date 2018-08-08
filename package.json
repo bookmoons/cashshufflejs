@@ -21,12 +21,9 @@
     "dependencies": {
         "@babel/polyfill": "^7.0.0-beta.54",
         "@bookmoons/bitcore-ecies-cash": "^1.0.3",
-        "bitcoinjs-lib": "^3.3.2",
         "bitcore-lib-cash": "^0.18.1",
-        "jssha": "^2.3.1",
         "to-arraybuffer": "1",
-        "verror": "1",
-        "wif": "^2.0.6"
+        "verror": "1"
     },
     "devDependencies": {
         "@babel/register": "^7.0.0-beta.53",
