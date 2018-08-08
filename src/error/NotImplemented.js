@@ -8,9 +8,6 @@ import CashShuffleError from './CashShuffle'
  *
  * @memberof module:cashshuffle/error
  * @extends module:cashshuffle/error.CashShuffleError
- *     for constructor parameters.
- * @see The [verror docs](https://www.npmjs.com/package/verror#constructors)
- *     for constructor parameters.
  */
 class NotImplementedError extends CashShuffleError {
   /**
