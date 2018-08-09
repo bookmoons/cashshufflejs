@@ -1,0 +1,5 @@
+# Normalize text file line breaks
+* text=auto
+
+# Image
+*.png binary
