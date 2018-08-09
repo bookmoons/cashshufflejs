@@ -16,3 +16,5 @@
 
    interface
    error
+   module/crypto/bitcore
+   module/logchan/file
