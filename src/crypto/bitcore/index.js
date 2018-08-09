@@ -2,6 +2,7 @@
  * [Bitcore][1] based implementation of message encryption.
  *
  * Uses:
+ *
  * - [crypto][2] for hashing.
  * - [bitcore-lib-cash][3] for key operations.
  * - [&#64;bookmoons/bitcore-ecies-cash][4] for encryption operations.
