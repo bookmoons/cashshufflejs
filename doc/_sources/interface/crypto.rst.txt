@@ -1,0 +1,5 @@
+Crypto
+------
+
+.. autointerface:: Crypto
+   :members:

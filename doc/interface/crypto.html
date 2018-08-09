@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Crypto &mdash; cashshufflejs  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Logchan" href="logchan.html" />
+    <link rel="prev" title="Interface" href="../interface.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cashshufflejs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../interface.html">Interface</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logchan.html">Logchan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../error.html">Error</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module/crypto/bitcore.html">crypto/bitcore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module/logchan/file.html">logchan/file</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cashshufflejs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../interface.html">Interface</a> &raquo;</li>
+        
+      <li>Crypto</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/interface/crypto.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="crypto">
+<h1>Crypto<a class="headerlink" href="#crypto" title="Permalink to this headline">¶</a></h1>
+<dl class="interface">
+<dt id="Crypto">
+<em class="property">interface </em><code class="descname">Crypto</code><a class="headerlink" href="#Crypto" title="Permalink to this definition">¶</a></dt>
+<dd><p>Message encryption functions.</p>
+<p>Supports key generation, encryption, decryption, and hashing.</p>
+<p>Performs <a class="reference external" href="http://hdl.handle.net/10261/32671">ECIES</a> encryption with
+the <a class="reference external" href="https://www.npmjs.com/package/bitcore-ecies">bitcore-ecies</a>
+1.0.3 default configuration.</p>
+<dl class="function">
+<dt id="Crypto.decrypt">
+<code class="descclassname">Crypto.</code><code class="descname">decrypt</code><span class="sig-paren">(</span><em>cryptogram</em><span class="sig-paren">)</span><a class="headerlink" href="#Crypto.decrypt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decrypt cryptogram for active key pair.</p>
+<p>Generate or restore key pair prior to use.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>cryptogram</strong> (<em>string</em>) – Cryptogram as a Base64 encoded string.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><p class="first"><a class="reference internal" href="../error.html#MissingValueError" title="MissingValueError"><strong>MissingValueError</strong></a> – If key pair has not been generated or restored.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>string</strong> – The decrypted message.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Crypto.encrypt">
+<code class="descclassname">Crypto.</code><code class="descname">encrypt</code><span class="sig-paren">(</span><em>message</em>, <em>recipient</em><span class="sig-paren">)</span><a class="headerlink" href="#Crypto.encrypt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encrypt message for public key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>message</strong> (<em>string</em>) – Message to encrypt.</li>
+<li><strong>recipient</strong> (<em>string</em>) – Public key of recipient as hex string.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>string</strong> – The cryptogram as a Base64 encoded string.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Crypto.exportPrivateKey">
+<code class="descclassname">Crypto.</code><code class="descname">exportPrivateKey</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Crypto.exportPrivateKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export private key as hex string.</p>
+<p>Generate or restore key pair prior to use.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Throws:</th><td class="field-body"><a class="reference internal" href="../error.html#MissingValueError" title="MissingValueError"><strong>MissingValueError</strong></a> – If key pair has not been generated or restored.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>string</strong> – Private key as hex string.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Crypto.exportPublicKey">
+<code class="descclassname">Crypto.</code><code class="descname">exportPublicKey</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Crypto.exportPublicKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export public key as hex string.</p>
+<p>Generate or restore key pair prior to use.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Throws:</th><td class="field-body"><a class="reference internal" href="../error.html#MissingValueError" title="MissingValueError"><strong>MissingValueError</strong></a> – If key pair has not been generated or restored.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>string</strong> – Public key as hex string.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Crypto.generateKeyPair">
+<code class="descclassname">Crypto.</code><code class="descname">generateKeyPair</code><span class="sig-paren">(</span><em>network=&lt;mainnet&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#Crypto.generateKeyPair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate ECDSA key pair for message encryption.</p>
+<p>Generated key pair is saved internally and used for subsequent
+operations. No return value. Subsequent calls discard and replace old
+key pair.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>network</strong> (<em>*</em>) – Network to generate for. Type implementation defined.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Crypto.hash">
+<code class="descclassname">Crypto.</code><code class="descname">hash</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#Crypto.hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hash a string with SHA-224.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>text</strong> (<em>string</em>) – Text to hash.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>ArrayBuffer</strong> – SHA-224 hash of the text.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Crypto.restoreKeyPair">
+<code class="descclassname">Crypto.</code><code class="descname">restoreKeyPair</code><span class="sig-paren">(</span><em>privateKeyString</em>, <em>network=&lt;mainnet&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#Crypto.restoreKeyPair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore key pair from private key hex string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>privateKeyString</strong> (<em>string</em>) – Private key as hex string.</li>
+<li><strong>network</strong> (<em>*</em>) – Network to restore for. Type implementation defined.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="logchan.html" class="btn btn-neutral float-right" title="Logchan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../interface.html" class="btn btn-neutral" title="Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
