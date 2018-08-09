@@ -1,5 +1,5 @@
 Logchan
 -------
 
-.. autointerface:: Logchan
+.. autointerface:: logchan~Logchan
    :members:
