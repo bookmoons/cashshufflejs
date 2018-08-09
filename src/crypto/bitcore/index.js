@@ -1,6 +1,5 @@
 /**
- * [Bitcore][1] based implementation of
- *     {@link module:cashshuffle/crypto~Crypto|message encryption}.
+ * [Bitcore][1] based implementation of message encryption.
  *
  * Uses:
  * - [crypto][2] for hashing.
