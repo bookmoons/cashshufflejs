@@ -11,8 +11,8 @@
  *
  * @example
  * import Logchan from 'cashshuffle/logchan/file'
- * const logchan = new Logchan('/home/user/.cashshuffle/log')
- * logchan.send('Starting run')
+ * const log = new Logchan('/home/user/.cashshuffle/log')
+ * log.send('Starting run')
  */
 
 import Logchan from './main'
