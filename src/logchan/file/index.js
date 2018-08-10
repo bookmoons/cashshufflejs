@@ -10,9 +10,9 @@
  * @module cashshuffle/logchan/file
  *
  * @example
- * import Logchan from 'cashshuffle/logchan/file'
- * const log = new Logchan('/home/user/.cashshuffle/log')
- * log.send('Starting run')
+import Logchan from 'cashshuffle/logchan/file'
+const log = new Logchan('/home/user/.cashshuffle/log')
+log.send('Starting run')
  */
 
 import Logchan from './main'
