@@ -12,7 +12,12 @@
  * @example
 import Logchan from 'cashshuffle/logchan/file'
 const log = new Logchan('/home/user/.cashshuffle/log')
-log.send('Starting run')
+
+async function run () {
+  await log.send('Starting run')
+}
+
+run()
  */
 
 import Logchan from './main'
