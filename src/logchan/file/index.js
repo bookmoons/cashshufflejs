@@ -1,9 +1,11 @@
 /**
  * File based implementation of Logchan.
  *
- * Uses Node.js file system facilities to log to file.
+ * Uses Node.js [fs][1] module to log to file.
  *
  * Provide log file path to constructor.
+ *
+ * [1]: https://nodejs.org/dist/latest/docs/api/fs.html
  *
  * @module cashshuffle/logchan/file
  *
