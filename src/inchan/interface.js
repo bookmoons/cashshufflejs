@@ -22,5 +22,5 @@
  * @instance
  * @async
  *
- * @return {ArrayBuffer} message - Network message from other participant.
+ * @return {protocol.Signed} message - Network message from other participant.
  */
