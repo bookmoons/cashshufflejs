@@ -62,3 +62,14 @@
  *
  * @prop {bytes} signature - Signature as byte string.
  */
+
+/**
+ * Message hash.
+ *
+ * Enables validating message integrity.
+ *
+ * @typedef Hash
+ * @memberof module:cashshuffle/protocol
+ *
+ * @prop {bytes} hash - Hash as byte string.
+ */
