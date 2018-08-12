@@ -1,10 +1,10 @@
 /**
- * Participant message input channel.
+ * Message input channel.
  * @module cashshuffle/inchan
  */
 
 /**
- * Participant message input channel.
+ * Message input channel.
  *
  * Delivers network messages from other participants.
  *
