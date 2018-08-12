@@ -53,6 +53,15 @@
  */
 
 /**
+ * Bitcoin Cash address.
+ *
+ * @typedef Address
+ * @memberof module:cashshuffle/protocol
+ *
+ * @prop {string} address - Bitcoin Cash address as string.
+ */
+
+/**
  * Message hash.
  *
  * Enables validating message integrity.
