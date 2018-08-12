@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Logchan &mdash; cashshufflejs  documentation</title>
+  <title>Inchan &mdash; cashshufflejs  documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Error" href="../error.html" />
-    <link rel="prev" title="Inchan" href="inchan.html" /> 
+    <link rel="next" title="Logchan" href="logchan.html" />
+    <link rel="prev" title="Crypto" href="crypto.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -82,8 +82,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../protocol.html">Protocol</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../interface.html">Interface</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="crypto.html">Crypto</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inchan.html">Inchan</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Logchan</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Inchan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logchan.html">Logchan</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../error.html">Error</a></li>
@@ -136,13 +136,13 @@
         
           <li><a href="../interface.html">Interface</a> &raquo;</li>
         
-      <li>Logchan</li>
+      <li>Inchan</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/interface/logchan.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/interface/inchan.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -155,28 +155,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="logchan">
-<h1>Logchan<a class="headerlink" href="#logchan" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="inchan">
+<h1>Inchan<a class="headerlink" href="#inchan" title="Permalink to this headline">¶</a></h1>
 <dl class="interface">
-<dt id="logchan.Logchan">
-<em class="property">interface </em><code class="descclassname">logchan.</code><code class="descname">Logchan</code><a class="headerlink" href="#logchan.Logchan" title="Permalink to this definition">¶</a></dt>
-<dd><p>Logging message channel.</p>
-<p>Writes messages to log.</p>
+<dt id="inchan.Inchan">
+<em class="property">interface </em><code class="descclassname">inchan.</code><code class="descname">Inchan</code><a class="headerlink" href="#inchan.Inchan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Participant message input channel.</p>
+<p>Delivers network messages from other participants.</p>
+<p>Means of acquiring returned messages implementation defined. Order of
+returned messages implementation defined.</p>
 <dl class="function">
-<dt id="logchan.Logchan.send">
-<code class="descclassname">logchan.Logchan.</code><code class="descname">send</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#logchan.Logchan.send" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write message to log.</p>
+<dt id="inchan.Inchan.receive">
+<code class="descclassname">inchan.Inchan.</code><code class="descname">receive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#inchan.Inchan.receive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receive next message.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
-<li><strong>message</strong> (<em>string</em>) – Message to log.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><p class="first last">If logging fails.</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>ArrayBuffer</strong> – message - Network message from other participant.</td>
 </tr>
 </tbody>
 </table>
@@ -194,10 +190,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../error.html" class="btn btn-neutral float-right" title="Error" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="logchan.html" class="btn btn-neutral float-right" title="Logchan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="inchan.html" class="btn btn-neutral" title="Inchan" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="crypto.html" class="btn btn-neutral" title="Crypto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

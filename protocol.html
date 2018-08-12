@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Protocol &mdash; cashshufflejs  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Interface" href="interface.html" />
+    <link rel="prev" title="cashshufflejs documentation" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> cashshufflejs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error.html">Error</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module/crypto/bitcore.html">crypto/bitcore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module/logchan/file.html">logchan/file</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">cashshufflejs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Protocol</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/protocol.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="protocol">
+<h1>Protocol<a class="headerlink" href="#protocol" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="protocol.Phase">
+<code class="descclassname">protocol.</code><code class="descname">Phase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.Phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Phase enumeration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>NONE</strong> – Before protocol start.</li>
+<li><strong>ANNOUNCEMENT</strong> – Phase 1. Participants announce themselves.</li>
+<li><strong>SHUFFLE</strong> – Phase 2. Blind shuffling of output addresses.</li>
+<li><strong>BROADCAST</strong> – Phase 3. Verify output addresses.</li>
+<li><strong>EQUIVOCATION_CHECK</strong> – Phase 4. Verify no equivocation.</li>
+<li><strong>SIGNING</strong> – Phase 5a. Sign transaction.</li>
+<li><strong>VERIFICATION_AND_SUBMISSION</strong> – Phase 5b. Submit transaction to network.</li>
+<li><strong>BLAME</strong> – Out of band phase 6. Identify protocol violator.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.Reason">
+<code class="descclassname">protocol.</code><code class="descname">Reason</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.Reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Blame reason enumeration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>INSUFFICIENTFUNDS</strong> – Insufficient funds.</li>
+<li><strong>DOUBLESPEND</strong> – Double spend.</li>
+<li><strong>EQUIVOCATIONFAILURE</strong> – Equivocation failure.</li>
+<li><strong>SHUFFLEFAILURE</strong> – Shuffle failure.</li>
+<li><strong>SHUFFLEANDEQUIVOCATIONFAILURE</strong> – Shuffle and equivocation failure.</li>
+<li><strong>INVALIDSIGNATURE</strong> – Invalid signature.</li>
+<li><strong>MISSINGOUTPUT</strong> – Missing output.</li>
+<li><strong>LIAR</strong> – Liar.</li>
+<li><strong>INVALIDFORMAT</strong> – Invalid format.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.Invalid">
+<code class="descclassname">protocol.</code><code class="descname">Invalid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.Invalid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invalid message.</p>
+<p>Provides access to an invalid message as a byte string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>invalid</strong> (<em>bytes</em>) – Bytes of message.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.Address">
+<code class="descclassname">protocol.</code><code class="descname">Address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.Address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bitcoin Cash address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>address</strong> (<em>string</em>) – Bitcoin Cash address as string.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.DecryptionKey">
+<code class="descclassname">protocol.</code><code class="descname">DecryptionKey</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.DecryptionKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>string</em>) – Decryption key as string.</li>
+<li><strong>public</strong> (<em>string</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.EncryptionKey">
+<code class="descclassname">protocol.</code><code class="descname">EncryptionKey</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.EncryptionKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encryption key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>string</em>) – Encryption key as string.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.Hash">
+<code class="descclassname">protocol.</code><code class="descname">Hash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.Hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Message hash.</p>
+<p>Enables validating message integrity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>hash</strong> (<em>bytes</em>) – Hash as byte string.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.Registration">
+<code class="descclassname">protocol.</code><code class="descname">Registration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.Registration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registration request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>amount</strong> (<em>uint64</em>) – Amount of Bitcoin Cash to shuffle.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.Signature">
+<code class="descclassname">protocol.</code><code class="descname">Signature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.Signature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Digital signature.</p>
+<p>Enables verifying message authenticity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>signature</strong> (<em>bytes</em>) – Signature as byte string.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.Transaction">
+<code class="descclassname">protocol.</code><code class="descname">Transaction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.Transaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bitcoin Cash transaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>transaction</strong> (<em>bytes</em>) – Bitcoin Cash transaction as byte string.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.VerificationKey">
+<code class="descclassname">protocol.</code><code class="descname">VerificationKey</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.VerificationKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verification key.</p>
+<p>Public key of a participant. Used to identify sender and recipient in
+messages.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>string</em>) – Verification key as string.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.Message">
+<code class="descclassname">protocol.</code><code class="descname">Message</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.Message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Core message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>address</strong> (<a class="reference internal" href="#protocol.Address" title="protocol.Address"><em>protocol.Address</em></a>) – Bitcoin Cash address.</li>
+<li><strong>key</strong> (<a class="reference internal" href="#protocol.EncryptionKey" title="protocol.EncryptionKey"><em>protocol.EncryptionKey</em></a>) – Encryption key.</li>
+<li><strong>hash</strong> (<a class="reference internal" href="#protocol.Hash" title="protocol.Hash"><em>protocol.Hash</em></a>) – Message hash.</li>
+<li><strong>signature</strong> (<a class="reference internal" href="#protocol.Signature" title="protocol.Signature"><em>protocol.Signature</em></a>) – Message signature.</li>
+<li><strong>str</strong> (<em>string</em>) – </li>
+<li><strong>blame</strong> (<a class="reference internal" href="#protocol.Blame" title="protocol.Blame"><em>protocol.Blame</em></a>) – Blame details.</li>
+<li><strong>next</strong> (<a class="reference internal" href="#protocol.Message" title="protocol.Message"><em>protocol.Message</em></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.Packet">
+<code class="descclassname">protocol.</code><code class="descname">Packet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.Packet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Packaged message.</p>
+<p>Message with envelope and packaging details.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>session</strong> (<em>bytes</em>) – Session number.</li>
+<li><strong>number</strong> (<em>uint32</em>) – </li>
+<li><strong>from_key</strong> (<a class="reference internal" href="#protocol.VerificationKey" title="protocol.VerificationKey"><em>protocol.VerificationKey</em></a>) – Sender public key.</li>
+<li><strong>to_key</strong> (<a class="reference internal" href="#protocol.VerificationKey" title="protocol.VerificationKey"><em>protocol.VerificationKey</em></a>) – Recipient public key.</li>
+<li><strong>phase</strong> (<a class="reference internal" href="#protocol.Phase" title="protocol.Phase"><em>protocol.Phase</em></a>) – Protocol phase.</li>
+<li><strong>message</strong> (<a class="reference internal" href="#protocol.Message" title="protocol.Message"><em>protocol.Message</em></a>) – Core message.</li>
+<li><strong>registration</strong> (<a class="reference internal" href="#protocol.Registration" title="protocol.Registration"><em>protocol.Registration</em></a>) – Registration request.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.Signed">
+<code class="descclassname">protocol.</code><code class="descname">Signed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.Signed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed packaged message.</p>
+<p>Packaged message with signature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>packet</strong> (<a class="reference internal" href="#protocol.Packet" title="protocol.Packet"><em>protocol.Packet</em></a>) – Packaged message.</li>
+<li><strong>signature</strong> (<a class="reference internal" href="#protocol.Signature" title="protocol.Signature"><em>protocol.Signature</em></a>) – Packet signature.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.Packets">
+<code class="descclassname">protocol.</code><code class="descname">Packets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.Packets" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of signed packets.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>packet</strong> (<em>Array.&lt;protocol.Signed&gt;</em>) – Signed packets.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.Blame">
+<code class="descclassname">protocol.</code><code class="descname">Blame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.Blame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Blame details.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>reason</strong> (<a class="reference internal" href="#protocol.Reason" title="protocol.Reason"><em>protocol.Reason</em></a>) – Blame reason.</li>
+<li><strong>accused</strong> (<a class="reference internal" href="#protocol.VerificationKey" title="protocol.VerificationKey"><em>protocol.VerificationKey</em></a>) – Public key of accused participant.</li>
+<li><strong>key</strong> (<a class="reference internal" href="#protocol.DecryptionKey" title="protocol.DecryptionKey"><em>protocol.DecryptionKey</em></a>) – Decryption key.</li>
+<li><strong>invalid</strong> (<a class="reference internal" href="#protocol.Invalid" title="protocol.Invalid"><em>protocol.Invalid</em></a>) – Invalid message.</li>
+<li><strong>packets</strong> (<a class="reference internal" href="#protocol.Packets" title="protocol.Packets"><em>protocol.Packets</em></a>) – List of signed packets.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="interface.html" class="btn btn-neutral float-right" title="Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="cashshufflejs documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
