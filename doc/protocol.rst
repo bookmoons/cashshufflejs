@@ -7,6 +7,6 @@ Protocol
 
 .. autofunction:: protocol.Invalid
 
-.. autofunction:: protocol.Signature
-
 .. autofunction:: protocol.Hash
+
+.. autofunction:: protocol.Signature

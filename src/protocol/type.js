@@ -53,17 +53,6 @@
  */
 
 /**
- * Digital signature.
- *
- * Enables verifying message authenticity.
- *
- * @typedef Signature
- * @memberof module:cashshuffle/protocol
- *
- * @prop {bytes} signature - Signature as byte string.
- */
-
-/**
  * Message hash.
  *
  * Enables validating message integrity.
@@ -72,4 +61,15 @@
  * @memberof module:cashshuffle/protocol
  *
  * @prop {bytes} hash - Hash as byte string.
+ */
+
+/**
+ * Digital signature.
+ *
+ * Enables verifying message authenticity.
+ *
+ * @typedef Signature
+ * @memberof module:cashshuffle/protocol
+ *
+ * @prop {bytes} signature - Signature as byte string.
  */
