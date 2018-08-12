@@ -7,5 +7,6 @@
 
 export { default as CashShuffleError } from './CashShuffle'
 export { default as BusyError } from './Busy'
+export { default as FeatureMissingError } from './FeatureMissing'
 export { default as MissingValueError } from './MissingValue'
 export { default as NotImplementedError } from './NotImplemented'
