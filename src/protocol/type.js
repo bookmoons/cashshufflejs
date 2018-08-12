@@ -152,9 +152,9 @@
  */
 
 /**
- * Wire packet.
+ * Packaged message.
  *
- * Data package delivered on wire.
+ * Message with envelope and packaging details.
  *
  * @typedef Packet
  * @memberof module:cashshuffle/protocol
