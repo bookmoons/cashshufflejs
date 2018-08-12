@@ -62,6 +62,15 @@
  */
 
 /**
+ * Encryption key.
+ *
+ * @typedef EncryptionKey
+ * @memberof module:cashshuffle/protocol
+ *
+ * @prop {string} key - Encryption key as string.
+ */
+
+/**
  * Message hash.
  *
  * Enables validating message integrity.

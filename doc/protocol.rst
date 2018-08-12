@@ -9,6 +9,8 @@ Protocol
 
 .. autofunction:: protocol.Address
 
+.. autofunction:: protocol.EncryptionKey
+
 .. autofunction:: protocol.Hash
 
 .. autofunction:: protocol.Signature
