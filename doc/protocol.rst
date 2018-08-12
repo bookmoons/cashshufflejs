@@ -24,3 +24,5 @@ Protocol
 .. autofunction:: protocol.VerificationKey
 
 .. autofunction:: protocol.Message
+
+.. autofunction:: protocol.Packet

@@ -150,3 +150,20 @@
  * @prop {protocol.Blame} blame - Blame details.
  * @prop {protocol.Message} next
  */
+
+/**
+ * Wire packet.
+ *
+ * Data package delivered on wire.
+ *
+ * @typedef Packet
+ * @memberof module:cashshuffle/protocol
+ *
+ * @prop {bytes} session - Session number.
+ * @prop {uint32} number
+ * @prop {protocol.VerificationKey} from_key - Sender public key.
+ * @prop {protocol.VerificationKey} to_key - Recipient public key.
+ * @prop {protocol.Phase} phase - Protocol phase.
+ * @prop {protocol.Message} message - Core message.
+ * @prop {protocol.Registration} registration - Registration request.
+ */
