@@ -92,5 +92,5 @@
 * @typedef VerificationKey
 * @memberof module:cashshuffle/protocol
 *
-* @prop {string} key - Verification key.
+* @prop {string} key - Verification key as string.
  */
