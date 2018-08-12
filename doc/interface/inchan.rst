@@ -1,5 +1,5 @@
 Inchan
 ------
 
-.. autointerface:: Inchan
+.. autointerface:: inchan~Inchan
    :members:
