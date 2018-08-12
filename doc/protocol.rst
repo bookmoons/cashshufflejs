@@ -12,3 +12,5 @@ Protocol
 .. autofunction:: protocol.Hash
 
 .. autofunction:: protocol.Signature
+
+.. autofunction:: protocol.VerificationKey

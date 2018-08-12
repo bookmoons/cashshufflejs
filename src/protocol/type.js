@@ -82,3 +82,15 @@
  *
  * @prop {bytes} signature - Signature as byte string.
  */
+
+/**
+ * Verification key.
+ *
+ * Public key of a participant.
+ * Used to identify sender and recipient in messages.
+*
+* @typedef VerificationKey
+* @memberof module:cashshuffle/protocol
+*
+* @prop {string} key - Verification key.
+ */
