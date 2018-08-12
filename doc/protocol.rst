@@ -22,3 +22,5 @@ Protocol
 .. autofunction:: protocol.Transaction
 
 .. autofunction:: protocol.VerificationKey
+
+.. autofunction:: protocol.Message
