@@ -1,12 +1,12 @@
 /**
- * Player message input channel.
+ * Participant message input channel.
  * @module cashshuffle/inchan
  */
 
 /**
- * Player message input channel.
+ * Participant message input channel.
  *
- * Delivers network messages from other players.
+ * Delivers network messages from other participants.
  *
  * Means of acquiring returned messages implementation defined.
  * Order of returned messages implementation defined.
@@ -22,5 +22,5 @@
  * @instance
  * @async
  *
- * @return {ArrayBuffer} message - Network message from other player.
+ * @return {ArrayBuffer} message - Network message from other participant.
  */
