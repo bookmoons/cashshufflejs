@@ -49,5 +49,5 @@
  * @typedef Invalid
  * @memberof module:cashshuffle/protocol
  *
- * @prop {Buffer} invalid - Bytes of message.
+ * @prop {bytes} invalid - Bytes of message.
  */
