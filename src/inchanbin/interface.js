@@ -23,4 +23,6 @@
  * @async
  *
  * @return {ArrayBuffer} message - Network message from other participant.
+ *
+ * @throws {BusyError} If another receive is already in progress.
  */
