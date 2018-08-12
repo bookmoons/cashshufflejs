@@ -14,8 +14,8 @@
 .. toctree::
    :maxdepth: 2
 
-   interface
    protocol
+   interface
    error
    module/crypto/bitcore
    module/logchan/file

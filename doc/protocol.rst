@@ -30,3 +30,5 @@ Protocol
 .. autofunction:: protocol.Signed
 
 .. autofunction:: protocol.Packets
+
+.. autofunction:: protocol.Blame

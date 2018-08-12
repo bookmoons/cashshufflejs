@@ -188,3 +188,17 @@
  *
  * @prop {Array<protocol.Signed>} packet - Signed packets.
  */
+
+/**
+ * Blame details.
+ *
+ * @typedef Blame
+ * @memberof module:cashshuffle/protocol
+ *
+ * @prop {protocol.Reason} reason - Blame reason.
+ * @prop {protocol.VerificationKey} accused
+ *     Public key of accused participant.
+ * @prop {protocol.DecryptionKey} key - Decryption key.
+ * @prop {protocol.Invalid} invalid - Invalid message.
+ * @prop {protocol.Packets} packets - List of signed packets.
+ */
