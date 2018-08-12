@@ -15,6 +15,7 @@
    :maxdepth: 2
 
    interface
+   protocol
    error
    module/crypto/bitcore
    module/logchan/file
