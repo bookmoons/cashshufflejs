@@ -179,3 +179,12 @@
  * @prop {protocol.Packet} packet - Packaged message.
  * @prop {protocol.Signature} signature - Packet signature.
  */
+
+/**
+ * List of signed packets.
+ *
+ * @typedef Packets
+ * @memberof module:cashshuffle/protocol
+ *
+ * @prop {Array<protocol.Signed>} packet - Signed packets.
+ */
