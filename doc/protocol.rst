@@ -1,6 +1,9 @@
 Protocol
 ========
 
+Messages on the wire are terminated with the Unicode character U+23CE
+Return Symbol in UTF-8. The byte encoding is e2 8f 8e.
+
 .. autofunction:: protocol.Phase
 
 .. autofunction:: protocol.Reason
