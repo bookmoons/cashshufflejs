@@ -51,3 +51,14 @@
  *
  * @prop {bytes} invalid - Bytes of message.
  */
+
+/**
+ * Digital signature.
+ *
+ * Enables verifying messages.
+ *
+ * @typedef Signature
+ * @memberof module:cashshuffle/protocol
+ *
+ * @prop {bytes} signature - Signature as byte string.
+ */

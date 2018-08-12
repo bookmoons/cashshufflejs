@@ -6,3 +6,5 @@ Protocol
 .. autofunction:: protocol.Reason
 
 .. autofunction:: protocol.Invalid
+
+.. autofunction:: protocol.Signature
