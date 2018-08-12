@@ -40,3 +40,14 @@
  * @prop LIAR - Liar.
  * @prop INVALIDFORMAT - Invalid format.
  */
+
+/**
+ * Invalid message.
+ *
+ * Provides access to an invalid message as a byte string.
+ *
+ * @typedef Invalid
+ * @memberof module:cashshuffle/protocol
+ *
+ * @prop {Buffer} invalid - Bytes of message.
+ */
