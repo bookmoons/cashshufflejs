@@ -92,6 +92,15 @@
  */
 
 /**
+ * Registration request.
+ *
+ * @typedef Registration
+ * @memberof module:cashshuffle/protocol
+ *
+ * @prop {uint64} amount - Amount of Bitcoin Cash to shuffle.
+ */
+
+/**
  * Digital signature.
  *
  * Enables verifying message authenticity.

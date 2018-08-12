@@ -15,6 +15,8 @@ Protocol
 
 .. autofunction:: protocol.Hash
 
+.. autofunction:: protocol.Registration
+
 .. autofunction:: protocol.Signature
 
 .. autofunction:: protocol.Transaction
