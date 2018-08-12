@@ -26,3 +26,5 @@ Protocol
 .. autofunction:: protocol.Message
 
 .. autofunction:: protocol.Packet
+
+.. autofunction:: protocol.Signed

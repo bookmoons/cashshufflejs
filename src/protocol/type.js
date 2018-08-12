@@ -167,3 +167,15 @@
  * @prop {protocol.Message} message - Core message.
  * @prop {protocol.Registration} registration - Registration request.
  */
+
+/**
+ * Signed packaged message.
+ *
+ * Packaged message with signature.
+ *
+ * @typedef Signed
+ * @memberof module:cashshuffle/protocol
+ *
+ * @prop {protocol.Packet} packet - Packaged message.
+ * @prop {protocol.Signature} signature - Packet signature.
+ */
