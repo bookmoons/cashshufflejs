@@ -22,3 +22,21 @@
  * @prop VERIFICATION_AND_SUBMISSION - Phase 5b. Submit transaction to network.
  * @prop BLAME - Out of band phase 6. Identify protocol violator.
  */
+
+/**
+ * Blame reason enumeration.
+ *
+ * @typedef Reason
+ * @memberof module:cashshuffle/protocol
+ * @enum
+ *
+ * @prop INSUFFICIENTFUNDS - Insufficient funds.
+ * @prop DOUBLESPEND - Double spend.
+ * @prop EQUIVOCATIONFAILURE - Equivocation failure.
+ * @prop SHUFFLEFAILURE - Shuffle failure.
+ * @prop SHUFFLEANDEQUIVOCATIONFAILURE - Shuffle and equivocation failure.
+ * @prop INVALIDSIGNATURE - Invalid signature.
+ * @prop MISSINGOUTPUT - Missing output.
+ * @prop LIAR - Liar.
+ * @prop INVALIDFORMAT - Invalid format.
+ */
