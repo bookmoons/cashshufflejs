@@ -55,7 +55,7 @@
 /**
  * Digital signature.
  *
- * Enables verifying messages.
+ * Enables verifying message authenticity.
  *
  * @typedef Signature
  * @memberof module:cashshuffle/protocol
