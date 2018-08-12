@@ -93,6 +93,15 @@
  */
 
 /**
+ * Bitcoin Cash transaction.
+ *
+ * @typedef Transaction
+ * @memberof module:cashshuffle/protocol
+ *
+ * @prop {bytes} transaction - Bitcoin Cash transaction as byte string.
+ */
+
+/**
  * Verification key.
  *
  * Public key of a participant.

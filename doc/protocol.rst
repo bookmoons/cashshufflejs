@@ -15,4 +15,6 @@ Protocol
 
 .. autofunction:: protocol.Signature
 
+.. autofunction:: protocol.Transaction
+
 .. autofunction:: protocol.VerificationKey
