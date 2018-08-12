@@ -6,9 +6,6 @@ node_modules/
 package-lock.json
 npm-debug.log
 
-# Python environment
-.pyenv/
-
 # Generated documentation
 api/
 
