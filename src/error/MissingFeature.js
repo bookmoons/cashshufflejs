@@ -1,23 +1,23 @@
 import CashShuffleError from './CashShuffle'
 
 /**
- * Feature missing error.
+ * Missing feature error.
  *
  * Thrown when an operation requires a feature that is not available.
  *
  * @memberof module:cashshuffle/error
  * @extends module:cashshuffle/error.CashShuffleError
  */
-class FeatureMissingError extends CashShuffleError {
+class MissingFeatureError extends CashShuffleError {
   /**
    * Error type name.
    *
    * @constant {string}
-   * @default 'FeatureMissingError'
+   * @default 'MissingFeatureError'
    */
   get name () {
-    return 'FeatureMissingError'
+    return 'MissingFeatureError'
   }
 }
 
-export default FeatureMissingError
+export default MissingFeatureError
