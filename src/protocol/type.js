@@ -62,6 +62,16 @@
  */
 
 /**
+ * Description key.
+ *
+ * @typedef DecryptionKey
+ * @memberof module:cashshuffle/protocol
+ *
+ * @prop {string} key - Decryption key as string.
+ * @prop {string} public
+ */
+
+/**
  * Encryption key.
  *
  * @typedef EncryptionKey
