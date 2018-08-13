@@ -22,5 +22,7 @@
  * @instance
  * @async
  *
+ * @param {ArrayBuffer} message - Message to send.
+ *
  * @throws {BusyError} If another send is already in progress.
  */
