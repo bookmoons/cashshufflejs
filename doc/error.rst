@@ -19,6 +19,12 @@ BusyError
 .. autoclass:: BusyError
    :members:
 
+FormatError
+-----------
+
+.. autoclass:: FormatError
+   :members:
+
 MissingFeatureError
 -------------------
 
