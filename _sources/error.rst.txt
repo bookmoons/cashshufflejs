@@ -13,6 +13,12 @@ CashShuffleError
 .. autoclass:: CashShuffleError
    :members:
 
+BusyError
+---------
+
+.. autoclass:: BusyError
+   :members:
+
 MissingValueError
 -----------------
 

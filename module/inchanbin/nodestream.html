@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>crypto/bitcore &mdash; cashshufflejs  documentation</title>
+  <title>inchanbin/nodestream &mdash; cashshufflejs  documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="inchan/inchanbin" href="../inchan/inchanbin.html" />
-    <link rel="prev" title="Error" href="../../error.html" /> 
+    <link rel="next" title="logchan/file" href="../logchan/file.html" />
+    <link rel="prev" title="inchan/inchanbin" href="../inchan/inchanbin.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -82,9 +82,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../protocol.html">Protocol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../interface.html">Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../error.html">Error</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">crypto/bitcore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../crypto/bitcore.html">crypto/bitcore</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../inchan/inchanbin.html">inchan/inchanbin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../inchanbin/nodestream.html">inchanbin/nodestream</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">inchanbin/nodestream</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../logchan/file.html">logchan/file</a></li>
 </ul>
 
@@ -131,13 +131,13 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>crypto/bitcore</li>
+      <li>inchanbin/nodestream</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/module/crypto/bitcore.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/module/inchanbin/nodestream.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -150,24 +150,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="crypto-bitcore">
-<h1>crypto/bitcore<a class="headerlink" href="#crypto-bitcore" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="inchanbin-nodestream">
+<h1>inchanbin/nodestream<a class="headerlink" href="#inchanbin-nodestream" title="Permalink to this headline">¶</a></h1>
 <dl class="moduledoc">
-<dt id="crypto.bitcore">
-<em class="property">module </em><code class="descclassname">crypto.</code><code class="descname">bitcore</code><a class="headerlink" href="#crypto.bitcore" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://bitcore.io/">Bitcore</a> based implementation of message
-encryption.</p>
-<p>Uses:</p>
-<ul class="simple">
-<li><a class="reference external" href="https://nodejs.org/dist/latest/docs/api/crypto.html">crypto</a> for
-hashing.</li>
-<li><a class="reference external" href="https://www.npmjs.com/package/bitcore-lib-cash">bitcore-lib-cash</a>
-for key operations.</li>
-<li><a class="reference external" href="https://www.npmjs.com/package/&#64;bookmoons/bitcore-ecies-cash">&#64;bookmoons/bitcore-ecies-cash</a>
-for encryption operations.</li>
+<dt id="inchanbin.nodestream">
+<em class="property">module </em><code class="descclassname">inchanbin.</code><code class="descname">nodestream</code><a class="headerlink" href="#inchanbin.nodestream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Node.js stream based implementation of Inchanbin.</p>
+<p>Uses Node.js
+<a class="reference external" href="https://nodejs.org/dist/latest/docs/api/stream.html">Readable</a>
+object to receive data. Expects a stream of <code class="docutils literal notranslate"><span class="pre">Buffer</span></code> objects.</p>
+<p>Provide <code class="docutils literal notranslate"><span class="pre">Readable</span></code> instance to constructor.</p>
+<dl class="class">
+<dt id="inchanbin.nodestream.Inchanbin">
+<em class="property">class </em><code class="descclassname">inchanbin.nodestream.</code><code class="descname">Inchanbin</code><span class="sig-paren">(</span><em>stream</em><span class="sig-paren">)</span><a class="headerlink" href="#inchanbin.nodestream.Inchanbin" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>stream</strong> (<em>Readable.&lt;Buffer&gt;</em>) – Stream to read from. Must support <cite>unshift</cite>.</li>
 </ul>
-<p>Network values are bitcore-lib-cash <code class="docutils literal notranslate"><span class="pre">Network</span></code> instances. Standard
-networks are available through <code class="docutils literal notranslate"><span class="pre">bitcore.Networks</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -180,10 +188,10 @@ networks are available through <code class="docutils literal notranslate"><span 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../inchan/inchanbin.html" class="btn btn-neutral float-right" title="inchan/inchanbin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../logchan/file.html" class="btn btn-neutral float-right" title="logchan/file" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../error.html" class="btn btn-neutral" title="Error" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../inchan/inchanbin.html" class="btn btn-neutral" title="inchan/inchanbin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

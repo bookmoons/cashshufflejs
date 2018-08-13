@@ -83,6 +83,8 @@
 <li class="toctree-l1"><a class="reference internal" href="interface.html">Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="error.html">Error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="module/crypto/bitcore.html">crypto/bitcore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module/inchan/inchanbin.html">inchan/inchanbin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module/inchanbin/nodestream.html">inchanbin/nodestream</a></li>
 <li class="toctree-l1"><a class="reference internal" href="module/logchan/file.html">logchan/file</a></li>
 </ul>
 
@@ -150,6 +152,8 @@
             
   <div class="section" id="protocol">
 <h1>Protocol<a class="headerlink" href="#protocol" title="Permalink to this headline">¶</a></h1>
+<p>Messages on the wire are terminated with the Unicode character U+23CE
+Return Symbol in UTF-8. The byte encoding is e2 8f 8e.</p>
 <dl class="function">
 <dt id="protocol.Phase">
 <code class="descclassname">protocol.</code><code class="descname">Phase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.Phase" title="Permalink to this definition">¶</a></dt>
