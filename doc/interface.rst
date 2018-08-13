@@ -8,3 +8,4 @@ CashShuffle interface definition.
    interface/inchan
    interface/inchanbin
    interface/logchan
+   interface/outchanbin
