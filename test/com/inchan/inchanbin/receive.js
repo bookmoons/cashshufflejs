@@ -5,7 +5,6 @@ import { PassThrough } from 'stream'
 import { terminatorBuffer } from 'protocol'
 import Inchanbin from 'inchanbin/nodestream'
 import Inchan from 'inchan/inchanbin/main'
-import init from 'inchan/inchanbin/init'
 import receive from 'inchan/inchanbin/receive'
 
 const testSignature = Buffer.from([ 0x01, 0x02, 0x03 ])
@@ -30,7 +29,6 @@ async function loadProtocol () {
 
 test.before(async t => {
   Object.assign(Inchan.prototype, {
-    init,
     receive
   })
   protocol = await loadProtocol()
@@ -46,7 +44,6 @@ test('1 message', async t => {
   const stream = new PassThrough()
   const inchanbin = new Inchanbin(stream)
   const inchan = new Inchan(inchanbin, protocol)
-  await inchan.init()
   stream.write(testPacket)
   const message = await inchan.receive()
   const signature = message.signature
@@ -58,7 +55,6 @@ test('2 messages', async t => {
   const stream = new PassThrough()
   const inchanbin = new Inchanbin(stream)
   const inchan = new Inchan(inchanbin, protocol)
-  await inchan.init()
   stream.write(testPacket)
   stream.write(testPacket)
   const message1 = await inchan.receive()
