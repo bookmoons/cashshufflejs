@@ -23,7 +23,7 @@ run()
 import Logchan from './main'
 import send from './send'
 
-Object.assign(Logchan, {
+Object.assign(Logchan.prototype, {
   send
 })
 
