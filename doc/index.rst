@@ -18,4 +18,5 @@
    interface
    error
    module/crypto/bitcore
+   module/inchanbin/nodestream
    module/logchan/file
