@@ -10,6 +10,7 @@
  *
  * @module cashshuffle/inchanbin/nodestream
  */
+
 import Inchanbin from './main'
 import receive from './receive'
 
