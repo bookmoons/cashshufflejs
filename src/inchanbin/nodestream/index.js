@@ -7,6 +7,8 @@
  * Provide `Readable` instance to constructor.
  *
  * [1]: https://nodejs.org/dist/latest/docs/api/stream.html
+ *
+ * @module cashshuffle/inchanbin/nodestream
  */
 import Inchanbin from './main'
 import receive from './receive'
