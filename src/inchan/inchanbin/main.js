@@ -9,10 +9,13 @@ class Inchan {
   /**
    * @param {inchanbin~Inchanbin} inchanbin - Binary input channel.
    *     Raw binary messages are read from this channel.
+   * @param {protobufjs.Root} protocol - Protocol definition.
    */
-  constructor (inchanbin) {
+  constructor (inchanbin, protocol) {
     const priv = {
-      inchanbin
+      inchanbin,
+      protocol,
+      Signed: protocol.Signed
     }
     privs.set(this, priv)
   }

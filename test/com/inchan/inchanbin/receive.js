@@ -1,4 +1,6 @@
 import test from 'ava'
+import path from 'path'
+import protobuf from 'protobufjs'
 import { PassThrough } from 'stream'
 import { terminatorBuffer } from 'protocol'
 import Inchanbin from 'inchanbin/nodestream'
@@ -12,12 +14,26 @@ const testMessageEncoded = Buffer.from([
   0x12, 0x05, 0x0a, 0x03, 0x01, 0x02, 0x03
 ])
 const testPacket = Buffer.concat([ testMessageEncoded, terminatorBuffer ])
+let protocol
 
-test.before(t => {
+async function loadProtocol () {
+  const definitionPath = path.join(
+    __dirname,
+    '..', '..', '..', '..',
+    'src',
+    'protocol',
+    'cashshuffle.proto'
+  )
+  const protocol = await protobuf.load(definitionPath)
+  return protocol
+}
+
+test.before(async t => {
   Object.assign(Inchan.prototype, {
     init,
     receive
   })
+  protocol = await loadProtocol()
 })
 
 function verifyIdentical (t, output, expected) {
@@ -29,7 +45,7 @@ function verifyIdentical (t, output, expected) {
 test('1 message', async t => {
   const stream = new PassThrough()
   const inchanbin = new Inchanbin(stream)
-  const inchan = new Inchan(inchanbin)
+  const inchan = new Inchan(inchanbin, protocol)
   await inchan.init()
   stream.write(testPacket)
   const message = await inchan.receive()
@@ -41,7 +57,7 @@ test('1 message', async t => {
 test('2 messages', async t => {
   const stream = new PassThrough()
   const inchanbin = new Inchanbin(stream)
-  const inchan = new Inchan(inchanbin)
+  const inchan = new Inchan(inchanbin, protocol)
   await inchan.init()
   stream.write(testPacket)
   stream.write(testPacket)
