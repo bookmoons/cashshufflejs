@@ -27,7 +27,7 @@ import generateKeyPair from './generate'
 import hash from './hash'
 import restoreKeyPair from './restoreKeyPair'
 
-Object.assign(Crypto, {
+Object.assign(Crypto.prototype, {
   decrypt,
   encrypt,
   exportPrivateKey,
