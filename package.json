@@ -22,6 +22,7 @@
         "@babel/polyfill": "^7.0.0-beta.54",
         "@bookmoons/bitcore-ecies-cash": "^1.0.3",
         "bitcore-lib-cash": "^0.18.1",
+        "promised-read": "^2.0.0",
         "to-arraybuffer": "1",
         "verror": "1"
     },
