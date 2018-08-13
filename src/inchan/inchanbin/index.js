@@ -3,7 +3,7 @@
  *
  * Uses an `Inchanbin` instance to receive raw binary messages.
  *
- * Provide `Inchanbin` instance and a `protobuf.Root` object for the
+ * Provide `Inchanbin` instance and a `protobufjs.Root` object for the
  * CashShuffle protocol to the constructor.
  *
  * @module cashshuffle/inchan/inchanbin
