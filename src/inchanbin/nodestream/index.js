@@ -9,5 +9,10 @@
  * [1]: https://nodejs.org/dist/latest/docs/api/stream.html
  */
 import Inchanbin from './main'
+import receive from './receive'
+
+Object.assign(Inchanbin.prototype, {
+  receive
+})
 
 export default Inchanbin
