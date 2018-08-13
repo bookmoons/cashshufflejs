@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="crypto/bitcore" href="module/crypto/bitcore.html" />
-    <link rel="prev" title="Logchan" href="interface/logchan.html" /> 
+    <link rel="next" title="Module" href="module.html" />
+    <link rel="prev" title="Outchanbin" href="interface/outchanbin.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,14 +84,13 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Error</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cashshuffleerror">CashShuffleError</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#busyerror">BusyError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#formaterror">FormatError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#missingfeatureerror">MissingFeatureError</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#missingvalueerror">MissingValueError</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#notimplementederror">NotImplementedError</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="module/crypto/bitcore.html">crypto/bitcore</a></li>
-<li class="toctree-l1"><a class="reference internal" href="module/inchan/inchanbin.html">inchan/inchanbin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="module/inchanbin/nodestream.html">inchanbin/nodestream</a></li>
-<li class="toctree-l1"><a class="reference internal" href="module/logchan/file.html">logchan/file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Module</a></li>
 </ul>
 
             
@@ -195,6 +194,40 @@
 </dd></dl>
 
 </div>
+<div class="section" id="formaterror">
+<h2>FormatError<a class="headerlink" href="#formaterror" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="FormatError">
+<em class="property">class </em><code class="descname">FormatError</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#FormatError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format error.</p>
+<p>Thrown when a data item does not conform to an expected format.</p>
+<dl class="attribute">
+<dt id="FormatError.name">
+<code class="descclassname">FormatError.</code><code class="descname">name</code><a class="headerlink" href="#FormatError.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> string</p>
+<p>Error type name.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="missingfeatureerror">
+<h2>MissingFeatureError<a class="headerlink" href="#missingfeatureerror" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MissingFeatureError">
+<em class="property">class </em><code class="descname">MissingFeatureError</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MissingFeatureError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing feature error.</p>
+<p>Thrown when an operation requires a feature that is not available.</p>
+<dl class="attribute">
+<dt id="MissingFeatureError.name">
+<code class="descclassname">MissingFeatureError.</code><code class="descname">name</code><a class="headerlink" href="#MissingFeatureError.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> string</p>
+<p>Error type name.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="missingvalueerror">
 <h2>MissingValueError<a class="headerlink" href="#missingvalueerror" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -240,10 +273,10 @@ that needs an implementation in subclasses.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="module/crypto/bitcore.html" class="btn btn-neutral float-right" title="crypto/bitcore" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="module.html" class="btn btn-neutral float-right" title="Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="interface/logchan.html" class="btn btn-neutral" title="Logchan" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="interface/outchanbin.html" class="btn btn-neutral" title="Outchanbin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

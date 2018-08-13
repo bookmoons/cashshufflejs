@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>logchan/file &mdash; cashshufflejs  documentation</title>
+  <title>outchanbin/nodestream &mdash; cashshufflejs  documentation</title>
   
 
   
@@ -28,8 +28,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="outchan/outchanbin" href="../outchan/outchanbin.html" />
-    <link rel="prev" title="inchanbin/nodestream" href="../inchanbin/nodestream.html" /> 
+    <link rel="prev" title="outchan/outchanbin" href="../outchan/outchanbin.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -86,9 +85,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../crypto/bitcore.html">crypto/bitcore</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchan/inchanbin.html">inchan/inchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchanbin/nodestream.html">inchanbin/nodestream</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">logchan/file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/file.html">logchan/file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchan/outchanbin.html">outchan/outchanbin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../outchanbin/nodestream.html">outchanbin/nodestream</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">outchanbin/nodestream</a></li>
 </ul>
 </li>
 </ul>
@@ -138,13 +137,13 @@
         
           <li><a href="../../module.html">Module</a> &raquo;</li>
         
-      <li>logchan/file</li>
+      <li>outchanbin/nodestream</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/module/logchan/file.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/module/outchanbin/nodestream.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -157,35 +156,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="logchan-file">
-<h1>logchan/file<a class="headerlink" href="#logchan-file" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="outchanbin-nodestream">
+<h1>outchanbin/nodestream<a class="headerlink" href="#outchanbin-nodestream" title="Permalink to this headline">¶</a></h1>
 <dl class="moduledoc">
-<dt id="logchan.file">
-<em class="property">module </em><code class="descclassname">logchan.</code><code class="descname">file</code><a class="headerlink" href="#logchan.file" title="Permalink to this definition">¶</a></dt>
-<dd><p>File based implementation of Logchan.</p>
-<p>Uses Node.js <a class="reference external" href="https://nodejs.org/dist/latest/docs/api/fs.html">fs</a>
-module to log to file.</p>
-<p>Provide log file path to constructor.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">Logchan</span> <span class="nx">from</span> <span class="s1">&#39;cashshuffle/logchan/file&#39;</span>
-<span class="kr">const</span> <span class="nx">log</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Logchan</span><span class="p">(</span><span class="s1">&#39;/home/user/.cashshuffle/log&#39;</span><span class="p">)</span>
-
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">run</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">await</span> <span class="nx">log</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Starting run&#39;</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="nx">run</span><span class="p">()</span>
-</pre></div>
-</div>
+<dt id="outchanbin.nodestream">
+<em class="property">module </em><code class="descclassname">outchanbin.</code><code class="descname">nodestream</code><a class="headerlink" href="#outchanbin.nodestream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Node.js stream based implementation of Outchanbin.</p>
+<p>Uses Node.js
+<a class="reference external" href="https://nodejs.org/dist/latest/docs/api/stream.html">Writable</a>
+object to send data. Delivers data as <code class="docutils literal notranslate"><span class="pre">Buffer</span></code> objects.</p>
+<p>Provide <code class="docutils literal notranslate"><span class="pre">Writable</span></code> instance to constructor.</p>
 <dl class="class">
-<dt id="logchan.file.Logchan">
-<em class="property">class </em><code class="descclassname">logchan.file.</code><code class="descname">Logchan</code><span class="sig-paren">(</span><em>filePath</em><span class="sig-paren">)</span><a class="headerlink" href="#logchan.file.Logchan" title="Permalink to this definition">¶</a></dt>
+<dt id="outchanbin.nodestream.Outchanbin">
+<em class="property">class </em><code class="descclassname">outchanbin.nodestream.</code><code class="descname">Outchanbin</code><span class="sig-paren">(</span><em>stream</em><span class="sig-paren">)</span><a class="headerlink" href="#outchanbin.nodestream.Outchanbin" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>filePath</strong> (<em>string</em>) – Path to log file.</li>
+<li><strong>stream</strong> (<em>Writable.&lt;Buffer&gt;</em>) – Stream to write to.</li>
 </ul>
 </td>
 </tr>
@@ -205,10 +194,8 @@ module to log to file.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../outchan/outchanbin.html" class="btn btn-neutral float-right" title="outchan/outchanbin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="../inchanbin/nodestream.html" class="btn btn-neutral" title="inchanbin/nodestream" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../outchan/outchanbin.html" class="btn btn-neutral" title="outchan/outchanbin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -17,7 +17,4 @@
    protocol
    interface
    error
-   module/crypto/bitcore
-   module/inchan/inchanbin
-   module/inchanbin/nodestream
-   module/logchan/file
+   module
