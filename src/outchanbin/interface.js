@@ -7,6 +7,7 @@
  * Binary message output channel.
  *
  * Delivers raw binary network messages to other participants.
+ * Terminates each message with protocol delimiter.
  *
  * Means of delivering messages implementation defined.
  * Delivery order implementation defined.
