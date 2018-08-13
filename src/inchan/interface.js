@@ -23,4 +23,6 @@
  * @async
  *
  * @return {protocol.Signed} message - Network message from other participant.
+ *
+ * @throws {BusyError} Is another receive is already in progress.
  */
