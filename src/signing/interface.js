@@ -6,7 +6,7 @@
 /**
  * Message signing functions.
  *
- * Supports key generation, signing, and verifying.
+ * Supports key generation and signing.
  *
  * Performs [ECDSA][1] digital signature operations.
  *
