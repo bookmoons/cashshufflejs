@@ -31,6 +31,21 @@
  */
 
 /**
+ * Export public key as hex string.
+ *
+ * Generate or restore key pair prior to use.
+ *
+ * @method exportPublicKey
+ * @memberof module:cashshuffle/signing~Signing
+ * @instance
+ * @async
+ *
+ * @return {string} Public key as hex string.
+ *
+ * @throws {MissingValueError} If key pair has not been generated or restored.
+ */
+
+/**
  * Restore key pair from private key hex string.
  *
  * @method restoreKeyPair
