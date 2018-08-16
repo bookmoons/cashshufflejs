@@ -72,3 +72,16 @@
  * @param [network=<mainnet>] - Network to restore for.
  *     Type implementation defined.
  */
+
+/**
+ * Sign message with active key pair.
+ *
+ * @method sign
+ * @memberof module:cashshuffle/signing~Signing
+ * @instance
+ * @async
+ *
+ * @param {string} message - Message to sign.
+ *
+ * @return {string} Detached message signature as Base64 encoded string.
+ */
