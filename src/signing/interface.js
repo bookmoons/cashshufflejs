@@ -85,3 +85,20 @@
  *
  * @return {string} Detached message signature as Base64 encoded string.
  */
+
+/**
+ * Verify message and signature against active key pair.
+ *
+ * Returns nothing if verification is successful.
+ * Throws an error if verification fails.
+ *
+ * @method verify
+ * @memberof module:cashshuffle/signing~Signing
+ * @instance
+ * @async
+ *
+ * @param {string} message - Plaintext message.
+ * @param {string} signature - Signature of message as Base64 encoded string.
+ *
+ * @throws {ValueError} If verification fails.
+ */
