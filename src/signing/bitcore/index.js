@@ -18,9 +18,11 @@
 
 import Signing from './main'
 import generateKeyPair from './generate'
+import restoreKeyPair from './restore'
 
 Object.assign(Signing.prototype, {
-  generateKeyPair
+  generateKeyPair,
+  restoreKeyPair
 })
 
 export default Signing
