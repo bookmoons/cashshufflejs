@@ -26,7 +26,7 @@
  * @instance
  * @async
  *
- * @param {*} [network=<mainnet>] - Network to generate for.
+ * @param [network=<mainnet>] - Network to generate for.
  *     Type implementation defined.
  */
 
