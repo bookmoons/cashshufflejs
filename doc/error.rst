@@ -42,3 +42,9 @@ NotImplementedError
 
 .. autoclass:: NotImplementedError
    :members:
+
+ValueError
+----------
+
+.. autoclass:: ValueError
+   :members:

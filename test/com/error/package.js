@@ -5,6 +5,7 @@ import FormatError from 'error/Format'
 import MissingFeatureError from 'error/MissingFeature'
 import MissingValueError from 'error/MissingValue'
 import NotImplementedError from 'error/NotImplemented'
+import ValueError from 'error/Value'
 import * as error from 'error'
 
 test('CashShuffle', t => {
@@ -29,4 +30,8 @@ test('MissingValue', t => {
 
 test('NotImplemented', t => {
   t.is(error.NotImplementedError, NotImplementedError)
+})
+
+test('Value', t => {
+  t.is(error.ValueError, ValueError)
 })
