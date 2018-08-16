@@ -17,11 +17,13 @@
  */
 
 import Signing from './main'
+import exportPrivateKey from './exportpriv'
 import exportPublicKey from './exportpub'
 import generateKeyPair from './generate'
 import restoreKeyPair from './restore'
 
 Object.assign(Signing.prototype, {
+  exportPrivateKey,
   exportPublicKey,
   generateKeyPair,
   restoreKeyPair
