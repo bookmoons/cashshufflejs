@@ -10,3 +10,4 @@ CashShuffle interface definition.
    interface/logchan
    interface/outchan
    interface/outchanbin
+   interface/signing
