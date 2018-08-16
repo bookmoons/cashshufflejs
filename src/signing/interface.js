@@ -29,3 +29,16 @@
  * @param {*} [network=<mainnet>] - Network to generate for.
  *     Type implementation defined.
  */
+
+/**
+ * Restore key pair from private key hex string.
+ *
+ * @method restoreKeyPair
+ * @memberof module:cashshuffle/signing~Signing
+ * @instance
+ * @async
+ *
+ * @param {string} privateKeyString - Private key as hex string.
+ * @param [network=<mainnet>] - Network to restore for.
+ *     Type implementation defined.
+ */
