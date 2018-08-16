@@ -89,7 +89,7 @@
  * @instance
  * @async
  *
- * @param {*} [network=<mainnet>] - Network to generate for.
+ * @param [network=<mainnet>] - Network to generate for.
  *     Type implementation defined.
  */
 
@@ -115,6 +115,6 @@
  * @async
  *
  * @param {string} privateKeyString - Private key as hex string.
- * @param {*} [network=<mainnet>] - Network to restore for.
+ * @param [network=<mainnet>] - Network to restore for.
  *     Type implementation defined.
  */
