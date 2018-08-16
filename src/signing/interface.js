@@ -76,6 +76,8 @@
 /**
  * Sign message with active key pair.
  *
+ * Generate or restore key pair prior to use.
+ *
  * @method sign
  * @memberof module:cashshuffle/signing~Signing
  * @instance
@@ -84,4 +86,6 @@
  * @param {string} message - Message to sign.
  *
  * @return {string} Detached message signature as Base64 encoded string.
+ *
+ * @throws {MissingValueError} If key pair has not been generated or restored.
  */
