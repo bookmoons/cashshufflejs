@@ -8,9 +8,11 @@
  *
  * Supports key generation and signing.
  *
- * Performs [ECDSA][1] digital signature operations.
+ * Performs [ECDSA][1] operations with [&#64;bookmoons/bitcore-message-cash][2]
+ * 2.0.0 default configuration.
  *
  * [1]: https://cryptopp.com/wiki/Elliptic_Curve_Digital_Signature_Algorithm
+ * [2]: https://www.npmjs.com/package/@bookmoons/bitcore-message-cash
  *
  * @interface Signing
  */
