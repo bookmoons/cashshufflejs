@@ -21,12 +21,14 @@ import exportPrivateKey from './exportpriv'
 import exportPublicKey from './exportpub'
 import generateKeyPair from './generate'
 import restoreKeyPair from './restore'
+import sign from './sign'
 
 Object.assign(Signing.prototype, {
   exportPrivateKey,
   exportPublicKey,
   generateKeyPair,
-  restoreKeyPair
+  restoreKeyPair,
+  sign
 })
 
 export default Signing
