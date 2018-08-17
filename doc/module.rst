@@ -10,3 +10,4 @@ Modules implementing CashShuffle interfaces.
    module/logchan/file
    module/outchan/outchanbin
    module/outchanbin/nodestream
+   module/signing/bitcore
