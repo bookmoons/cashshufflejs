@@ -23,6 +23,21 @@
  */
 
 /**
+ * Verify address has sufficient funds.
+ *
+ * @method sufficientFunds
+ * @memberof module:cashshuffle/coin~Coin
+ * @instance
+ * @async
+ *
+ * @param {string} address - Bitcoin Cash address to check.
+ * @param {number} amount - Required amount in satoshis.
+ *
+ * @return {boolean} Whether address has sufficient funds. True if address
+ *     has the given amount or more.
+ */
+
+/**
  * Verify message signature.
  *
  * @method verifySignature
