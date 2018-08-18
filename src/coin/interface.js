@@ -103,6 +103,7 @@ const participantAddress = [ sessionPublicKey, address ]
  *
  * @param {Transaction} transaction - Transaction to broadcast.
  *
+ * @throws {BusyError} If any other network operation is running.
  * @throws If transaction submission fails.
  */
 
@@ -162,6 +163,8 @@ const participantAddress = [ sessionPublicKey, address ]
  *
  * @return {boolean} Whether address has sufficient funds. True if address
  *     has the given amount or more.
+ *
+ * @throws {BusyError} If any other network operation is running.
  */
 
 /**
