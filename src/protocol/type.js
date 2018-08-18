@@ -7,14 +7,14 @@
  * @memberof module:cashshuffle/protocol
  * @enum
  *
- * @prop NONE - Before protocol start.
- * @prop ANNOUNCEMENT - Phase 1. Participants announce themselves.
- * @prop SHUFFLE - Phase 2. Blind shuffling of output addresses.
- * @prop BROADCAST - Phase 3. Verify output addresses.
- * @prop EQUIVOCATION_CHECK - Phase 4. Verify no equivocation.
- * @prop SIGNING - Phase 5a. Sign transaction.
- * @prop VERIFICATION_AND_SUBMISSION - Phase 5b. Submit transaction to network.
- * @prop BLAME - Out of band phase 6. Identify protocol violator.
+ * @prop None - Before protocol start.
+ * @prop Announcement - Phase 1. Participants announce themselves.
+ * @prop Shuffle - Phase 2. Blind shuffling of output addresses.
+ * @prop Broadcast - Phase 3. Verify output addresses.
+ * @prop EquivocationCheck - Phase 4. Verify no equivocation.
+ * @prop Signing - Phase 5a. Sign transaction.
+ * @prop VerificationSubmission - Phase 5b. Submit transaction to network.
+ * @prop Blame - Out of band phase 6. Identify protocol violator.
  */
 
 /**
@@ -24,15 +24,15 @@
  * @memberof module:cashshuffle/protocol
  * @enum
  *
- * @prop INSUFFICIENTFUNDS - Insufficient funds.
- * @prop DOUBLESPEND - Double spend.
- * @prop EQUIVOCATIONFAILURE - Equivocation failure.
- * @prop SHUFFLEFAILURE - Shuffle failure.
- * @prop SHUFFLEANDEQUIVOCATIONFAILURE - Shuffle and equivocation failure.
- * @prop INVALIDSIGNATURE - Invalid signature.
- * @prop MISSINGOUTPUT - Missing output.
- * @prop LIAR - Liar.
- * @prop INVALIDFORMAT - Invalid format.
+ * @prop InsufficientFunds - Insufficient funds.
+ * @prop DoubleSpend - Double spend.
+ * @prop EquivocationFailure - Equivocation failure.
+ * @prop ShuffleFailure - Shuffle failure.
+ * @prop ShuffleEquivocationFailure - Shuffle and equivocation failure.
+ * @prop InvalidSignature - Invalid signature.
+ * @prop MissingOutput - Missing output.
+ * @prop Liar - Liar.
+ * @prop InvalidFormat - Invalid format.
  */
 
 /**
