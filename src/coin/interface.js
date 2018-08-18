@@ -164,3 +164,19 @@ const participantAddress = [ sessionPublicKey, address ]
  * @return {boolean} Whether the signature is valid. True if from the named
  *     signer and for the given message.
  */
+
+/**
+ * Verify transaction input signature.
+ *
+ * @method verifyTransactionSignature
+ * @memberof module:cashshuffle/coin~Coin
+ * @instance
+ * @async
+ *
+ * @param {Transaction} transaction - Transaction to verify signature for.
+ * @param {string} signature - Signature to verify as hex string.
+ * @param {string} publicKeyString - Input public key as hex string.
+ *
+ * @return {boolean} Whether the signature is valid. True if for the named
+ *     input of provided transaction.
+ */
