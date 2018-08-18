@@ -4,6 +4,7 @@ Module
 Modules implementing CashShuffle interfaces.
 
 .. toctree::
+   module/coin/bitcore
    module/crypto/bitcore
    module/inchan/inchanbin
    module/inchanbin/nodestream
