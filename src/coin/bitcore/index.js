@@ -14,9 +14,11 @@
  */
 
 import Coin from './main'
+import address from './address'
 import verifySignature from './verify'
 
 Object.assign(Coin.prototype, {
+  address,
   verifySignature
 })
 
