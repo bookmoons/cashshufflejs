@@ -10,6 +10,28 @@
  */
 
 /**
+ * Input signature pair.
+ *
+ * Associates an input public key to an input signature.
+ * 2 element array.
+ *
+ * @typedef {Array<string>} InputSignature
+ * @memberof module:cashshuffle/coin~Coin
+ *
+ * @prop {string} 1 - Input public key as hex string.
+ * @prop {string} 2 - Input signature.
+ *
+ * @example
+const inputPublicKey =
+  '034115e5452127bb9409f727539fa054281dd2bb6909725886aa5d90628d42fd1e'
+const signature =
+  '3044022020ea35009d17d25b8a926675ddf0045c397d3df55b0ae115ef80db7849' +
+  '529b9302201f13bd2cbd1ca0a24e2c5ab28030aa9b7b3dcacf175652dad82fe9d5' +
+  '973f340901'
+const inputSignature = [ inputPublicKey, signature ]
+ */
+
+/**
  * Participant address pair.
  *
  * Associates a Bitcoin Cash address to a named participant.
@@ -51,6 +73,22 @@ const participantAddress = [ sessionPublicKey, address ]
  * @param {string} publicKeyString - Public key as hex string.
  *
  * @return {string} P2PKH address for the public key.
+ */
+
+/**
+ * Add input signatures to transaction.
+ *
+ * `Map` instances work well for `signatures`.
+ *
+ * @method addTransactionSignatures
+ * @memberof module:cashshuffle/coin~Coin
+ * @instance
+ * @async
+ *
+ * @param {Transaction} transaction - Transaction to add signatures to.
+ * @param {Iterable<InputSignature>} signatures - Signatures to add.
+ *
+ * @return {Transaction} Transaction with signatures added.
  */
 
 /**
