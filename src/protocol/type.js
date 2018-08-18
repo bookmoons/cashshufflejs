@@ -7,14 +7,19 @@
  * @memberof module:cashshuffle/protocol
  * @enum
  *
- * @prop None - Before protocol start.
- * @prop Announcement - Phase 1. Participants announce themselves.
- * @prop Shuffle - Phase 2. Blind shuffling of output addresses.
- * @prop Broadcast - Phase 3. Verify output addresses.
- * @prop EquivocationCheck - Phase 4. Verify no equivocation.
- * @prop Signing - Phase 5a. Sign transaction.
- * @prop VerificationSubmission - Phase 5b. Submit transaction to network.
- * @prop Blame - Out of band phase 6. Identify protocol violator.
+ * @prop {number} None - Before protocol start. Value 0.
+ * @prop {number} Announcement - Phase 1. Participants announce themselves.
+ *     Value 1.
+ * @prop {number} Shuffle - Phase 2. Blind shuffling of output addresses.
+ *     Value 2.
+ * @prop {number} Broadcast - Phase 3. Verify output addresses. Value 3.
+ * @prop {number} EquivocationCheck - Phase 4. Verify no equivocation.
+ *     Value 4.
+ * @prop {number} Signing - Phase 5a. Sign transaction. Value 5.
+ * @prop {number} VerificationSubmission - Phase 5b. Submit transaction to
+       network. Value 6.
+ * @prop {number} Blame - Out of band phase 6. Identify protocol violator.
+ *     Value 7.
  */
 
 /**
