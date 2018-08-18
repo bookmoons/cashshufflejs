@@ -92,6 +92,21 @@ const participantAddress = [ sessionPublicKey, address ]
  */
 
 /**
+ * Broadcast transaction.
+ *
+ * Submits transaction to Bitcoin Cash network.
+ *
+ * @method broadcastTransaction
+ * @memberof module:cashshuffle/coin~Coin
+ * @instance
+ * @async
+ *
+ * @param {Transaction} transaction - Transaction to broadcast.
+ *
+ * @throws If transaction submission fails.
+ */
+
+/**
  * Make unsigned transaction.
  *
  * `Map` instances work well for `inputs` and `changes`.
