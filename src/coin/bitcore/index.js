@@ -14,5 +14,10 @@
  */
 
 import Coin from './main'
+import verifySignature from './verify'
+
+Object.assign(Coin.prototype, {
+  verifySignature
+})
 
 export default Coin
