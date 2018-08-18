@@ -63,19 +63,6 @@ const participantAddress = [ sessionPublicKey, address ]
  */
 
 /**
- * Get P2PKH address for public key.
- *
- * @method address
- * @memberof module:cashshuffle/coin~Coin
- * @instance
- * @async
- *
- * @param {string} publicKeyString - Public key as hex string.
- *
- * @return {string} P2PKH address for the public key.
- */
-
-/**
  * Add input signatures to transaction.
  *
  * `Map` instances work well for `signatures`.
@@ -89,6 +76,19 @@ const participantAddress = [ sessionPublicKey, address ]
  * @param {Iterable<InputSignature>} signatures - Signatures to add.
  *
  * @return {Transaction} Transaction with signatures added.
+ */
+
+/**
+ * Get P2PKH address for public key.
+ *
+ * @method address
+ * @memberof module:cashshuffle/coin~Coin
+ * @instance
+ * @async
+ *
+ * @param {string} publicKeyString - Public key as hex string.
+ *
+ * @return {string} P2PKH address for the public key.
  */
 
 /**
