@@ -1,5 +1,5 @@
 Coin
 ----
 
-.. autointerface:: Coin
+.. autointerface:: coin~Coin
    :members:
