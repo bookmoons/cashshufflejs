@@ -17,7 +17,7 @@
  *     Value 4.
  * @prop {number} Signing - Phase 5a. Sign transaction. Value 5.
  * @prop {number} VerificationSubmission - Phase 5b. Submit transaction to
-       network. Value 6.
+ *     network. Value 6.
  * @prop {number} Blame - Out of band phase 6. Identify protocol violator.
  *     Value 7.
  */
