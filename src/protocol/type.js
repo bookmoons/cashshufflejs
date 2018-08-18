@@ -29,15 +29,16 @@
  * @memberof module:cashshuffle/protocol
  * @enum
  *
- * @prop InsufficientFunds - Insufficient funds.
- * @prop DoubleSpend - Double spend.
- * @prop EquivocationFailure - Equivocation failure.
- * @prop ShuffleFailure - Shuffle failure.
- * @prop ShuffleEquivocationFailure - Shuffle and equivocation failure.
- * @prop InvalidSignature - Invalid signature.
- * @prop MissingOutput - Missing output.
- * @prop Liar - Liar.
- * @prop InvalidFormat - Invalid format.
+ * @prop {number} InsufficientFunds - Insufficient funds. Value 0.
+ * @prop {number} DoubleSpend - Double spend. Value 1.
+ * @prop {number} EquivocationFailure - Equivocation failure. Value 2.
+ * @prop {number} ShuffleFailure - Shuffle failure. Value 3.
+ * @prop {number} ShuffleEquivocationFailure - Shuffle and equivocation
+ *     failure. Value 4.
+ * @prop {number} InvalidSignature - Invalid signature. Value 5.
+ * @prop {number} MissingOutput - Missing output. Value 6.
+ * @prop {number} Liar - Liar. Value 7.
+ * @prop {number} InvalidFormat - Invalid format. Value 8.
  */
 
 /**
