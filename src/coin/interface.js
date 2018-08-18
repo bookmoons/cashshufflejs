@@ -80,6 +80,23 @@ const participantAddress = [ sessionPublicKey, address ]
  */
 
 /**
+ * Produce signature of transaction.
+ *
+ * Signs named input of provided transaction with provided private key.
+ *
+ * @method signTransaction
+ * @memberof module:cashshuffle/coin~Coin
+ * @instance
+ * @async
+ *
+ * @param {Transaction} transaction - Transaction to sign.
+ * @param {string} privateKeyString - Signer private key as hex string.
+ * @param {string} publicKeyString - Input public key as hex string.
+ *
+ * @return {string} Signature as hex string.
+ */
+
+/**
  * Verify address has sufficient funds.
  *
  * @method sufficientFunds
