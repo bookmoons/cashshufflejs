@@ -20,5 +20,5 @@
  * @instance
  * @async
  *
- * @param {*} message - Message to submit.
+ * @param {protocol.Packet} message - Message to submit.
  */
