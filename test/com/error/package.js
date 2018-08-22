@@ -1,6 +1,7 @@
 import test from 'ava'
 import CashShuffleError from 'error/CashShuffle'
 import BusyError from 'error/Busy'
+import EmptyError from 'error/Empty'
 import FormatError from 'error/Format'
 import MissingFeatureError from 'error/MissingFeature'
 import MissingValueError from 'error/MissingValue'
@@ -14,6 +15,10 @@ test('CashShuffle', t => {
 
 test('Busy', t => {
   t.is(error.BusyError, BusyError)
+})
+
+test('Empty', t => {
+  t.is(error.EmptyError, EmptyError)
 })
 
 test('Format', t => {
