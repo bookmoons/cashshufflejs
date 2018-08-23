@@ -54,5 +54,6 @@
  *
  * @return {*} The next message.
  *
+ * @throws {BusyError} If another watch operation is running.
  * @throws {TimeoutError} If timeout expires before message arrives.
  */
