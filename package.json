@@ -23,7 +23,7 @@
         "@bookmoons/bitcore-ecies-cash": "^1.0.4",
         "@bookmoons/bitcore-message-cash": "^2.0.0",
         "bitcore-lib-cash": "^0.18.1",
-        "promised-read": "^2.0.0",
+        "promised-read": "^2.0.1",
         "protobufjs": "~6.8.8",
         "to-arraybuffer": "1",
         "verror": "1"
