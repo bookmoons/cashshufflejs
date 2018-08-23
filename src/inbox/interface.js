@@ -25,6 +25,8 @@
 /**
  * Receive message from inbox.
  *
+ * Removes received message.
+ *
  * @method receive
  * @memberof module:cashshuffle/inbox~Inbox
  * @instance
