@@ -15,10 +15,12 @@ const message = inbox.receive()
 import Inbox from './main'
 import add from './add'
 import receive from './receive'
+import watch from './watch'
 
 Object.assign(Inbox.prototype, {
   add,
-  receive
+  receive,
+  watch
 })
 
 export default Inbox
