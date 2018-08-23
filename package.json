@@ -29,7 +29,7 @@
         "verror": "1"
     },
     "devDependencies": {
-        "@babel/register": "^7.0.0-beta.53",
+        "@babel/register": "^7.0.0-beta.54",
         "array-buffer-to-hex": "1",
         "ava": "1.0.0-beta.6",
         "babel-cli": "^7.0.0-beta.3",
