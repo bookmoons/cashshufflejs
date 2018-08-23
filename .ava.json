@@ -1,7 +1,0 @@
-{
-    "verbose": true,
-    "require": [
-        "@babel/polyfill",
-        "@babel/register"
-    ]
-}
