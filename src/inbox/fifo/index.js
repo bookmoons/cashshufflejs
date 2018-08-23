@@ -14,9 +14,11 @@ const message = inbox.receive()
 
 import Inbox from './main'
 import add from './add'
+import receive from './receive'
 
 Object.assign(Inbox.prototype, {
-  add
+  add,
+  receive
 })
 
 export default Inbox
