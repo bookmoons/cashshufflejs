@@ -49,6 +49,12 @@ NotImplementedError
 .. autoclass:: NotImplementedError
    :members:
 
+TimeoutError
+------------
+
+.. autoclass:: TimeoutError
+   :members:
+
 ValueError
 ----------
 
