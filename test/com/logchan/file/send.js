@@ -15,14 +15,14 @@ test.before(t => {
 
 test('undefined fails', async t => {
   const logchan = new Logchan()
-  await t.throws(async () => {
+  await t.throwsAsync(async () => {
     await logchan.send(message)
   })
 })
 
 test('null fails', async t => {
   const logchan = new Logchan(null)
-  await t.throws(async () => {
+  await t.throwsAsync(async () => {
     await logchan.send(message)
   })
 })

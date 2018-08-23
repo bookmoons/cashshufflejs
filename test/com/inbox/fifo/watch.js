@@ -16,7 +16,7 @@ test.before(t => {
 
 test('timeout', async t => {
   const inbox = new Inbox()
-  await t.throws(async () => {
+  await t.throwsAsync(async () => {
     await inbox.watch(0)
   })
 })

@@ -17,7 +17,7 @@ test.before(t => {
 
 test('missing key pair', async t => {
   const signing = new Signing()
-  await t.throws(async () => {
+  await t.throwsAsync(async () => {
     await signing.exportPublicKey()
   })
 })

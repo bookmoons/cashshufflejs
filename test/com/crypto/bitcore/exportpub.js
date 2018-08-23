@@ -17,7 +17,7 @@ test.before(t => {
 
 test('missing key pair', async t => {
   const crypto = new Crypto()
-  await t.throws(async () => {
+  await t.throwsAsync(async () => {
     await crypto.exportPublicKey()
   })
 })
