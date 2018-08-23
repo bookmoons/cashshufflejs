@@ -39,9 +39,10 @@
 /**
  * Watch for message in inbox.
  *
- * Returns immediately if inbox has a message.
- * Returns next message added if inbox is empty.
+ * If nonempty returns next message immediately.
+ * If empty waits for next add and returns added message.
  * Optionally watch for limited time.
+ * Removes returned message.
  *
  * @method watch
  * @memberof module:cashshuffle/inbox~Inbox
