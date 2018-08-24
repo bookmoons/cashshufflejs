@@ -30,7 +30,6 @@
         "verror": "1"
     },
     "devDependencies": {
-        "@babel/node": "^7.0.0-rc.1",
         "@babel/preset-env": "^7.0.0-rc.1",
         "@babel/register": "^7.0.0-rc.1",
         "array-buffer-to-hex": "1",
