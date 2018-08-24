@@ -1,22 +1,22 @@
 /**
- * Message agent.
- * @module cashshuffle/agent
+ * Message receiver.
+ * @module cashshuffle/receiver
  */
 
 /**
- * Message agent.
+ * Message receiver.
  *
  * Receives protocol messages.
  * Responds to messages in an implementation defined way.
  *
- * @interface Agent
+ * @interface Receiver
  */
 
 /**
  * Submit message.
  *
  * @method submit
- * @memberof module:cashshuffle/agent~Agent
+ * @memberof module:cashshuffle/receiver~Receiver
  * @instance
  * @async
  *
