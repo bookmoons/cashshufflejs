@@ -7,10 +7,16 @@
  * Discards messages that fail authentication.
  *
  * Provide protocol definition and next receiver.
+ * Optionally provide `Receiver` instance to receive discarded messages.
  *
  * @module cashshuffle/receiver/authenticate
  */
 
 import Receiver from './main'
+import submit from './submit'
+
+Object.assign(Receiver.prototype, {
+  submit
+})
 
 export default Receiver
