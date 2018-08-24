@@ -6,7 +6,7 @@ import privs from './privs'
 class Receiver {
   /**
    * @param {protobufjs.Root} protocol - Protocol definition.
-   * @param {Receiver} nextReceiver - Receiver to deliver to message to.
+   * @param {Receiver} nextReceiver - Receiver to deliver message to.
    */
   constructor (protocol, nextReceiver) {
     const priv = {
