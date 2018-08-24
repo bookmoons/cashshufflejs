@@ -6,10 +6,11 @@ import privs from './privs'
  */
 class Receiver {
   /**
-   * @param {function} [Inbox=<fifo>] - Constructor for preferred inbox type.
+   * @param {function} [inbox=<fifo>] - Inbox to deliver messages to.
+   *     Defaults to new FIFO inbox.
    */
-  constructor (Inbox = FifoInbox) {
-    const inbox = new Inbox()
+  constructor (inbox) {
+    if (!inbox) inbox = new FifoInbox()
     const priv = {
       inbox
     }

@@ -4,7 +4,8 @@
  * Receives arrays of discard reason and discarded message.
  * Stores all messages to inbox.
  *
- * Optionally provide Inbox constructor. Defaults to `inbox/fifo`.
+ * Optionally provide `Inbox` instance.
+ * Defaults to new `inbox/fifo~Inbox` instance.
  *
  * @module cashshuffle/receiver/store
  */
