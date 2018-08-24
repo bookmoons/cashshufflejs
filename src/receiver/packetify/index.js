@@ -7,6 +7,7 @@
  * Received messages are assumed valid.
  *
  * Provide protocol definition and next receiver.
+ * Optionally provide `Receiver` instance to receive discarded messages.
  *
  * @module cashshuffle/receiver/packetify
  */

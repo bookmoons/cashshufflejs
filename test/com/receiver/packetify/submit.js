@@ -12,9 +12,10 @@ const testPacketObject = {
     key: testKey
   }
 }
-const testMessageObject = {
+const testValidMessageObject = {
   packet: testPacketObject
 }
+const testInvalidMessageObject = {}
 let protocol
 
 async function loadProtocol () {
@@ -36,11 +37,24 @@ test.before(async t => {
   protocol = await loadProtocol()
 })
 
+test('invalid', async t => {
+  const discarderInbox = new Inbox()
+  const discarder = new StoreReceiver(discarderInbox)
+  const inbox = new Inbox()
+  const storeReceiver = new StoreReceiver(inbox)
+  const receiver = new Receiver(protocol, storeReceiver, discarder)
+  const testMessage = protocol.Signed.fromObject(testInvalidMessageObject)
+  await receiver.submit(testMessage)
+  t.notThrows(() => { // Message discarded
+    discarderInbox.receive()
+  })
+})
+
 test('extract', async t => {
   const inbox = new Inbox()
   const storeReceiver = new StoreReceiver(inbox)
   const receiver = new Receiver(protocol, storeReceiver)
-  const testMessage = protocol.Signed.fromObject(testMessageObject)
+  const testMessage = protocol.Signed.fromObject(testValidMessageObject)
   await receiver.submit(testMessage)
   const packet = inbox.receive()
   const packetObject = protocol.Packet.toObject(packet)
