@@ -11,5 +11,10 @@
  */
 
 import Receiver from './main'
+import submit from './submit'
+
+Object.assign(Receiver.prototype, {
+  submit
+})
 
 export default Receiver
