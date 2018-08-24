@@ -6,8 +6,11 @@
  * Routes received message to inbox of sender.
  * Discards messages from unrecognized senders.
  *
- * Provide Iterable of all participant addresses as strings
- * and optionally Inbox constructor.
+ * Provide:
+ *
+ * - Iterable of all participant addresses as strings.
+ * - Optionally `Receiver` instance to receive discarded messages.
+ * - Optionally `Inbox` constructor.
  *
  * Inbox defaults to `inbox/fifo`.
  *
