@@ -10,7 +10,7 @@
  *
  * - Iterable of all participant addresses as strings.
  * - Optionally `Receiver` instance to receive discarded messages.
- * - Optionally `Inbox` constructor.
+ * - Optionally factory function returning `Inbox` instances.
  *
  * Inbox defaults to `inbox/fifo`.
  *

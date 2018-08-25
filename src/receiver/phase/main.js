@@ -10,13 +10,17 @@ class Receiver {
    *     as hex strings.
    * @param {Receiver} [discarder=null] - Message receiver that handles
    *     discarded messages.
-   * @param {function} [Inbox=<fifo>] - Constructor for preferred inbox type.
+   * @param {function} [inboxFactory=null] - Factory function providing
+   *     `Inbox` instances.
    */
-  constructor (participants, discarder = null, Inbox = FifoInbox) {
+  constructor (participants, discarder = null, inboxFactory = null) {
+    if (!inboxFactory) {
+      inboxFactory = function produceFifoInbox () { return new FifoInbox() }
+    }
     const participantsSet = new Set(participants)
     const inboxes = new Map()
     for (const participant of participantsSet) {
-      inboxes.set(participant, new Inbox())
+      inboxes.set(participant, inboxFactory())
     }
     const priv = {
       participants: participantsSet,
