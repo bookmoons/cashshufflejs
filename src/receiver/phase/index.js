@@ -8,7 +8,7 @@
  *
  * Provide:
  *
- * - Iterable of all participant addresses as strings.
+ * - Iterable of all participant public keys as hex strings.
  * - Optionally `Receiver` instance to receive discarded messages.
  * - Optionally factory function returning `Inbox` instances.
  *
