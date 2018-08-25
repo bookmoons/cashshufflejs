@@ -26,10 +26,19 @@
 /**
  * Stop drawing.
  *
+ * Any messages partway through a draw are discarded.
  * No effect if already stopped.
  *
  * @method stop
  * @memberof module:cashshuffle/drawer~Drawer
  * @instance
- * @async
+ */
+
+/**
+ * Watch for next message.
+ *
+ * Provides a promise for the value of the next drawn message.
+ * Promise is rejected if drawing is stopped.
+ *
+ * @prop {Promise} watch - Promise for next message.
  */
