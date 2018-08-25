@@ -34,7 +34,7 @@ class Receiver {
     }
     const priv = {
       participants: participantsSet,
-      phasesIdentifiers: phaseIdentifiersSet,
+      phaseIdentifiers: phaseIdentifiersSet,
       phaseReceivers,
       discarder
     }
