@@ -43,10 +43,10 @@
     "scripts": {
         "lint": "standard",
         "doc": "jsdoc -c .jsdoc.json --pedantic",
-        "test-com": "cross-env NODE_PATH=src ava test/com",
-        "test-int": "cross-env NODE_PATH=src ava test/int",
-        "test-unit": "cross-env NODE_PATH=src ava test/unit",
-        "test": "cross-env NODE_PATH=src ava test",
-        "test-hoc": "cross-env NODE_PATH=src ava"
+        "test-com": "cross-env NODE_PATH=src:test ava test/com",
+        "test-int": "cross-env NODE_PATH=src:test ava test/int",
+        "test-unit": "cross-env NODE_PATH=src:test ava test/unit",
+        "test": "cross-env NODE_PATH=src:test ava test",
+        "test-hoc": "cross-env NODE_PATH=src:test ava"
     }
 }
