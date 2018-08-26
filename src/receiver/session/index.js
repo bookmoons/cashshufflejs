@@ -19,10 +19,15 @@
  */
 
 import Receiver from './main'
+import phaseReceivers from './phase'
 import submit from './submit'
 
 Object.assign(Receiver.prototype, {
   submit
+})
+
+Object.defineProperty(Receiver.prototype, 'phaseReceivers', {
+  get: phaseReceivers
 })
 
 export default Receiver
