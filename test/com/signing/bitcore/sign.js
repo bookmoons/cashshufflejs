@@ -25,5 +25,5 @@ test('sign', async t => {
   const address = privateKey.toAddress()
   const messageObject = new Message(message)
   const valid = messageObject.verify(address, signature)
-  t.is(valid, true)
+  t.true(valid)
 })
