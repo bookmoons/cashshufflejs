@@ -13,10 +13,12 @@
 import Session from './main'
 import messageAnnounce from './message/announce'
 import sign from './sign'
+import signPacket from './signPacket'
 
 Object.assign(Session.prototype, {
   messageAnnounce,
-  sign
+  sign,
+  signPacket
 })
 
 export default Session
