@@ -47,7 +47,7 @@
         "test-com": "cross-env NODE_PATH=src:test ava test/com",
         "test-int": "cross-env NODE_PATH=src:test ava test/int",
         "test-unit": "cross-env NODE_PATH=src:test ava test/unit",
-        "test": "cross-env NODE_PATH=src:test ava test",
+        "test": "npm-run-all test-com",
         "test-hoc": "cross-env NODE_PATH=src:test ava"
     }
 }
