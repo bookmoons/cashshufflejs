@@ -11,5 +11,10 @@
  */
 
 import Session from './main'
+import messageAnnounce from './message/announce'
+
+Object.assign(Session.prototype, {
+  messageAnnounce
+})
 
 export default Session
