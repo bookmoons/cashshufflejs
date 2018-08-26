@@ -7,6 +7,8 @@ const phaseIdentifier = 1 // Phase Announcement
  *
  * Phase identifier 1.
  *
+ * @memberof module:cashshuffle/session~Session
+ *
  * @param {ArrayBuffer} sessionId - Session identifier.
  * @param {string} encryptionPublicKey - Public key of encryption key pair
  *     as hex string.
