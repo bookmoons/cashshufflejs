@@ -1,6 +1,5 @@
 import test from 'ava'
-import path from 'path'
-import protobuf from 'protobufjs'
+import loadProtocol from 'helper/loadprot'
 import bitcore from 'bitcore-lib-cash'
 import Message from '@bookmoons/bitcore-message-cash'
 import Signing from 'signing/bitcore'
@@ -15,18 +14,6 @@ const testPacketObject = {
   }
 }
 let protocol
-
-async function loadProtocol () {
-  const definitionPath = path.join(
-    __dirname,
-    '..', '..', '..',
-    'src',
-    'protocol',
-    'cashshuffle.proto'
-  )
-  const protocol = await protobuf.load(definitionPath)
-  return protocol
-}
 
 test.before(async t => {
   protocol = await loadProtocol()

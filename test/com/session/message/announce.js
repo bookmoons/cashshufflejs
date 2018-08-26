@@ -1,7 +1,6 @@
 import test from 'ava'
-import path from 'path'
-import protobuf from 'protobufjs'
 import toArrayBuffer from 'util/toarraybuffer'
+import loadProtocol from 'helper/loadprot'
 import messageAnnounce from 'session/message/announce'
 
 const sessionIdString = '123'
@@ -21,18 +20,6 @@ const expectedPacketObject = {
   }
 }
 let protocol
-
-async function loadProtocol () {
-  const definitionPath = path.join(
-    __dirname,
-    '..', '..', '..', '..',
-    'src',
-    'protocol',
-    'cashshuffle.proto'
-  )
-  const protocol = await protobuf.load(definitionPath)
-  return protocol
-}
 
 test.before(async t => {
   protocol = await loadProtocol()

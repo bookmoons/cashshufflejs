@@ -1,6 +1,5 @@
 import test from 'ava'
-import path from 'path'
-import protobuf from 'protobufjs'
+import loadProtocol from 'helper/loadprot'
 import Inbox from 'inbox/fifo'
 import StoreReceiver from 'receiver/store'
 import Receiver from 'receiver/authenticate/main'
@@ -34,18 +33,6 @@ const testInvalidMessageObject = {
   }
 }
 let protocol
-
-async function loadProtocol () {
-  const definitionPath = path.join(
-    __dirname,
-    '..', '..', '..', '..',
-    'src',
-    'protocol',
-    'cashshuffle.proto'
-  )
-  const protocol = await protobuf.load(definitionPath)
-  return protocol
-}
 
 test.before(async t => {
   Object.assign(Receiver.prototype, {

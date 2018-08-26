@@ -1,7 +1,6 @@
 import test from 'ava'
-import path from 'path'
-import protobuf from 'protobufjs'
 import { PassThrough } from 'stream'
+import loadProtocol from 'helper/loadprot'
 import { terminatorBuffer } from 'protocol'
 import Inchanbin from 'inchanbin/nodestream'
 import Inchan from 'inchan/inchanbin/main'
@@ -14,18 +13,6 @@ const testMessageEncoded = Buffer.from([
 ])
 const testPacket = Buffer.concat([ testMessageEncoded, terminatorBuffer ])
 let protocol
-
-async function loadProtocol () {
-  const definitionPath = path.join(
-    __dirname,
-    '..', '..', '..', '..',
-    'src',
-    'protocol',
-    'cashshuffle.proto'
-  )
-  const protocol = await protobuf.load(definitionPath)
-  return protocol
-}
 
 test.before(async t => {
   Object.assign(Inchan.prototype, {

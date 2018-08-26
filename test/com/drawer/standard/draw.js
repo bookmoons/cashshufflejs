@@ -1,7 +1,6 @@
 import test from 'ava'
-import path from 'path'
 import { PassThrough } from 'stream'
-import protobuf from 'protobufjs'
+import loadProtocol from 'helper/loadprot'
 import { terminatorBuffer } from 'protocol'
 import Inchanbin from 'inchanbin/nodestream'
 import Inchan from 'inchan/inchanbin'
@@ -15,18 +14,6 @@ import watch from 'drawer/standard/watch'
 const testSignedObject1 = { packet: { fromKey: { key: 'Test key 1' } } }
 const testSignedObject2 = { packet: { fromKey: { key: 'Test key 2' } } }
 let protocol
-
-async function loadProtocol () {
-  const definitionPath = path.join(
-    __dirname,
-    '..', '..', '..', '..',
-    'src',
-    'protocol',
-    'cashshuffle.proto'
-  )
-  const protocol = await protobuf.load(definitionPath)
-  return protocol
-}
 
 test.before(async t => {
   Object.assign(Drawer.prototype, {
