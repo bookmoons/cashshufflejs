@@ -2,12 +2,8 @@ import test from 'ava'
 import path from 'path'
 import protobuf from 'protobufjs'
 import toArrayBuffer from 'util/toarraybuffer'
-import privs from 'session/privs'
 import messageAnnounce from 'session/message/announce'
 
-const session = {
-  messageAnnounce
-}
 const sessionIdString = '123'
 const sessionIdBuffer = Buffer.from(sessionIdString)
 const sessionId = toArrayBuffer(sessionIdBuffer)
@@ -40,13 +36,10 @@ async function loadProtocol () {
 
 test.before(async t => {
   protocol = await loadProtocol()
-  privs.set(session, {
-    protocol
-  })
 })
 
 test('construct', t => {
-  const packet = session.messageAnnounce(sessionId, publicKey)
+  const packet = messageAnnounce(protocol, sessionId, publicKey)
   const packetObject = protocol.Packet.toObject(packet)
   t.deepEqual(packetObject, expectedPacketObject)
 })

@@ -1,5 +1,3 @@
-import privs from '../privs'
-
 const phaseIdentifier = 1 // Phase Announcement
 
 /**
@@ -9,15 +7,14 @@ const phaseIdentifier = 1 // Phase Announcement
  *
  * @memberof module:cashshuffle/session~Session
  *
+ * @param {protobufjs.Root} protocol - Protocol definition.
  * @param {ArrayBuffer} sessionId - Session identifier.
  * @param {string} encryptionPublicKey - Public key of encryption key pair
  *     as hex string.
  *
  * @return {protocol.Packet} Unsigned announce message.
  */
-function messageAnnounce (sessionId, encryptionPublicKey) {
-  const priv = privs.get(this)
-  const protocol = priv.protocol
+function messageAnnounce (protocol, sessionId, encryptionPublicKey) {
   const sessionIdView = new Uint8Array(sessionId)
   const encryptionKeyObject = {
     key: encryptionPublicKey
