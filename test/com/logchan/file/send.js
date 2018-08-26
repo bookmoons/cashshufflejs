@@ -1,11 +1,12 @@
 import test from 'ava'
 import { readFileSync } from 'fs'
+import { EOL } from 'os'
 import { file as tempFile } from 'tmp-promise'
 import Logchan from 'logchan/file/main'
 import send from 'logchan/file/send'
 
 const message = 'Test message'
-const packet = message + '\n'
+const packet = message + EOL
 
 test.before(t => {
   Object.assign(Logchan.prototype, {
