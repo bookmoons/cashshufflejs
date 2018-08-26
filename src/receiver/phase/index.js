@@ -18,10 +18,15 @@
  */
 
 import Receiver from './main'
+import participantInboxes from './participant'
 import submit from './submit'
 
 Object.assign(Receiver.prototype, {
   submit
+})
+
+Object.defineProperty(Receiver, 'participantInboxes', {
+  get: participantInboxes
 })
 
 export default Receiver
