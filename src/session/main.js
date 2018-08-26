@@ -7,6 +7,7 @@ import privs from './privs'
  * @prop {protobufjs.Root} protocol - Protocol definition.
  * @prop {ArrayBuffer} sessionId - Session identifier.
  * @prop {Signing} signingKeyPair - Participant signing key pair.
+ *     Assumed ready for use.
  * @prop {Iterable<string>} inputs - Input addresses as strings.
  *     Will be deduplicated and ordered lexicographically.
  * @prop {number} amount - Amount to shuffle in satoshis.
