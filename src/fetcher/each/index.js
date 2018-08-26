@@ -7,5 +7,10 @@
  */
 
 import Fetcher from './main'
+import fetch from './fetch'
+
+Object.assign(Fetcher.prototype, {
+  fetch
+})
 
 export default Fetcher
