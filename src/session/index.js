@@ -12,9 +12,11 @@
 
 import Session from './main'
 import messageAnnounce from './message/announce'
+import sign from './sign'
 
 Object.assign(Session.prototype, {
-  messageAnnounce
+  messageAnnounce,
+  sign
 })
 
 export default Session

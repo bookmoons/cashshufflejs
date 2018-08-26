@@ -1,0 +1,50 @@
+import test from 'ava'
+import path from 'path'
+import protobuf from 'protobufjs'
+import bitcore from 'bitcore-lib-cash'
+import Message from '@bookmoons/bitcore-message-cash'
+import Signing from 'signing/bitcore'
+import sign from 'session/sign'
+
+const signingPrivateKey =
+  'ad6110ba1413c6b9f4f1538c86fd5809e8a7e638905a75c95ade5d02afb54931'
+const testKey = 'Test key'
+const testPacketObject = {
+  fromKey: {
+    key: testKey
+  }
+}
+let protocol
+
+async function loadProtocol () {
+  const definitionPath = path.join(
+    __dirname,
+    '..', '..', '..',
+    'src',
+    'protocol',
+    'cashshuffle.proto'
+  )
+  const protocol = await protobuf.load(definitionPath)
+  return protocol
+}
+
+test.before(async t => {
+  protocol = await loadProtocol()
+})
+
+test('sign', async t => {
+  const signing = new Signing()
+  await signing.restoreKeyPair(signingPrivateKey)
+  const testPacket = protocol.Packet.fromObject(testPacketObject)
+  const signature = await sign(signing, testPacket, protocol.Packet)
+  const testPacketEncoded = protocol.Packet.encode(testPacket).finish()
+  // Normalize to Buffer
+  const testPacketEncodedBuffer = Buffer.from(testPacketEncoded)
+  const testPacketEncodedString = testPacketEncodedBuffer.toString('hex')
+  const testPacketSigner = new Message(testPacketEncodedString)
+  const privateKey = new bitcore.PrivateKey(signingPrivateKey)
+  const publicKey = new bitcore.PublicKey(privateKey)
+  const address = publicKey.toAddress()
+  const valid = testPacketSigner.verify(address, signature)
+  t.true(valid)
+})
