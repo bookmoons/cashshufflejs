@@ -15,12 +15,14 @@ import messageAnnounce from './message/announce'
 import packageSignedPacket from './package'
 import sign from './sign'
 import signPacket from './signPacket'
+import validateAnnounce from './validate/announce'
 
 Object.assign(Session.prototype, {
   messageAnnounce,
   packageSignedPacket,
   sign,
-  signPacket
+  signPacket,
+  validateAnnounce
 })
 
 export default Session
