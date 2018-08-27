@@ -25,6 +25,12 @@ EmptyError
 .. autoclass:: EmptyError
    :members:
 
+ExhaustionError
+---------------
+
+.. autoclass:: ExhaustionError
+   :members:
+
 FormatError
 -----------
 
