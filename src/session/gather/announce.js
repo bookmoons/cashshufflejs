@@ -1,5 +1,10 @@
 import bitcore from 'bitcore-lib-cash'
-import { ExhaustionError, MissingValueError, ValueError } from '../../error'
+import {
+  ExhaustionError,
+  InadequateError,
+  MissingValueError,
+  ValueError
+} from '../../error'
 import Fetcher from 'fetcher/each'
 import { defaultAttempts, defaultTimeout } from '../default'
 
@@ -37,7 +42,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  *     Index participant public key as hex string. Value packet as object.
  *
  * @throws {ExhaustionError} If attempts are exhausted without success.
- * @throws If any participant has insufficient funds.
+ * @throws {InadequateError} If any participant has insufficient funds.
  */
 async function gatherAnnounce ({
   attempts = defaultAttempts,
@@ -74,7 +79,13 @@ async function gatherAnnounce ({
       const publicKey = new bitcore.PublicKey(publicKeyString)
       const address = publicKey.toAddress()
       const addressString = address.toString()
-      await coin.sufficientFunds(addressString, amount)
+      const sufficientFunds = await coin.sufficientFunds(addressString, amount)
+      if (!sufficientFunds) {
+        throw new InadequateError(
+          { info: { address: addressString, amount } },
+          'insufficient funds'
+        )
+      }
       participantPackets.set(publicKeyString, packet)
       participantInboxes.delete(publicKeyString)
     }

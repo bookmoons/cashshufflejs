@@ -1,6 +1,6 @@
 import test from 'ava'
 import sinon from 'sinon'
-import { ExhaustionError, TimeoutError } from 'error'
+import { ExhaustionError, InadequateError, TimeoutError } from 'error'
 import PhaseReceiver from 'receiver/phase'
 import validateAnnounce from 'session/validate/announce'
 import gatherAnnounce from 'session/gather/announce'
@@ -143,5 +143,36 @@ test('exhaust', async t => {
   } catch (e) {
     t.true(e instanceof ExhaustionError)
     t.is(e.message, 'max attempts')
+  }
+})
+
+test('insufficient funds', async t => {
+  const session = {
+    gatherAnnounce,
+    validateAnnounce
+  }
+  const coin = {
+    sufficientFunds: sinon.stub().returns(false)
+  }
+  const receiver = new PhaseReceiver(participants)
+  const inboxes = receiver.participantInboxes
+  const gatherAnnouncePromise = session.gatherAnnounce({
+    attempts,
+    timeout,
+    signingPublicKey: participant1,
+    amount,
+    coin,
+    receiver
+  })
+  const inbox2 = inboxes.get(participant2)
+  inbox2.add(validPacket2)
+  const inbox3 = inboxes.get(participant3)
+  inbox3.add(validPacket3)
+  try {
+    await gatherAnnouncePromise
+    t.fail('Incorrect successful gather')
+  } catch (e) {
+    t.true(e instanceof InadequateError)
+    t.is(e.message, 'insufficient funds')
   }
 })
