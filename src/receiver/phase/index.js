@@ -25,7 +25,7 @@ Object.assign(Receiver.prototype, {
   submit
 })
 
-Object.defineProperty(Receiver, 'participantInboxes', {
+Object.defineProperty(Receiver.prototype, 'participantInboxes', {
   get: participantInboxes
 })
 
