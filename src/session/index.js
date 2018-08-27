@@ -12,11 +12,13 @@
 
 import Session from './main'
 import messageAnnounce from './message/announce'
+import packageSignedPacket from './package'
 import sign from './sign'
 import signPacket from './signPacket'
 
 Object.assign(Session.prototype, {
   messageAnnounce,
+  packageSignedPacket,
   sign,
   signPacket
 })
