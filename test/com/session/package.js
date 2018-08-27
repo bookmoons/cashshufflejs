@@ -1,7 +1,6 @@
 import test from 'ava'
 import loadProtocol from 'helper/loadprot'
 import Signing from 'signing/bitcore'
-import privs from 'session/privs'
 import packageSignedPacket from 'session/package'
 
 const signingPrivateKey =
@@ -17,16 +16,10 @@ test.before(async t => {
 })
 
 test('package', async t => {
-  const session = {
-    packageSignedPacket
-  }
-  privs.set(session, {
-    protocol
-  })
   const signing = new Signing()
   await signing.restoreKeyPair(signingPrivateKey)
   const testSigned = protocol.Signed.fromObject(testSignedObject)
-  const packets = await session.packageSignedPacket(testSigned)
+  const packets = await packageSignedPacket(protocol, testSigned)
   const packetsObject = protocol.Packets.toObject(packets)
   t.deepEqual(packetsObject, expectedPacketsObject)
 })
