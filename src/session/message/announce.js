@@ -18,7 +18,7 @@ const phaseIdentifier = 1 // Phase Announcement
  *
  * @memberof module:cashshuffle/session~Session
  *
- * @param {MessageAnnounceParams} params
+ * @param {module:cashshuffle/session~MessageAnnounceParams} params
  *
  * @return {protocol.Packet} Unsigned announce message.
  */
