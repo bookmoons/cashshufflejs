@@ -1,20 +1,33 @@
 const phaseIdentifier = 1 // Phase Announcement
 
 /**
+ * @typedef {object} MessageAnnounceParams
+ * @memberof module:cashshuffle/session
+ *
+ * @prop {protobufjs.Root} protocol - Protocol definition.
+ * @prop {ArrayBuffer} sessionId - Session identifier.
+ * @prop {number} participantNumber - Participant index in pool in join order.
+ * @prop {string} encryptionPublicKey - Public key of encryption key pair
+ *     as hex string.
+ */
+
+/**
  * Construct announce message.
  *
  * Phase identifier 1.
  *
  * @memberof module:cashshuffle/session~Session
  *
- * @param {protobufjs.Root} protocol - Protocol definition.
- * @param {ArrayBuffer} sessionId - Session identifier.
- * @param {string} encryptionPublicKey - Public key of encryption key pair
- *     as hex string.
+ * @param {MessageAnnounceParams} params
  *
  * @return {protocol.Packet} Unsigned announce message.
  */
-function messageAnnounce (protocol, sessionId, encryptionPublicKey) {
+function messageAnnounce ({
+  protocol,
+  sessionId,
+  participantNumber,
+  encryptionPublicKey
+}) {
   const sessionIdView = new Uint8Array(sessionId)
   const encryptionKeyObject = {
     key: encryptionPublicKey
@@ -24,6 +37,7 @@ function messageAnnounce (protocol, sessionId, encryptionPublicKey) {
   }
   const packetObject = {
     session: sessionIdView,
+    number: participantNumber,
     phase: phaseIdentifier,
     message: messageObject
   }

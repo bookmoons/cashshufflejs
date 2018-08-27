@@ -6,6 +6,8 @@ import privs from './privs'
  *
  * @prop {protobufjs.Root} protocol - Protocol definition.
  * @prop {ArrayBuffer} sessionId - Session identifier.
+ * @prop {number} participantNumber - Participant index in pool in join order.
+ *     Provided by server in join response.
  * @prop {Signing} signingKeyPair - Participant signing key pair.
  *     Assumed ready for use.
  * @prop {Iterable<string>} inputs - Input addresses as strings.
@@ -24,6 +26,7 @@ class Session {
   constructor ({
     protocol,
     sessionId,
+    participantNumber,
     signingKeyPair,
     inputs,
     amount,
