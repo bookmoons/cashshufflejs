@@ -37,6 +37,12 @@ FormatError
 .. autoclass:: FormatError
    :members:
 
+InadequateError
+---------------
+
+.. autoclass:: InadequateError
+   :members:
+
 MissingFeatureError
 -------------------
 

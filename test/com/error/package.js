@@ -4,6 +4,7 @@ import BusyError from 'error/Busy'
 import EmptyError from 'error/Empty'
 import ExhaustionError from 'error/Exhaustion'
 import FormatError from 'error/Format'
+import InadequateError from 'error/Inadequate'
 import MissingFeatureError from 'error/MissingFeature'
 import MissingValueError from 'error/MissingValue'
 import NotImplementedError from 'error/NotImplemented'
@@ -29,6 +30,10 @@ test('Exhaustion', t => {
 
 test('Format', t => {
   t.is(error.FormatError, FormatError)
+})
+
+test('Inadequate', t => {
+  t.is(error.InadequateError, InadequateError)
 })
 
 test('FeatureMissing', t => {
