@@ -25,7 +25,7 @@ import exportPrivateKey from './exportpriv'
 import exportPublicKey from './exportpub'
 import generateKeyPair from './generate'
 import hash from './hash'
-import restoreKeyPair from './restoreKeyPair'
+import restoreKeyPair from './restore'
 
 Object.assign(Crypto.prototype, {
   decrypt,
