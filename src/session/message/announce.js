@@ -5,6 +5,7 @@ const phaseIdentifier = 1 // Phase Announcement
  * @memberof module:cashshuffle/session
  *
  * @prop {protobufjs.Root} protocol - Protocol definition.
+ * @prop {string} signingPublicKey - Signing public key as hex string.
  * @prop {ArrayBuffer} sessionId - Session identifier.
  * @prop {number} participantNumber - Participant index in pool in join order.
  * @prop {string} encryptionPublicKey - Public key of encryption key pair
@@ -24,6 +25,7 @@ const phaseIdentifier = 1 // Phase Announcement
  */
 function messageAnnounce ({
   protocol,
+  signingPublicKey,
   sessionId,
   participantNumber,
   encryptionPublicKey
@@ -35,9 +37,13 @@ function messageAnnounce ({
   const messageObject = {
     key: encryptionKeyObject
   }
+  const fromKeyObject = {
+    key: signingPublicKey
+  }
   const packetObject = {
     session: sessionIdView,
     number: participantNumber,
+    fromKey: fromKeyObject,
     phase: phaseIdentifier,
     message: messageObject
   }
