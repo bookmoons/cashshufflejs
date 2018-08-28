@@ -7,11 +7,12 @@ import Outchan from 'outchan/outchanbin/main'
 import send from 'outchan/outchanbin/send'
 
 // Signed { signature: Signature { signature: [ 5, 6, 7 ] } }
+// Packets { packet: [ <Signed> ] }
 let testMessage
 const testMessageEncoded = Buffer.from([
-  0x12, 0x05, 0x0a, 0x03, 0x05, 0x06, 0x07
+  0x0a, 0x07, 0x12, 0x05, 0x0a, 0x03, 0x05, 0x06, 0x07
 ])
-const testPacket = Buffer.concat([ testMessageEncoded, terminatorBuffer ])
+const testPackets = Buffer.concat([ testMessageEncoded, terminatorBuffer ])
 let protocol
 
 test.before(async t => {
@@ -22,9 +23,10 @@ test.before(async t => {
   const signature = protocol.Signature.create({
     signature: Buffer.from([ 0x05, 0x06, 0x07 ])
   })
-  testMessage = protocol.Signed.create({
+  const testPacket = protocol.Signed.create({
     signature
   })
+  testMessage = protocol.Packets.create({ packet: [ testPacket ] })
 })
 
 function verifyIdentical (t, observed, expected) {
@@ -39,8 +41,8 @@ test('1 message', async t => {
   const outchanbin = new Outchanbin(stream)
   const outchan = new Outchan(outchanbin, protocol)
   await outchan.send(testMessage)
-  const packet = stream.read()
-  verifyIdentical(t, packet, testPacket)
+  const packets = stream.read()
+  verifyIdentical(t, packets, testPackets)
 })
 
 test('2 messages', async t => {
@@ -48,9 +50,9 @@ test('2 messages', async t => {
   const outchanbin = new Outchanbin(stream)
   const outchan = new Outchan(outchanbin, protocol)
   await outchan.send(testMessage)
-  const packet1 = stream.read()
-  verifyIdentical(t, packet1, testPacket)
+  const packets1 = stream.read()
+  verifyIdentical(t, packets1, testPackets)
   await outchan.send(testMessage)
-  const packet2 = stream.read()
-  verifyIdentical(t, packet2, testPacket)
+  const packets2 = stream.read()
+  verifyIdentical(t, packets2, testPackets)
 })
