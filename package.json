@@ -49,7 +49,7 @@
         "test-int": "cross-env NODE_PATH=src:test ava test/int",
         "test-net": "cross-env NODE_PATH=src:test ava test/net",
         "test-unit": "cross-env NODE_PATH=src:test ava test/unit",
-        "test": "npm-run-all test-unit test-com",
+        "test": "npm-run-all test-unit test-com test-int",
         "test-hoc": "cross-env NODE_PATH=src:test ava"
     }
 }
