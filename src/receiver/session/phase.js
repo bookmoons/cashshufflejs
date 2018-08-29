@@ -7,7 +7,7 @@ import privs from './privs'
  * Value phase receiver.
  *
  * @var {Map<number,Receiver>} phaseReceivers
- * @memberof module:cashshuffle/receiver/session~Receiver
+ * @memberof module:cashshuffle/receiver/session.Receiver
  * @instance
  */
 function phaseReceivers () {
