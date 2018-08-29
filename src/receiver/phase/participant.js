@@ -1,7 +1,10 @@
 import privs from './privs'
 
 /**
- * Participant public key indexed map of participant inboxes.
+ * Participant inboxes.
+ *
+ * Index participant public key as hex string.
+ * Value participant inbox.
  *
  * @var {Map} participantInboxes
  * @memberof module:cashshuffle/receiver/phase.Receiver
