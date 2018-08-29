@@ -26,7 +26,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @memberof module:cashshuffle/session.Session
  *
  * @prop {Crypto} encryptionKeyPair - Own encryption key pair.
- * @prop {Map<string,string>} encryptionPublicKeys
+ * @prop {Map<string-string>} encryptionPublicKeys
  *     Other participant encryption public keys.
  *     Index participant signing public key as hex string.
  *     Value participant encryption public key as hex string.
