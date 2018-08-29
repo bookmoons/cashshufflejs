@@ -6,7 +6,7 @@ import privs from './privs'
  * Index phase identifier.
  * Value phase receiver.
  *
- * @var {Map} phaseReceivers
+ * @var {Map<number,Receiver>} phaseReceivers
  * @memberof module:cashshuffle/receiver/session~Receiver
  * @instance
  */
