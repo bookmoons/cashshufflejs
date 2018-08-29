@@ -7,9 +7,15 @@
 import Inbox from 'cashshuffle/inbox/fifo'
 const inbox = new Inbox()
 
-inbox.add('Test message')
-const message = inbox.receive()
-// message == 'Test message'
+inbox.add('Test message 1')
+inbox.add('Test message 2')
+inbox.add('Test message 3')
+const message1 = inbox.receive()
+// message1 === 'Test message 1'
+const message2 = inbox.receive()
+// message2 === 'Test message 2'
+const message3 = inbox.receive()
+// message3 === 'Test message 3'
  */
 
 import Inbox from './main'
