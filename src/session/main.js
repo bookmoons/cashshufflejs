@@ -31,6 +31,11 @@ import { defaultAttempts, defaultTimeout } from './default'
  * The CoinShuffle session is the core of the CashShuffle logic.
  * Executes a CoinShuffle session.
  *
+ * Defaults:
+ *
+ * - Network operation attempts: 5.
+ * - Network operation timeout: 5,000 milliseconds (5 seconds).
+ *
  * [1]: http://crypsys.mmci.uni-saarland.de/projects/CoinShuffle/
  *
  * @memberof module:cashshuffle/session
