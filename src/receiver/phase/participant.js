@@ -2,8 +2,10 @@ import privs from './privs'
 
 /**
  * Participant public key indexed map of participant inboxes.
- * @prop {Map} participantInboxes
- * @memberof module:cashshuffle/receiver/phase~Receiver
+ *
+ * @var {Map} participantInboxes
+ * @memberof module:cashshuffle/receiver/phase.Receiver
+ * @instance
  */
 function participantInboxes () {
   const priv = privs.get(this)
