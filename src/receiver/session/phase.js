@@ -2,8 +2,10 @@ import privs from './privs'
 
 /**
  * Phase identifier indexed map of phase receivers.
- * @prop {Map} phaseReceivers
+ *
+ * @var {Map} phaseReceivers
  * @memberof module:cashshuffle/receiver/session~Receiver
+ * @instance
  */
 function phaseReceivers () {
   const priv = privs.get(this)
