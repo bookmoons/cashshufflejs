@@ -6,6 +6,7 @@ CashShuffle interface definition.
 .. toctree::
    interface/coin
    interface/crypto
+   interface/inbox
    interface/inchan
    interface/inchanbin
    interface/logchan
