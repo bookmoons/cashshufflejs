@@ -6,7 +6,7 @@ import privs from './privs'
  * Index participant public key as hex string.
  * Value participant inbox.
  *
- * @var {Map} participantInboxes
+ * @var {Map<string-Inbox>} participantInboxes
  * @memberof module:cashshuffle/receiver/phase.Receiver
  * @instance
  */
