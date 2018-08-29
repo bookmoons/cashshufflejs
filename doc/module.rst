@@ -18,4 +18,5 @@ Modules implementing CashShuffle interfaces.
    module/receiver/objectify
    module/receiver/packetify
    module/receiver/phase
+   module/receiver/session
    module/signing/bitcore
