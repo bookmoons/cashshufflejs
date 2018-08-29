@@ -40,5 +40,7 @@
  * Provides a promise for the value of the next drawn message.
  * Promise is rejected if drawing is stopped.
  *
- * @prop {Promise} watch - Promise for next message.
+ * @var {Promise} watch - Promise for next message.
+ * @memberof module:cashshuffle/drawer~Drawer
+ * @instance
  */
