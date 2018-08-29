@@ -16,4 +16,5 @@ Modules implementing CashShuffle interfaces.
    module/outchanbin/nodestream
    module/receiver/authenticate
    module/receiver/objectify
+   module/receiver/packetify
    module/signing/bitcore
