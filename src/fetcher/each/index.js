@@ -1,7 +1,7 @@
 /**
  * 1 message from each fetcher.
  *
- * Fetches 1 message from inbox.
+ * Fetches 1 message from each inbox.
  *
  * @module cashshuffle/fetcher/each
  */
