@@ -15,6 +15,7 @@
    :maxdepth: 2
 
    protocol
+   client
    interface
    error
    module
