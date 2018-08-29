@@ -2,7 +2,7 @@ const phaseIdentifier = 1 // Phase Announcement
 
 /**
  * @typedef {object} MessageAnnounceParams
- * @memberof module:cashshuffle/session
+ * @memberof module:cashshuffle/session.Session
  *
  * @prop {protobufjs.Root} protocol - Protocol definition.
  * @prop {string} signingPublicKey - Signing public key as hex string.
@@ -17,9 +17,9 @@ const phaseIdentifier = 1 // Phase Announcement
  *
  * Phase identifier 1.
  *
- * @memberof module:cashshuffle/session~Session
+ * @memberof module:cashshuffle/session.Session
  *
- * @param {module:cashshuffle/session~MessageAnnounceParams} params
+ * @param {MessageAnnounceParams} params
  *
  * @return {protocol.Packet} Unsigned announce message.
  */

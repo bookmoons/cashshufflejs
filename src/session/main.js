@@ -3,7 +3,7 @@ import { defaultAttempts, defaultTimeout } from './default'
 
 /**
  * @typedef {object} SessionParams
- * @memberof cashshuffle/session
+ * @memberof module:cashshuffle/session.Session
  *
  * @prop {protobufjs.Root} protocol - Protocol definition.
  * @prop {number} [attempts=<default>] - Maximum gather attempts.
@@ -25,11 +25,11 @@ import { defaultAttempts, defaultTimeout } from './default'
  */
 
 /**
- * @memberof cashshuffle/session
+ * @memberof module:cashshuffle/session
  */
 class Session {
   /**
-   * @param {module:cashshuffle/session~SessionParams} params
+   * @param {SessionParams} params
    */
   constructor ({
     protocol,

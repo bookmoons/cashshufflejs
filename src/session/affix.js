@@ -1,6 +1,8 @@
 /**
  * Affix signature to packet.
  *
+ * @memberof module:cashshuffle/session.Session
+ *
  * @param {protocol.Packet} packet - Packet to affix signature to.
  * @param {string} signature - Detached signature as Base64 string.
  * @param {protobufjs.Root} protocol - Protocol definition.

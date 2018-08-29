@@ -1,7 +1,7 @@
 /**
  * Package a `protocol.Signed` into a unary `protocol.Packets`.
  *
- * @memberof module:cashshuffle/session~Session
+ * @memberof module:cashshuffle/session.Session
  *
  * @param {protobufjs.Root} protocol - Protocol definition.
  * @param {protocol.Signed} signedPacket - Signed packet instance.

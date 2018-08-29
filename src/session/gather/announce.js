@@ -10,7 +10,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
 
 /**
  * @typedef {object} GatherAnnounceParams
- * @memberof module:cashshuffle/session
+ * @memberof module:cashshuffle/session.Session
  *
  * @prop {number} [attempts=<default>] - Maximum attempts. Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
@@ -34,9 +34,9 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * from that participant. Insufficient funds for any participant fails
  * the entire process.
  *
- * @memberof module:cashshuffle/session~Session
+ * @memberof module:cashshuffle/session.Session
  *
- * @param {module:cashshuffle/session~GatherAnnounceParams} params
+ * @param {GatherAnnounceParams} params
  *
  * @return {Map<string,object>} Announce messages from all other participants.
  *     Index participant public key as hex string. Value packet as object.

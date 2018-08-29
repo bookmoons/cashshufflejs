@@ -8,7 +8,7 @@ import { MissingValueError, ValueError } from '../../error'
  * Throws error if validation fails.
  * Returns without error if validation succeeds.
  *
- * @memberof cashshuffle/session~Session
+ * @memberof cashshuffle/session.Session
  *
  * @param {object} packet - Packet to validate as object.
  *

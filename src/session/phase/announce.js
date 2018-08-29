@@ -3,7 +3,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
 
 /**
  * @typedef {object} AnnounceParams
- * @memberof module:cashshuffle/session
+ * @memberof module:cashshuffle/session.Session
  *
  * @prop {protobufjs.Root} protocol - Protocol definition.
  * @prop {number} [attempts=<default>] - Maximum gather attempts.
@@ -23,7 +23,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
 
 /**
  * @typedef {object} AnnounceReturn
- * @memberof module:cashshuffle/session
+ * @memberof module:cashshuffle/session.Session
  *
  * @prop {Crypto} encryptionKeyPair - Own encryption key pair.
  * @prop {Map<string,string>} encryptionPublicKeys
@@ -33,11 +33,11 @@ import { defaultAttempts, defaultTimeout } from '../default'
  */
 
 /**
- * @memberof module:cashshuffle/session~Session
+ * @memberof module:cashshuffle/session.Session
  *
- * @param {module:cashshuffle/session~AnnounceParams} params
+ * @param {AnnounceParams} params
  *
- * @return {module:cashshuffle/session~AnnounceReturn}
+ * @return {AnnounceReturn}
  */
 async function announce ({
   protocol,

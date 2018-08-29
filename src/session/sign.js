@@ -1,7 +1,7 @@
 /**
  * Sign a protocol message.
  *
- * @memberof module:cashshuffle/session~Session
+ * @memberof module:cashshuffle/session.Session
  *
  * @param {Signing} signingKeyPair - Key pair to sign with.
  *     Assumed ready for use.
