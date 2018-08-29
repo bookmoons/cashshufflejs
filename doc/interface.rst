@@ -7,6 +7,7 @@ CashShuffle interface definition.
    interface/coin
    interface/crypto
    interface/drawer
+   interface/fetcher
    interface/inbox
    interface/inchan
    interface/inchanbin
