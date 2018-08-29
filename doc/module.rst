@@ -8,6 +8,7 @@ Modules implementing CashShuffle interfaces.
    module/crypto/bitcore
    module/drawer/standard
    module/fetcher/each
+   module/inbox/fifo
    module/inchan/inchanbin
    module/inchanbin/nodestream
    module/logchan/file
