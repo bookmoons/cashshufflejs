@@ -1,7 +1,10 @@
 import privs from './privs'
 
 /**
- * Phase identifier indexed map of phase receivers.
+ * Phase receivers.
+ *
+ * Index phase identifier.
+ * Value phase receiver.
  *
  * @var {Map} phaseReceivers
  * @memberof module:cashshuffle/receiver/session~Receiver
