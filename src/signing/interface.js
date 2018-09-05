@@ -18,6 +18,21 @@
  */
 
 /**
+ * Get Bitcoin Cash address of key pair.
+ *
+ * Generate or restore key pair prior to use.
+ *
+ * @method address
+ * @memberof module:cashshuffle/signing~Signing
+ * @instance
+ * @async
+ *
+ * @return {CashAddr} Bitcoin Cash address.
+ *
+ * @throws {MissingValueError} If key pair has not been generated or restored.
+ */
+
+/**
  * Export private key as hex string.
  *
  * Generate or restore key pair prior to use.
