@@ -43,7 +43,7 @@
  * @async
  *
  * @param {string} message - Message to encrypt.
- * @param {string} recipient - Public key of recipient as hex string.
+ * @param {HexString} recipient - Public key of recipient.
  *
  * @return {string} The cryptogram as a Base64 encoded string.
  */
@@ -58,7 +58,7 @@
  * @instance
  * @async
  *
- * @return {string} Private key as hex string.
+ * @return {HexString} Private key.
  *
  * @throws {MissingValueError} If key pair has not been generated or restored.
  */
@@ -73,7 +73,7 @@
  * @instance
  * @async
  *
- * @return {string} Public key as hex string.
+ * @return {HexString} Public key.
  *
  * @throws {MissingValueError} If key pair has not been generated or restored.
  */
@@ -114,7 +114,7 @@
  * @instance
  * @async
  *
- * @param {string} privateKeyString - Private key as hex string.
+ * @param {HexString} privateKeyString - Private key.
  * @param [network=<mainnet>] - Network to restore for.
  *     Type implementation defined.
  */
