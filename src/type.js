@@ -1,6 +1,21 @@
 /* Common cashshufflejs types. */
 
 /**
+ * Base64 string.
+ *
+ * Represents binary data as an [RFC 4648][1] conforming Base64 encoded value
+ * in a string. [Standard encoding][2] and [URL and filename safe encoding][3]
+ * allowed.
+ *
+ * [1]: https://tools.ietf.org/html/rfc4648
+ * [2]: https://tools.ietf.org/html/rfc4648#section-4
+ * [3]: https://tools.ietf.org/html/rfc4648#page-7
+ *
+ * @typedef {string} Base64
+ * @memberof module:cashshuffle
+ */
+
+/**
  * Hexadecimal string.
  *
  * Represents binary data as a hexadecimal number in a string.
