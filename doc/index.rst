@@ -17,5 +17,5 @@
    protocol
    client
    interface
-   error
    module
+   error
