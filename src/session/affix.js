@@ -4,7 +4,7 @@
  * @memberof module:cashshuffle/session.Session
  *
  * @param {protocol.Packet} packet - Packet to affix signature to.
- * @param {string} signature - Detached signature as Base64 string.
+ * @param {Base64} signature - Detached signature.
  * @param {protobufjs.Root} protocol - Protocol definition.
  *
  * @return {protocol.Signed} The signed packet.

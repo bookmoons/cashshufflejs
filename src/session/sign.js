@@ -9,7 +9,7 @@
  *     Any message type from protocol definition.
  * @param {protobufjs.Type} type - Protocol message type. Used to encode.
  *
- * @return {string} Detached message signature as Base64 encoded string.
+ * @return {Base64} Detached message signature.
  */
 async function sign (signingKeyPair, message, type) {
   const messageEncoded = type.encode(message).finish()
