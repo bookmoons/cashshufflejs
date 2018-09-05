@@ -19,9 +19,7 @@ const expectedPacketObject = {
   fromKey: { key: signingPublicKey },
   phase: phaseIdentifier,
   message: {
-    key: {
-      key: encryptionPublicKey
-    }
+    key: { key: encryptionPublicKey }
   }
 }
 let protocol
