@@ -27,7 +27,7 @@
  * @instance
  * @async
  *
- * @param {string} cryptogram - Cryptogram as a Base64 encoded string.
+ * @param {Base64} cryptogram - Cryptogram to decrypt.
  *
  * @return {string} The decrypted message.
  *
@@ -45,7 +45,7 @@
  * @param {string} message - Message to encrypt.
  * @param {HexString} recipient - Public key of recipient.
  *
- * @return {string} The cryptogram as a Base64 encoded string.
+ * @return {Base64} The cryptogram.
  */
 
 /**
