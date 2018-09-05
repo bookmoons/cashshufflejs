@@ -1,4 +1,3 @@
-import bitcore from 'bitcore-lib-cash'
 import { MissingValueError } from '../../error'
 import privs from './privs'
 
