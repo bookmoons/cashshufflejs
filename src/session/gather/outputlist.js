@@ -8,7 +8,6 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {number} [attempts=<default>] - Maximum attempts. Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {HexString} signingPublicKey - Participant signing public key.
  * @prop {HexString} priorParticipant - Signing public key of prior
  *     participant.
  * @prop {Receiver} receiver - Phase message receiver.
@@ -29,7 +28,6 @@ import { defaultAttempts, defaultTimeout } from '../default'
 async function gatherOutputList ({
   attempts = defaultAttempts,
   timeout = defaultTimeout,
-  signingPublicKey,
   priorParticipant,
   receiver,
   discarder = null

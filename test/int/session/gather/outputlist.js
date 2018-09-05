@@ -46,7 +46,6 @@ test('1 attempt', async t => {
   const gatherOutputListPromise = session.gatherOutputList({
     attempts,
     timeout,
-    signingPublicKey: participant2,
     priorParticipant: participant1,
     receiver
   })
@@ -66,7 +65,6 @@ test('2 attempts', async t => {
   const gatherOutputListPromise = session.gatherOutputList({
     attempts,
     timeout,
-    signingPublicKey: participant2,
     priorParticipant: participant1,
     receiver
   })
@@ -85,7 +83,6 @@ test('timeout', async t => {
   const gatherOutputListPromise = session.gatherOutputList({
     attempts,
     timeout: 0,
-    signingPublicKey: participant2,
     priorParticipant: participant1,
     receiver
   })
@@ -108,7 +105,6 @@ test('exhaust', async t => {
   const gatherOutputListPromise = session.gatherOutputList({
     attempts,
     timeout,
-    signingPublicKey: participant2,
     priorParticipant: participant1,
     receiver
   })
