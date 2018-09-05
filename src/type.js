@@ -16,6 +16,15 @@
  */
 
 /**
+ * Bitcoin Cash address in [CashAddr][1] format in a string.
+ *
+ * [1]: https://cashaddr.org/
+ *
+ * @typedef {string} CashAddr
+ * @memberof module:cashshuffle
+ */
+
+/**
  * Hexadecimal string.
  *
  * Represents binary data as a hexadecimal number in a string.
