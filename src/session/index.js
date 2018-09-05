@@ -6,6 +6,7 @@ import announce from './phase/announce'
 import encryptLayered from './adjunct/layered'
 import gatherAnnounce from './gather/announce'
 import messageAnnounce from './message/announce'
+import messageOutputList from './message/outputlist'
 import packageSignedPacket from './package'
 import sign from './sign'
 import validateAnnounce from './validate/announce'
@@ -16,6 +17,7 @@ Object.assign(Session.prototype, {
   encryptLayered,
   gatherAnnounce,
   messageAnnounce,
+  messageOutputList,
   packageSignedPacket,
   sign,
   validateAnnounce
