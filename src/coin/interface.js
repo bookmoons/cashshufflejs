@@ -15,11 +15,11 @@
  * Associates an input public key to an input signature.
  * 2 element array.
  *
- * @typedef {Array<string>} InputSignature
+ * @typedef {Array<HexString>} InputSignature
  * @memberof module:cashshuffle/coin~Coin
  *
- * @prop {string} 1 - Input public key as hex string.
- * @prop {string} 2 - Input signature.
+ * @prop {HexString} 1 - Input public key.
+ * @prop {HexString} 2 - Input signature.
  *
  * @example
 const inputPublicKey =
@@ -40,7 +40,7 @@ const inputSignature = [ inputPublicKey, signature ]
  * @typedef {Array<string>} ParticipantAddress
  * @memberof module:cashshuffle/coin~Coin
  *
- * @prop {string} 1 - Participant session public key as hex string.
+ * @prop {HexString} 1 - Participant session public key.
  * @prop {string} 2 - Bitcoin Cash address.
  *
  * @example
@@ -86,7 +86,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @instance
  * @async
  *
- * @param {string} publicKeyString - Public key as hex string.
+ * @param {HexString} publicKeyString - Public key.
  *
  * @return {string} P2PKH address for the public key.
  */
@@ -144,10 +144,10 @@ const participantAddress = [ sessionPublicKey, address ]
  * @async
  *
  * @param {Transaction} transaction - Transaction to sign.
- * @param {string} privateKeyString - Signer private key as hex string.
- * @param {string} publicKeyString - Input public key as hex string.
+ * @param {HexString} privateKeyString - Signer private key.
+ * @param {HexString} publicKeyString - Input public key.
  *
- * @return {string} Signature as hex string.
+ * @return {HexString} Signature.
  */
 
 /**
@@ -177,7 +177,7 @@ const participantAddress = [ sessionPublicKey, address ]
  *
  * @param {string} signature - Message signature as Base64 encoded string.
  * @param {string} message - Plaintext message.
- * @param {string} publicKeyString - Signer public key as hex string.
+ * @param {HexString} publicKeyString - Signer public key.
  *
  * @return {boolean} Whether the signature is valid. True if from the named
  *     signer and for the given message.
@@ -192,8 +192,8 @@ const participantAddress = [ sessionPublicKey, address ]
  * @async
  *
  * @param {Transaction} transaction - Transaction to verify signature for.
- * @param {string} signature - Signature to verify as hex string.
- * @param {string} publicKeyString - Input public key as hex string.
+ * @param {HexString} signature - Signature to verify.
+ * @param {HexString} publicKeyString - Input public key.
  *
  * @return {boolean} Whether the signature is valid. True if for the named
  *     input of provided transaction.
