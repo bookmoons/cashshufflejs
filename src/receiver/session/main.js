@@ -6,8 +6,7 @@ import privs from './privs'
  */
 class Receiver {
   /**
-   * @param {Iterable<string>} participants - Participant public keys
-   *     as hex strings.
+   * @param {Iterable<HexString>} participants - Participant public keys.
    * @param {Iterable<number>} phaseIdentifiers - Protocol message phase
    *     identifiers.
    * @param {Receiver} [discarder=null] - Message receiver that handles
