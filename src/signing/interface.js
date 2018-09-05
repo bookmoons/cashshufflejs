@@ -87,7 +87,7 @@
  *
  * @param {string} message - Message to sign.
  *
- * @return {string} Detached message signature as Base64 encoded string.
+ * @return {Base64} Detached message signature.
  *
  * @throws {MissingValueError} If key pair has not been generated or restored.
  */
