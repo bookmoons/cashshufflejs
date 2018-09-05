@@ -38,6 +38,9 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @param {AnnounceParams} params
  *
  * @return {AnnounceReturn}
+ *
+ * @throws {InadequateError} If any participant has insufficient funds.
+ *     Message `'insufficient funds'`.
  */
 async function announce ({
   protocol,
