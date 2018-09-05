@@ -3,10 +3,10 @@ import privs from './privs'
 /**
  * Participant inboxes.
  *
- * Index participant public key as hex string.
+ * Index participant public key.
  * Value participant inbox.
  *
- * @var {Map<string,Inbox>} participantInboxes
+ * @var {Map<HexString,Inbox>} participantInboxes
  * @memberof module:cashshuffle/receiver/phase.Receiver
  * @instance
  */

@@ -6,8 +6,7 @@ import privs from './privs'
  */
 class Receiver {
   /**
-   * @param {Iterable<string>} participants - Participant public keys
-   *     as hex strings.
+   * @param {Iterable<HexString>} participants - Participant public keys.
    * @param {Receiver} [discarder=null] - Message receiver that handles
    *     discarded messages.
    * @param {function} [inboxFactory=null] - Factory function providing
