@@ -10,6 +10,7 @@ import messageOutputList from './message/outputlist'
 import packageSignedPacket from './package'
 import sign from './sign'
 import validateAnnounce from './validate/announce'
+import validateOutputList from './validate/outputlist'
 
 Object.assign(Session.prototype, {
   affix,
@@ -20,7 +21,8 @@ Object.assign(Session.prototype, {
   messageOutputList,
   packageSignedPacket,
   sign,
-  validateAnnounce
+  validateAnnounce,
+  validateOutputList
 })
 
 export default Session
