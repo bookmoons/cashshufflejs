@@ -58,7 +58,7 @@
  * @typedef Address
  * @memberof module:cashshuffle/protocol
  *
- * @prop {string} address - Bitcoin Cash address as string.
+ * @prop {CashAddr} address - Bitcoin Cash address.
  */
 
 /**
