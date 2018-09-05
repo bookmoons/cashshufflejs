@@ -77,7 +77,7 @@ async function gatherAnnounce ({
       const publicKeyString = publicKeys[i]
       const publicKey = new bitcore.PublicKey(publicKeyString)
       const address = publicKey.toAddress()
-      const addressString = address.toString()
+      const addressString = address.toCashAddress()
       const sufficientFunds = await coin.sufficientFunds(addressString, amount)
       if (!sufficientFunds) {
         throw new InadequateError(

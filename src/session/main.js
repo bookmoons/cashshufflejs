@@ -15,7 +15,7 @@ import { defaultAttempts, defaultTimeout } from './default'
  *     Provided by server in join response.
  * @prop {Signing} signingKeyPair - Participant signing key pair.
  *     Assumed ready for use.
- * @prop {Iterable<string>} inputs - Input addresses as strings.
+ * @prop {Iterable<CashAddr>} inputs - Input addresses.
  *     Will be deduplicated and ordered lexicographically.
  * @prop {number} amount - Amount to shuffle in satoshis.
  * @prop {Coin} coin - Bitcoin Cash network interface.
