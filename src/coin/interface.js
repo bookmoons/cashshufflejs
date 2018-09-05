@@ -175,7 +175,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @instance
  * @async
  *
- * @param {string} signature - Message signature as Base64 encoded string.
+ * @param {Base64} signature - Message signature.
  * @param {string} message - Plaintext message.
  * @param {HexString} publicKeyString - Signer public key.
  *
