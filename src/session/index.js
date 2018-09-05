@@ -5,6 +5,7 @@ import affix from './affix'
 import announce from './phase/announce'
 import encryptLayered from './adjunct/layered'
 import gatherAnnounce from './gather/announce'
+import gatherOutputList from './gather/outputlist'
 import messageAnnounce from './message/announce'
 import messageOutputList from './message/outputlist'
 import packageSignedPacket from './package'
@@ -17,6 +18,7 @@ Object.assign(Session.prototype, {
   announce,
   encryptLayered,
   gatherAnnounce,
+  gatherOutputList,
   messageAnnounce,
   messageOutputList,
   packageSignedPacket,
