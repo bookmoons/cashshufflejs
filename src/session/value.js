@@ -1,0 +1,5 @@
+const outputListDelimiter = '&'
+
+export {
+  outputListDelimiter
+}
