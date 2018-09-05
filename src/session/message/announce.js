@@ -5,11 +5,10 @@ const phaseIdentifier = 1 // Phase Announcement
  * @memberof module:cashshuffle/session.Session
  *
  * @prop {protobufjs.Root} protocol - Protocol definition.
- * @prop {string} signingPublicKey - Signing public key as hex string.
+ * @prop {HexString} signingPublicKey - Signing public key.
  * @prop {ArrayBuffer} sessionId - Session identifier.
  * @prop {number} participantNumber - Participant index in pool in join order.
- * @prop {string} encryptionPublicKey - Public key of encryption key pair
- *     as hex string.
+ * @prop {HexString} encryptionPublicKey - Public key of encryption key pair.
  */
 
 /**

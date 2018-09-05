@@ -15,8 +15,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {number} [attempts=<default>] - Maximum attempts. Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {string} signingPublicKey - Participant signing public key
- *     as hex string.
+ * @prop {HexString} signingPublicKey - Participant signing public key.
  * @prop {number} amount - Amount to shuffle in satoshis.
  * @prop {Coin} coin - Bitcoin Cash network interface.
  * @prop {Receiver} receiver - Phase message receiver.
