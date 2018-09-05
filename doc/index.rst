@@ -18,4 +18,5 @@
    client
    interface
    module
+   type
    error
