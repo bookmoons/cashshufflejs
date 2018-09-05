@@ -37,8 +37,8 @@ import { defaultAttempts, defaultTimeout } from '../default'
  *
  * @param {GatherAnnounceParams} params
  *
- * @return {Map<string,object>} Announce messages from all other participants.
- *     Index participant public key as hex string. Value packet as object.
+ * @return {Map<HexString,object>} Announce messages from all other
+ *     participants. Index participant public key. Value packet as object.
  *
  * @throws {ExhaustionError} If attempts are exhausted without success.
  * @throws {InadequateError} If any participant has insufficient funds.
