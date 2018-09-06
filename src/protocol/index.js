@@ -9,6 +9,28 @@
  * @module cashshuffle/protocol
  */
 
+import Enum from 'enum'
+
+/**
+ * Phase enumeration.
+ *
+ * @type {protocol.Phase}
+ * @enum
+ */
+const Phase = new Enum({
+  None: 0,
+  Announcement: 1,
+  Shuffle: 2,
+  Broadcast: 3,
+  EquivocationCheck: 4,
+  Signing: 5,
+  VerificationSubmission: 6,
+  Blame: 7
+}, {
+  name: 'Phase',
+  freez: true
+})
+
 /**
  * Length in characters of message terminator.
  *
@@ -50,6 +72,7 @@ const terminatorBuffer = Buffer.from([ 0xe2, 0x8f, 0x8e ])
 const terminatorBinary = Uint8Array.from([ 0xe2, 0x8f, 0x8e ]).buffer
 
 export {
+  Phase,
   terminatorCharLength,
   terminatorByteLength,
   terminatorString,
