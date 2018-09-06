@@ -1,6 +1,5 @@
+import { Phase } from '../../protocol'
 import { outputListDelimiter } from '../value'
-
-const phaseIdentifier = 2 // Phase Shuffle
 
 /**
  * @typedef {object} MessageOutputListParams
@@ -54,7 +53,7 @@ function messageOutputList ({
     number: participantNumber,
     fromKey: fromKeyObject,
     toKey: toKeyObject,
-    phase: phaseIdentifier,
+    phase: Phase.Shuffle.value,
     message: messageObject
   }
   const packet = protocol.Packet.fromObject(packetObject)

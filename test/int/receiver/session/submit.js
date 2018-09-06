@@ -8,7 +8,7 @@ const participantKey = 'Participant key'
 const participants = [ participantKey ]
 const validPhaseIdentifier1 = 0
 const validPhaseIdentifier2 = 1
-const invalidPhaseIdentifier = 9
+const invalidPhaseIdentifier = -1
 const phaseIdentifiers = [ validPhaseIdentifier1, validPhaseIdentifier2 ]
 
 /** @param {Array} phaseInboxes - Array to store phase inboxes to. */

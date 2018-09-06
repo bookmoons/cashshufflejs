@@ -7,7 +7,7 @@ import Outchan from 'outchan/outchanbin'
 import Outchanbin from 'outchanbin/nodestream'
 import PhaseReceiver from 'receiver/phase'
 import Signing from 'signing/bitcore'
-import { terminatorByteLength, terminatorBuffer } from 'protocol'
+import { Phase, terminatorByteLength, terminatorBuffer } from 'protocol'
 import toArrayBuffer from 'util/toarraybuffer'
 import loadProtocol from 'helper/loadprot'
 import affix from 'session/affix'
@@ -18,7 +18,6 @@ import validateAnnounce from 'session/validate/announce'
 import sign from 'session/sign'
 import announce from 'session/phase/announce'
 
-const phaseIdentifier = 1
 const attempts = 2
 const timeout = 500
 const amount = 5
@@ -51,7 +50,7 @@ let protocol
 const testPacketObject = {
   session: sessionIdView,
   number: participantNumber,
-  phase: phaseIdentifier
+  phase: Phase.Announcement.value
 }
 const testSignedObject = { packet: testPacketObject }
 const testPacketsObject = { packet: [ testSignedObject ] }

@@ -1,4 +1,4 @@
-const phaseIdentifier = 1 // Phase Announcement
+import { Phase } from '../../protocol'
 
 /**
  * @typedef {object} MessageAnnounceParams
@@ -43,7 +43,7 @@ function messageAnnounce ({
     session: sessionIdView,
     number: participantNumber,
     fromKey: fromKeyObject,
-    phase: phaseIdentifier,
+    phase: Phase.Announcement.value,
     message: messageObject
   }
   const packet = protocol.Packet.fromObject(packetObject)

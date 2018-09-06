@@ -1,5 +1,6 @@
 import test from 'ava'
 import toArrayBuffer from 'util/toarraybuffer'
+import { Phase } from 'protocol'
 import loadProtocol from 'helper/loadprot'
 import { outputListDelimiter } from 'session/value'
 import messageOutputList from 'session/message/outputlist'
@@ -13,7 +14,6 @@ const signingPublicKey =
   '03f09e7bbaf09669b1cde3394db0b72c3408ed0826f98d7985a3cecc1486075d3b'
 const nextParticipant =
   '023fd1952670be6e23cd120d3441ef696976a805147a8e034eb779e2d8b22102b9'
-const phaseIdentifier = 2
 const output1 =
   'A/Cee7rwlmmxzeM5TbC3LDQI7Qgm+Y15haPOzBSGB1071Zs6T8FR5uuJCTBrBJnGxqv4' +
   'ii6cXLpkVyrcKsK+epO9J6F9V0qkt1Ic0OR32Be5W2ddGr13HQIFS+RltmeACikqq120' +
@@ -33,7 +33,7 @@ const expectedPacketObject = {
   number: participantNumber,
   fromKey: { key: signingPublicKey },
   toKey: { key: nextParticipant },
-  phase: phaseIdentifier,
+  phase: Phase.Shuffle.value,
   message: { str: outputListEncoded }
 }
 let protocol
