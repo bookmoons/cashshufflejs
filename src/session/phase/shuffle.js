@@ -1,6 +1,5 @@
 import shuffleList from 'crypto-secure-shuffle'
 import Signing from '../../signing/bitcore'
-import { ValueError } from '../../error'
 import { defaultAttempts, defaultTimeout } from '../default'
 import { outputListDelimiter } from '../value'
 
