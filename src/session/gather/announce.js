@@ -41,6 +41,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  *     participants. Index participant public key. Value packet as object.
  *
  * @throws {ExhaustionError} If attempts are exhausted without success.
+ * @throws {TimeoutError} If wait for message times out.
  * @throws {InadequateError} If any participant has insufficient funds.
  */
 async function gatherAnnounce ({

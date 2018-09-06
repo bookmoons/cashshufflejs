@@ -24,6 +24,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @return {object} `protocol.Packet` portion of output list message as object.
  *
  * @throws {ExhaustionError} If attempts are exhausted without success.
+ * @throws {TimeoutError} If wait for message times out.
  */
 async function gatherOutputList ({
   attempts = defaultAttempts,
