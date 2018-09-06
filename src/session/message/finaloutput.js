@@ -35,12 +35,8 @@ function messageFinalOutput ({
   const sessionIdView = new Uint8Array(sessionId)
   const outputListArray = [ ...outputList ]
   const outputListEncoded = outputListArray.join(outputListDelimiter)
-  const messageObject = {
-    str: outputListEncoded
-  }
-  const fromKeyObject = {
-    key: signingPublicKey
-  }
+  const messageObject = { str: outputListEncoded }
+  const fromKeyObject = { key: signingPublicKey }
   const packetObject = {
     session: sessionIdView,
     number: participantNumber,

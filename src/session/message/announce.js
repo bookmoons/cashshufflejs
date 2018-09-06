@@ -28,15 +28,9 @@ function messageAnnounce ({
   encryptionPublicKey
 }) {
   const sessionIdView = new Uint8Array(sessionId)
-  const encryptionKeyObject = {
-    key: encryptionPublicKey
-  }
-  const messageObject = {
-    key: encryptionKeyObject
-  }
-  const fromKeyObject = {
-    key: signingPublicKey
-  }
+  const encryptionKeyObject = { key: encryptionPublicKey }
+  const messageObject = { key: encryptionKeyObject }
+  const fromKeyObject = { key: signingPublicKey }
   const packetObject = {
     session: sessionIdView,
     number: participantNumber,
