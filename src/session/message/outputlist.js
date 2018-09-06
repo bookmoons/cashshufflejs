@@ -36,7 +36,8 @@ function messageOutputList ({
   nextParticipant
 }) {
   const sessionIdView = new Uint8Array(sessionId)
-  const outputListEncoded = outputList.join(outputListDelimiter)
+  const outputListArray = [ ...outputList ]
+  const outputListEncoded = outputListArray.join(outputListDelimiter)
   const messageObject = {
     str: outputListEncoded
   }
