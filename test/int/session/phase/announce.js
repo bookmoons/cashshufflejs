@@ -46,7 +46,6 @@ const validPacket3 = {
   fromKey: { key: participant3 },
   message: { key: { key: testEncryptionKey3 } }
 }
-const invalidPacket = {}
 let protocol
 
 const testPacketObject = {
