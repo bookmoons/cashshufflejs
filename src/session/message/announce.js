@@ -14,8 +14,6 @@ import { Phase } from '../../protocol'
 /**
  * Construct announce message.
  *
- * Phase identifier 1.
- *
  * @memberof module:cashshuffle/session.Session
  *
  * @param {MessageAnnounceParams} params

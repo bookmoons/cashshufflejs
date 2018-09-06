@@ -17,8 +17,6 @@ import { outputListDelimiter } from '../value'
 /**
  * Construct output list message.
  *
- * Phase identifier 2.
- *
  * Output list is encoded in a single string.
  * Items are delimited with ampersand `&`.
  * Encoded value is in the `packet.message.str` field.
