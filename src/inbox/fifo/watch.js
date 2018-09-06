@@ -25,8 +25,10 @@ function watch (timeout = null) {
         priv.timer = null
         priv.watcher = null
         priv.watching = false
-        const message = 'Watch timed out after ' + timeout + ' ms'
-        const error = new TimeoutError(message)
+        const error = new TimeoutError(
+          { info: { timeout } },
+          'watch'
+        )
         reject(error)
       }, timeout)
     }
