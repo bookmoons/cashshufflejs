@@ -6,6 +6,7 @@ import announce from './phase/announce'
 import decryptOutputList from './adjunct/decrypt'
 import encryptLayered from './adjunct/layered'
 import gatherAnnounce from './gather/announce'
+import gatherDigest from './gather/digest'
 import gatherFinalOutput from './gather/finaloutput'
 import gatherOutputList from './gather/outputlist'
 import messageAnnounce from './message/announce'
@@ -27,6 +28,7 @@ Object.assign(Session.prototype, {
   decryptOutputList,
   encryptLayered,
   gatherAnnounce,
+  gatherDigest,
   gatherFinalOutput,
   gatherOutputList,
   messageAnnounce,
