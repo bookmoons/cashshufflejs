@@ -24,6 +24,7 @@
         "@bookmoons/bitcore-message-cash": "^2.0.0",
         "bitcore-lib-cash": "^0.18.1",
         "crypto-secure-shuffle": "^2.0.4",
+        "enum": "^2.5.0",
         "promised-read": "^2.0.1",
         "protobufjs": "~6.8.8",
         "to-arraybuffer": "1",
