@@ -12,6 +12,7 @@ import { ValueError } from 'error'
 import loadProtocol from 'helper/loadprot'
 import { outputListDelimiter } from 'session/value'
 import affix from 'session/affix'
+import decryptOutputList from 'session/adjunct/decrypt'
 import encryptLayered from 'session/adjunct/layered'
 import gatherOutputList from 'session/gather/outputlist'
 import messageOutputList from 'session/message/outputlist'
@@ -121,6 +122,7 @@ const testPacketsObject2 = { packet: [ testSignedObject2 ] }
 function produceSession () {
   const session = {
     affix,
+    decryptOutputList,
     encryptLayered,
     gatherOutputList,
     messageOutputList,

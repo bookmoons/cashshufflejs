@@ -111,28 +111,10 @@ async function shuffle ({
     const encryptedOutputList = encodedOutputList.split(outputListDelimiter)
 
     /* Decrypt output list. */
-    const decryptedOutputList = new Set()
-    for (const encryptedItem of encryptedOutputList) {
-      let decryptedItem
-      try {
-        decryptedItem = await crypto.decrypt(encryptedItem)
-      } catch (e) {
-        // Decryption failure
-        // TODO: Improve specificity of this detection.
-        const info = { encryptedItem }
-        throw new ValueError({ info }, 'decryption failure')
-      }
-      if (decryptedOutputList.has(decryptedItem)) {
-        // Duplicate item
-        const info = {
-          encryptedOutputList,
-          decryptedOutputList,
-          duplicate: decryptedItem
-        }
-        throw new ValueError({ info }, 'output list duplicates')
-      }
-      decryptedOutputList.add(decryptedItem)
-    }
+    const decryptedOutputList = await this.decryptOutputList(
+      encryptedOutputList,
+      crypto
+    )
 
     /* Extend output list. */
     const extendedOutputList = new Set(decryptedOutputList)
