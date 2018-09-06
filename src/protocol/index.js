@@ -32,6 +32,27 @@ const Phase = new Enum({
 })
 
 /**
+ * Blame reason enumeration.
+ *
+ * @type {protocol.Reason}
+ * @enum
+ */
+const Reason = new Enum({
+  InsufficientFunds: 0,
+  DoubleSpend: 1,
+  EquivocationFailure: 2,
+  ShuffleFailure: 3,
+  ShuffleEquivocationFailure: 4,
+  InvalidSignature: 5,
+  MissingOutput: 6,
+  Liar: 7,
+  InvalidFormat: 8
+}, {
+  name: 'Reason',
+  freez: true
+})
+
+/**
  * Length in characters of message terminator.
  *
  * @constant {number}
@@ -73,6 +94,7 @@ const terminatorBinary = Uint8Array.from([ 0xe2, 0x8f, 0x8e ]).buffer
 
 export {
   Phase,
+  Reason,
   terminatorCharLength,
   terminatorByteLength,
   terminatorString,
