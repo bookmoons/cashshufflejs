@@ -9,6 +9,7 @@ import gatherAnnounce from './gather/announce'
 import gatherFinalOutput from './gather/finaloutput'
 import gatherOutputList from './gather/outputlist'
 import messageAnnounce from './message/announce'
+import messageDigest from './message/digest'
 import messageFinalOutput from './message/finaloutput'
 import messageOutputList from './message/outputlist'
 import output from './phase/output'
@@ -28,6 +29,7 @@ Object.assign(Session.prototype, {
   gatherFinalOutput,
   gatherOutputList,
   messageAnnounce,
+  messageDigest,
   messageFinalOutput,
   messageOutputList,
   output,
