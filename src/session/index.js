@@ -17,6 +17,7 @@ import packageSignedPacket from './package'
 import shuffle from './phase/shuffle'
 import sign from './sign'
 import validateAnnounce from './validate/announce'
+import validateDigest from './validate/digest'
 import validateFinalOutput from './validate/finaloutput'
 import validateOutputList from './validate/outputlist'
 
@@ -37,6 +38,7 @@ Object.assign(Session.prototype, {
   shuffle,
   sign,
   validateAnnounce,
+  validateDigest,
   validateFinalOutput,
   validateOutputList
 })
