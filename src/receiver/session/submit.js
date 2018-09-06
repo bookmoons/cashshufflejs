@@ -21,7 +21,10 @@ async function submit (message) {
   if (!priv.phaseIdentifiers.has(phaseIdentifier)) {
     if (priv.discarder) {
       await priv.discarder.submit([
-        new ValueError('Unrecognized phase ID: ' + phaseIdentifier),
+        new ValueError(
+          { info: { phaseIdentifier } },
+          'unrecognized phase id'
+        ),
         message
       ])
     }
