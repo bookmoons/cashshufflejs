@@ -17,7 +17,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {number} amount - Amount to shuffle in satoshis.
  * @prop {Coin} coin - Bitcoin Cash network interface.
  * @prop {Outchan} outchan - Output message channel.
- * @prop {Receiver} receiver - Phase message receiver.
+ * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
  */
 

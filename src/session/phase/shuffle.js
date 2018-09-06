@@ -29,7 +29,7 @@ import { outputListDelimiter } from '../value'
  *     encryption public keys in shuffle order. Empty `Iterable` for none.
  * @prop {Crypto} crypto - Message encryptor. Assumed ready for use.
  * @prop {Outchan} outchan - Output message channel.
- * @prop {Receiver} receiver - Phase message receiver.
+ * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
  */
 
