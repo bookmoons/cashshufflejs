@@ -8,6 +8,7 @@ import encryptLayered from './adjunct/layered'
 import gatherAnnounce from './gather/announce'
 import gatherOutputList from './gather/outputlist'
 import messageAnnounce from './message/announce'
+import messageFinalOutput from './message/finaloutput'
 import messageOutputList from './message/outputlist'
 import packageSignedPacket from './package'
 import shuffle from './phase/shuffle'
@@ -23,6 +24,7 @@ Object.assign(Session.prototype, {
   gatherAnnounce,
   gatherOutputList,
   messageAnnounce,
+  messageFinalOutput,
   messageOutputList,
   packageSignedPacket,
   shuffle,
