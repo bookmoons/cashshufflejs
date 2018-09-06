@@ -16,10 +16,8 @@ import { outputListDelimiter } from '../value'
  * @prop {number} participantNumber - Participant index in pool in join order.
  * @prop {Signing} signingKeyPair - Participant signing key pair.
  *     Assumed ready for use.
- * @prop {boolean} firstParticipant - Whether own client is first
- *     in shuffle order.
- * @prop {boolean} lastParticipant - Whether own client is last
- *     in shuffle order.
+ * @prop {boolean} first - Whether own client is first in shuffle order.
+ * @prop {boolean} last - Whether own client is last in shuffle order.
  * @prop {HexString} priorParticipant - Signing public key of prior
  *     participant. `null` for none.
  * @prop {HexString} nextParticipant - Signing public key of next participant.
@@ -58,8 +56,8 @@ async function shuffle ({
   sessionId,
   participantNumber,
   signingKeyPair,
-  firstParticipant,
-  lastParticipant,
+  first,
+  last,
   priorParticipant,
   nextParticipant,
   encryptionPublicKeys,
@@ -76,7 +74,7 @@ async function shuffle ({
   await outputKeyPair.generateKeyPair()
   const outputAddress = await outputKeyPair.address()
 
-  if (lastParticipant) {
+  if (last) {
     // Last participant does nothing. Handles output list in next phase.
 
     /* Return output key pair. */
@@ -90,7 +88,7 @@ async function shuffle ({
     reversedEncryptionPublicKeys
   )
 
-  if (firstParticipant) {
+  if (first) {
     /* Construct initial output list. */
     outputList.push(encryptedOutputAddress)
   } else { // Inner participant
