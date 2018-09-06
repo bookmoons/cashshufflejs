@@ -117,8 +117,10 @@ async function shuffle ({
     )
 
     /* Extend output list. */
-    const extendedOutputList = new Set(decryptedOutputList)
-    extendedOutputList.add(encryptedOutputAddress)
+    const extendedOutputList = [
+      ...decryptedOutputList,
+      encryptedOutputAddress
+    ]
 
     /* Shuffle output list. */
     const shuffledOutputList = [ ...extendedOutputList ]
