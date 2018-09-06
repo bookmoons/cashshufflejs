@@ -70,7 +70,8 @@ function produceSession () {
 }
 
 function verifyEqualPackets (t, observed, expected) {
-  t.is(typeof observed, typeof expected)
+  t.is(typeof observed, 'object')
+  t.is(typeof expected, 'object')
   t.is(observed.packet.length, expected.packet.length)
   const observedSigned = observed.packet[0]
   const expectedSigned = expected.packet[0]
