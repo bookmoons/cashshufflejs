@@ -41,7 +41,7 @@ import { outputListDelimiter } from '../value'
  */
 
 /**
- * @memberof module:casshusffle/session.Session
+ * @memberof module:cashshuffle/session.Session
  *
  * @param {ShuffleParams} params
  *
