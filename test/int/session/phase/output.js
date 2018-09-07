@@ -205,7 +205,7 @@ test('return nonlast', async t => {
   verifyOutputList(t, outputList)
 })
 
-test('output last', async t => {
+test('output', async t => {
   const session = produceSession()
   const signing = new Signing()
   await signing.restoreKeyPair(signingPrivateKey3)
