@@ -22,6 +22,7 @@
         "@babel/polyfill": "^7.0.0-rc.1",
         "@bookmoons/bitcore-ecies-cash": "^1.0.4",
         "@bookmoons/bitcore-message-cash": "^2.0.0",
+        "arraybuffer-equal": "^1.0.4",
         "bitcore-lib-cash": "^0.18.1",
         "crypto-secure-shuffle": "^2.0.4",
         "enum": "^2.5.0",
