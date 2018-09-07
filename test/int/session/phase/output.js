@@ -2,6 +2,7 @@ import test from 'ava'
 import bitcore from 'bitcore-lib-cash'
 import { readTo } from 'promised-read'
 import { PassThrough } from 'stream'
+import { ValueError } from 'error'
 import Crypto from 'crypto/bitcore'
 import Outchan from 'outchan/outchanbin'
 import Outchanbin from 'outchanbin/nodestream'
@@ -68,6 +69,8 @@ const encryptedOutputListEncoded =
   encryptedOutputList.join(outputListDelimiter)
 const finalOutputList = [ output1, output2, output3 ]
 const finalOutputListEncoded = finalOutputList.join(outputListDelimiter)
+const badOutputList = [ output1, output3 ]
+const badOutputListEncoded = badOutputList.join(outputListDelimiter)
 let protocol
 
 const encryptedOutputListPacket = {
@@ -84,6 +87,13 @@ const finalOutputListPacket = {
   fromKey: { key: signingPublicKey3 },
   phase: Phase.Broadcast.value,
   message: { str: finalOutputListEncoded }
+}
+const badOutputListPacket = {
+  session: sessionId,
+  number: participantNumber,
+  fromKey: { key: signingPublicKey3 },
+  phase: Phase.Broadcast.value,
+  message: { str: badOutputListEncoded }
 }
 
 const testFinalOutputPacket = {
@@ -250,4 +260,41 @@ test('output', async t => {
   t.true(outputListSet.has(output1))
   t.true(outputListSet.has(output2))
   t.true(outputListSet.has(output3))
+})
+
+test('missing output', async t => {
+  const session = produceSession()
+  const signing = new Signing()
+  await signing.restoreKeyPair(signingPrivateKey2)
+  const crypto = new Crypto()
+  await crypto.restoreKeyPair(encryptionPrivateKey2)
+  const outputStream = new PassThrough()
+  const outchanbin = new Outchanbin(outputStream)
+  const outchan = new Outchan(outchanbin, protocol)
+  const receiver = new PhaseReceiver(participants)
+  const inboxes = receiver.participantInboxes
+  const inbox = inboxes.get(signingPublicKey3)
+  inbox.add(badOutputListPacket)
+  const broadcastOutputPromise = session.broadcastOutput({
+    protocol,
+    attempts,
+    timeout,
+    sessionId,
+    participantNumber,
+    signingKeyPair: signing,
+    last: false,
+    priorParticipant: signingPublicKey1,
+    lastParticipant,
+    outputAddress: output2,
+    crypto,
+    outchan,
+    receiver
+  })
+  try {
+    await broadcastOutputPromise
+    t.fail('Incorrect success')
+  } catch (e) {
+    t.true(e instanceof ValueError)
+    t.is(e.message, 'output missing')
+  }
 })
