@@ -4,6 +4,7 @@ import Session from './main'
 import affix from './affix'
 import announce from './phase/announce'
 import broadcastOutput from './phase/output'
+import checkEquivocation from './phase/equiv'
 import decryptOutputList from './adjunct/decrypt'
 import encryptLayered from './adjunct/layered'
 import gatherAnnounce from './gather/announce'
@@ -26,6 +27,7 @@ Object.assign(Session.prototype, {
   affix,
   announce,
   broadcastOutput,
+  checkEquivocation,
   decryptOutputList,
   encryptLayered,
   gatherAnnounce,
