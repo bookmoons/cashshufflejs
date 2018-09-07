@@ -3,6 +3,7 @@
 import Session from './main'
 import affix from './affix'
 import announce from './phase/announce'
+import broadcastOutput from './phase/output'
 import decryptOutputList from './adjunct/decrypt'
 import encryptLayered from './adjunct/layered'
 import gatherAnnounce from './gather/announce'
@@ -13,7 +14,6 @@ import messageAnnounce from './message/announce'
 import messageDigest from './message/digest'
 import messageFinalOutput from './message/finaloutput'
 import messageOutputList from './message/outputlist'
-import output from './phase/output'
 import packageSignedPacket from './package'
 import shuffle from './phase/shuffle'
 import sign from './sign'
@@ -25,6 +25,7 @@ import validateOutputList from './validate/outputlist'
 Object.assign(Session.prototype, {
   affix,
   announce,
+  broadcastOutput,
   decryptOutputList,
   encryptLayered,
   gatherAnnounce,
@@ -35,7 +36,6 @@ Object.assign(Session.prototype, {
   messageDigest,
   messageFinalOutput,
   messageOutputList,
-  output,
   packageSignedPacket,
   shuffle,
   sign,

@@ -48,7 +48,7 @@ import { outputListDelimiter } from '../value'
  * @throws {ValueError} If own output address not in final output list.
  *     Message `'output missing'`.
  */
-async function output ({
+async function broadcastOutput ({
   protocol,
   attempts = defaultAttempts,
   timeout = defaultTimeout,
@@ -156,4 +156,4 @@ async function output ({
   }
 }
 
-export default output
+export default broadcastOutput

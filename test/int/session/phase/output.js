@@ -20,7 +20,7 @@ import packageSignedPacket from 'session/package'
 import validateFinalOutput from 'session/validate/finaloutput'
 import validateOutputList from 'session/validate/outputlist'
 import sign from 'session/sign'
-import output from 'session/phase/output'
+import broadcastOutput from 'session/phase/output'
 
 const attempts = 2
 const timeout = 500
@@ -106,7 +106,7 @@ function produceSession () {
     validateFinalOutput,
     validateOutputList,
     sign,
-    output
+    broadcastOutput
   }
   return session
 }
@@ -156,7 +156,7 @@ test('return last', async t => {
   const inboxes = receiver.participantInboxes
   const inbox = inboxes.get(signingPublicKey2)
   inbox.add(encryptedOutputListPacket)
-  const { outputList } = await session.output({
+  const { outputList } = await session.broadcastOutput({
     protocol,
     attempts,
     timeout,
@@ -187,7 +187,7 @@ test('return nonlast', async t => {
   const inboxes = receiver.participantInboxes
   const inbox = inboxes.get(signingPublicKey3)
   inbox.add(finalOutputListPacket)
-  const { outputList } = await session.output({
+  const { outputList } = await session.broadcastOutput({
     protocol,
     attempts,
     timeout,
@@ -218,7 +218,7 @@ test('output last', async t => {
   const inboxes = receiver.participantInboxes
   const inbox = inboxes.get(signingPublicKey2)
   inbox.add(encryptedOutputListPacket)
-  await session.output({
+  await session.broadcastOutput({
     protocol,
     attempts,
     timeout,
