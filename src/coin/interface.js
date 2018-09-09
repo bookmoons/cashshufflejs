@@ -134,8 +134,8 @@ const participantAddress = [ sessionPublicKey, address ]
 /**
  * Make unsigned transaction.
  *
- * `Map` instances work well for `inputs` and `changes`.
- * `Set` instances work well for `outputs`.
+ * `Map` instances work well for `inputAddresses` and `changeAddresses`.
+ * `Set` instances work well for `outputAddresses`.
  *
  * @method makeUnsignedTransaction
  * @memberof module:cashshuffle/coin~Coin
