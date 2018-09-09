@@ -133,9 +133,8 @@ const participantAddress = [ sessionPublicKey, address ]
  *     The produced transaction will charge this fee to each participant.
  * @param {Iterable<ParticipantAddress>} inputs - Transaction inputs.
  *     1 for each participant.
- * @param {Iterable<string>} outputs - Transaction outputs. Each item is a
- *     Bitcoin Cash address. 1 for each participant. Participant associated
- *     with each output unspecified.
+ * @param {Iterable<CashAddr>} outputs - Transaction outputs. 1 for each
+ *     participant. Participant associated with each output unspecified.
  * @param {Iterable<ParticipantAddress>} changes - Transaction change outputs.
  *     0-1 for each participant.
  *
