@@ -159,6 +159,23 @@ const participantAddress = [ sessionPublicKey, address ]
  */
 
 /**
+ * Produce signatures of all possible transaction inputs.
+ *
+ * Signs all inputs of provided transaction controlled by provided private
+ * key.
+ *
+ * @method signTransactionInputs
+ * @memberof module:cashshuffle/coin~Coin
+ * @instance
+ * @async
+ *
+ * @param {Transaction} transaction - Transaction to sign.
+ * @param {HexString} privateKeyString - Signer private key.
+ *
+ * @return {Iterable<Signature>} Signatures.
+ */
+
+/**
  * Verify address has sufficient funds.
  *
  * @method sufficientFunds
