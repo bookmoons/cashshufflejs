@@ -72,6 +72,21 @@ const participantAddress = [ sessionPublicKey, address ]
  */
 
 /**
+ * Add input signature to transaction.
+ *
+ * @method addTransactionSignature
+ * @memberof module:cashshuffle/coin~Coin
+ * @instance
+ * @async
+ *
+ * @param {Transaction} transaction - Transaction to add signature to.
+ * @param {HexString} publicKeyString - Input public key.
+ * @param {Signature} signature - Input signature.
+ *
+ * @return {Transaction} Transaction with signature added.
+ */
+
+/**
  * Add input signatures to transaction.
  *
  * `Map` instances work well for `signatures`.
