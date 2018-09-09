@@ -131,12 +131,12 @@ const participantAddress = [ sessionPublicKey, address ]
  *     The produced transaction will transfer this amount for each participant.
  * @param {number} fee - Participant fee amount in satoshis.
  *     The produced transaction will charge this fee to each participant.
- * @param {Iterable<ParticipantAddress>} inputs - Transaction inputs.
+ * @param {Iterable<ParticipantAddress>} inputAddresses - Input addresses.
  *     1 for each participant.
- * @param {Iterable<CashAddr>} outputs - Transaction outputs. 1 for each
+ * @param {Iterable<CashAddr>} outputAddresses - Output addresses. 1 for each
  *     participant. Participant associated with each output unspecified.
- * @param {Iterable<ParticipantAddress>} changes - Transaction change outputs.
- *     0-1 for each participant.
+ * @param {Iterable<ParticipantAddress>} changeAddresses - Change output
+ *     addresses. 0-1 for each participant.
  *
  * @return {Transaction} The unsigned transaction.
  */
