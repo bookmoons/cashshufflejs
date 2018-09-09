@@ -19,7 +19,7 @@
  * @memberof module:cashshuffle/coin~Coin
  *
  * @prop {HexString} 1 - Input public key.
- * @prop {HexString} 2 - Input signature.
+ * @prop {Signature} 2 - Input signature.
  *
  * @example
 const inputPublicKey =
@@ -48,6 +48,15 @@ const sessionPublicKey =
   '020db431245713add097421a29ec3089f01587a3808d1043fee5956fc5e08effcd'
 const address = 'bitcoincash:qr975e2q784jnk0pq2rrk9enuywttyhxryfkyuyjq3'
 const participantAddress = [ sessionPublicKey, address ]
+ */
+
+/**
+ * Bitcoin Cash transaction input signature.
+ *
+ * Type and usage details implementation defined.
+ *
+ * @typedef Signature
+ * @memberof module:cashshuffle/coin~Coin
  */
 
 /**
@@ -147,7 +156,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @param {HexString} privateKeyString - Signer private key.
  * @param {HexString} publicKeyString - Input public key.
  *
- * @return {HexString} Signature.
+ * @return {Signature} Signature.
  */
 
 /**
@@ -192,7 +201,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @async
  *
  * @param {Transaction} transaction - Transaction to verify signature for.
- * @param {HexString} signature - Signature to verify.
+ * @param {Signature} signature - Signature to verify.
  * @param {HexString} publicKeyString - Input public key.
  *
  * @return {boolean} Whether the signature is valid. True if for the named
