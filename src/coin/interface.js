@@ -142,11 +142,11 @@ const participantAddress = [ sessionPublicKey, address ]
  */
 
 /**
- * Produce signature of transaction.
+ * Produce signature of transaction input.
  *
  * Signs named input of provided transaction with provided private key.
  *
- * @method signTransaction
+ * @method signTransactionInput
  * @memberof module:cashshuffle/coin~Coin
  * @instance
  * @async
