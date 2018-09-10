@@ -177,7 +177,8 @@ const participantAddress = [ sessionPublicKey, address ]
  * @param {Transaction} transaction - Transaction to sign.
  * @param {HexString} privateKeyString - Signer private key.
  *
- * @return {Iterable<HexString>} Signatures.
+ * @return {Map<number,HexString>} Signatures. Key input index.
+ *     Value signature.
  */
 
 /**
