@@ -67,8 +67,8 @@ message Signature {
 }
 
 message InputSignature {
-    uint64 index = 1;
-    Signature signature = 2;
+    required uint64 index = 1;
+    required Signature signature = 2;
 }
 
 message Transaction {
