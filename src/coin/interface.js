@@ -10,6 +10,17 @@
  */
 
 /**
+ * Input index.
+ *
+ * Input index expressed as a decimal number in a string.
+ * Provides support for full range specified in Bitcoin protocol.
+ * Provides comparison by value enabling use as `Map` keys.
+ *
+ * @typedef {string} InputIndex
+ * @memberof module:cashshuffle/coin~Coin
+ */
+
+/**
  * Input signature pair.
  *
  * Associates an input index to an input signature.
@@ -18,7 +29,7 @@
  * @typedef {Array<HexString>} InputSignature
  * @memberof module:cashshuffle/coin~Coin
  *
- * @prop {long.Long} 1 - Input index.
+ * @prop {InputIndex} 1 - Input index.
  * @prop {Signature} 2 - Input signature.
  *
  * @example
@@ -82,7 +93,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @async
  *
  * @param {Transaction} transaction - Transaction to add signature to.
- * @param {long.Long} inputIndex - Index of input to add signature to.
+ * @param {InputIndex} inputIndex - Index of input to add signature to.
  * @param {Signature} signature - Input signature.
  *
  * @return {Transaction} Transaction with signature added.
@@ -169,7 +180,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @async
  *
  * @param {Transaction} transaction - Transaction to sign.
- * @param {long.Long} inputIndex - Index of input to sign.
+ * @param {InputIndex} inputIndex - Index of input to sign.
  * @param {HexString} privateKeyString - Signer private key.
  *
  * @return {Signature} Signature.
@@ -235,7 +246,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @async
  *
  * @param {Transaction} transaction - Transaction to verify signature for.
- * @param {long.Long} inputIndex - Input of index to verify signature of.
+ * @param {InputIndex} inputIndex - Input of index to verify signature of.
  * @param {Signature} signature - Signature to verify.
  *
  * @return {boolean} Whether the signature is valid. True if for the named

@@ -9,7 +9,7 @@ import toArrayBuffer from '../../util/toarraybuffer'
  * @prop {HexString} signingPublicKey - Signing public key.
  * @prop {ArrayBuffer} sessionId - Session identifier.
  * @prop {number} participantNumber - Participant index in pool in join order.
- * @prop {Iterable<long.Long-Coin~Signature>} signatures - Signatures.
+ * @prop {Iterable<Coin~InputSignature>} signatures - Signatures.
  *     Key input index. Value signature. `Map` instances work well.
  */
 
