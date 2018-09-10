@@ -19,7 +19,7 @@
  * @memberof module:cashshuffle/coin~Coin
  *
  * @prop {number} 1 - Input index.
- * @prop {HexString} 2 - Input signature.
+ * @prop {Signature} 2 - Input signature.
  *
  * @example
 const inputIndex = 4
@@ -50,6 +50,18 @@ const participantAddress = [ sessionPublicKey, address ]
  */
 
 /**
+ * Transaction signature.
+ *
+ * Signature of a [SIGHASH_ALL][1] type transaction hash.
+ * Represented as a hex string.
+ *
+ * [1]: https://bitcoin.org/en/developer-guide#signature-hash-types
+ *
+ * @typedef {HexString} Signature
+ * @memberof module:cashshuffle/coin~Coin
+ */
+
+/**
  * Bitcoin Cash transaction.
  *
  * Used by various methods to construct a multinput multioutput
@@ -71,7 +83,7 @@ const participantAddress = [ sessionPublicKey, address ]
  *
  * @param {Transaction} transaction - Transaction to add signature to.
  * @param {number} inputIndex - Index of input to add signature to.
- * @param {HexString} signature - Input signature.
+ * @param {Signature} signature - Input signature.
  *
  * @return {Transaction} Transaction with signature added.
  */
@@ -160,7 +172,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @param {number} inputIndex - Index of input to sign.
  * @param {HexString} privateKeyString - Signer private key.
  *
- * @return {HexString} Signature.
+ * @return {Signature} Signature.
  */
 
 /**
@@ -177,7 +189,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @param {Transaction} transaction - Transaction to sign.
  * @param {HexString} privateKeyString - Signer private key.
  *
- * @return {Map<number,HexString>} Signatures. Key input index.
+ * @return {Map<number,Signature>} Signatures. Key input index.
  *     Value signature.
  */
 
@@ -224,7 +236,7 @@ const participantAddress = [ sessionPublicKey, address ]
  *
  * @param {Transaction} transaction - Transaction to verify signature for.
  * @param {number} inputIndex - Input of index to verify signature of.
- * @param {HexString} signature - Signature to verify.
+ * @param {Signature} signature - Signature to verify.
  *
  * @return {boolean} Whether the signature is valid. True if for the named
  *     input of provided transaction.
