@@ -19,7 +19,7 @@
  * @memberof module:cashshuffle/coin~Coin
  *
  * @prop {HexString} 1 - Input public key.
- * @prop {Signature} 2 - Input signature.
+ * @prop {HexString} 2 - Input signature.
  *
  * @example
 const inputPublicKey =
@@ -51,15 +51,6 @@ const participantAddress = [ sessionPublicKey, address ]
  */
 
 /**
- * Bitcoin Cash transaction input signature.
- *
- * Type and usage details implementation defined.
- *
- * @typedef Signature
- * @memberof module:cashshuffle/coin~Coin
- */
-
-/**
  * Bitcoin Cash transaction.
  *
  * Used by various methods to construct a multinput multioutput
@@ -81,7 +72,7 @@ const participantAddress = [ sessionPublicKey, address ]
  *
  * @param {Transaction} transaction - Transaction to add signature to.
  * @param {number} inputIndex - Index of input to add signature to.
- * @param {Signature} signature - Input signature.
+ * @param {HexString} signature - Input signature.
  *
  * @return {Transaction} Transaction with signature added.
  */
@@ -170,7 +161,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @param {number} inputIndex - Index of input to sign.
  * @param {HexString} privateKeyString - Signer private key.
  *
- * @return {Signature} Signature.
+ * @return {HexString} Signature.
  */
 
 /**
@@ -187,7 +178,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @param {Transaction} transaction - Transaction to sign.
  * @param {HexString} privateKeyString - Signer private key.
  *
- * @return {Iterable<Signature>} Signatures.
+ * @return {Iterable<HexString>} Signatures.
  */
 
 /**
@@ -233,7 +224,7 @@ const participantAddress = [ sessionPublicKey, address ]
  *
  * @param {Transaction} transaction - Transaction to verify signature for.
  * @param {number} inputIndex - Input of index to verify signature of.
- * @param {Signature} signature - Signature to verify.
+ * @param {HexString} signature - Signature to verify.
  *
  * @return {boolean} Whether the signature is valid. True if for the named
  *     input of provided transaction.
