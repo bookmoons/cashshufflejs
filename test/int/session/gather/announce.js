@@ -8,6 +8,7 @@ import gatherAnnounce from 'session/gather/announce'
 const attempts = 2
 const timeout = 500
 const amount = 5
+const fee = 1
 const participant1 =
   '03a8213dda332b827cf54c49ac9b3ad4566c293b5da40e7eea5e07c77fe0d5b32e'
 const participant2 =
@@ -44,6 +45,7 @@ test('1 attempt', async t => {
     timeout,
     signingPublicKey: participant1,
     amount,
+    fee,
     coin,
     receiver
   })
@@ -73,6 +75,7 @@ test('2 attempts', async t => {
     timeout,
     signingPublicKey: participant1,
     amount,
+    fee,
     coin,
     receiver
   })
@@ -102,6 +105,7 @@ test('timeout', async t => {
     timeout: 0,
     signingPublicKey: participant1,
     amount,
+    fee,
     coin,
     receiver
   })
@@ -128,6 +132,7 @@ test('exhaust', async t => {
     timeout,
     signingPublicKey: participant1,
     amount,
+    fee,
     coin,
     receiver
   })
@@ -161,6 +166,7 @@ test('insufficient funds', async t => {
     timeout,
     signingPublicKey: participant1,
     amount,
+    fee,
     coin,
     receiver
   })

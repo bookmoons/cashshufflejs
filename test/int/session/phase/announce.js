@@ -21,6 +21,7 @@ import announce from 'session/phase/announce'
 const attempts = 2
 const timeout = 500
 const amount = 5
+const fee = 1
 const sessionId = toArrayBuffer(Buffer.from('123'))
 const sessionIdView = new Uint8Array(sessionId)
 const participantNumber = 3
@@ -111,6 +112,7 @@ test('output', async t => {
     participantNumber,
     signingKeyPair: signing,
     amount,
+    fee,
     coin,
     outchan,
     receiver
@@ -147,6 +149,7 @@ test('return', async t => {
     participantNumber,
     signingKeyPair: signing,
     amount,
+    fee,
     coin,
     outchan,
     receiver
@@ -181,6 +184,7 @@ test('encryption key pair', async t => {
     participantNumber,
     signingKeyPair: signing,
     amount,
+    fee,
     coin,
     outchan,
     receiver
@@ -213,6 +217,7 @@ test('fail', async t => {
     participantNumber,
     signingKeyPair: signing,
     amount,
+    fee,
     coin,
     outchan,
     receiver

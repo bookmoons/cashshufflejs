@@ -15,6 +15,8 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {Signing} signingKeyPair - Participant signing key pair.
  *     Assumed ready for use.
  * @prop {number} amount - Amount to shuffle in satoshis.
+ * @prop {number} fee - Participant fee amount in satoshis.
+ *     The produced transaction will charge this fee to each participant.
  * @prop {Coin} coin - Bitcoin Cash network interface.
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
@@ -50,6 +52,7 @@ async function announce ({
   participantNumber,
   signingKeyPair,
   amount,
+  fee,
   coin,
   outchan,
   receiver,
@@ -91,6 +94,7 @@ async function announce ({
     timeout,
     signingPublicKey,
     amount,
+    fee,
     coin,
     receiver,
     discarder

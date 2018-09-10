@@ -17,6 +17,8 @@ import { defaultAttempts, defaultTimeout } from '../default'
  *     in milliseconds.
  * @prop {HexString} signingPublicKey - Participant signing public key.
  * @prop {number} amount - Amount to shuffle in satoshis.
+ * @prop {number} fee - Participant fee amount in satoshis.
+ *     The produced transaction will charge this fee to each participant.
  * @prop {Coin} coin - Bitcoin Cash network interface.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
@@ -49,10 +51,12 @@ async function gatherAnnounce ({
   timeout = defaultTimeout,
   signingPublicKey,
   amount,
+  fee,
   coin,
   receiver,
   discarder = null
 }) {
+  const participantTotal = amount + fee
   const participantInboxes = receiver.participantInboxes
   participantInboxes.delete(signingPublicKey)
   const participantsCount = participantInboxes.size
@@ -79,7 +83,10 @@ async function gatherAnnounce ({
       const publicKey = new bitcore.PublicKey(publicKeyString)
       const address = publicKey.toAddress()
       const addressString = address.toCashAddress()
-      const sufficientFunds = await coin.sufficientFunds(addressString, amount)
+      const sufficientFunds = await coin.sufficientFunds(
+        addressString,
+        participantTotal
+      )
       if (!sufficientFunds) {
         throw new InadequateError(
           { info: { address: addressString, amount } },
