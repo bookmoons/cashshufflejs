@@ -200,7 +200,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @param {Transaction} transaction - Transaction to sign.
  * @param {HexString} privateKeyString - Signer private key.
  *
- * @return {Map<number,Signature>} Signatures. Key input index.
+ * @return {Map<InputIndex,Signature>} Signatures. Key input index.
  *     Value signature.
  */
 
