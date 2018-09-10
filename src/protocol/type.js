@@ -210,6 +210,7 @@
  * @prop {protocol.VerificationKey} [accused=]
  *     Public key of accused participant.
  * @prop {protocol.DecryptionKey} [key=] - Decryption key.
+ * @prop {protocol.Transaction} [transaction=]
  * @prop {protocol.Invalid} [invalid=] - Invalid message.
  * @prop {protocol.Packets} [packets=] - List of signed packets.
  */
