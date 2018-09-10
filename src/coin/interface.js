@@ -232,8 +232,8 @@ const participantAddress = [ sessionPublicKey, address ]
  * @async
  *
  * @param {Transaction} transaction - Transaction to verify signature for.
+ * @param {number} inputIndex - Input of index to verify signature of.
  * @param {Signature} signature - Signature to verify.
- * @param {HexString} publicKeyString - Input public key.
  *
  * @return {boolean} Whether the signature is valid. True if for the named
  *     input of provided transaction.
