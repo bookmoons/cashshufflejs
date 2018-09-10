@@ -167,8 +167,8 @@ const participantAddress = [ sessionPublicKey, address ]
  * @async
  *
  * @param {Transaction} transaction - Transaction to sign.
+ * @param {number} inputIndex - Index of input to sign.
  * @param {HexString} privateKeyString - Signer private key.
- * @param {HexString} publicKeyString - Input public key.
  *
  * @return {Signature} Signature.
  */
