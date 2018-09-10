@@ -34,6 +34,7 @@ message Message {
     string str = 5;
     Blame blame = 6;
     Message next = 7;
+    repeated InputSignature signatures = 8;
 }
 
 message Address {
@@ -63,6 +64,11 @@ message Hash {
 
 message Signature {
     bytes signature = 1;
+}
+
+message InputSignature {
+    uint64 index = 1;
+    Signature signature = 2;
 }
 
 message Transaction {

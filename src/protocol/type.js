@@ -92,6 +92,16 @@
  */
 
 /**
+ * Input signature.
+ *
+ * @typedef InputSignature
+ * @memberof module:cashshuffle/protocol
+ *
+ * @prop {uint64} index - Input index.
+ * @prop {protocol.Signature} signature - Input signature.
+ */
+
+/**
  * Registration request.
  *
  * @typedef Registration
@@ -149,6 +159,7 @@
  * @prop {string} str
  * @prop {protocol.Blame} blame - Blame details.
  * @prop {protocol.Message} next
+ * @prop {Array<protocol.InputSignature>} signatures - Input signatures.
  */
 
 /**
