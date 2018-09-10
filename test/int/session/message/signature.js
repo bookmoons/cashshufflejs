@@ -12,9 +12,12 @@ const sessionIdView = new Uint8Array(sessionId)
 const participantNumber = 4
 const signingPublicKey =
   '03f09e7bbaf09669b1cde3394db0b72c3408ed0826f98d7985a3cecc1486075d3b'
-const index1 = Long.fromInt(0, true)
-const index2 = Long.fromInt(1, true)
-const index3 = Long.fromInt(2, true)
+const index1 = '0'
+const index1Encoded = Long.fromString(index1, true, 10)
+const index2 = '1'
+const index2Encoded = Long.fromString(index2, true, 10)
+const index3 = '2'
+const index3Encoded = Long.fromString(index3, true, 10)
 const signature1Buffer = Buffer.from('5678', 'hex')
 const signature1 = toArrayBuffer(signature1Buffer)
 const signature1View = new Uint8Array(signature1)
@@ -30,9 +33,9 @@ const signatures = new Map([
   [ index3, signature3 ]
 ])
 const expectedSignaturesObject = [
-  { index: index1, signature: { signature: signature1View } },
-  { index: index2, signature: { signature: signature2View } },
-  { index: index3, signature: { signature: signature3View } }
+  { index: index1Encoded, signature: { signature: signature1View } },
+  { index: index2Encoded, signature: { signature: signature2View } },
+  { index: index3Encoded, signature: { signature: signature3View } }
 ]
 const expectedPacketObject = {
   session: sessionIdView,

@@ -1,3 +1,4 @@
+import Long from 'long'
 import { Phase } from '../../protocol'
 import toArrayBuffer from '../../util/toarraybuffer'
 
@@ -33,7 +34,8 @@ function messageSignature ({
 }) {
   const sessionIdView = new Uint8Array(sessionId)
   const inputSignatureObjects = []
-  for (const [ inputIndex, signature ] of signatures) {
+  for (const [ inputIndexString, signature ] of signatures) {
+    const inputIndex = Long.fromString(inputIndexString, true, 10)
     const signatureBuffer = Buffer.from(signature, 'hex')
     const signatureBinary = toArrayBuffer(signatureBuffer)
     const signatureView = new Uint8Array(signatureBinary)
