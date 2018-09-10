@@ -12,23 +12,22 @@
 /**
  * Input signature pair.
  *
- * Associates an input public key to an input signature.
+ * Associates an input index to an input signature.
  * 2 element array.
  *
  * @typedef {Array<HexString>} InputSignature
  * @memberof module:cashshuffle/coin~Coin
  *
- * @prop {HexString} 1 - Input public key.
+ * @prop {number} 1 - Input index.
  * @prop {HexString} 2 - Input signature.
  *
  * @example
-const inputPublicKey =
-  '034115e5452127bb9409f727539fa054281dd2bb6909725886aa5d90628d42fd1e'
+const inputIndex = 4
 const signature =
   '3044022020ea35009d17d25b8a926675ddf0045c397d3df55b0ae115ef80db7849' +
   '529b9302201f13bd2cbd1ca0a24e2c5ab28030aa9b7b3dcacf175652dad82fe9d5' +
   '973f340901'
-const inputSignature = [ inputPublicKey, signature ]
+const inputSignature = [ inputIndex, signature ]
  */
 
 /**
