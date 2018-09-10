@@ -49,7 +49,7 @@
  * @typedef Invalid
  * @memberof module:cashshuffle/protocol
  *
- * @prop {bytes} invalid - Bytes of message.
+ * @prop {bytes} [invalid=] - Bytes of message.
  */
 
 /**
@@ -58,7 +58,7 @@
  * @typedef Address
  * @memberof module:cashshuffle/protocol
  *
- * @prop {CashAddr} address - Bitcoin Cash address.
+ * @prop {CashAddr} [address=] - Bitcoin Cash address.
  */
 
 /**
@@ -67,8 +67,8 @@
  * @typedef DecryptionKey
  * @memberof module:cashshuffle/protocol
  *
- * @prop {string} key - Decryption key as string.
- * @prop {string} public
+ * @prop {string} [key=] - Decryption key as string.
+ * @prop {string} [public=]
  */
 
 /**
@@ -77,7 +77,7 @@
  * @typedef EncryptionKey
  * @memberof module:cashshuffle/protocol
  *
- * @prop {string} key - Encryption key as string.
+ * @prop {string} [key=] - Encryption key as string.
  */
 
 /**
@@ -88,7 +88,7 @@
  * @typedef Hash
  * @memberof module:cashshuffle/protocol
  *
- * @prop {bytes} hash - Hash as byte string.
+ * @prop {bytes} [hash=] - Hash as byte string.
  */
 
 /**
@@ -107,7 +107,7 @@
  * @typedef Registration
  * @memberof module:cashshuffle/protocol
  *
- * @prop {uint64} amount - Amount of Bitcoin Cash to shuffle.
+ * @prop {uint64} [amount=] - Amount of Bitcoin Cash to shuffle.
  */
 
 /**
@@ -118,7 +118,7 @@
  * @typedef Signature
  * @memberof module:cashshuffle/protocol
  *
- * @prop {bytes} signature - Signature as byte string.
+ * @prop {bytes} [signature=] - Signature as byte string.
  */
 
 /**
@@ -127,7 +127,7 @@
  * @typedef Transaction
  * @memberof module:cashshuffle/protocol
  *
- * @prop {bytes} transaction - Bitcoin Cash transaction as byte string.
+ * @prop {bytes} [transaction=] - Bitcoin Cash transaction as byte string.
  */
 
 /**
@@ -139,7 +139,7 @@
 * @typedef VerificationKey
 * @memberof module:cashshuffle/protocol
 *
-* @prop {string} key - Verification key as string.
+* @prop {string} [key=] - Verification key as string.
 */
 
 /**
@@ -148,18 +148,18 @@
  * @typedef Message
  * @memberof module:cashshuffle/protocol
  *
- * @prop {protocol.Address} address
+ * @prop {protocol.Address} [address=]
  *     Bitcoin Cash address.
- * @prop {protocol.EncryptionKey} key
+ * @prop {protocol.EncryptionKey} [key=]
  *     Encryption key.
- * @prop {protocol.Hash} hash
+ * @prop {protocol.Hash} [hash=]
  *     Message hash.
- * @prop {protocol.Signature} signature
+ * @prop {protocol.Signature} [signature=]
  *     Message signature.
- * @prop {string} str
- * @prop {protocol.Blame} blame - Blame details.
- * @prop {protocol.Message} next
- * @prop {Array<protocol.InputSignature>} signatures - Input signatures.
+ * @prop {string} [str=]
+ * @prop {protocol.Blame} [blame=] - Blame details.
+ * @prop {protocol.Message} [next=]
+ * @prop {Array<protocol.InputSignature>} [signatures=] - Input signatures.
  */
 
 /**
@@ -170,13 +170,13 @@
  * @typedef Packet
  * @memberof module:cashshuffle/protocol
  *
- * @prop {bytes} session - Session number.
- * @prop {uint32} number
- * @prop {protocol.VerificationKey} from_key - Sender public key.
- * @prop {protocol.VerificationKey} to_key - Recipient public key.
- * @prop {protocol.Phase} phase - Protocol phase.
- * @prop {protocol.Message} message - Core message.
- * @prop {protocol.Registration} registration - Registration request.
+ * @prop {bytes} [session=] - Session number.
+ * @prop {uint32} [number=]
+ * @prop {protocol.VerificationKey} [from_key=] - Sender public key.
+ * @prop {protocol.VerificationKey} [to_key=] - Recipient public key.
+ * @prop {protocol.Phase} [phase=] - Protocol phase.
+ * @prop {protocol.Message} [message=] - Core message.
+ * @prop {protocol.Registration} [registration=] - Registration request.
  */
 
 /**
@@ -187,8 +187,8 @@
  * @typedef Signed
  * @memberof module:cashshuffle/protocol
  *
- * @prop {protocol.Packet} packet - Packaged message.
- * @prop {protocol.Signature} signature - Packet signature.
+ * @prop {protocol.Packet} [packet=] - Packaged message.
+ * @prop {protocol.Signature} [signature=] - Packet signature.
  */
 
 /**
@@ -197,7 +197,7 @@
  * @typedef Packets
  * @memberof module:cashshuffle/protocol
  *
- * @prop {Array<protocol.Signed>} packet - Signed packets.
+ * @prop {Array<protocol.Signed>} [packet=] - Signed packets.
  */
 
 /**
@@ -206,10 +206,10 @@
  * @typedef Blame
  * @memberof module:cashshuffle/protocol
  *
- * @prop {protocol.Reason} reason - Blame reason.
- * @prop {protocol.VerificationKey} accused
+ * @prop {protocol.Reason} [reason=] - Blame reason.
+ * @prop {protocol.VerificationKey} [accused=]
  *     Public key of accused participant.
- * @prop {protocol.DecryptionKey} key - Decryption key.
- * @prop {protocol.Invalid} invalid - Invalid message.
- * @prop {protocol.Packets} packets - List of signed packets.
+ * @prop {protocol.DecryptionKey} [key=] - Decryption key.
+ * @prop {protocol.Invalid} [invalid=] - Invalid message.
+ * @prop {protocol.Packets} [packets=] - List of signed packets.
  */
