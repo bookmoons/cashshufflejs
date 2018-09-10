@@ -10,7 +10,7 @@ import toArrayBuffer from '../../util/toarraybuffer'
  * @prop {ArrayBuffer} sessionId - Session identifier.
  * @prop {number} participantNumber - Participant index in pool in join order.
  * @prop {Iterable<Coin~InputSignature>} signatures - Signatures.
- *     Key input index. Value signature. `Map` instances work well.
+ *     `Map` instances work well. Key input index. Value signature.
  */
 
 /**
