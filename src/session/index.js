@@ -23,6 +23,7 @@ import validateAnnounce from './validate/announce'
 import validateDigest from './validate/digest'
 import validateFinalOutput from './validate/finaloutput'
 import validateOutputList from './validate/outputlist'
+import validateSignature from './validate/signature'
 
 Object.assign(Session.prototype, {
   affix,
@@ -46,7 +47,8 @@ Object.assign(Session.prototype, {
   validateAnnounce,
   validateDigest,
   validateFinalOutput,
-  validateOutputList
+  validateOutputList,
+  validateSignature
 })
 
 export default Session
