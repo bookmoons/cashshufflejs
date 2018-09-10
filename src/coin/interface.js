@@ -80,7 +80,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @async
  *
  * @param {Transaction} transaction - Transaction to add signature to.
- * @param {HexString} publicKeyString - Input public key.
+ * @param {number} inputIndex - Index of input to add signature to.
  * @param {Signature} signature - Input signature.
  *
  * @return {Transaction} Transaction with signature added.
