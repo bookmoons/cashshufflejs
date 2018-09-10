@@ -11,6 +11,7 @@ import gatherAnnounce from './gather/announce'
 import gatherDigest from './gather/digest'
 import gatherFinalOutput from './gather/finaloutput'
 import gatherOutputList from './gather/outputlist'
+import gatherSignature from './gather/signature'
 import messageAnnounce from './message/announce'
 import messageDigest from './message/digest'
 import messageFinalOutput from './message/finaloutput'
@@ -36,6 +37,7 @@ Object.assign(Session.prototype, {
   gatherDigest,
   gatherFinalOutput,
   gatherOutputList,
+  gatherSignature,
   messageAnnounce,
   messageDigest,
   messageFinalOutput,
