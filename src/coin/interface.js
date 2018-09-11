@@ -124,6 +124,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @async
  *
  * @param {HexString} publicKeyString - Public key.
+ * @param {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
  *
  * @return {CashAddr} P2PKH address for the public key.
  */
