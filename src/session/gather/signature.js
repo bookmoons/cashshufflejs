@@ -29,7 +29,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @throws {ExhaustionError} If attempts are exhausted without success.
  * @throws {TimeoutError} If wait for message times out.
  */
-async function gatherDigest ({
+async function gatherSignature ({
   attempts = defaultAttempts,
   timeout = defaultTimeout,
   signingPublicKey,
@@ -73,4 +73,4 @@ async function gatherDigest ({
   )
 }
 
-export default gatherDigest
+export default gatherSignature
