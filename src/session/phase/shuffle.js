@@ -1,6 +1,6 @@
 import shuffleList from 'crypto-secure-shuffle'
 import Signing from '../../signing/bitcore'
-import { defaultAttempts, defaultTimeout } from '../default'
+import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 import { outputListDelimiter } from '../value'
 
 /**
@@ -28,6 +28,8 @@ import { outputListDelimiter } from '../value'
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
+ * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network
+ *     to generate output key pair for.
  */
 
 /**
@@ -64,14 +66,15 @@ async function shuffle ({
   crypto,
   outchan,
   receiver,
-  discarder = null
+  discarder = null,
+  network = defaultNetwork
 }) {
   const outputList = []
   const reversedEncryptionPublicKeys = [ ...encryptionPublicKeys ].reverse()
 
   /* Generate output key pair. */
   const outputKeyPair = new Signing()
-  await outputKeyPair.generateKeyPair()
+  await outputKeyPair.generateKeyPair(network)
   const outputAddress = await outputKeyPair.address()
 
   if (last) {
@@ -85,7 +88,8 @@ async function shuffle ({
   const encryptedOutputAddress = await this.encryptLayered(
     crypto,
     outputAddress,
-    reversedEncryptionPublicKeys
+    reversedEncryptionPublicKeys,
+    network
   )
 
   if (first) {

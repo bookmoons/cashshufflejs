@@ -1,6 +1,6 @@
 import bitcore from 'bitcore-lib-cash'
 import { InadequateError, ValueError } from '../../error'
-import { defaultAttempts, defaultTimeout } from '../default'
+import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
  * @typedef {object} SubmitParams
@@ -27,6 +27,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
+ * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
  */
 
 /**
@@ -65,7 +66,8 @@ async function submit ({
   coin,
   outchan,
   receiver,
-  discarder = null
+  discarder = null,
+  network = defaultNetwork
 }) {
   /* Construct unsigned transaction. */
   const transaction = await coin.makeUnsignedTransaction(
@@ -177,8 +179,8 @@ async function submit ({
   participantInboxes.delete(signingPublicKey)
   const publicKeyStrings = [ ...participantInboxes.keys() ]
   for (const publicKeyString of publicKeyStrings) {
-    const publicKey = new bitcore.PublicKey(publicKeyString)
-    const address = publicKey.toAddress()
+    const publicKey = new bitcore.PublicKey(publicKeyString, { network })
+    const address = publicKey.toAddress(network)
     const addressString = address.toCashAddress()
     const sufficientFunds = await coin.sufficientFunds(
       addressString,

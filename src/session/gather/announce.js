@@ -6,7 +6,7 @@ import {
   ValueError
 } from '../../error'
 import Fetcher from 'fetcher/each'
-import { defaultAttempts, defaultTimeout } from '../default'
+import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
  * @typedef {object} GatherAnnounceParams
@@ -22,6 +22,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {Coin} coin - Bitcoin Cash network interface.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
+ * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
  */
 
 /**
@@ -54,7 +55,8 @@ async function gatherAnnounce ({
   fee,
   coin,
   receiver,
-  discarder = null
+  discarder = null,
+  network = defaultNetwork
 }) {
   const participantTotal = amount + fee
   const participantInboxes = receiver.participantInboxes
@@ -80,8 +82,8 @@ async function gatherAnnounce ({
         } else throw e
       }
       const publicKeyString = publicKeys[i]
-      const publicKey = new bitcore.PublicKey(publicKeyString)
-      const address = publicKey.toAddress()
+      const publicKey = new bitcore.PublicKey(publicKeyString, { network })
+      const address = publicKey.toAddress(network)
       const addressString = address.toCashAddress()
       const sufficientFunds = await coin.sufficientFunds(
         addressString,

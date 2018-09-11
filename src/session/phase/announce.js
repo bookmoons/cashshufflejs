@@ -1,5 +1,5 @@
 import Crypto from '../../crypto/bitcore'
-import { defaultAttempts, defaultTimeout } from '../default'
+import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
  * @typedef {object} AnnounceParams
@@ -21,6 +21,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
+ * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
  */
 
 /**
@@ -56,11 +57,12 @@ async function announce ({
   coin,
   outchan,
   receiver,
-  discarder = null
+  discarder = null,
+  network = defaultNetwork
 }) {
   /* Generate encryption key pair. */
   const encryptionKeyPair = new Crypto()
-  await encryptionKeyPair.generateKeyPair()
+  await encryptionKeyPair.generateKeyPair(network)
 
   /* Broadcast encryption public key. */
   const signingPublicKey = await signingKeyPair.exportPublicKey()
@@ -97,7 +99,8 @@ async function announce ({
     fee,
     coin,
     receiver,
-    discarder
+    discarder,
+    network
   })
 
   /* Return encryption keys. */
