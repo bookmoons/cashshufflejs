@@ -17,6 +17,7 @@ import messageDigest from './message/digest'
 import messageFinalOutput from './message/finaloutput'
 import messageOutputList from './message/outputlist'
 import messageSignature from './message/signature'
+import orderParticipants from './order'
 import packageSignedPacket from './package'
 import shuffle from './phase/shuffle'
 import sign from './sign'
@@ -44,6 +45,7 @@ Object.assign(Session.prototype, {
   messageFinalOutput,
   messageOutputList,
   messageSignature,
+  orderParticipants,
   packageSignedPacket,
   shuffle,
   sign,
