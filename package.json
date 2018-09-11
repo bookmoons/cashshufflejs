@@ -19,7 +19,7 @@
         "test": "test"
     },
     "dependencies": {
-        "@babel/polyfill": "^7.0.0-rc.1",
+        "@babel/polyfill": "^7.0.0",
         "@bookmoons/bitcore-ecies-cash": "^1.0.4",
         "@bookmoons/bitcore-message-cash": "^2.0.0",
         "arraybuffer-equal": "^1.0.4",
@@ -33,9 +33,9 @@
         "verror": "1"
     },
     "devDependencies": {
-        "@babel/core": "^7.0.0-rc.1",
-        "@babel/preset-env": "^7.0.0-rc.1",
-        "@babel/register": "^7.0.0-rc.1",
+        "@babel/core": "^7.0.0",
+        "@babel/preset-env": "^7.0.0",
+        "@babel/register": "^7.0.0",
         "array-buffer-to-hex": "1",
         "ava": "1.0.0-beta.7",
         "cross-env": "^5.2.0",
