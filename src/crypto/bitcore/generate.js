@@ -6,7 +6,7 @@ const mainnet = bitcore.Networks.mainnet
 async function generateKeyPair (network = mainnet) {
   const priv = privs.get(this)
   const privateKey = new bitcore.PrivateKey(null, network)
-  const publicKey = new bitcore.PublicKey(privateKey)
+  const publicKey = new bitcore.PublicKey(privateKey, { network })
   const keyPair = {
     privateKey,
     publicKey
