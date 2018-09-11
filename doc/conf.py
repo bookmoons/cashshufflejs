@@ -39,6 +39,7 @@ release = ''
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.githubpages',
     'sphinx_js'
 ]
 
