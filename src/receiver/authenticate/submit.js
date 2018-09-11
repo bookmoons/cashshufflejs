@@ -66,7 +66,7 @@ async function submit (message) {
     senderPublicKeyString,
     { network: priv.network }
   )
-  const senderAddress = senderPublicKey.toAddress(network)
+  const senderAddress = senderPublicKey.toAddress(priv.network)
   // Normalize to buffer. protobufjs can return Uint8Array Buffer Array.
   const signatureBuffer = Buffer.from(signatureValue)
   const signatureString = signatureBuffer.toString('utf8')
