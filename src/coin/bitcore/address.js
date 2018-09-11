@@ -1,7 +1,9 @@
 import bitcore from 'bitcore-lib-cash'
 
-async function address (publicKeyString) {
-  const publicKey = new bitcore.PublicKey(publicKeyString)
+const mainnet = bitcore.Networks.mainnet
+
+async function address (publicKeyString, network = mainnet) {
+  const publicKey = new bitcore.PublicKey(publicKeyString, { network })
   const address = publicKey.toAddress()
   const addressString = address.toCashAddress()
   return addressString
