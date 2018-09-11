@@ -1,0 +1,552 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Coin &mdash; cashshufflejs  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Crypto" href="crypto.html" />
+    <link rel="prev" title="Interface" href="../interface.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cashshufflejs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../protocol.html">Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client.html">Client</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../interface.html">Interface</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Coin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crypto.html">Crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawer.html">Drawer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fetcher.html">Fetcher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inbox.html">Inbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inchan.html">Inchan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inchanbin.html">Inchanbin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logchan.html">Logchan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outchan.html">Outchan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outchanbin.html">Outchanbin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receiver.html">Receiver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signing.html">Signing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../module.html">Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../type.html">Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../error.html">Error</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cashshufflejs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../interface.html">Interface</a> &raquo;</li>
+        
+      <li>Coin</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/interface/coin.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="coin">
+<h1>Coin<a class="headerlink" href="#coin" title="Permalink to this headline">¶</a></h1>
+<dl class="interface">
+<dt id="coin.Coin">
+<em class="property">interface </em><code class="descclassname">coin.</code><code class="descname">Coin</code><a class="headerlink" href="#coin.Coin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bitcoin Cash network operations.</p>
+<dl class="function">
+<dt id="coin.Coin.InputIndex">
+<code class="descclassname">coin.Coin.</code><code class="descname">InputIndex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.InputIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input index.</p>
+<p>Input index expressed as a decimal number in a string. Provides support
+for full range specified in Bitcoin protocol. Provides comparison by
+value enabling use as <code class="docutils literal notranslate"><span class="pre">Map</span></code> keys.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="coin.Coin.InputSignature">
+<code class="descclassname">coin.Coin.</code><code class="descname">InputSignature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.InputSignature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input signature pair.</p>
+<p>Associates an input index to an input signature. 2 element array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>1</strong> (<em>InputIndex</em>) – Input index.</li>
+<li><strong>2</strong> (<em>Signature</em>) – Input signature.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">inputIndex</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="kr">const</span> <span class="nx">signature</span> <span class="o">=</span>
+  <span class="s1">&#39;3044022020ea35009d17d25b8a926675ddf0045c397d3df55b0ae115ef80db7849&#39;</span> <span class="o">+</span>
+  <span class="s1">&#39;529b9302201f13bd2cbd1ca0a24e2c5ab28030aa9b7b3dcacf175652dad82fe9d5&#39;</span> <span class="o">+</span>
+  <span class="s1">&#39;973f340901&#39;</span>
+<span class="kr">const</span> <span class="nx">inputSignature</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">inputIndex</span><span class="p">,</span> <span class="nx">signature</span> <span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="coin.Coin.ParticipantAddress">
+<code class="descclassname">coin.Coin.</code><code class="descname">ParticipantAddress</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.ParticipantAddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Participant address pair.</p>
+<p>Associates a Bitcoin Cash address to a named participant. 2 element
+array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>1</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Participant session public key.</li>
+<li><strong>2</strong> (<a class="reference internal" href="../type.html#CashAddr" title="CashAddr"><em>CashAddr</em></a>) – Bitcoin Cash address.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">sessionPublicKey</span> <span class="o">=</span>
+  <span class="s1">&#39;020db431245713add097421a29ec3089f01587a3808d1043fee5956fc5e08effcd&#39;</span>
+<span class="kr">const</span> <span class="nx">address</span> <span class="o">=</span> <span class="s1">&#39;bitcoincash:qr975e2q784jnk0pq2rrk9enuywttyhxryfkyuyjq3&#39;</span>
+<span class="kr">const</span> <span class="nx">participantAddress</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">sessionPublicKey</span><span class="p">,</span> <span class="nx">address</span> <span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="coin.Coin.Signature">
+<code class="descclassname">coin.Coin.</code><code class="descname">Signature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.Signature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transaction signature.</p>
+<p>Signature of a
+<a class="reference external" href="https://bitcoin.org/en/developer-guide#signature-hash-types">SIGHASH_ALL</a>
+type transaction hash. Represented as a hex string.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="coin.Coin.Transaction">
+<code class="descclassname">coin.Coin.</code><code class="descname">Transaction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.Transaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bitcoin Cash transaction.</p>
+<p>Used by various methods to construct a multinput multioutput
+multisignature transaction over several calls.</p>
+<p>Type and usage details implementation defined.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="coin.Coin.addTransactionSignature">
+<code class="descclassname">coin.Coin.</code><code class="descname">addTransactionSignature</code><span class="sig-paren">(</span><em>transaction</em>, <em>inputIndex</em>, <em>signature</em><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.addTransactionSignature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add input signature to transaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>transaction</strong> (<em>Transaction</em>) – Transaction to add signature to.</li>
+<li><strong>inputIndex</strong> (<em>InputIndex</em>) – Index of input to add signature to.</li>
+<li><strong>signature</strong> (<em>Signature</em>) – Input signature.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>Transaction</strong> – Transaction with signature added.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="coin.Coin.addTransactionSignatures">
+<code class="descclassname">coin.Coin.</code><code class="descname">addTransactionSignatures</code><span class="sig-paren">(</span><em>transaction</em>, <em>signatures</em><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.addTransactionSignatures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add input signatures to transaction.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Map</span></code> instances work well for <code class="docutils literal notranslate"><span class="pre">signatures</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>transaction</strong> (<em>Transaction</em>) – Transaction to add signatures to.</li>
+<li><strong>signatures</strong> (<em>Iterable.&lt;InputSignature&gt;</em>) – Signatures to add.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>Transaction</strong> – Transaction with signatures added.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="coin.Coin.address">
+<code class="descclassname">coin.Coin.</code><code class="descname">address</code><span class="sig-paren">(</span><em>publicKeyString</em><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get P2PKH address for public key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>publicKeyString</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Public key.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>CashAddr</strong> – P2PKH address for the public key.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="coin.Coin.broadcastTransaction">
+<code class="descclassname">coin.Coin.</code><code class="descname">broadcastTransaction</code><span class="sig-paren">(</span><em>transaction</em><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.broadcastTransaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Broadcast transaction.</p>
+<p>Submits transaction to Bitcoin Cash network.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>transaction</strong> (<em>Transaction</em>) – Transaction to broadcast.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><p class="first"><a class="reference internal" href="../error.html#BusyError" title="BusyError"><strong>BusyError</strong></a> – If any other network operation is running.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Throws:</th><td class="field-body"><p class="first last">If transaction submission fails.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="coin.Coin.makeUnsignedTransaction">
+<code class="descclassname">coin.Coin.</code><code class="descname">makeUnsignedTransaction</code><span class="sig-paren">(</span><em>amount</em>, <em>fee</em>, <em>inputAddresses</em>, <em>outputAddresses</em>, <em>changeAddresses</em><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.makeUnsignedTransaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make unsigned transaction.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Map</span></code> instances work well for <code class="docutils literal notranslate"><span class="pre">inputAddresses</span></code> and
+<code class="docutils literal notranslate"><span class="pre">changeAddresses</span></code>. <code class="docutils literal notranslate"><span class="pre">Set</span></code> instances work well for
+<code class="docutils literal notranslate"><span class="pre">outputAddresses</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>amount</strong> (<em>number</em>) – Participant transaction amount in satoshis. The produced transaction will transfer this amount for each participant.</li>
+<li><strong>fee</strong> (<em>number</em>) – Participant fee amount in satoshis. The produced transaction will charge this fee to each participant.</li>
+<li><strong>inputAddresses</strong> (<em>Iterable.&lt;ParticipantAddress&gt;</em>) – Input addresses. 1 for each participant.</li>
+<li><strong>outputAddresses</strong> (<em>Iterable.&lt;CashAddr&gt;</em>) – Output addresses. 1 for each participant. Participant associated with each output unspecified.</li>
+<li><strong>changeAddresses</strong> (<em>Iterable.&lt;ParticipantAddress&gt;</em>) – Change output addresses. 0-1 for each participant.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>Transaction</strong> – The unsigned transaction.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="coin.Coin.signTransactionInput">
+<code class="descclassname">coin.Coin.</code><code class="descname">signTransactionInput</code><span class="sig-paren">(</span><em>transaction</em>, <em>inputIndex</em>, <em>privateKeyString</em><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.signTransactionInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce signature of transaction input.</p>
+<p>Signs named input of provided transaction with provided private key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>transaction</strong> (<em>Transaction</em>) – Transaction to sign.</li>
+<li><strong>inputIndex</strong> (<em>InputIndex</em>) – Index of input to sign.</li>
+<li><strong>privateKeyString</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signer private key.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>Signature</strong> – Signature.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="coin.Coin.signTransactionInputs">
+<code class="descclassname">coin.Coin.</code><code class="descname">signTransactionInputs</code><span class="sig-paren">(</span><em>transaction</em>, <em>privateKeyString</em><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.signTransactionInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce signatures of all possible transaction inputs.</p>
+<p>Signs all inputs of provided transaction controlled by provided private
+key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>transaction</strong> (<em>Transaction</em>) – Transaction to sign.</li>
+<li><strong>privateKeyString</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signer private key.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>Map.&lt;InputIndex, Signature&gt;</strong> – Signatures. Key input index. Value signature.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="coin.Coin.sufficientFunds">
+<code class="descclassname">coin.Coin.</code><code class="descname">sufficientFunds</code><span class="sig-paren">(</span><em>address</em>, <em>amount</em><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.sufficientFunds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify address has sufficient funds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>address</strong> (<a class="reference internal" href="../type.html#CashAddr" title="CashAddr"><em>CashAddr</em></a>) – Bitcoin Cash address to check.</li>
+<li><strong>amount</strong> (<em>number</em>) – Required amount in satoshis.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><p class="first"><a class="reference internal" href="../error.html#BusyError" title="BusyError"><strong>BusyError</strong></a> – If any other network operation is running.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>boolean</strong> – Whether address has sufficient funds. True if address has the given amount or more.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="coin.Coin.verifySignature">
+<code class="descclassname">coin.Coin.</code><code class="descname">verifySignature</code><span class="sig-paren">(</span><em>signature</em>, <em>message</em>, <em>publicKeyString</em><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.verifySignature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify message signature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>signature</strong> (<a class="reference internal" href="../type.html#Base64" title="Base64"><em>Base64</em></a>) – Message signature.</li>
+<li><strong>message</strong> (<em>string</em>) – Plaintext message.</li>
+<li><strong>publicKeyString</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signer public key.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>boolean</strong> – Whether the signature is valid. True if from the named signer and for the given message.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="coin.Coin.verifyTransactionSignature">
+<code class="descclassname">coin.Coin.</code><code class="descname">verifyTransactionSignature</code><span class="sig-paren">(</span><em>transaction</em>, <em>inputIndex</em>, <em>signature</em><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.verifyTransactionSignature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify transaction input signature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>transaction</strong> (<em>Transaction</em>) – Transaction to verify signature for.</li>
+<li><strong>inputIndex</strong> (<em>InputIndex</em>) – Input of index to verify signature of.</li>
+<li><strong>signature</strong> (<em>Signature</em>) – Signature to verify.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>boolean</strong> – Whether the signature is valid. True if for the named input of provided transaction.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="crypto.html" class="btn btn-neutral float-right" title="Crypto" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../interface.html" class="btn btn-neutral" title="Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

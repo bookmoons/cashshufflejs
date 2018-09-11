@@ -19,10 +19,28 @@ BusyError
 .. autoclass:: BusyError
    :members:
 
+EmptyError
+----------
+
+.. autoclass:: EmptyError
+   :members:
+
+ExhaustionError
+---------------
+
+.. autoclass:: ExhaustionError
+   :members:
+
 FormatError
 -----------
 
 .. autoclass:: FormatError
+   :members:
+
+InadequateError
+---------------
+
+.. autoclass:: InadequateError
    :members:
 
 MissingFeatureError
@@ -41,4 +59,16 @@ NotImplementedError
 -------------------
 
 .. autoclass:: NotImplementedError
+   :members:
+
+TimeoutError
+------------
+
+.. autoclass:: TimeoutError
+   :members:
+
+ValueError
+----------
+
+.. autoclass:: ValueError
    :members:

@@ -28,8 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Module" href="module.html" />
-    <link rel="prev" title="Outchanbin" href="interface/outchanbin.html" /> 
+    <link rel="prev" title="Type" href="type.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -80,17 +79,24 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="protocol.html">Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client.html">Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interface.html">Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="type.html">Type</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Error</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cashshuffleerror">CashShuffleError</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#busyerror">BusyError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#emptyerror">EmptyError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exhaustionerror">ExhaustionError</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#formaterror">FormatError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inadequateerror">InadequateError</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#missingfeatureerror">MissingFeatureError</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#missingvalueerror">MissingValueError</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#notimplementederror">NotImplementedError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#timeouterror">TimeoutError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#valueerror">ValueError</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="module.html">Module</a></li>
 </ul>
 
             
@@ -194,6 +200,40 @@
 </dd></dl>
 
 </div>
+<div class="section" id="emptyerror">
+<h2>EmptyError<a class="headerlink" href="#emptyerror" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="EmptyError">
+<em class="property">class </em><code class="descname">EmptyError</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#EmptyError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Empty error.</p>
+<p>Thrown when an operation requiring a nonempty resource finds it empty.</p>
+<dl class="attribute">
+<dt id="EmptyError.name">
+<code class="descclassname">EmptyError.</code><code class="descname">name</code><a class="headerlink" href="#EmptyError.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> string</p>
+<p>Error type name.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="exhaustionerror">
+<h2>ExhaustionError<a class="headerlink" href="#exhaustionerror" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ExhaustionError">
+<em class="property">class </em><code class="descname">ExhaustionError</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ExhaustionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exhaustion error.</p>
+<p>Thrown when an operation exhausts a specified limit without success.</p>
+<dl class="attribute">
+<dt id="ExhaustionError.name">
+<code class="descclassname">ExhaustionError.</code><code class="descname">name</code><a class="headerlink" href="#ExhaustionError.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> string</p>
+<p>Error type name.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="formaterror">
 <h2>FormatError<a class="headerlink" href="#formaterror" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -204,6 +244,23 @@
 <dl class="attribute">
 <dt id="FormatError.name">
 <code class="descclassname">FormatError.</code><code class="descname">name</code><a class="headerlink" href="#FormatError.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> string</p>
+<p>Error type name.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="inadequateerror">
+<h2>InadequateError<a class="headerlink" href="#inadequateerror" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="InadequateError">
+<em class="property">class </em><code class="descname">InadequateError</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#InadequateError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inadequate error.</p>
+<p>Thrown when an inadequate amount of a required resource is available.</p>
+<dl class="attribute">
+<dt id="InadequateError.name">
+<code class="descclassname">InadequateError.</code><code class="descname">name</code><a class="headerlink" href="#InadequateError.name" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>type:</strong> string</p>
 <p>Error type name.</p>
 </dd></dl>
@@ -263,6 +320,40 @@ that needs an implementation in subclasses.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="timeouterror">
+<h2>TimeoutError<a class="headerlink" href="#timeouterror" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="TimeoutError">
+<em class="property">class </em><code class="descname">TimeoutError</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TimeoutError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timeout error.</p>
+<p>Thrown when an operation takes longer than the maximum allowed time.</p>
+<dl class="attribute">
+<dt id="TimeoutError.name">
+<code class="descclassname">TimeoutError.</code><code class="descname">name</code><a class="headerlink" href="#TimeoutError.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> string</p>
+<p>Error type name.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="valueerror">
+<h2>ValueError<a class="headerlink" href="#valueerror" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ValueError">
+<em class="property">class </em><code class="descname">ValueError</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ValueError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value error.</p>
+<p>Thrown when an operation receives or encounters a bad value.</p>
+<dl class="attribute">
+<dt id="ValueError.name">
+<code class="descclassname">ValueError.</code><code class="descname">name</code><a class="headerlink" href="#ValueError.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> string</p>
+<p>Error type name.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -273,10 +364,8 @@ that needs an implementation in subclasses.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="module.html" class="btn btn-neutral float-right" title="Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="interface/outchanbin.html" class="btn btn-neutral" title="Outchanbin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="type.html" class="btn btn-neutral" title="Type" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

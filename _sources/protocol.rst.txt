@@ -18,6 +18,8 @@ Return Symbol in UTF-8. The byte encoding is e2 8f 8e.
 
 .. autofunction:: protocol.Hash
 
+.. autofunction:: protocol.InputSignature
+
 .. autofunction:: protocol.Registration
 
 .. autofunction:: protocol.Signature

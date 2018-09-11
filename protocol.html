@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Interface" href="interface.html" />
+    <link rel="next" title="Client" href="client.html" />
     <link rel="prev" title="cashshufflejs documentation" href="index.html" /> 
 
   
@@ -80,9 +80,11 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client.html">Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interface.html">Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="error.html">Error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="module.html">Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="type.html">Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error.html">Error</a></li>
 </ul>
 
             
@@ -160,14 +162,14 @@ Return Symbol in UTF-8. The byte encoding is e2 8f 8e.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>NONE</strong> – Before protocol start.</li>
-<li><strong>ANNOUNCEMENT</strong> – Phase 1. Participants announce themselves.</li>
-<li><strong>SHUFFLE</strong> – Phase 2. Blind shuffling of output addresses.</li>
-<li><strong>BROADCAST</strong> – Phase 3. Verify output addresses.</li>
-<li><strong>EQUIVOCATION_CHECK</strong> – Phase 4. Verify no equivocation.</li>
-<li><strong>SIGNING</strong> – Phase 5a. Sign transaction.</li>
-<li><strong>VERIFICATION_AND_SUBMISSION</strong> – Phase 5b. Submit transaction to network.</li>
-<li><strong>BLAME</strong> – Out of band phase 6. Identify protocol violator.</li>
+<li><strong>None</strong> (<em>number</em>) – Before protocol start. Value 0.</li>
+<li><strong>Announcement</strong> (<em>number</em>) – Phase 1. Participants announce themselves. Value 1.</li>
+<li><strong>Shuffle</strong> (<em>number</em>) – Phase 2. Blind shuffling of output addresses. Value 2.</li>
+<li><strong>Broadcast</strong> (<em>number</em>) – Phase 3. Verify output addresses. Value 3.</li>
+<li><strong>EquivocationCheck</strong> (<em>number</em>) – Phase 4. Verify no equivocation. Value 4.</li>
+<li><strong>Signing</strong> (<em>number</em>) – Phase 5a. Sign transaction. Value 5.</li>
+<li><strong>VerificationSubmission</strong> (<em>number</em>) – Phase 5b. Submit transaction to Bitcoin Cash network. Value 6.</li>
+<li><strong>Blame</strong> (<em>number</em>) – Out of band phase 6. Identify protocol violator. Value 7.</li>
 </ul>
 </td>
 </tr>
@@ -184,15 +186,15 @@ Return Symbol in UTF-8. The byte encoding is e2 8f 8e.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>INSUFFICIENTFUNDS</strong> – Insufficient funds.</li>
-<li><strong>DOUBLESPEND</strong> – Double spend.</li>
-<li><strong>EQUIVOCATIONFAILURE</strong> – Equivocation failure.</li>
-<li><strong>SHUFFLEFAILURE</strong> – Shuffle failure.</li>
-<li><strong>SHUFFLEANDEQUIVOCATIONFAILURE</strong> – Shuffle and equivocation failure.</li>
-<li><strong>INVALIDSIGNATURE</strong> – Invalid signature.</li>
-<li><strong>MISSINGOUTPUT</strong> – Missing output.</li>
-<li><strong>LIAR</strong> – Liar.</li>
-<li><strong>INVALIDFORMAT</strong> – Invalid format.</li>
+<li><strong>InsufficientFunds</strong> (<em>number</em>) – Insufficient funds. Value 0.</li>
+<li><strong>DoubleSpend</strong> (<em>number</em>) – Double spend. Value 1.</li>
+<li><strong>EquivocationFailure</strong> (<em>number</em>) – Equivocation failure. Value 2.</li>
+<li><strong>ShuffleFailure</strong> (<em>number</em>) – Shuffle failure. Value 3.</li>
+<li><strong>ShuffleEquivocationFailure</strong> (<em>number</em>) – Shuffle and equivocation failure. Value 4.</li>
+<li><strong>InvalidSignature</strong> (<em>number</em>) – Invalid signature. Value 5.</li>
+<li><strong>MissingOutput</strong> (<em>number</em>) – Missing output. Value 6.</li>
+<li><strong>Liar</strong> (<em>number</em>) – Liar. Value 7.</li>
+<li><strong>InvalidFormat</strong> (<em>number</em>) – Invalid format. Value 8.</li>
 </ul>
 </td>
 </tr>
@@ -210,7 +212,7 @@ Return Symbol in UTF-8. The byte encoding is e2 8f 8e.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>invalid</strong> (<em>bytes</em>) – Bytes of message.</li>
+<li><strong>invalid=</strong> (<em>bytes</em>) – Bytes of message.</li>
 </ul>
 </td>
 </tr>
@@ -227,7 +229,7 @@ Return Symbol in UTF-8. The byte encoding is e2 8f 8e.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>address</strong> (<em>string</em>) – Bitcoin Cash address as string.</li>
+<li><strong>address=</strong> (<a class="reference internal" href="type.html#CashAddr" title="CashAddr"><em>CashAddr</em></a>) – Bitcoin Cash address.</li>
 </ul>
 </td>
 </tr>
@@ -244,8 +246,8 @@ Return Symbol in UTF-8. The byte encoding is e2 8f 8e.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>key</strong> (<em>string</em>) – Decryption key as string.</li>
-<li><strong>public</strong> (<em>string</em>) – </li>
+<li><strong>key=</strong> (<em>string</em>) – Decryption key as string.</li>
+<li><strong>public=</strong> (<em>string</em>) – </li>
 </ul>
 </td>
 </tr>
@@ -262,7 +264,7 @@ Return Symbol in UTF-8. The byte encoding is e2 8f 8e.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>key</strong> (<em>string</em>) – Encryption key as string.</li>
+<li><strong>key=</strong> (<em>string</em>) – Encryption key as string.</li>
 </ul>
 </td>
 </tr>
@@ -280,7 +282,25 @@ Return Symbol in UTF-8. The byte encoding is e2 8f 8e.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>hash</strong> (<em>bytes</em>) – Hash as byte string.</li>
+<li><strong>hash=</strong> (<em>bytes</em>) – Hash as byte string.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="protocol.InputSignature">
+<code class="descclassname">protocol.</code><code class="descname">InputSignature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.InputSignature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input signature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>index</strong> (<em>uint64</em>) – Input index.</li>
+<li><strong>signature</strong> (<a class="reference internal" href="#protocol.Signature" title="protocol.Signature"><em>protocol.Signature</em></a>) – Input signature.</li>
 </ul>
 </td>
 </tr>
@@ -297,7 +317,7 @@ Return Symbol in UTF-8. The byte encoding is e2 8f 8e.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>amount</strong> (<em>uint64</em>) – Amount of Bitcoin Cash to shuffle.</li>
+<li><strong>amount=</strong> (<em>uint64</em>) – Amount of Bitcoin Cash to shuffle.</li>
 </ul>
 </td>
 </tr>
@@ -315,7 +335,7 @@ Return Symbol in UTF-8. The byte encoding is e2 8f 8e.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>signature</strong> (<em>bytes</em>) – Signature as byte string.</li>
+<li><strong>signature=</strong> (<em>bytes</em>) – Signature as byte string.</li>
 </ul>
 </td>
 </tr>
@@ -332,7 +352,7 @@ Return Symbol in UTF-8. The byte encoding is e2 8f 8e.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>transaction</strong> (<em>bytes</em>) – Bitcoin Cash transaction as byte string.</li>
+<li><strong>transaction=</strong> (<em>bytes</em>) – Bitcoin Cash transaction as byte string.</li>
 </ul>
 </td>
 </tr>
@@ -351,7 +371,7 @@ messages.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>key</strong> (<em>string</em>) – Verification key as string.</li>
+<li><strong>key=</strong> (<em>string</em>) – Verification key as string.</li>
 </ul>
 </td>
 </tr>
@@ -368,13 +388,14 @@ messages.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>address</strong> (<a class="reference internal" href="#protocol.Address" title="protocol.Address"><em>protocol.Address</em></a>) – Bitcoin Cash address.</li>
-<li><strong>key</strong> (<a class="reference internal" href="#protocol.EncryptionKey" title="protocol.EncryptionKey"><em>protocol.EncryptionKey</em></a>) – Encryption key.</li>
-<li><strong>hash</strong> (<a class="reference internal" href="#protocol.Hash" title="protocol.Hash"><em>protocol.Hash</em></a>) – Message hash.</li>
-<li><strong>signature</strong> (<a class="reference internal" href="#protocol.Signature" title="protocol.Signature"><em>protocol.Signature</em></a>) – Message signature.</li>
-<li><strong>str</strong> (<em>string</em>) – </li>
-<li><strong>blame</strong> (<a class="reference internal" href="#protocol.Blame" title="protocol.Blame"><em>protocol.Blame</em></a>) – Blame details.</li>
-<li><strong>next</strong> (<a class="reference internal" href="#protocol.Message" title="protocol.Message"><em>protocol.Message</em></a>) – </li>
+<li><strong>address=</strong> (<a class="reference internal" href="#protocol.Address" title="protocol.Address"><em>protocol.Address</em></a>) – Bitcoin Cash address.</li>
+<li><strong>key=</strong> (<a class="reference internal" href="#protocol.EncryptionKey" title="protocol.EncryptionKey"><em>protocol.EncryptionKey</em></a>) – Encryption key.</li>
+<li><strong>hash=</strong> (<a class="reference internal" href="#protocol.Hash" title="protocol.Hash"><em>protocol.Hash</em></a>) – Message hash.</li>
+<li><strong>signature=</strong> (<a class="reference internal" href="#protocol.Signature" title="protocol.Signature"><em>protocol.Signature</em></a>) – Message signature.</li>
+<li><strong>str=</strong> (<em>string</em>) – </li>
+<li><strong>blame=</strong> (<a class="reference internal" href="#protocol.Blame" title="protocol.Blame"><em>protocol.Blame</em></a>) – Blame details.</li>
+<li><strong>next=</strong> (<a class="reference internal" href="#protocol.Message" title="protocol.Message"><em>protocol.Message</em></a>) – </li>
+<li><strong>signatures=</strong> (<em>Array.&lt;protocol.InputSignature&gt;</em>) – Input signatures.</li>
 </ul>
 </td>
 </tr>
@@ -392,13 +413,13 @@ messages.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>session</strong> (<em>bytes</em>) – Session number.</li>
-<li><strong>number</strong> (<em>uint32</em>) – </li>
-<li><strong>from_key</strong> (<a class="reference internal" href="#protocol.VerificationKey" title="protocol.VerificationKey"><em>protocol.VerificationKey</em></a>) – Sender public key.</li>
-<li><strong>to_key</strong> (<a class="reference internal" href="#protocol.VerificationKey" title="protocol.VerificationKey"><em>protocol.VerificationKey</em></a>) – Recipient public key.</li>
-<li><strong>phase</strong> (<a class="reference internal" href="#protocol.Phase" title="protocol.Phase"><em>protocol.Phase</em></a>) – Protocol phase.</li>
-<li><strong>message</strong> (<a class="reference internal" href="#protocol.Message" title="protocol.Message"><em>protocol.Message</em></a>) – Core message.</li>
-<li><strong>registration</strong> (<a class="reference internal" href="#protocol.Registration" title="protocol.Registration"><em>protocol.Registration</em></a>) – Registration request.</li>
+<li><strong>session=</strong> (<em>bytes</em>) – Session number.</li>
+<li><strong>number=</strong> (<em>uint32</em>) – </li>
+<li><strong>from_key=</strong> (<a class="reference internal" href="#protocol.VerificationKey" title="protocol.VerificationKey"><em>protocol.VerificationKey</em></a>) – Sender public key.</li>
+<li><strong>to_key=</strong> (<a class="reference internal" href="#protocol.VerificationKey" title="protocol.VerificationKey"><em>protocol.VerificationKey</em></a>) – Recipient public key.</li>
+<li><strong>phase=</strong> (<a class="reference internal" href="#protocol.Phase" title="protocol.Phase"><em>protocol.Phase</em></a>) – Protocol phase.</li>
+<li><strong>message=</strong> (<a class="reference internal" href="#protocol.Message" title="protocol.Message"><em>protocol.Message</em></a>) – Core message.</li>
+<li><strong>registration=</strong> (<a class="reference internal" href="#protocol.Registration" title="protocol.Registration"><em>protocol.Registration</em></a>) – Registration request.</li>
 </ul>
 </td>
 </tr>
@@ -416,8 +437,8 @@ messages.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>packet</strong> (<a class="reference internal" href="#protocol.Packet" title="protocol.Packet"><em>protocol.Packet</em></a>) – Packaged message.</li>
-<li><strong>signature</strong> (<a class="reference internal" href="#protocol.Signature" title="protocol.Signature"><em>protocol.Signature</em></a>) – Packet signature.</li>
+<li><strong>packet=</strong> (<a class="reference internal" href="#protocol.Packet" title="protocol.Packet"><em>protocol.Packet</em></a>) – Packaged message.</li>
+<li><strong>signature=</strong> (<a class="reference internal" href="#protocol.Signature" title="protocol.Signature"><em>protocol.Signature</em></a>) – Packet signature.</li>
 </ul>
 </td>
 </tr>
@@ -434,7 +455,7 @@ messages.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>packet</strong> (<em>Array.&lt;protocol.Signed&gt;</em>) – Signed packets.</li>
+<li><strong>packet=</strong> (<em>Array.&lt;protocol.Signed&gt;</em>) – Signed packets.</li>
 </ul>
 </td>
 </tr>
@@ -451,11 +472,12 @@ messages.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>reason</strong> (<a class="reference internal" href="#protocol.Reason" title="protocol.Reason"><em>protocol.Reason</em></a>) – Blame reason.</li>
-<li><strong>accused</strong> (<a class="reference internal" href="#protocol.VerificationKey" title="protocol.VerificationKey"><em>protocol.VerificationKey</em></a>) – Public key of accused participant.</li>
-<li><strong>key</strong> (<a class="reference internal" href="#protocol.DecryptionKey" title="protocol.DecryptionKey"><em>protocol.DecryptionKey</em></a>) – Decryption key.</li>
-<li><strong>invalid</strong> (<a class="reference internal" href="#protocol.Invalid" title="protocol.Invalid"><em>protocol.Invalid</em></a>) – Invalid message.</li>
-<li><strong>packets</strong> (<a class="reference internal" href="#protocol.Packets" title="protocol.Packets"><em>protocol.Packets</em></a>) – List of signed packets.</li>
+<li><strong>reason=</strong> (<a class="reference internal" href="#protocol.Reason" title="protocol.Reason"><em>protocol.Reason</em></a>) – Blame reason.</li>
+<li><strong>accused=</strong> (<a class="reference internal" href="#protocol.VerificationKey" title="protocol.VerificationKey"><em>protocol.VerificationKey</em></a>) – Public key of accused participant.</li>
+<li><strong>key=</strong> (<a class="reference internal" href="#protocol.DecryptionKey" title="protocol.DecryptionKey"><em>protocol.DecryptionKey</em></a>) – Decryption key.</li>
+<li><strong>transaction=</strong> (<a class="reference internal" href="#protocol.Transaction" title="protocol.Transaction"><em>protocol.Transaction</em></a>) – </li>
+<li><strong>invalid=</strong> (<a class="reference internal" href="#protocol.Invalid" title="protocol.Invalid"><em>protocol.Invalid</em></a>) – Invalid message.</li>
+<li><strong>packets=</strong> (<a class="reference internal" href="#protocol.Packets" title="protocol.Packets"><em>protocol.Packets</em></a>) – List of signed packets.</li>
 </ul>
 </td>
 </tr>
@@ -473,7 +495,7 @@ messages.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="interface.html" class="btn btn-neutral float-right" title="Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="client.html" class="btn btn-neutral float-right" title="Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="cashshufflejs documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

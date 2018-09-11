@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Inbox &mdash; cashshufflejs  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Inchan" href="inchan.html" />
+    <link rel="prev" title="Fetcher" href="fetcher.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cashshufflejs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../protocol.html">Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client.html">Client</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../interface.html">Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="coin.html">Coin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crypto.html">Crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawer.html">Drawer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fetcher.html">Fetcher</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Inbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inchan.html">Inchan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inchanbin.html">Inchanbin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logchan.html">Logchan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outchan.html">Outchan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outchanbin.html">Outchanbin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="receiver.html">Receiver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signing.html">Signing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../module.html">Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../type.html">Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../error.html">Error</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cashshufflejs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../interface.html">Interface</a> &raquo;</li>
+        
+      <li>Inbox</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/interface/inbox.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="inbox">
+<h1>Inbox<a class="headerlink" href="#inbox" title="Permalink to this headline">¶</a></h1>
+<dl class="interface">
+<dt id="inbox.Inbox">
+<em class="property">interface </em><code class="descclassname">inbox.</code><code class="descname">Inbox</code><a class="headerlink" href="#inbox.Inbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Message inbox.</p>
+<p>Receives messages. Delivers received messages. Delivery order
+implementation dependent.</p>
+<dl class="function">
+<dt id="inbox.Inbox.add">
+<code class="descclassname">inbox.Inbox.</code><code class="descname">add</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#inbox.Inbox.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add message to inbox.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>message</strong> (<em>*</em>) – Message to add.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inbox.Inbox.receive">
+<code class="descclassname">inbox.Inbox.</code><code class="descname">receive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#inbox.Inbox.receive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receive message from inbox.</p>
+<p>Removes received message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Throws:</th><td class="field-body"><a class="reference internal" href="../error.html#EmptyError" title="EmptyError"><strong>EmptyError</strong></a> – If the inbox is empty.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>*</strong> – The next message.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inbox.Inbox.watch">
+<code class="descclassname">inbox.Inbox.</code><code class="descname">watch</code><span class="sig-paren">(</span><em>timeout=null</em><span class="sig-paren">)</span><a class="headerlink" href="#inbox.Inbox.watch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Watch for message in inbox.</p>
+<p>If nonempty returns next message immediately. If empty waits for next
+add and returns added message. Optionally watch for limited time.
+Removes returned message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>timeout</strong> (<em>number</em>) – Maximum time to wait in milliseconds. <cite>null</cite> to wait forever.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><ul class="first simple">
+<li><a class="reference internal" href="../error.html#BusyError" title="BusyError"><strong>BusyError</strong></a> – If another watch operation is running.</li>
+<li><a class="reference internal" href="../error.html#TimeoutError" title="TimeoutError"><strong>TimeoutError</strong></a> – If timeout expires before message arrives.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>*</strong> – The next message.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="inchan.html" class="btn btn-neutral float-right" title="Inchan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fetcher.html" class="btn btn-neutral" title="Fetcher" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1171 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Session &mdash; cashshufflejs  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Interface" href="../interface.html" />
+    <link rel="prev" title="Client" href="../client.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cashshufflejs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../protocol.html">Protocol</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../client.html">Client</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Session</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../interface.html">Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module.html">Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../type.html">Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../error.html">Error</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cashshufflejs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../client.html">Client</a> &raquo;</li>
+        
+      <li>Session</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/client/session.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="session">
+<h1>Session<a class="headerlink" href="#session" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="session.Session">
+<em class="property">class </em><code class="descclassname">session.</code><code class="descname">Session</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session" title="Permalink to this definition">¶</a></dt>
+<dd><p>CoinShuffle session.</p>
+<p>CashShuffle is an extension to
+<a class="reference external" href="http://crypsys.mmci.uni-saarland.de/projects/CoinShuffle/">CoinShuffle</a>.
+The CoinShuffle session is the core of the CashShuffle logic. Executes a
+CoinShuffle session.</p>
+<p>Defaults:</p>
+<ul class="simple">
+<li>Network operation attempts: 5.</li>
+<li>Network operation timeout: 5,000 milliseconds (5 seconds).</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>params</strong> (<em>SessionParams</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="session.Session.AnnounceParams">
+<code class="descclassname">session.Session.</code><code class="descname">AnnounceParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.AnnounceParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
+<li><strong>attempts</strong> (<em>number</em>) – Maximum gather attempts. Positive integer.</li>
+<li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
+<li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
+<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>signingKeyPair</strong> (<em>Signing</em>) – Participant signing key pair. Assumed ready for use.</li>
+<li><strong>amount</strong> (<em>number</em>) – Amount to shuffle in satoshis.</li>
+<li><strong>fee</strong> (<em>number</em>) – Participant fee amount in satoshis. The produced transaction will charge this fee to each participant.</li>
+<li><strong>coin</strong> (<em>Coin</em>) – Bitcoin Cash network interface.</li>
+<li><strong>outchan</strong> (<em>Outchan</em>) – Output message channel.</li>
+<li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
+<li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.AnnounceReturn">
+<code class="descclassname">session.Session.</code><code class="descname">AnnounceReturn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.AnnounceReturn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>encryptionKeyPair</strong> (<a class="reference internal" href="../interface/crypto.html#Crypto" title="Crypto"><em>Crypto</em></a>) – Own encryption key pair.</li>
+<li><strong>encryptionPublicKeys</strong> (<em>Map.&lt;HexString-HexString&gt;</em>) – Other participant encryption public keys. Index participant signing public key. Value participant encryption public key.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.EquivocationCheckParams">
+<code class="descclassname">session.Session.</code><code class="descname">EquivocationCheckParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.EquivocationCheckParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
+<li><strong>attempts</strong> (<em>number</em>) – Maximum gather attempts. Positive integer.</li>
+<li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
+<li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
+<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>signingKeyPair</strong> (<em>Signing</em>) – Participant signing key pair. Assumed ready for use.</li>
+<li><strong>encryptionPublicKeys</strong> (<em>Iterable.&lt;HexString&gt;</em>) – Encryption public keys for participants 2 through last ascending in shuffle order.</li>
+<li><strong>outputList</strong> (<em>Iterable.&lt;CashAddr&gt;</em>) – Final output list in broadcast message order.</li>
+<li><strong>crypto</strong> (<a class="reference internal" href="../interface/crypto.html#Crypto" title="Crypto"><em>Crypto</em></a>) – Message encryptor. Assumed ready for use.</li>
+<li><strong>outchan</strong> (<em>Outchan</em>) – Output message channel.</li>
+<li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
+<li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.GatherAnnounceParams">
+<code class="descclassname">session.Session.</code><code class="descname">GatherAnnounceParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.GatherAnnounceParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>attempts</strong> (<em>number</em>) – Maximum attempts. Positive integer.</li>
+<li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
+<li><strong>signingPublicKey</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Participant signing public key.</li>
+<li><strong>amount</strong> (<em>number</em>) – Amount to shuffle in satoshis.</li>
+<li><strong>fee</strong> (<em>number</em>) – Participant fee amount in satoshis. The produced transaction will charge this fee to each participant.</li>
+<li><strong>coin</strong> (<em>Coin</em>) – Bitcoin Cash network interface.</li>
+<li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
+<li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.GatherDigestParams">
+<code class="descclassname">session.Session.</code><code class="descname">GatherDigestParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.GatherDigestParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>attempts</strong> (<em>number</em>) – Maximum attempts. Positive integer.</li>
+<li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
+<li><strong>signingPublicKey</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Participant signing public key.</li>
+<li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
+<li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.GatherFinalOutputParams">
+<code class="descclassname">session.Session.</code><code class="descname">GatherFinalOutputParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.GatherFinalOutputParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>attempts</strong> (<em>number</em>) – Maximum attempts. Positive integer.</li>
+<li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
+<li><strong>lastParticipant</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key of last participant.</li>
+<li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
+<li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.GatherOutputListParams">
+<code class="descclassname">session.Session.</code><code class="descname">GatherOutputListParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.GatherOutputListParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>attempts</strong> (<em>number</em>) – Maximum attempts. Positive integer.</li>
+<li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
+<li><strong>priorParticipant</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key of prior participant.</li>
+<li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
+<li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.GatherSignatureParams">
+<code class="descclassname">session.Session.</code><code class="descname">GatherSignatureParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.GatherSignatureParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>attempts</strong> (<em>number</em>) – Maximum attempts. Positive integer.</li>
+<li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
+<li><strong>signingPublicKey</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Participant signing public key.</li>
+<li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
+<li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.MessageAnnounceParams">
+<code class="descclassname">session.Session.</code><code class="descname">MessageAnnounceParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.MessageAnnounceParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
+<li><strong>signingPublicKey</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key.</li>
+<li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
+<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>encryptionPublicKey</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Public key of encryption key pair.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.MessageDigestParams">
+<code class="descclassname">session.Session.</code><code class="descname">MessageDigestParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.MessageDigestParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
+<li><strong>signingPublicKey</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key.</li>
+<li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
+<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>digest</strong> (<em>ArrayBuffer</em>) – Digest.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.MessageFinalOutputParams">
+<code class="descclassname">session.Session.</code><code class="descname">MessageFinalOutputParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.MessageFinalOutputParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
+<li><strong>signingPublicKey</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key.</li>
+<li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
+<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>outputList</strong> (<em>Iterable.&lt;CashAddr&gt;</em>) – List of output addresses.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.MessageOutputListParams">
+<code class="descclassname">session.Session.</code><code class="descname">MessageOutputListParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.MessageOutputListParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
+<li><strong>signingPublicKey</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key.</li>
+<li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
+<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>outputList</strong> (<em>Iterable.&lt;Base64&gt;</em>) – List of output address layered encryptions.</li>
+<li><strong>nextParticipant</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key of next participant.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.MessageSignatureParams">
+<code class="descclassname">session.Session.</code><code class="descname">MessageSignatureParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.MessageSignatureParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
+<li><strong>signingPublicKey</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key.</li>
+<li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
+<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>signatures</strong> (<em>Iterable.&lt;Coin~InputSignature&gt;</em>) – Signatures. <cite>Map</cite> instances work well. Key input index. Value signature.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.OutputParams">
+<code class="descclassname">session.Session.</code><code class="descname">OutputParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.OutputParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
+<li><strong>attempts</strong> (<em>number</em>) – Maximum gather attempts. Positive integer.</li>
+<li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
+<li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
+<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>signingKeyPair</strong> (<em>Signing</em>) – Participant signing key pair. Assumed ready for use.</li>
+<li><strong>last</strong> (<em>boolean</em>) – Whether own client is last in shuffle order.</li>
+<li><strong>priorParticipant</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key of prior participant.</li>
+<li><strong>lastParticipant</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key of last participant.</li>
+<li><strong>outputAddress</strong> (<a class="reference internal" href="../type.html#CashAddr" title="CashAddr"><em>CashAddr</em></a>) – Own output address.</li>
+<li><strong>crypto</strong> (<a class="reference internal" href="../interface/crypto.html#Crypto" title="Crypto"><em>Crypto</em></a>) – Message encryptor. Assumed ready for use.</li>
+<li><strong>outchan</strong> (<em>Outchan</em>) – Output message channel.</li>
+<li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
+<li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.OutputReturn">
+<code class="descclassname">session.Session.</code><code class="descname">OutputReturn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.OutputReturn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>outputList</strong> (<em>Array.&lt;CashAddr&gt;</em>) – Final output list.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.SessionParams">
+<code class="descclassname">session.Session.</code><code class="descname">SessionParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.SessionParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
+<li><strong>attempts</strong> (<em>number</em>) – Maximum gather attempts. Positive integer.</li>
+<li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
+<li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
+<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order. Provided by server in join response.</li>
+<li><strong>signingKeyPair</strong> (<em>Signing</em>) – Participant signing key pair. Assumed ready for use.</li>
+<li><strong>inputs</strong> (<em>Iterable.&lt;CashAddr&gt;</em>) – Input addresses. Will be deduplicated and ordered lexicographically.</li>
+<li><strong>amount</strong> (<em>number</em>) – Amount to shuffle in satoshis.</li>
+<li><strong>coin</strong> (<em>Coin</em>) – Bitcoin Cash network interface.</li>
+<li><strong>outchan</strong> (<em>Outchan</em>) – Output message channel.</li>
+<li><strong>receiver</strong> (<em>Receiver</em>) – Session message receiver.</li>
+<li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard message to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.ShuffleParams">
+<code class="descclassname">session.Session.</code><code class="descname">ShuffleParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.ShuffleParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
+<li><strong>attempts</strong> (<em>number</em>) – Maximum gather attempts. Positive integer.</li>
+<li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
+<li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
+<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>signingKeyPair</strong> (<em>Signing</em>) – Participant signing key pair. Assumed ready for use.</li>
+<li><strong>first</strong> (<em>boolean</em>) – Whether own client is first in shuffle order.</li>
+<li><strong>last</strong> (<em>boolean</em>) – Whether own client is last in shuffle order.</li>
+<li><strong>priorParticipant</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key of prior participant. <cite>null</cite> for none.</li>
+<li><strong>nextParticipant</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key of next participant. <cite>null</cite> for none.</li>
+<li><strong>encryptionPublicKeys</strong> (<em>Iterable.&lt;HexString&gt;</em>) – Subsequent participant encryption public keys in shuffle order. Empty <cite>Iterable</cite> for none.</li>
+<li><strong>crypto</strong> (<a class="reference internal" href="../interface/crypto.html#Crypto" title="Crypto"><em>Crypto</em></a>) – Message encryptor. Assumed ready for use.</li>
+<li><strong>outchan</strong> (<em>Outchan</em>) – Output message channel.</li>
+<li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
+<li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.ShuffleReturn">
+<code class="descclassname">session.Session.</code><code class="descname">ShuffleReturn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.ShuffleReturn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>outputKeyPair</strong> (<em>Signing</em>) – Own output key pair.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.SubmitParams">
+<code class="descclassname">session.Session.</code><code class="descname">SubmitParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.SubmitParams" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
+<li><strong>attempts</strong> (<em>number</em>) – Maximum gather attempts. Positive integer.</li>
+<li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
+<li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
+<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>signingKeyPair</strong> (<em>Signing</em>) – Participant signing key pair. Assumed ready for use.</li>
+<li><strong>amount</strong> (<em>number</em>) – Amount to shuffle in satoshis.</li>
+<li><strong>fee</strong> (<em>number</em>) – Participant fee amount in satoshis. The produced transaction will charge this fee to each participant.</li>
+<li><strong>inputAddresses</strong> (<em>Map.&lt;HexString-CashAddr&gt;</em>) – Input addresses. Key participant signing public key. Value input address.</li>
+<li><strong>outputAddresses</strong> (<em>Iterable.&lt;CashAddr&gt;</em>) – Output addresses.</li>
+<li><strong>changeAddresses</strong> (<em>Map.&lt;HexString-CashAddr&gt;</em>) – Change addresses. Key participant signing public key. Value change address.</li>
+<li><strong>coin</strong> (<em>Coin</em>) – Bitcoin Cash network interface.</li>
+<li><strong>outchan</strong> (<em>Outchan</em>) – Output message channel.</li>
+<li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
+<li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.SubmitReturn">
+<code class="descclassname">session.Session.</code><code class="descname">SubmitReturn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.SubmitReturn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>transaction</strong> (<em>module:cashshuffle/coin~Transaction</em>) – The submitted Bitcoin Cash transaction.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.affix">
+<code class="descclassname">session.Session.</code><code class="descname">affix</code><span class="sig-paren">(</span><em>packet</em>, <em>signature</em>, <em>protocol</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.affix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Affix signature to packet.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>packet</strong> (<a class="reference internal" href="../protocol.html#protocol.Packet" title="protocol.Packet"><em>protocol.Packet</em></a>) – Packet to affix signature to.</li>
+<li><strong>signature</strong> (<a class="reference internal" href="../type.html#Base64" title="Base64"><em>Base64</em></a>) – Detached signature.</li>
+<li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>protocol.Signed</strong> – The signed packet.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.announce">
+<code class="descclassname">session.Session.</code><code class="descname">announce</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.announce" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>AnnounceParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><p class="first"><a class="reference internal" href="../error.html#InadequateError" title="InadequateError"><strong>InadequateError</strong></a> – If any participant has insufficient funds. Message <cite>‘insufficient funds’</cite>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>AnnounceReturn</strong> –</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.broadcastOutput">
+<code class="descclassname">session.Session.</code><code class="descname">broadcastOutput</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.broadcastOutput" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>OutputParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><ul class="first simple">
+<li><a class="reference internal" href="../error.html#ValueError" title="ValueError"><strong>ValueError</strong></a> – If any output list item decryption fails. Message <cite>‘decryption failure’</cite>.</li>
+<li><a class="reference internal" href="../error.html#ValueError" title="ValueError"><strong>ValueError</strong></a> – If output list contains duplicates. Message <cite>‘output list duplicates’</cite>.</li>
+<li><a class="reference internal" href="../error.html#ValueError" title="ValueError"><strong>ValueError</strong></a> – If own output address not in final output list. Message <cite>‘output missing’</cite>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>OutputReturn</strong> –</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.checkEquivocation">
+<code class="descclassname">session.Session.</code><code class="descname">checkEquivocation</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.checkEquivocation" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>EquivocationCheckParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../error.html#ValueError" title="ValueError"><strong>ValueError</strong></a> – If equivocation is detected. Message <cite>‘equivocation’</cite>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.decryptOutputList">
+<code class="descclassname">session.Session.</code><code class="descname">decryptOutputList</code><span class="sig-paren">(</span><em>encryptedOutputList</em>, <em>crypto</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.decryptOutputList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decrypt output list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>encryptedOutputList</strong> (<em>Array.&lt;Base64&gt;</em>) – List of output address layered encryptions.</li>
+<li><strong>crypto</strong> (<a class="reference internal" href="../interface/crypto.html#Crypto" title="Crypto"><em>Crypto</em></a>) – Message encryptor. Assumed ready for use.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><ul class="first simple">
+<li><a class="reference internal" href="../error.html#ValueError" title="ValueError"><strong>ValueError</strong></a> – If any item decryption fails. Message <cite>‘decryption failure’</cite>.</li>
+<li><a class="reference internal" href="../error.html#ValueError" title="ValueError"><strong>ValueError</strong></a> – If output list contains duplicates. Message <cite>‘output list duplicates’</cite>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>Array.&lt;string&gt;</strong> – Decrypted output list in same order.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.encryptLayered">
+<code class="descclassname">session.Session.</code><code class="descname">encryptLayered</code><span class="sig-paren">(</span><em>crypto</em>, <em>message</em>, <em>encryptionPublicKeys</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.encryptLayered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform layered encryption of message.</p>
+<p>Encrypts recursively for the provided public keys in the provided order.
+Each cryptogram is encrypted as a <code class="docutils literal notranslate"><span class="pre">Base64</span></code> value. Final result is a
+<code class="docutils literal notranslate"><span class="pre">Base64</span></code> value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>crypto</strong> (<a class="reference internal" href="../interface/crypto.html#Crypto" title="Crypto"><em>Crypto</em></a>) – Message encryptor. Assumed ready for use.</li>
+<li><strong>message</strong> (<em>string</em>) – Message to encrypt.</li>
+<li><strong>encryptionPublicKeys</strong> (<em>Iterable.&lt;HexString&gt;</em>) – Public keys to encrypt for in encryption order. Minimum 1 item.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><p class="first"><a class="reference internal" href="../error.html#MissingValueError" title="MissingValueError"><strong>MissingValueError</strong></a> – If encryption public keys is empty.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>Base64</strong> – The final cryptogram.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.gatherAnnounce">
+<code class="descclassname">session.Session.</code><code class="descname">gatherAnnounce</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.gatherAnnounce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gather announce messages from other participants.</p>
+<p>Validates each received message. Verifies sufficient funds for each
+valid message.</p>
+<p>Makes repeated attempts until max attempts exhausted or a network
+timeout expires. An invalid message causes an additional attempt for a
+message from that participant. Insufficient funds for any participant
+fails the entire process.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>GatherAnnounceParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><ul class="first simple">
+<li><a class="reference internal" href="../error.html#ExhaustionError" title="ExhaustionError"><strong>ExhaustionError</strong></a> – If attempts are exhausted without success.</li>
+<li><a class="reference internal" href="../error.html#TimeoutError" title="TimeoutError"><strong>TimeoutError</strong></a> – If wait for message times out.</li>
+<li><a class="reference internal" href="../error.html#InadequateError" title="InadequateError"><strong>InadequateError</strong></a> – If any participant has insufficient funds.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>Map.&lt;HexString, object&gt;</strong> – Announce messages from all other participants. Index participant public key. Value packet as object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.gatherDigest">
+<code class="descclassname">session.Session.</code><code class="descname">gatherDigest</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.gatherDigest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gather digest messages from other participants.</p>
+<p>Validates each received message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>GatherDigestParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><ul class="first simple">
+<li><a class="reference internal" href="../error.html#ExhaustionError" title="ExhaustionError"><strong>ExhaustionError</strong></a> – If attempts are exhausted without success.</li>
+<li><a class="reference internal" href="../error.html#TimeoutError" title="TimeoutError"><strong>TimeoutError</strong></a> – If wait for message times out.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>Map.&lt;HexString, object&gt;</strong> – Digest messages from all other participants. Index participant public key. Value packet as object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.gatherFinalOutput">
+<code class="descclassname">session.Session.</code><code class="descname">gatherFinalOutput</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.gatherFinalOutput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gather final output list message from last participant.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>GatherFinalOutputParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><ul class="first simple">
+<li><a class="reference internal" href="../error.html#ExhaustionError" title="ExhaustionError"><strong>ExhaustionError</strong></a> – If attempts are exhausted without success.</li>
+<li><a class="reference internal" href="../error.html#TimeoutError" title="TimeoutError"><strong>TimeoutError</strong></a> – If wait for message times out.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>object</strong> – <cite>protocol.Packet</cite> portion of final output list message as object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.gatherOutputList">
+<code class="descclassname">session.Session.</code><code class="descname">gatherOutputList</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.gatherOutputList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gather output list message from prior participant.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>GatherOutputListParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><ul class="first simple">
+<li><a class="reference internal" href="../error.html#ExhaustionError" title="ExhaustionError"><strong>ExhaustionError</strong></a> – If attempts are exhausted without success.</li>
+<li><a class="reference internal" href="../error.html#TimeoutError" title="TimeoutError"><strong>TimeoutError</strong></a> – If wait for message times out.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>object</strong> – <cite>protocol.Packet</cite> portion of output list message as object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.gatherSignature">
+<code class="descclassname">session.Session.</code><code class="descname">gatherSignature</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.gatherSignature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gather signature messages from other participants.</p>
+<p>Validates each received message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>GatherDigestParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><ul class="first simple">
+<li><a class="reference internal" href="../error.html#ExhaustionError" title="ExhaustionError"><strong>ExhaustionError</strong></a> – If attempts are exhausted without success.</li>
+<li><a class="reference internal" href="../error.html#TimeoutError" title="TimeoutError"><strong>TimeoutError</strong></a> – If wait for message times out.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>Map.&lt;HexString, object&gt;</strong> – Signature messages from all other participants. Index participant public key. Value packet as object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.messageAnnounce">
+<code class="descclassname">session.Session.</code><code class="descname">messageAnnounce</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.messageAnnounce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct announce message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>MessageAnnounceParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>protocol.Packet</strong> – Unsigned announce message.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.messageDigest">
+<code class="descclassname">session.Session.</code><code class="descname">messageDigest</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.messageDigest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct digest message.</p>
+<p>Digest is in the <code class="docutils literal notranslate"><span class="pre">packet.message.hash.hash</span></code> field.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>MessageDigestParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>protocol.Packet</strong> – Unsigned digest message.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.messageFinalOutput">
+<code class="descclassname">session.Session.</code><code class="descname">messageFinalOutput</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.messageFinalOutput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct final output list message.</p>
+<p>Output list is encoded in a single string. Items are delimited with
+ampersand <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>. Encoded value is in the <code class="docutils literal notranslate"><span class="pre">packet.message.str</span></code> field.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>MessageFinalOutputParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>protocol.Packet</strong> – Unsigned final output list message.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.messageOutputList">
+<code class="descclassname">session.Session.</code><code class="descname">messageOutputList</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.messageOutputList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct output list message.</p>
+<p>Output list is encoded in a single string. Items are delimited with
+ampersand <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>. Encoded value is in the <code class="docutils literal notranslate"><span class="pre">packet.message.str</span></code> field.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>MessageOutputListParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>protocol.Packet</strong> – Unsigned output list message.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.messageSignature">
+<code class="descclassname">session.Session.</code><code class="descname">messageSignature</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.messageSignature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct signature message.</p>
+<p>Signatures are in the <code class="docutils literal notranslate"><span class="pre">packet.message.signatures</span></code> repeated field.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>MessageSignatureParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>protocol.Packet</strong> – Unisnged signature message.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.packageSignedPacket">
+<code class="descclassname">session.Session.</code><code class="descname">packageSignedPacket</code><span class="sig-paren">(</span><em>protocol</em>, <em>signedPacket</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.packageSignedPacket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Package a <code class="docutils literal notranslate"><span class="pre">protocol.Signed</span></code> into a unary <code class="docutils literal notranslate"><span class="pre">protocol.Packets</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
+<li><strong>signedPacket</strong> (<a class="reference internal" href="../protocol.html#protocol.Signed" title="protocol.Signed"><em>protocol.Signed</em></a>) – Signed packet instance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>protocol.Packets</strong> – Unary packets list containing the signed packet.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.shuffle">
+<code class="descclassname">session.Session.</code><code class="descname">shuffle</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.shuffle" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>ShuffleParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><ul class="first simple">
+<li><a class="reference internal" href="../error.html#ValueError" title="ValueError"><strong>ValueError</strong></a> – If any output list item decryption fails. Message <cite>‘decryption failure’</cite>.</li>
+<li><a class="reference internal" href="../error.html#ValueError" title="ValueError"><strong>ValueError</strong></a> – If output list contains duplicates. Message <cite>‘output list duplicates’</cite>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>ShuffleReturn</strong> –</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.sign">
+<code class="descclassname">session.Session.</code><code class="descname">sign</code><span class="sig-paren">(</span><em>signingKeyPair</em>, <em>message</em>, <em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.sign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sign a protocol message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>signingKeyPair</strong> (<em>Signing</em>) – Key pair to sign with. Assumed ready for use.</li>
+<li><strong>message</strong> (<em>protobufjs.Message</em>) – Protocol message. Any message type from protocol definition.</li>
+<li><strong>type</strong> (<em>protobufjs.Type</em>) – Protocol message type. Used to encode.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>Base64</strong> – Detached message signature.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.submit">
+<code class="descclassname">session.Session.</code><code class="descname">submit</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.submit" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>SubmitParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><ul class="first simple">
+<li><a class="reference internal" href="../error.html#ValueError" title="ValueError"><strong>ValueError</strong></a> – If any received signature is invalid. Message <cite>‘invalid signature’</cite>.</li>
+<li><a class="reference internal" href="../error.html#InadequateError" title="InadequateError"><strong>InadequateError</strong></a> – If any other participant input now shows insufficient funds. Message <cite>‘insufficient funds’</cite>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>SubmitReturn</strong> –</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../interface.html" class="btn btn-neutral float-right" title="Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../client.html" class="btn btn-neutral" title="Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
