@@ -62,7 +62,10 @@ async function submit (message) {
     }
     return
   }
-  const senderPublicKey = new bitcore.PublicKey(senderPublicKeyString)
+  const senderPublicKey = new bitcore.PublicKey(
+    senderPublicKeyString,
+    { network: priv.network }
+  )
   const senderAddress = senderPublicKey.toAddress()
   // Normalize to buffer. protobufjs can return Uint8Array Buffer Array.
   const signatureBuffer = Buffer.from(signatureValue)
