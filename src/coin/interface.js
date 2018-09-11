@@ -233,6 +233,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @param {Base64} signature - Message signature.
  * @param {string} message - Plaintext message.
  * @param {HexString} publicKeyString - Signer public key.
+ * @param {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
  *
  * @return {boolean} Whether the signature is valid. True if from the named
  *     signer and for the given message.
