@@ -1,7 +1,9 @@
+import Inbox from '../base'
 import privs from './privs'
 
-class FifoInbox {
+class FifoInbox extends Inbox {
   constructor () {
+    super()
     const priv = {
       watching: false,
       timer: null,
