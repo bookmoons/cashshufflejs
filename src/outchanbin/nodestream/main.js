@@ -1,13 +1,15 @@
+import Outchanbin from '../base'
 import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/outchanbin/nodestream
  */
-class NodestreamOutchanbin {
+class NodestreamOutchanbin extends Outchanbin {
   /**
    * @param {Writable<Buffer>} stream - Stream to write to.
    */
   constructor (stream) {
+    super()
     const priv = {
       sending: false,
       stream
