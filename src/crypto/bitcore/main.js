@@ -1,7 +1,9 @@
+import Crypto from '../base'
 import privs from './privs'
 
-class BitcoreCrypto {
+class BitcoreCrypto extends Crypto {
   constructor () {
+    super()
     const priv = {}
     privs.set(this, priv)
   }
