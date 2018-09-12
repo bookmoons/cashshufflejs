@@ -1,14 +1,16 @@
+import Drawer from '../base'
 import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/drawer/standard
  */
-class StandardDrawer {
+class StandardDrawer extends Drawer {
   /**
    * @param {Inchan} inchan - Message input channel.
    * @param {Receiver} receiver - Message receiver to relay messages to.
    */
   constructor (inchan, receiver) {
+    super()
     const priv = {
       drawing: false,
       runToken: null,
