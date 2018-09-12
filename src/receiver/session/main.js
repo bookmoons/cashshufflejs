@@ -1,10 +1,11 @@
 import PhaseReceiver from '../phase'
+import Receiver from '../base'
 import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/receiver/session
  */
-class SessionReceiver {
+class SessionReceiver extends Receiver {
   /**
    * @param {Iterable<HexString>} participants - Participant public keys.
    * @param {Iterable<number>} phaseIdentifiers - Protocol message phase
@@ -20,6 +21,7 @@ class SessionReceiver {
     discarder = null,
     phaseReceiverFactory = null
   ) {
+    super()
     const participantsSet = new Set(participants)
     if (!phaseReceiverFactory) {
       phaseReceiverFactory = function produceDefaultPhaseReceiver () {

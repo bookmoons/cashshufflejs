@@ -1,4 +1,5 @@
 import bitcore from 'bitcore-lib-cash'
+import Receiver from '../base'
 import privs from './privs'
 
 const mainnet = bitcore.Networks.mainnet
@@ -6,7 +7,7 @@ const mainnet = bitcore.Networks.mainnet
 /**
  * @memberof module:cashshuffle/receiver/authenticate
  */
-class AuthenticateReceiver {
+class AuthenticateReceiver extends Receiver {
   /**
    * @param {protobufjs.Root} protocol - Protocol definition.
    * @param {Receiver} nextReceiver - Receiver to deliver message to.
@@ -15,6 +16,7 @@ class AuthenticateReceiver {
    * @param {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
    */
   constructor (protocol, nextReceiver, discarder = null, network = mainnet) {
+    super()
     const priv = {
       protocol,
       nextReceiver,

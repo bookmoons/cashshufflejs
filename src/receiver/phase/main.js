@@ -1,10 +1,11 @@
 import FifoInbox from '../../inbox/fifo'
+import Receiver from '../base'
 import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/receiver/phase
  */
-class PhaseReceiver {
+class PhaseReceiver extends Receiver {
   /**
    * @param {Iterable<HexString>} participants - Participant public keys.
    * @param {Receiver} [discarder=null] - Message receiver that handles
@@ -13,6 +14,7 @@ class PhaseReceiver {
    *     `Inbox` instances.
    */
   constructor (participants, discarder = null, inboxFactory = null) {
+    super()
     if (!inboxFactory) {
       inboxFactory = function produceFifoInbox () { return new FifoInbox() }
     }
