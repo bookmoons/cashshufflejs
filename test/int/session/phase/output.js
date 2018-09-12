@@ -163,7 +163,8 @@ test('return last', async t => {
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
   const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
+  const priorReceiver = new PhaseReceiver(participants)
+  const inboxes = priorReceiver.participantInboxes
   const inbox = inboxes.get(signingPublicKey2)
   inbox.add(encryptedOutputListPacket)
   const { outputList } = await session.broadcastOutput({
@@ -179,7 +180,8 @@ test('return last', async t => {
     outputAddress: output3,
     crypto,
     outchan,
-    receiver
+    receiver,
+    priorReceiver
   })
   verifyOutputList(t, outputList)
 })
@@ -194,6 +196,7 @@ test('return nonlast', async t => {
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
   const receiver = new PhaseReceiver(participants)
+  const priorReceiver = new PhaseReceiver(participants)
   const inboxes = receiver.participantInboxes
   const inbox = inboxes.get(signingPublicKey3)
   inbox.add(finalOutputListPacket)
@@ -210,7 +213,8 @@ test('return nonlast', async t => {
     outputAddress: output2,
     crypto,
     outchan,
-    receiver
+    receiver,
+    priorReceiver
   })
   verifyOutputList(t, outputList)
 })
@@ -225,7 +229,8 @@ test('output', async t => {
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
   const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
+  const priorReceiver = new PhaseReceiver(participants)
+  const inboxes = priorReceiver.participantInboxes
   const inbox = inboxes.get(signingPublicKey2)
   inbox.add(encryptedOutputListPacket)
   await session.broadcastOutput({
@@ -241,7 +246,8 @@ test('output', async t => {
     outputAddress: output3,
     crypto,
     outchan,
-    receiver
+    receiver,
+    priorReceiver
   })
   const frameBuffer = await readTo(outputStream, terminatorBuffer)
   const messageLength = frameBuffer.length - terminatorByteLength

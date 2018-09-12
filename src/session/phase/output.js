@@ -24,6 +24,7 @@ import { outputListDelimiter } from '../value'
  * @prop {Crypto} crypto - Message encryptor. Assumed ready for use.
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
+ * @prop {PhaseReceiver} priorReceiver - Prior phase message receiver.
  * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
  */
 
@@ -62,6 +63,7 @@ async function broadcastOutput ({
   crypto,
   outchan,
   receiver,
+  priorReceiver,
   discarder = null
 }) {
   if (last) {
@@ -72,7 +74,7 @@ async function broadcastOutput ({
       attempts,
       timeout,
       priorParticipant,
-      receiver,
+      receiver: priorReceiver,
       discarder
     })
 
