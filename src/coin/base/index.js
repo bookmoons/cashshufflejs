@@ -1,3 +1,1 @@
-import Coin from './main'
-
-export default Coin
+export { default } from './main'
