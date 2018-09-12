@@ -51,6 +51,7 @@
         "doc": "jsdoc -c .jsdoc.json --pedantic",
         "test-com": "cross-env NODE_PATH=src:test ava test/com",
         "test-int": "cross-env NODE_PATH=src:test ava test/int",
+        "test-mul": "cross-env NODE_PATH=src:test ava test/mul",
         "test-rem": "cross-env NODE_PATH=src:test ava test/rem",
         "test-unit": "cross-env NODE_PATH=src:test ava test/unit",
         "test": "npm-run-all test-unit test-com test-int",
