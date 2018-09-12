@@ -16,13 +16,13 @@
  * @module cashshuffle/coin/bitcore
  */
 
-import Coin from './main'
+import BitcoreCoin from './main'
 import address from './address'
 import verifySignature from './verify'
 
-Object.assign(Coin.prototype, {
+Object.assign(BitcoreCoin.prototype, {
   address,
   verifySignature
 })
 
-export default Coin
+export default BitcoreCoin

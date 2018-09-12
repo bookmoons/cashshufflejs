@@ -11,11 +11,11 @@
  * @module cashshuffle/outchan/outchanbin
  */
 
-import Outchan from './main'
+import OutchanbinOutchan from './main'
 import send from './send'
 
-Object.assign(Outchan.prototype, {
+Object.assign(OutchanbinOutchan.prototype, {
   send
 })
 
-export default Outchan
+export default OutchanbinOutchan

@@ -3,7 +3,7 @@ import privs from './privs'
 /**
  * @memberof module:cashshuffle/fetcher/each
  */
-class Fetcher {
+class EachFetcher {
   /**
    * @param {Iterable<Inbox>} inboxes - Inboxes to fetch from.
    */
@@ -16,4 +16,4 @@ class Fetcher {
   }
 }
 
-export default Fetcher
+export default EachFetcher

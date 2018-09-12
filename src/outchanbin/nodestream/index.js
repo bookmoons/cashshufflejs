@@ -11,11 +11,11 @@
  * @module cashshuffle/outchanbin/nodestream
  */
 
-import Outchanbin from './main'
+import NodestreamOutchanbin from './main'
 import send from './send'
 
-Object.assign(Outchanbin.prototype, {
+Object.assign(NodestreamOutchanbin.prototype, {
   send
 })
 
-export default Outchanbin
+export default NodestreamOutchanbin

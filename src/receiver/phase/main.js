@@ -4,7 +4,7 @@ import privs from './privs'
 /**
  * @memberof module:cashshuffle/receiver/phase
  */
-class Receiver {
+class PhaseReceiver {
   /**
    * @param {Iterable<HexString>} participants - Participant public keys.
    * @param {Receiver} [discarder=null] - Message receiver that handles
@@ -30,4 +30,4 @@ class Receiver {
   }
 }
 
-export default Receiver
+export default PhaseReceiver

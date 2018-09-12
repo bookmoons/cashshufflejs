@@ -10,11 +10,11 @@
  * @module cashshuffle/receiver/store
  */
 
-import Receiver from './main'
+import StoreReceiver from './main'
 import submit from './submit'
 
-Object.assign(Receiver.prototype, {
+Object.assign(StoreReceiver.prototype, {
   submit
 })
 
-export default Receiver
+export default StoreReceiver

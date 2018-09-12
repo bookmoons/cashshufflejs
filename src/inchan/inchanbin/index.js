@@ -11,11 +11,11 @@
  * @module cashshuffle/inchan/inchanbin
  */
 
-import Inchan from './main'
+import InchanbinInchan from './main'
 import receive from './receive'
 
-Object.assign(Inchan.prototype, {
+Object.assign(InchanbinInchan.prototype, {
   receive
 })
 
-export default Inchan
+export default InchanbinInchan

@@ -6,18 +6,18 @@
  * @module cashshuffle/drawer/standard
  */
 
-import Drawer from './main'
+import StandardDrawer from './main'
 import start from './start'
 import stop from './stop'
 import watch from './watch'
 
-Object.assign(Drawer.prototype, {
+Object.assign(StandardDrawer.prototype, {
   start,
   stop
 })
 
-Object.defineProperty(Drawer.prototype, 'watch', {
+Object.defineProperty(StandardDrawer.prototype, 'watch', {
   get: watch
 })
 
-export default Drawer
+export default StandardDrawer

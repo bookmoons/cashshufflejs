@@ -3,7 +3,7 @@ import privs from './privs'
 /**
  * @memberof module:cashshuffle/logchan/file
  */
-class Logchan {
+class FileLogchan {
   /**
    * @param {string} filePath - Path to log file.
    */
@@ -15,4 +15,4 @@ class Logchan {
   }
 }
 
-export default Logchan
+export default FileLogchan

@@ -1,6 +1,6 @@
 import privs from './privs'
 
-class Inbox {
+class FifoInbox {
   constructor () {
     const priv = {
       watching: false,
@@ -12,4 +12,4 @@ class Inbox {
   }
 }
 
-export default Inbox
+export default FifoInbox

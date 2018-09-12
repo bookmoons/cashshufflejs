@@ -12,11 +12,11 @@
  * @module cashshuffle/receiver/packetify
  */
 
-import Receiver from './main'
+import PacketifyReceiver from './main'
 import submit from './submit'
 
-Object.assign(Receiver.prototype, {
+Object.assign(PacketifyReceiver.prototype, {
   submit
 })
 
-export default Receiver
+export default PacketifyReceiver

@@ -4,7 +4,7 @@ import privs from './privs'
 /**
  * @memberof module:cashshuffle/receiver/store
  */
-class Receiver {
+class StoreReceiver {
   /**
    * @param {function} [inbox=<fifo>] - Inbox to deliver messages to.
    *     Defaults to new FIFO inbox.
@@ -18,4 +18,4 @@ class Receiver {
   }
 }
 
-export default Receiver
+export default StoreReceiver

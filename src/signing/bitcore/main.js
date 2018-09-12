@@ -1,10 +1,10 @@
 import privs from './privs'
 
-class Signing {
+class BitcoreSigning {
   constructor () {
     const priv = {}
     privs.set(this, priv)
   }
 }
 
-export default Signing
+export default BitcoreSigning

@@ -3,7 +3,7 @@ import privs from './privs'
 /**
  * @memberof module:cashshuffle/outchanbin/nodestream
  */
-class Outchanbin {
+class NodestreamOutchanbin {
   /**
    * @param {Writable<Buffer>} stream - Stream to write to.
    */
@@ -16,4 +16,4 @@ class Outchanbin {
   }
 }
 
-export default Outchanbin
+export default NodestreamOutchanbin

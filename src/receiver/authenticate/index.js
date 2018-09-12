@@ -12,11 +12,11 @@
  * @module cashshuffle/receiver/authenticate
  */
 
-import Receiver from './main'
+import AuthenticateReceiver from './main'
 import submit from './submit'
 
-Object.assign(Receiver.prototype, {
+Object.assign(AuthenticateReceiver.prototype, {
   submit
 })
 
-export default Receiver
+export default AuthenticateReceiver

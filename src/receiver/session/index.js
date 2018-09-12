@@ -18,16 +18,16 @@
  * @module cashshuffle/receiver/session
  */
 
-import Receiver from './main'
+import SessionReceiver from './main'
 import phaseReceivers from './phase'
 import submit from './submit'
 
-Object.assign(Receiver.prototype, {
+Object.assign(SessionReceiver.prototype, {
   submit
 })
 
-Object.defineProperty(Receiver.prototype, 'phaseReceivers', {
+Object.defineProperty(SessionReceiver.prototype, 'phaseReceivers', {
   get: phaseReceivers
 })
 
-export default Receiver
+export default SessionReceiver

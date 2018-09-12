@@ -10,7 +10,7 @@
  * @module cashshuffle/logchan/file
  *
  * @example
-import Logchan from 'cashshuffle/logchan/file'
+import FileLogchan from 'cashshuffle/logchan/file'
 const log = new Logchan('/home/user/.cashshuffle/log')
 
 async function run () {
@@ -20,11 +20,11 @@ async function run () {
 run()
  */
 
-import Logchan from './main'
+import FileLogchan from './main'
 import send from './send'
 
-Object.assign(Logchan.prototype, {
+Object.assign(FileLogchan.prototype, {
   send
 })
 
-export default Logchan
+export default FileLogchan

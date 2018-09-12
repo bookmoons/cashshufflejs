@@ -3,7 +3,7 @@ import privs from './privs'
 /**
  * @memberof module:cashshuffle/receiver/objectify
  */
-class Receiver {
+class ObjectifyReceiver {
   /**
    * @param {protobufjs.Root} protocol - Protocol definition.
    * @param {Receiver} nextReceiver - Receiver to deliver message to.
@@ -17,4 +17,4 @@ class Receiver {
   }
 }
 
-export default Receiver
+export default ObjectifyReceiver

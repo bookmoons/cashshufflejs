@@ -6,7 +6,7 @@ import Inchanbin from 'inchanbin/nodestream'
 import Inchan from 'inchan/inchanbin'
 import Inbox from 'inbox/fifo'
 import StoreReceiver from 'receiver/store'
-import Drawer from 'drawer/standard/main'
+import StandardDrawer from 'drawer/standard/main'
 import start from 'drawer/standard/start'
 import stop from 'drawer/standard/stop'
 import watch from 'drawer/standard/watch'
@@ -16,11 +16,11 @@ const testSignedObject2 = { packet: { fromKey: { key: 'Test key 2' } } }
 let protocol
 
 test.before(async t => {
-  Object.assign(Drawer.prototype, {
+  Object.assign(StandardDrawer.prototype, {
     start,
     stop
   })
-  Object.defineProperty(Drawer.prototype, 'watch', {
+  Object.defineProperty(StandardDrawer.prototype, 'watch', {
     get: watch
   })
   protocol = await loadProtocol()
@@ -32,7 +32,7 @@ test('1 message', async t => {
   const inchan = new Inchan(inchanbin, protocol)
   const inbox = new Inbox()
   const receiver = new StoreReceiver(inbox)
-  const drawer = new Drawer(inchan, receiver)
+  const drawer = new StandardDrawer(inchan, receiver)
   drawer.start()
   const messageDrawn = drawer.watch
   const testMessage = protocol.Signed.fromObject(testSignedObject1)
@@ -52,7 +52,7 @@ test('2 messages', async t => {
   const inchan = new Inchan(inchanbin, protocol)
   const inbox = new Inbox()
   const receiver = new StoreReceiver(inbox)
-  const drawer = new Drawer(inchan, receiver)
+  const drawer = new StandardDrawer(inchan, receiver)
   drawer.start()
   const message1Drawn = drawer.watch
   const testMessage1 = protocol.Signed.fromObject(testSignedObject1)

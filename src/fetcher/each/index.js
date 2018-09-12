@@ -6,11 +6,11 @@
  * @module cashshuffle/fetcher/each
  */
 
-import Fetcher from './main'
+import EachFetcher from './main'
 import fetch from './fetch'
 
-Object.assign(Fetcher.prototype, {
+Object.assign(EachFetcher.prototype, {
   fetch
 })
 
-export default Fetcher
+export default EachFetcher

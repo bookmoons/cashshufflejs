@@ -11,11 +11,11 @@
  * @module cashshuffle/receiver/objectify
  */
 
-import Receiver from './main'
+import ObjectifyReceiver from './main'
 import submit from './submit'
 
-Object.assign(Receiver.prototype, {
+Object.assign(ObjectifyReceiver.prototype, {
   submit
 })
 
-export default Receiver
+export default ObjectifyReceiver

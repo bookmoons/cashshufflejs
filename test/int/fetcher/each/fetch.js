@@ -1,19 +1,19 @@
 import test from 'ava'
 import Inbox from 'inbox/fifo'
-import Fetcher from 'fetcher/each/main'
+import EachFetcher from 'fetcher/each/main'
 import fetch from 'fetcher/each/fetch'
 
 const timeout = 500
 
 test.before(t => {
-  Object.assign(Fetcher.prototype, {
+  Object.assign(EachFetcher.prototype, {
     fetch
   })
 })
 
 test('timeout', async t => {
   const inbox = new Inbox()
-  const fetcher = new Fetcher([ inbox ])
+  const fetcher = new EachFetcher([ inbox ])
   await t.throwsAsync(async () => {
     await fetcher.fetch(0)
   })
@@ -21,7 +21,7 @@ test('timeout', async t => {
 
 test('1 inbox', async t => {
   const inbox = new Inbox()
-  const fetcher = new Fetcher([ inbox ])
+  const fetcher = new EachFetcher([ inbox ])
   const fetchPromise = fetcher.fetch(timeout)
   const testMessage = {}
   inbox.add(testMessage)
@@ -35,7 +35,7 @@ test('3 inboxes', async t => {
   const inbox2 = new Inbox()
   const inbox3 = new Inbox()
   const inboxes = [ inbox1, inbox2, inbox3 ]
-  const fetcher = new Fetcher(inboxes)
+  const fetcher = new EachFetcher(inboxes)
   const testMessage1 = {}
   const testMessage2 = {}
   const testMessage3 = {}

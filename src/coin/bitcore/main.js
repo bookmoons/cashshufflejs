@@ -1,3 +1,3 @@
-class Coin {}
+class BitcoreCoin {}
 
-export default Coin
+export default BitcoreCoin

@@ -3,7 +3,7 @@ import privs from './privs'
 /**
  * @memberof module:cashshuffle/drawer/standard
  */
-class Drawer {
+class StandardDrawer {
   /**
    * @param {Inchan} inchan - Message input channel.
    * @param {Receiver} receiver - Message receiver to relay messages to.
@@ -23,4 +23,4 @@ class Drawer {
   }
 }
 
-export default Drawer
+export default StandardDrawer

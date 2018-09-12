@@ -18,7 +18,7 @@
  * @module cashshuffle/crypto/bitcore
  */
 
-import Crypto from './main'
+import BitcoreCrypto from './main'
 import decrypt from './decrypt'
 import encrypt from './encrypt'
 import exportPrivateKey from './exportpriv'
@@ -27,7 +27,7 @@ import generateKeyPair from './generate'
 import hash from './hash'
 import restoreKeyPair from './restore'
 
-Object.assign(Crypto.prototype, {
+Object.assign(BitcoreCrypto.prototype, {
   decrypt,
   encrypt,
   exportPrivateKey,
@@ -37,4 +37,4 @@ Object.assign(Crypto.prototype, {
   restoreKeyPair
 })
 
-export default Crypto
+export default BitcoreCrypto

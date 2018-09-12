@@ -3,7 +3,7 @@ import privs from './privs'
 /**
  * @memberof module:cashshuffle/outchan/outchanbin
  */
-class Outchan {
+class OutchanbinOutchan {
   /**
    * @param {outchanbin~Outchanbin} outchanbin - Binary output channel.
    *     Raw binary messages are delivered to this channel.
@@ -20,4 +20,4 @@ class Outchan {
   }
 }
 
-export default Outchan
+export default OutchanbinOutchan

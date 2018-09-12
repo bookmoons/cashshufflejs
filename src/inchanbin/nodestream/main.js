@@ -4,7 +4,7 @@ import privs from './privs'
 /**
  * @memberof module:cashshuffle/inchanbin/nodestream
  */
-class Inchanbin {
+class NodestreamInchanbin {
   /**
    * @param {Readable<Buffer>} stream - Stream to read from.
    *     Must support `unshift`.
@@ -24,4 +24,4 @@ class Inchanbin {
   }
 }
 
-export default Inchanbin
+export default NodestreamInchanbin

@@ -6,7 +6,7 @@ const mainnet = bitcore.Networks.mainnet
 /**
  * @memberof module:cashshuffle/receiver/authenticate
  */
-class Receiver {
+class AuthenticateReceiver {
   /**
    * @param {protobufjs.Root} protocol - Protocol definition.
    * @param {Receiver} nextReceiver - Receiver to deliver message to.
@@ -25,4 +25,4 @@ class Receiver {
   }
 }
 
-export default Receiver
+export default AuthenticateReceiver

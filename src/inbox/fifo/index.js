@@ -4,8 +4,8 @@
  * @module cashshuffle/inbox/fifo
  *
  * @example
-import Inbox from 'cashshuffle/inbox/fifo'
-const inbox = new Inbox()
+import FifoInbox from 'cashshuffle/inbox/fifo'
+const inbox = new FifoInbox()
 
 inbox.add('Test message 1')
 inbox.add('Test message 2')
@@ -18,15 +18,15 @@ const message3 = inbox.receive()
 // message3 === 'Test message 3'
  */
 
-import Inbox from './main'
+import FifoInbox from './main'
 import add from './add'
 import receive from './receive'
 import watch from './watch'
 
-Object.assign(Inbox.prototype, {
+Object.assign(FifoInbox.prototype, {
   add,
   receive,
   watch
 })
 
-export default Inbox
+export default FifoInbox

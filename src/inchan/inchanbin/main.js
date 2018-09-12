@@ -5,7 +5,7 @@ import privs from './privs'
  *
  * @throws {FormatError} If received binary message fails to parse.
  */
-class Inchan {
+class InchanbinInchan {
   /**
    * @param {inchanbin~Inchanbin} inchanbin - Binary input channel.
    *     Raw binary messages are read from this channel.
@@ -21,4 +21,4 @@ class Inchan {
   }
 }
 
-export default Inchan
+export default InchanbinInchan

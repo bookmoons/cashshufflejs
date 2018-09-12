@@ -11,11 +11,11 @@
  * @module cashshuffle/inchanbin/nodestream
  */
 
-import Inchanbin from './main'
+import NodestreamInchanbin from './main'
 import receive from './receive'
 
-Object.assign(Inchanbin.prototype, {
+Object.assign(NodestreamInchanbin.prototype, {
   receive
 })
 
-export default Inchanbin
+export default NodestreamInchanbin

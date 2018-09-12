@@ -1,10 +1,10 @@
 import privs from './privs'
 
-class Crypto {
+class BitcoreCrypto {
   constructor () {
     const priv = {}
     privs.set(this, priv)
   }
 }
 
-export default Crypto
+export default BitcoreCrypto
