@@ -27,6 +27,7 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
+ * @prop {Logchan} [log=null] - Logging channel.
  * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
  */
 
@@ -67,6 +68,7 @@ async function submit ({
   outchan,
   receiver,
   discarder = null,
+  log = null,
   network = defaultNetwork
 }) {
   /* Construct unsigned transaction. */
@@ -77,6 +79,7 @@ async function submit ({
     outputAddresses,
     changeAddresses
   )
+  if (log) await log.send('Constructed shuffling transaction')
 
   /* Sign transaction. */
   let signingPrivateKey = await signingKeyPair.exportPrivateKey()
@@ -110,6 +113,7 @@ async function submit ({
     ownSignedPacket
   )
   await outchan.send(ownPackage)
+  if (log) await log.send('Broadcasted own transaction signature')
 
   /* Gather other participant messages. */
   const otherPackets = await this.gatherSignature({
@@ -119,6 +123,7 @@ async function submit ({
     receiver,
     discarder
   })
+  if (log) await log.send('Gathered participant transaction signatures')
 
   /* Extract other participant signatures. */
   const otherSignatures = new Map()
@@ -161,6 +166,7 @@ async function submit ({
       }
     }
   }
+  if (log) await log.send('Verified all signatures')
 
   /* Construct signed transaction. */
   await coin.addTransactionSignatures(transaction, ownSignatures)
@@ -171,6 +177,7 @@ async function submit ({
 
   /* Submit signed transaction to Bitcoin Cash network. */
   await coin.broadcastTransaction(transaction)
+  if (log) await log.send('Submitted transaction to BCH network')
 
   /* Detect double spend. */
   // TODO: Is there a danger of detecting the shuffle spend here?
@@ -193,6 +200,7 @@ async function submit ({
       )
     }
   }
+  if (log) await log.send('Verified no double spends')
 
   /* Return submitted transaction. */
   return { transaction }
