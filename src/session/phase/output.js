@@ -33,7 +33,7 @@ import { outputListDelimiter } from '../value'
  * @typedef {object} OutputReturn
  * @memberof module:cashshuffle/session.Session
  *
- * @prop {Array<CashAddress>} outputList - Final output list.
+ * @prop {Array<Address>} outputList - Final output list.
  */
 
 /**

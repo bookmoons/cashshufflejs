@@ -20,8 +20,8 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  *     The produced transaction will charge this fee to each participant.
  * @prop {Map<HexString-CashAddress>} inputAddresses - Input addresses.
  *     Key participant signing public key. Value input address.
- * @prop {Iterable<CashAddress>} outputAddresses - Output addresses.
- * @prop {Map<HexString-CashAddress>} changeAddresses - Change addresses.
+ * @prop {Iterable<Address>} outputAddresses - Output addresses.
+ * @prop {Map<HexString-Address>} changeAddresses - Change addresses.
  *     Key participant signing public key. Value change address.
  * @prop {Coin} coin - Bitcoin Cash network interface.
  * @prop {Outchan} outchan - Output message channel.

@@ -51,7 +51,7 @@ const inputSignature = [ inputIndex, signature ]
  * @memberof module:cashshuffle/coin~Coin
  *
  * @prop {HexString} 1 - Participant session public key.
- * @prop {CashAddress} 2 - Bitcoin Cash address.
+ * @prop {Address} 2 - Bitcoin Cash address.
  *
  * @example
 const sessionPublicKey =
@@ -163,8 +163,8 @@ const participantAddress = [ sessionPublicKey, address ]
  *     The produced transaction will charge this fee to each participant.
  * @param {Iterable<ParticipantAddress>} inputAddresses - Input addresses.
  *     1 for each participant.
- * @param {Iterable<CashAddress>} outputAddresses - Output addresses. 1 for
- *     each participant. Participant associated with each output unspecified.
+ * @param {Iterable<Address>} outputAddresses - Output addresses. 1 for each
+ *     participant. Participant associated with each output unspecified.
  * @param {Iterable<ParticipantAddress>} changeAddresses - Change output
  *     addresses. 0-1 for each participant.
  *
@@ -214,7 +214,7 @@ const participantAddress = [ sessionPublicKey, address ]
  * @instance
  * @async
  *
- * @param {CashAddress} address - Bitcoin Cash address to check.
+ * @param {Address} address - Bitcoin Cash address to check.
  * @param {number} amount - Required amount in satoshis.
  *
  * @return {boolean} Whether address has sufficient funds. True if address

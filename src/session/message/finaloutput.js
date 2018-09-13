@@ -9,7 +9,7 @@ import { outputListDelimiter } from '../value'
  * @prop {HexString} signingPublicKey - Signing public key.
  * @prop {ArrayBuffer} sessionId - Session identifier.
  * @prop {number} poolNumber - Participant pool number.
- * @prop {Iterable<CashAddress>} outputList - List of output addresses.
+ * @prop {Iterable<Address>} outputList - List of output addresses.
  */
 
 /**

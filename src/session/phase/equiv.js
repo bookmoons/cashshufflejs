@@ -18,7 +18,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  *     Assumed ready for use.
  * @prop {Iterable<HexString>} encryptionPublicKeys - Encryption public keys
  *     for participants 2 through last ascending in shuffle order.
- * @prop {Iterable<CashAddress>} outputList - Final output list
+ * @prop {Iterable<Address>} outputList - Final output list
  *     in broadcast message order.
  * @prop {Crypto} crypto - Message encryptor. Assumed ready for use.
  * @prop {Outchan} outchan - Output message channel.
