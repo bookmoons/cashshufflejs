@@ -18,7 +18,7 @@ HexString
 
 .. autofunction:: HexString
 
-P2PKHAddress
-------------
+P2PKHLegacyAddress
+------------------
 
-.. autofunction:: P2PKHAddress
+.. autofunction:: P2PKHLegacyAddress

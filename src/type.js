@@ -55,6 +55,6 @@ const hexString = '010203a0b0c0'
  *
  * [1]: https://en.bitcoin.it/wiki/Address
  *
- * @typedef {string} P2PKHAddress
+ * @typedef {string} P2PKHLegacyAddress
  * @memberof module:cashshuffle
  */
