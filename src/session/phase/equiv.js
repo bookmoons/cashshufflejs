@@ -24,6 +24,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
+ * @prop {Logchan} [log=null] - Logging channel.
  */
 
 /**
@@ -45,7 +46,8 @@ async function checkEquivocation ({
   crypto,
   outchan,
   receiver,
-  discarder = null
+  discarder = null,
+  log = null
 }) {
   /* Prepare hash input. */
   const hashInput = [ ...encryptionPublicKeys, ...outputList ].join('')
@@ -77,6 +79,7 @@ async function checkEquivocation ({
     ownSignedPacket
   )
   await outchan.send(ownPackage)
+  if (log) await log.send('Broadcasted output list hash')
 
   /* Gather other participant messages. */
   const otherPackets = await this.gatherDigest({
@@ -112,6 +115,7 @@ async function checkEquivocation ({
       )
     }
   }
+  if (log) await log.send('Verified all output list hashes')
 }
 
 export default checkEquivocation
