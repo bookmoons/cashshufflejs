@@ -47,3 +47,14 @@
 // [ 0x01, 0x02, 0x03, 0xa0, 0xb0, 0xc0 ]
 const hexString = '010203a0b0c0'
  */
+
+/**
+ * Bitcoin Cash P2PKH address in a string.
+ *
+ * Format identical to the [Bitcoin Core P2PKH address format][1].
+ *
+ * [1]: https://en.bitcoin.it/wiki/Address
+ *
+ * @typedef {string} P2PKHAddress
+ * @memberof module:cashshuffle
+ */

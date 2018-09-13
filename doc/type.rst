@@ -17,3 +17,8 @@ HexString
 ---------
 
 .. autofunction:: HexString
+
+P2PKHAddress
+------------
+
+.. autofunction:: P2PKHAddress
