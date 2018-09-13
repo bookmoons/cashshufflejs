@@ -8,7 +8,7 @@
  * Defaults:
  *
  * - Network operation attempts: 5.
- * - Network operation timeout: 5,000 milliseconds (5 seconds).
+ * - Network operation timeout: 30 seconds.
  *
  * [1]: http://crypsys.mmci.uni-saarland.de/projects/CoinShuffle/
  *
