@@ -32,6 +32,7 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from './default'
  * @prop {Outchan} outchan - Output message channel.
  * @prop {SessionReceiver} receiver - Session message receiver.
  * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
+ * @prop {Logchan} [log=null] - Logging channel.
  * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
  */
 
@@ -71,6 +72,7 @@ async function run ({
   outchan,
   receiver,
   discarder = null,
+  log = null,
   network = defaultNetwork
 }) {
   // Order participants
@@ -97,6 +99,10 @@ async function run ({
     last ? null : participantsOrdered[nextParticipantIndex]
   const lastParticipant =
     last ? signingPublicKey : participantsOrdered[lastParticipantIndex]
+  if (log) {
+    const message = 'Shuffling with ' + participantsCount + ' participants'
+    await log.send(message)
+  }
 
   // Stage phase receivers
   const phaseReceivers = receiver.phaseReceivers
@@ -117,6 +123,7 @@ async function run ({
     outchan,
     receiver: announceReceiver,
     discarder,
+    log,
     network
   })
   try {
@@ -130,6 +137,7 @@ async function run ({
     } else throw e
   }
   const { encryptionKeyPair, encryptionPublicKeys } = await announcePromise
+  if (log) await log.send('Phase 1 Announce complete')
 
   // Prepare ordered encryption public keys
   const encryptionPublicKeysOrdered = []
@@ -165,6 +173,7 @@ async function run ({
     outchan,
     receiver: shuffleReceiver,
     discarder,
+    log,
     network
   })
   try {
@@ -182,6 +191,7 @@ async function run ({
     } else throw e
   }
   const { outputKeyPair } = await shufflePromise
+  if (log) await log.send('Phase 2 Shuffle complete')
 
   /* Phase 3: Broadcast Output. */
   const outputPhaseIdentifier = Phase.Broadcast.value
@@ -202,7 +212,8 @@ async function run ({
     outchan,
     receiver: outputReceiver,
     priorReceiver: shuffleReceiver,
-    discarder
+    discarder,
+    log
   })
   try {
     await outputPromise
@@ -220,6 +231,7 @@ async function run ({
     } else throw e
   }
   const { outputList } = await outputPromise
+  if (log) await log.send('Phase 3 Broadcast Output complete')
 
   // Prepare hash encryption public keys
   const hashEncryptionPublicKeys = encryptionPublicKeysOrdered.slice(1)
@@ -239,7 +251,8 @@ async function run ({
     crypto: encryptionKeyPair,
     outchan,
     receiver: equivocationReceiver,
-    discarder
+    discarder,
+    log
   })
   try {
     await checkEquivocationPromise
@@ -251,6 +264,7 @@ async function run ({
       throw new NotImplementedError(e, 'blame')
     } else throw e
   }
+  if (log) await log.send('Phase 4 Equivocation Check complete')
 
   // Prepare input addresses
   const inputAddresses = new Map()
@@ -280,6 +294,7 @@ async function run ({
     outchan,
     receiver: submitReceiver,
     discarder,
+    log,
     network
   })
   try {
@@ -293,6 +308,7 @@ async function run ({
     } else throw e
   }
   const { transaction } = await submitPromise
+  if (log) await log.send('Phase 5 Submit Transaction complete')
 
   /* Return result. */
   return {
