@@ -2,7 +2,7 @@ import { MissingValueError } from '../../error'
 import privs from './privs'
 
 /**
- * @memberof module:cashshuffle/receiver/packetify~Receiver
+ * @memberof module:cashshuffle/receiver/packetify~PacketifyReceiver
  *
  * @param {protocol.Signed} message - Signed packet to extract packet from.
  *     Assumed valid.

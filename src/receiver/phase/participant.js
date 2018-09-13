@@ -7,7 +7,7 @@ import privs from './privs'
  * Value participant inbox.
  *
  * @var {Map<HexString,Inbox>} participantInboxes
- * @memberof module:cashshuffle/receiver/phase.Receiver
+ * @memberof module:cashshuffle/receiver/phase.PhaseReceiver
  * @instance
  */
 function participantInboxes () {

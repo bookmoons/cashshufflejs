@@ -4,7 +4,7 @@ import { MissingValueError, ValueError } from '../../error'
 import privs from './privs'
 
 /**
- * @memberof module:cashshuffle/receiver/authenticate~Receiver
+ * @memberof module:cashshuffle/receiver/authenticate~AuthenticateReceiver
  *
  * @param {protocol.Signed} message - Signed packet to verify signature of.
  */
