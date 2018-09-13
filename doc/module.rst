@@ -13,6 +13,7 @@ Modules implementing CashShuffle interfaces.
    module/inchanbin/nodestream
    module/logchan/console
    module/logchan/file
+   module/logchan/prefix
    module/outchan/outchanbin
    module/outchanbin/nodestream
    module/receiver/authenticate
