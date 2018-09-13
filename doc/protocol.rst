@@ -1,8 +1,19 @@
 Protocol
 ========
 
-Messages on the wire are terminated with the Unicode character U+23CE
-Return Symbol in UTF-8. The byte encoding is e2 8f 8e.
+CashShuffle_ is an extension to CoinShuffle_. The CoinShuffle protocol defines
+a sequence of 5 phases (+ a 6th blame phase for identifying protocol
+violators). Several details are left implementation defined.
+
+`cashshufflejs` uses this configuration for the variable details:
+
+- Message types are defined with protobuf_.
+- Messages on the wire are preceded by a byte length count represented as an
+  unsigned 32-bit integer in big endian byte order.
+
+.. _CashShuffle: https://cashshuffle.com/
+.. _CoinShuffle: http://crypsys.mmci.uni-saarland.de/projects/CoinShuffle/
+.. _protobuf: https://developers.google.com/protocol-buffers/
 
 .. autofunction:: protocol.Phase
 
