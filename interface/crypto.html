@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Drawer" href="drawer.html" />
+    <link rel="next" title="Discarder" href="discarder.html" />
     <link rel="prev" title="Coin" href="coin.html" /> 
 
   
@@ -84,6 +84,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../interface.html">Interface</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="coin.html">Coin</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discarder.html">Discarder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drawer.html">Drawer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fetcher.html">Fetcher</a></li>
 <li class="toctree-l2"><a class="reference internal" href="inbox.html">Inbox</a></li>
@@ -201,7 +202,7 @@ the <a class="reference external" href="https://www.npmjs.com/package/bitcore-ec
 
 <dl class="function">
 <dt id="Crypto.encrypt">
-<code class="descclassname">Crypto.</code><code class="descname">encrypt</code><span class="sig-paren">(</span><em>message</em>, <em>recipient</em><span class="sig-paren">)</span><a class="headerlink" href="#Crypto.encrypt" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">Crypto.</code><code class="descname">encrypt</code><span class="sig-paren">(</span><em>message</em>, <em>recipient</em>, <em>network=&quot;&lt;mainnet&gt;&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#Crypto.encrypt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encrypt message for public key.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -210,6 +211,7 @@ the <a class="reference external" href="https://www.npmjs.com/package/bitcore-ec
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
 <li><strong>message</strong> (<em>string</em>) – Message to encrypt.</li>
 <li><strong>recipient</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Public key of recipient.</li>
+<li><strong>network</strong> – Bitcoin Cash network.</li>
 </ul>
 </td>
 </tr>
@@ -324,7 +326,7 @@ key pair.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="drawer.html" class="btn btn-neutral float-right" title="Drawer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="discarder.html" class="btn btn-neutral float-right" title="Discarder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="coin.html" class="btn btn-neutral" title="Coin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

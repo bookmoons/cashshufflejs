@@ -84,6 +84,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../interface.html">Interface</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Coin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="crypto.html">Crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discarder.html">Discarder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drawer.html">Drawer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fetcher.html">Fetcher</a></li>
 <li class="toctree-l2"><a class="reference internal" href="inbox.html">Inbox</a></li>
@@ -299,7 +300,7 @@ multisignature transaction over several calls.</p>
 
 <dl class="function">
 <dt id="coin.Coin.address">
-<code class="descclassname">coin.Coin.</code><code class="descname">address</code><span class="sig-paren">(</span><em>publicKeyString</em><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.address" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">coin.Coin.</code><code class="descname">address</code><span class="sig-paren">(</span><em>publicKeyString</em>, <em>network=&quot;&lt;mainnet&gt;&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.address" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get P2PKH address for public key.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -307,6 +308,7 @@ multisignature transaction over several calls.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
 <li><strong>publicKeyString</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Public key.</li>
+<li><strong>network</strong> – Bitcoin Cash network. Type implementation defined.</li>
 </ul>
 </td>
 </tr>
@@ -440,7 +442,7 @@ key.</p>
 
 <dl class="function">
 <dt id="coin.Coin.verifySignature">
-<code class="descclassname">coin.Coin.</code><code class="descname">verifySignature</code><span class="sig-paren">(</span><em>signature</em>, <em>message</em>, <em>publicKeyString</em><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.verifySignature" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">coin.Coin.</code><code class="descname">verifySignature</code><span class="sig-paren">(</span><em>signature</em>, <em>message</em>, <em>publicKeyString</em>, <em>network=&quot;&lt;mainnet&gt;&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#coin.Coin.verifySignature" title="Permalink to this definition">¶</a></dt>
 <dd><p>Verify message signature.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -450,6 +452,7 @@ key.</p>
 <li><strong>signature</strong> (<a class="reference internal" href="../type.html#Base64" title="Base64"><em>Base64</em></a>) – Message signature.</li>
 <li><strong>message</strong> (<em>string</em>) – Plaintext message.</li>
 <li><strong>publicKeyString</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signer public key.</li>
+<li><strong>network</strong> – Bitcoin Cash network. Type implementation defined.</li>
 </ul>
 </td>
 </tr>

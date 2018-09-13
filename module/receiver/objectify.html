@@ -85,12 +85,16 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../module.html">Module</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../coin/bitcore.html">coin/bitcore</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../crypto/bitcore.html">crypto/bitcore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../discarder/log.html">discarder/log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../drawer/standard.html">drawer/standard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fetcher/each.html">fetcher/each</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inbox/fifo.html">inbox/fifo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchan/inchanbin.html">inchan/inchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchanbin/nodestream.html">inchanbin/nodestream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/console.html">logchan/console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/distribute.html">logchan/distribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logchan/file.html">logchan/file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/prefix.html">logchan/prefix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchan/outchanbin.html">outchan/outchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchanbin/nodestream.html">outchanbin/nodestream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="authenticate.html">receiver/authenticate</a></li>
@@ -180,8 +184,8 @@
 on to next receiver. Received messages are assumed valid.</p>
 <p>Provide protocol definition and next receiver.</p>
 <dl class="class">
-<dt id="receiver.objectify.Receiver">
-<em class="property">class </em><code class="descclassname">receiver.objectify.</code><code class="descname">Receiver</code><span class="sig-paren">(</span><em>protocol</em>, <em>nextReceiver</em><span class="sig-paren">)</span><a class="headerlink" href="#receiver.objectify.Receiver" title="Permalink to this definition">¶</a></dt>
+<dt id="receiver.objectify.ObjectifyReceiver">
+<em class="property">class </em><code class="descclassname">receiver.objectify.</code><code class="descname">ObjectifyReceiver</code><span class="sig-paren">(</span><em>protocol</em>, <em>nextReceiver</em><span class="sig-paren">)</span><a class="headerlink" href="#receiver.objectify.ObjectifyReceiver" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -194,6 +198,22 @@ on to next receiver. Received messages are assumed valid.</p>
 </tr>
 </tbody>
 </table>
+<dl class="function">
+<dt id="receiver.objectify.ObjectifyReceiver.submit">
+<code class="descclassname">receiver.objectify.ObjectifyReceiver.</code><code class="descname">submit</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#receiver.objectify.ObjectifyReceiver.submit" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>message</strong> (<a class="reference internal" href="../../protocol.html#protocol.Packet" title="protocol.Packet"><em>protocol.Packet</em></a>) – Packet to convert to object. Assumed valid.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </dd></dl>

@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="logchan/file" href="../logchan/file.html" />
+    <link rel="next" title="logchan/console" href="../logchan/console.html" />
     <link rel="prev" title="inchan/inchanbin" href="../inchan/inchanbin.html" /> 
 
   
@@ -85,12 +85,16 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../module.html">Module</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../coin/bitcore.html">coin/bitcore</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../crypto/bitcore.html">crypto/bitcore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../discarder/log.html">discarder/log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../drawer/standard.html">drawer/standard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fetcher/each.html">fetcher/each</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inbox/fifo.html">inbox/fifo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchan/inchanbin.html">inchan/inchanbin</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">inchanbin/nodestream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/console.html">logchan/console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/distribute.html">logchan/distribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logchan/file.html">logchan/file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/prefix.html">logchan/prefix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchan/outchanbin.html">outchan/outchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchanbin/nodestream.html">outchanbin/nodestream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../receiver/authenticate.html">receiver/authenticate</a></li>
@@ -181,8 +185,8 @@
 object to receive data. Expects a stream of <code class="docutils literal notranslate"><span class="pre">Buffer</span></code> objects.</p>
 <p>Provide <code class="docutils literal notranslate"><span class="pre">Readable</span></code> instance to constructor.</p>
 <dl class="class">
-<dt id="inchanbin.nodestream.Inchanbin">
-<em class="property">class </em><code class="descclassname">inchanbin.nodestream.</code><code class="descname">Inchanbin</code><span class="sig-paren">(</span><em>stream</em><span class="sig-paren">)</span><a class="headerlink" href="#inchanbin.nodestream.Inchanbin" title="Permalink to this definition">¶</a></dt>
+<dt id="inchanbin.nodestream.NodestreamInchanbin">
+<em class="property">class </em><code class="descclassname">inchanbin.nodestream.</code><code class="descname">NodestreamInchanbin</code><span class="sig-paren">(</span><em>stream</em><span class="sig-paren">)</span><a class="headerlink" href="#inchanbin.nodestream.NodestreamInchanbin" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -208,7 +212,7 @@ object to receive data. Expects a stream of <code class="docutils literal notran
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../logchan/file.html" class="btn btn-neutral float-right" title="logchan/file" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../logchan/console.html" class="btn btn-neutral float-right" title="logchan/console" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../inchan/inchanbin.html" class="btn btn-neutral" title="inchan/inchanbin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -85,12 +85,16 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../module.html">Module</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../coin/bitcore.html">coin/bitcore</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../crypto/bitcore.html">crypto/bitcore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../discarder/log.html">discarder/log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../drawer/standard.html">drawer/standard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fetcher/each.html">fetcher/each</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inbox/fifo.html">inbox/fifo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchan/inchanbin.html">inchan/inchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchanbin/nodestream.html">inchanbin/nodestream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/console.html">logchan/console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/distribute.html">logchan/distribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logchan/file.html">logchan/file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/prefix.html">logchan/prefix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchan/outchanbin.html">outchan/outchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchanbin/nodestream.html">outchanbin/nodestream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="authenticate.html">receiver/authenticate</a></li>
@@ -188,8 +192,8 @@ messages with unrecognized phases.</p>
 </ul>
 <p>Default phase receiver uses provided participants and discarder.</p>
 <dl class="class">
-<dt id="receiver.session.Receiver">
-<em class="property">class </em><code class="descclassname">receiver.session.</code><code class="descname">Receiver</code><span class="sig-paren">(</span><em>participants</em>, <em>phaseIdentifiers</em>, <em>discarder=null</em>, <em>phaseReceiverFactory=null</em><span class="sig-paren">)</span><a class="headerlink" href="#receiver.session.Receiver" title="Permalink to this definition">¶</a></dt>
+<dt id="receiver.session.SessionReceiver">
+<em class="property">class </em><code class="descclassname">receiver.session.</code><code class="descname">SessionReceiver</code><span class="sig-paren">(</span><em>participants</em>, <em>phaseIdentifiers</em>, <em>discarder=null</em>, <em>phaseReceiverFactory=null</em><span class="sig-paren">)</span><a class="headerlink" href="#receiver.session.SessionReceiver" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -205,11 +209,27 @@ messages with unrecognized phases.</p>
 </tbody>
 </table>
 <dl class="attribute">
-<dt id="receiver.session.Receiver.phaseReceivers">
-<code class="descclassname">receiver.session.Receiver.</code><code class="descname">phaseReceivers</code><a class="headerlink" href="#receiver.session.Receiver.phaseReceivers" title="Permalink to this definition">¶</a></dt>
+<dt id="receiver.session.SessionReceiver.phaseReceivers">
+<code class="descclassname">receiver.session.SessionReceiver.</code><code class="descname">phaseReceivers</code><a class="headerlink" href="#receiver.session.SessionReceiver.phaseReceivers" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>type:</strong> Map.&lt;number, Receiver&gt;</p>
 <p>Phase receivers.</p>
 <p>Index phase identifier. Value phase receiver.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="receiver.session.SessionReceiver.submit">
+<code class="descclassname">receiver.session.SessionReceiver.</code><code class="descname">submit</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#receiver.session.SessionReceiver.submit" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>message</strong> (<em>object</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

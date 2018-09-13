@@ -85,12 +85,16 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../module.html">Module</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../coin/bitcore.html">coin/bitcore</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../crypto/bitcore.html">crypto/bitcore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../discarder/log.html">discarder/log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../drawer/standard.html">drawer/standard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fetcher/each.html">fetcher/each</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">inbox/fifo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchan/inchanbin.html">inchan/inchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchanbin/nodestream.html">inchanbin/nodestream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/console.html">logchan/console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/distribute.html">logchan/distribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logchan/file.html">logchan/file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/prefix.html">logchan/prefix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchan/outchanbin.html">outchan/outchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchanbin/nodestream.html">outchanbin/nodestream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../receiver/authenticate.html">receiver/authenticate</a></li>
@@ -177,8 +181,8 @@
 <em class="property">module </em><code class="descclassname">inbox.</code><code class="descname">fifo</code><a class="headerlink" href="#inbox.fifo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inbox with FIFO delivery order.</p>
 <p><strong>Examples:</strong></p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">Inbox</span> <span class="nx">from</span> <span class="s1">&#39;cashshuffle/inbox/fifo&#39;</span>
-<span class="kr">const</span> <span class="nx">inbox</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Inbox</span><span class="p">()</span>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">FifoInbox</span> <span class="nx">from</span> <span class="s1">&#39;cashshuffle/inbox/fifo&#39;</span>
+<span class="kr">const</span> <span class="nx">inbox</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FifoInbox</span><span class="p">()</span>
 
 <span class="nx">inbox</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;Test message 1&#39;</span><span class="p">)</span>
 <span class="nx">inbox</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;Test message 2&#39;</span><span class="p">)</span>

@@ -151,8 +151,15 @@
             
   <div class="section" id="protocol">
 <h1>Protocol<a class="headerlink" href="#protocol" title="Permalink to this headline">¶</a></h1>
-<p>Messages on the wire are terminated with the Unicode character U+23CE
-Return Symbol in UTF-8. The byte encoding is e2 8f 8e.</p>
+<p><a class="reference external" href="https://cashshuffle.com/">CashShuffle</a> is an extension to <a class="reference external" href="http://crypsys.mmci.uni-saarland.de/projects/CoinShuffle/">CoinShuffle</a>. The CoinShuffle protocol defines
+a sequence of 5 phases (+ a 6th blame phase for identifying protocol
+violators). Several details are left implementation defined.</p>
+<p><cite>cashshufflejs</cite> uses this configuration for the variable details:</p>
+<ul class="simple">
+<li>Message types are defined with <a class="reference external" href="https://developers.google.com/protocol-buffers/">protobuf</a>.</li>
+<li>Messages on the wire are preceded by a byte length count represented as an
+unsigned 32-bit integer in big endian byte order.</li>
+</ul>
 <dl class="function">
 <dt id="protocol.Phase">
 <code class="descclassname">protocol.</code><code class="descname">Phase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#protocol.Phase" title="Permalink to this definition">¶</a></dt>

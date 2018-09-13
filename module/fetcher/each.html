@@ -85,12 +85,16 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../module.html">Module</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../coin/bitcore.html">coin/bitcore</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../crypto/bitcore.html">crypto/bitcore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../discarder/log.html">discarder/log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../drawer/standard.html">drawer/standard</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">fetcher/each</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inbox/fifo.html">inbox/fifo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchan/inchanbin.html">inchan/inchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchanbin/nodestream.html">inchanbin/nodestream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/console.html">logchan/console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/distribute.html">logchan/distribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logchan/file.html">logchan/file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/prefix.html">logchan/prefix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchan/outchanbin.html">outchan/outchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchanbin/nodestream.html">outchanbin/nodestream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../receiver/authenticate.html">receiver/authenticate</a></li>
@@ -178,8 +182,8 @@
 <dd><p>1 message from each fetcher.</p>
 <p>Fetches 1 message from each inbox.</p>
 <dl class="class">
-<dt id="fetcher.each.Fetcher">
-<em class="property">class </em><code class="descclassname">fetcher.each.</code><code class="descname">Fetcher</code><span class="sig-paren">(</span><em>inboxes</em><span class="sig-paren">)</span><a class="headerlink" href="#fetcher.each.Fetcher" title="Permalink to this definition">¶</a></dt>
+<dt id="fetcher.each.EachFetcher">
+<em class="property">class </em><code class="descclassname">fetcher.each.</code><code class="descname">EachFetcher</code><span class="sig-paren">(</span><em>inboxes</em><span class="sig-paren">)</span><a class="headerlink" href="#fetcher.each.EachFetcher" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -191,6 +195,25 @@
 </tr>
 </tbody>
 </table>
+<dl class="function">
+<dt id="fetcher.each.EachFetcher.fetch">
+<code class="descclassname">fetcher.each.EachFetcher.</code><code class="descname">fetch</code><span class="sig-paren">(</span><em>timeout=null</em><span class="sig-paren">)</span><a class="headerlink" href="#fetcher.each.EachFetcher.fetch" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>timeout</strong> (<em>number</em>) – Maximum time to wait in milliseconds. <cite>null</cite> to wait forever.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>Array.&lt;*&gt;</strong> – The fetched messages in same order as inboxes.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </dd></dl>

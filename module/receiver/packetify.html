@@ -85,12 +85,16 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../module.html">Module</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../coin/bitcore.html">coin/bitcore</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../crypto/bitcore.html">crypto/bitcore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../discarder/log.html">discarder/log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../drawer/standard.html">drawer/standard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fetcher/each.html">fetcher/each</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inbox/fifo.html">inbox/fifo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchan/inchanbin.html">inchan/inchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchanbin/nodestream.html">inchanbin/nodestream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/console.html">logchan/console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/distribute.html">logchan/distribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logchan/file.html">logchan/file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/prefix.html">logchan/prefix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchan/outchanbin.html">outchan/outchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchanbin/nodestream.html">outchanbin/nodestream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="authenticate.html">receiver/authenticate</a></li>
@@ -182,8 +186,8 @@ messages are assumed valid.</p>
 <p>Provide protocol definition and next receiver. Optionally provide
 <code class="docutils literal notranslate"><span class="pre">Receiver</span></code> instance to receive discarded messages.</p>
 <dl class="class">
-<dt id="receiver.packetify.Receiver">
-<em class="property">class </em><code class="descclassname">receiver.packetify.</code><code class="descname">Receiver</code><span class="sig-paren">(</span><em>protocol</em>, <em>nextReceiver</em>, <em>discarder=null</em><span class="sig-paren">)</span><a class="headerlink" href="#receiver.packetify.Receiver" title="Permalink to this definition">¶</a></dt>
+<dt id="receiver.packetify.PacketifyReceiver">
+<em class="property">class </em><code class="descclassname">receiver.packetify.</code><code class="descname">PacketifyReceiver</code><span class="sig-paren">(</span><em>protocol</em>, <em>nextReceiver</em>, <em>discarder=null</em><span class="sig-paren">)</span><a class="headerlink" href="#receiver.packetify.PacketifyReceiver" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -197,6 +201,22 @@ messages are assumed valid.</p>
 </tr>
 </tbody>
 </table>
+<dl class="function">
+<dt id="receiver.packetify.PacketifyReceiver.submit">
+<code class="descclassname">receiver.packetify.PacketifyReceiver.</code><code class="descname">submit</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#receiver.packetify.PacketifyReceiver.submit" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>message</strong> (<a class="reference internal" href="../../protocol.html#protocol.Signed" title="protocol.Signed"><em>protocol.Signed</em></a>) – Signed packet to extract packet from. Assumed valid.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </dd></dl>

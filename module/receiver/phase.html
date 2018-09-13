@@ -85,12 +85,16 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../module.html">Module</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../coin/bitcore.html">coin/bitcore</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../crypto/bitcore.html">crypto/bitcore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../discarder/log.html">discarder/log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../drawer/standard.html">drawer/standard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fetcher/each.html">fetcher/each</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inbox/fifo.html">inbox/fifo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchan/inchanbin.html">inchan/inchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchanbin/nodestream.html">inchanbin/nodestream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/console.html">logchan/console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/distribute.html">logchan/distribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logchan/file.html">logchan/file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/prefix.html">logchan/prefix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchan/outchanbin.html">outchan/outchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchanbin/nodestream.html">outchanbin/nodestream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="authenticate.html">receiver/authenticate</a></li>
@@ -185,10 +189,10 @@ messages from unrecognized senders.</p>
 <li>Optionally <code class="docutils literal notranslate"><span class="pre">Receiver</span></code> instance to receive discarded messages.</li>
 <li>Optionally factory function returning <code class="docutils literal notranslate"><span class="pre">Inbox</span></code> instances.</li>
 </ul>
-<p>Inbox defaults to <code class="docutils literal notranslate"><span class="pre">inbox/fifo</span></code>.</p>
+<p>Inbox defaults to <code class="docutils literal notranslate"><span class="pre">FifoInbox</span></code>.</p>
 <dl class="class">
-<dt id="receiver.phase.Receiver">
-<em class="property">class </em><code class="descclassname">receiver.phase.</code><code class="descname">Receiver</code><span class="sig-paren">(</span><em>participants</em>, <em>discarder=null</em>, <em>inboxFactory=null</em><span class="sig-paren">)</span><a class="headerlink" href="#receiver.phase.Receiver" title="Permalink to this definition">¶</a></dt>
+<dt id="receiver.phase.PhaseReceiver">
+<em class="property">class </em><code class="descclassname">receiver.phase.</code><code class="descname">PhaseReceiver</code><span class="sig-paren">(</span><em>participants</em>, <em>discarder=null</em>, <em>inboxFactory=null</em><span class="sig-paren">)</span><a class="headerlink" href="#receiver.phase.PhaseReceiver" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -203,11 +207,27 @@ messages from unrecognized senders.</p>
 </tbody>
 </table>
 <dl class="attribute">
-<dt id="receiver.phase.Receiver.participantInboxes">
-<code class="descclassname">receiver.phase.Receiver.</code><code class="descname">participantInboxes</code><a class="headerlink" href="#receiver.phase.Receiver.participantInboxes" title="Permalink to this definition">¶</a></dt>
+<dt id="receiver.phase.PhaseReceiver.participantInboxes">
+<code class="descclassname">receiver.phase.PhaseReceiver.</code><code class="descname">participantInboxes</code><a class="headerlink" href="#receiver.phase.PhaseReceiver.participantInboxes" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>type:</strong> Map.&lt;HexString, Inbox&gt;</p>
 <p>Participant inboxes.</p>
 <p>Index participant public key. Value participant inbox.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="receiver.phase.PhaseReceiver.submit">
+<code class="descclassname">receiver.phase.PhaseReceiver.</code><code class="descname">submit</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#receiver.phase.PhaseReceiver.submit" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>message</strong> (<em>object</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

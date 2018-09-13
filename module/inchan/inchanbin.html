@@ -85,12 +85,16 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../module.html">Module</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../coin/bitcore.html">coin/bitcore</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../crypto/bitcore.html">crypto/bitcore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../discarder/log.html">discarder/log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../drawer/standard.html">drawer/standard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fetcher/each.html">fetcher/each</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inbox/fifo.html">inbox/fifo</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">inchan/inchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchanbin/nodestream.html">inchanbin/nodestream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/console.html">logchan/console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/distribute.html">logchan/distribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logchan/file.html">logchan/file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/prefix.html">logchan/prefix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchan/outchanbin.html">outchan/outchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchanbin/nodestream.html">outchanbin/nodestream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../receiver/authenticate.html">receiver/authenticate</a></li>
@@ -181,23 +185,33 @@
 <a class="reference external" href="https://dcode.io/protobuf.js/Root.html">protobufjs.Root</a> object for
 the CashShuffle protocol to the constructor.</p>
 <dl class="class">
-<dt id="inchan.inchanbin.Inchan">
-<em class="property">class </em><code class="descclassname">inchan.inchanbin.</code><code class="descname">Inchan</code><span class="sig-paren">(</span><em>inchanbin</em>, <em>protocol</em><span class="sig-paren">)</span><a class="headerlink" href="#inchan.inchanbin.Inchan" title="Permalink to this definition">¶</a></dt>
+<dt id="inchan.inchanbin.InchanbinInchan">
+<em class="property">class </em><code class="descclassname">inchan.inchanbin.</code><code class="descname">InchanbinInchan</code><span class="sig-paren">(</span><em>inchanbin</em>, <em>protocol</em><span class="sig-paren">)</span><a class="headerlink" href="#inchan.inchanbin.InchanbinInchan" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
 <li><strong>inchanbin</strong> (<em>inchanbin~Inchanbin</em>) – Binary input channel. Raw binary messages are read from this channel.</li>
 <li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../../error.html#FormatError" title="FormatError"><strong>FormatError</strong></a> – If received binary message fails to parse.</p>
-</td>
+</tbody>
+</table>
+<dl class="function">
+<dt id="inchan.inchanbin.InchanbinInchan.receive">
+<code class="descclassname">inchan.inchanbin.InchanbinInchan.</code><code class="descname">receive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#inchan.inchanbin.InchanbinInchan.receive" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Throws:</th><td class="field-body"><a class="reference internal" href="../../error.html#FormatError" title="FormatError"><strong>FormatError</strong></a> – If received binary message fails to parse.</td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
 </dd></dl>
 
 </dd></dl>

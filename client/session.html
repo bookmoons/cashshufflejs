@@ -158,7 +158,7 @@
 <h1>Session<a class="headerlink" href="#session" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="session.Session">
-<em class="property">class </em><code class="descclassname">session.</code><code class="descname">Session</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">session.</code><code class="descname">Session</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session" title="Permalink to this definition">¶</a></dt>
 <dd><p>CoinShuffle session.</p>
 <p>CashShuffle is an extension to
 <a class="reference external" href="http://crypsys.mmci.uni-saarland.de/projects/CoinShuffle/">CoinShuffle</a>.
@@ -167,19 +167,8 @@ CoinShuffle session.</p>
 <p>Defaults:</p>
 <ul class="simple">
 <li>Network operation attempts: 5.</li>
-<li>Network operation timeout: 5,000 milliseconds (5 seconds).</li>
+<li>Network operation timeout: 30 seconds.</li>
 </ul>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>params</strong> (<em>SessionParams</em>) – </li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
 <dl class="function">
 <dt id="session.Session.AnnounceParams">
 <code class="descclassname">session.Session.</code><code class="descname">AnnounceParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.AnnounceParams" title="Permalink to this definition">¶</a></dt>
@@ -192,7 +181,7 @@ CoinShuffle session.</p>
 <li><strong>attempts</strong> (<em>number</em>) – Maximum gather attempts. Positive integer.</li>
 <li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
 <li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
-<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>poolNumber</strong> (<em>number</em>) – Participant pool number.</li>
 <li><strong>signingKeyPair</strong> (<em>Signing</em>) – Participant signing key pair. Assumed ready for use.</li>
 <li><strong>amount</strong> (<em>number</em>) – Amount to shuffle in satoshis.</li>
 <li><strong>fee</strong> (<em>number</em>) – Participant fee amount in satoshis. The produced transaction will charge this fee to each participant.</li>
@@ -200,6 +189,8 @@ CoinShuffle session.</p>
 <li><strong>outchan</strong> (<em>Outchan</em>) – Output message channel.</li>
 <li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
 <li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+<li><strong>log</strong> (<em>Logchan</em>) – Logging channel.</li>
+<li><strong>network</strong> (<em>bitcore.Network</em>) – Bitcoin Cash network.</li>
 </ul>
 </td>
 </tr>
@@ -236,7 +227,7 @@ CoinShuffle session.</p>
 <li><strong>attempts</strong> (<em>number</em>) – Maximum gather attempts. Positive integer.</li>
 <li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
 <li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
-<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>poolNumber</strong> (<em>number</em>) – Participant pool number.</li>
 <li><strong>signingKeyPair</strong> (<em>Signing</em>) – Participant signing key pair. Assumed ready for use.</li>
 <li><strong>encryptionPublicKeys</strong> (<em>Iterable.&lt;HexString&gt;</em>) – Encryption public keys for participants 2 through last ascending in shuffle order.</li>
 <li><strong>outputList</strong> (<em>Iterable.&lt;CashAddr&gt;</em>) – Final output list in broadcast message order.</li>
@@ -244,6 +235,7 @@ CoinShuffle session.</p>
 <li><strong>outchan</strong> (<em>Outchan</em>) – Output message channel.</li>
 <li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
 <li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+<li><strong>log</strong> (<em>Logchan</em>) – Logging channel.</li>
 </ul>
 </td>
 </tr>
@@ -267,6 +259,7 @@ CoinShuffle session.</p>
 <li><strong>coin</strong> (<em>Coin</em>) – Bitcoin Cash network interface.</li>
 <li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
 <li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+<li><strong>network</strong> (<em>bitcore.Network</em>) – Bitcoin Cash network.</li>
 </ul>
 </td>
 </tr>
@@ -365,7 +358,7 @@ CoinShuffle session.</p>
 <li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
 <li><strong>signingPublicKey</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key.</li>
 <li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
-<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>poolNumber</strong> (<em>number</em>) – Participant pool number.</li>
 <li><strong>encryptionPublicKey</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Public key of encryption key pair.</li>
 </ul>
 </td>
@@ -385,7 +378,7 @@ CoinShuffle session.</p>
 <li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
 <li><strong>signingPublicKey</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key.</li>
 <li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
-<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>poolNumber</strong> (<em>number</em>) – Participant pool number.</li>
 <li><strong>digest</strong> (<em>ArrayBuffer</em>) – Digest.</li>
 </ul>
 </td>
@@ -405,7 +398,7 @@ CoinShuffle session.</p>
 <li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
 <li><strong>signingPublicKey</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key.</li>
 <li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
-<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>poolNumber</strong> (<em>number</em>) – Participant pool number.</li>
 <li><strong>outputList</strong> (<em>Iterable.&lt;CashAddr&gt;</em>) – List of output addresses.</li>
 </ul>
 </td>
@@ -425,7 +418,7 @@ CoinShuffle session.</p>
 <li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
 <li><strong>signingPublicKey</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key.</li>
 <li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
-<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>poolNumber</strong> (<em>number</em>) – Participant pool number.</li>
 <li><strong>outputList</strong> (<em>Iterable.&lt;Base64&gt;</em>) – List of output address layered encryptions.</li>
 <li><strong>nextParticipant</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key of next participant.</li>
 </ul>
@@ -446,7 +439,7 @@ CoinShuffle session.</p>
 <li><strong>protocol</strong> (<em>protobufjs.Root</em>) – Protocol definition.</li>
 <li><strong>signingPublicKey</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key.</li>
 <li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
-<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>poolNumber</strong> (<em>number</em>) – Participant pool number.</li>
 <li><strong>signatures</strong> (<em>Iterable.&lt;Coin~InputSignature&gt;</em>) – Signatures. <cite>Map</cite> instances work well. Key input index. Value signature.</li>
 </ul>
 </td>
@@ -467,7 +460,7 @@ CoinShuffle session.</p>
 <li><strong>attempts</strong> (<em>number</em>) – Maximum gather attempts. Positive integer.</li>
 <li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
 <li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
-<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>poolNumber</strong> (<em>number</em>) – Participant pool number.</li>
 <li><strong>signingKeyPair</strong> (<em>Signing</em>) – Participant signing key pair. Assumed ready for use.</li>
 <li><strong>last</strong> (<em>boolean</em>) – Whether own client is last in shuffle order.</li>
 <li><strong>priorParticipant</strong> (<a class="reference internal" href="../type.html#HexString" title="HexString"><em>HexString</em></a>) – Signing public key of prior participant.</li>
@@ -476,7 +469,9 @@ CoinShuffle session.</p>
 <li><strong>crypto</strong> (<a class="reference internal" href="../interface/crypto.html#Crypto" title="Crypto"><em>Crypto</em></a>) – Message encryptor. Assumed ready for use.</li>
 <li><strong>outchan</strong> (<em>Outchan</em>) – Output message channel.</li>
 <li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
+<li><strong>priorReceiver</strong> (<em>PhaseReceiver</em>) – Prior phase message receiver.</li>
 <li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+<li><strong>log</strong> (<em>Logchan</em>) – Logging channel.</li>
 </ul>
 </td>
 </tr>
@@ -501,8 +496,8 @@ CoinShuffle session.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="session.Session.SessionParams">
-<code class="descclassname">session.Session.</code><code class="descname">SessionParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.SessionParams" title="Permalink to this definition">¶</a></dt>
+<dt id="session.Session.RunParams">
+<code class="descclassname">session.Session.</code><code class="descname">RunParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.RunParams" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -512,14 +507,35 @@ CoinShuffle session.</p>
 <li><strong>attempts</strong> (<em>number</em>) – Maximum gather attempts. Positive integer.</li>
 <li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
 <li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
-<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order. Provided by server in join response.</li>
+<li><strong>poolNumber</strong> (<em>number</em>) – Participant pool number.</li>
 <li><strong>signingKeyPair</strong> (<em>Signing</em>) – Participant signing key pair. Assumed ready for use.</li>
-<li><strong>inputs</strong> (<em>Iterable.&lt;CashAddr&gt;</em>) – Input addresses. Will be deduplicated and ordered lexicographically.</li>
+<li><strong>participants</strong> (<em>Iterable.&lt;HexString&gt;</em>) – Participant signing public keys. Will be deduplicated and ordered lexicographically by address.</li>
+<li><strong>changeAddresses</strong> (<em>Map.&lt;HexString-CashAddr&gt;</em>) – Change addresses. Key participant signing public key. Value change address.</li>
 <li><strong>amount</strong> (<em>number</em>) – Amount to shuffle in satoshis.</li>
+<li><strong>fee</strong> (<em>number</em>) – Participant fee amount in satoshis. The produced transaction will charge this fee to each participant.</li>
 <li><strong>coin</strong> (<em>Coin</em>) – Bitcoin Cash network interface.</li>
 <li><strong>outchan</strong> (<em>Outchan</em>) – Output message channel.</li>
-<li><strong>receiver</strong> (<em>Receiver</em>) – Session message receiver.</li>
-<li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard message to.</li>
+<li><strong>receiver</strong> (<em>SessionReceiver</em>) – Session message receiver.</li>
+<li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+<li><strong>log</strong> (<em>Logchan</em>) – Logging channel.</li>
+<li><strong>network</strong> (<em>bitcore.Network</em>) – Bitcoin Cash network.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.RunReturn">
+<code class="descclassname">session.Session.</code><code class="descname">RunReturn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.RunReturn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>outputKeyPair</strong> (<em>Signing</em>) – Own output key pair.</li>
+<li><strong>transaction</strong> (<em>module:cashshuffle/coin~Transaction</em>) – The submitted Bitcoin Cash transaction.</li>
 </ul>
 </td>
 </tr>
@@ -539,7 +555,7 @@ CoinShuffle session.</p>
 <li><strong>attempts</strong> (<em>number</em>) – Maximum gather attempts. Positive integer.</li>
 <li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
 <li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
-<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>poolNumber</strong> (<em>number</em>) – Participant pool number.</li>
 <li><strong>signingKeyPair</strong> (<em>Signing</em>) – Participant signing key pair. Assumed ready for use.</li>
 <li><strong>first</strong> (<em>boolean</em>) – Whether own client is first in shuffle order.</li>
 <li><strong>last</strong> (<em>boolean</em>) – Whether own client is last in shuffle order.</li>
@@ -550,6 +566,8 @@ CoinShuffle session.</p>
 <li><strong>outchan</strong> (<em>Outchan</em>) – Output message channel.</li>
 <li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
 <li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+<li><strong>log</strong> (<em>Logchan</em>) – Logging channel.</li>
+<li><strong>network</strong> (<em>bitcore.Network</em>) – Bitcoin Cash network to generate output key pair for.</li>
 </ul>
 </td>
 </tr>
@@ -585,7 +603,7 @@ CoinShuffle session.</p>
 <li><strong>attempts</strong> (<em>number</em>) – Maximum gather attempts. Positive integer.</li>
 <li><strong>timeout</strong> (<em>number</em>) – Network operation timeout in milliseconds.</li>
 <li><strong>sessionId</strong> (<em>ArrayBuffer</em>) – Session identifier.</li>
-<li><strong>participantNumber</strong> (<em>number</em>) – Participant index in pool in join order.</li>
+<li><strong>poolNumber</strong> (<em>number</em>) – Participant pool number.</li>
 <li><strong>signingKeyPair</strong> (<em>Signing</em>) – Participant signing key pair. Assumed ready for use.</li>
 <li><strong>amount</strong> (<em>number</em>) – Amount to shuffle in satoshis.</li>
 <li><strong>fee</strong> (<em>number</em>) – Participant fee amount in satoshis. The produced transaction will charge this fee to each participant.</li>
@@ -596,6 +614,8 @@ CoinShuffle session.</p>
 <li><strong>outchan</strong> (<em>Outchan</em>) – Output message channel.</li>
 <li><strong>receiver</strong> (<em>PhaseReceiver</em>) – Phase message receiver.</li>
 <li><strong>discarder</strong> (<em>Receiver</em>) – Receiver to discard messages to.</li>
+<li><strong>log</strong> (<em>Logchan</em>) – Logging channel.</li>
+<li><strong>network</strong> (<em>bitcore.Network</em>) – Bitcoin Cash network.</li>
 </ul>
 </td>
 </tr>
@@ -737,7 +757,7 @@ CoinShuffle session.</p>
 
 <dl class="function">
 <dt id="session.Session.encryptLayered">
-<code class="descclassname">session.Session.</code><code class="descname">encryptLayered</code><span class="sig-paren">(</span><em>crypto</em>, <em>message</em>, <em>encryptionPublicKeys</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.encryptLayered" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">session.Session.</code><code class="descname">encryptLayered</code><span class="sig-paren">(</span><em>crypto</em>, <em>message</em>, <em>encryptionPublicKeys</em>, <em>network=&lt;mainnet&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.encryptLayered" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform layered encryption of message.</p>
 <p>Encrypts recursively for the provided public keys in the provided order.
 Each cryptogram is encrypted as a <code class="docutils literal notranslate"><span class="pre">Base64</span></code> value. Final result is a
@@ -750,6 +770,7 @@ Each cryptogram is encrypted as a <code class="docutils literal notranslate"><sp
 <li><strong>crypto</strong> (<a class="reference internal" href="../interface/crypto.html#Crypto" title="Crypto"><em>Crypto</em></a>) – Message encryptor. Assumed ready for use.</li>
 <li><strong>message</strong> (<em>string</em>) – Message to encrypt.</li>
 <li><strong>encryptionPublicKeys</strong> (<em>Iterable.&lt;HexString&gt;</em>) – Public keys to encrypt for in encryption order. Minimum 1 item.</li>
+<li><strong>network</strong> (<em>bitcore.Network</em>) – Bitcoin Cash network.</li>
 </ul>
 </td>
 </tr>
@@ -1009,6 +1030,29 @@ ampersand <code class="docutils literal notranslate"><span class="pre">&amp;</sp
 </dd></dl>
 
 <dl class="function">
+<dt id="session.Session.orderParticipants">
+<code class="descclassname">session.Session.</code><code class="descname">orderParticipants</code><span class="sig-paren">(</span><em>participants</em>, <em>network=&lt;mainnet&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.orderParticipants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Order participants.</p>
+<p>Deduplicates provided participants list. Orders list lexicographically
+by address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>participants</strong> (<em>Iterable.&lt;HexString&gt;</em>) – Participant signing public keys.</li>
+<li><strong>network</strong> (<em>bitcore.Network</em>) – Bitcoin Cash network.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>Array.&lt;HexString&gt;</strong> – Ordered participants list.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="session.Session.packageSignedPacket">
 <code class="descclassname">session.Session.</code><code class="descname">packageSignedPacket</code><span class="sig-paren">(</span><em>protocol</em>, <em>signedPacket</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.packageSignedPacket" title="Permalink to this definition">¶</a></dt>
 <dd><p>Package a <code class="docutils literal notranslate"><span class="pre">protocol.Signed</span></code> into a unary <code class="docutils literal notranslate"><span class="pre">protocol.Packets</span></code>.</p>
@@ -1023,6 +1067,31 @@ ampersand <code class="docutils literal notranslate"><span class="pre">&amp;</sp
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>protocol.Packets</strong> – Unary packets list containing the signed packet.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="session.Session.run">
+<code class="descclassname">session.Session.</code><code class="descname">run</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#session.Session.run" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>RunParams</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><ul class="first simple">
+<li><a class="reference internal" href="../error.html#NotImplementedError" title="NotImplementedError"><strong>NotImplementedError</strong></a> – For any event that should enter blame phase. Message <cite>‘blame’</cite>.</li>
+<li><a class="reference internal" href="../error.html#MissingValueError" title="MissingValueError"><strong>MissingValueError</strong></a> – If participants list does not contain own signing public key. Message <cite>‘own key in participants list’</cite>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>RunReturn</strong> –</p>
 </td>
 </tr>
 </tbody>

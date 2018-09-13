@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="fetcher/each" href="../fetcher/each.html" />
-    <link rel="prev" title="crypto/bitcore" href="../crypto/bitcore.html" /> 
+    <link rel="prev" title="discarder/log" href="../discarder/log.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -85,12 +85,16 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../module.html">Module</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../coin/bitcore.html">coin/bitcore</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../crypto/bitcore.html">crypto/bitcore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../discarder/log.html">discarder/log</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">drawer/standard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fetcher/each.html">fetcher/each</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inbox/fifo.html">inbox/fifo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchan/inchanbin.html">inchan/inchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchanbin/nodestream.html">inchanbin/nodestream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/console.html">logchan/console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/distribute.html">logchan/distribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logchan/file.html">logchan/file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/prefix.html">logchan/prefix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchan/outchanbin.html">outchan/outchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchanbin/nodestream.html">outchanbin/nodestream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../receiver/authenticate.html">receiver/authenticate</a></li>
@@ -178,8 +182,8 @@
 <dd><p>Standard message drawer.</p>
 <p>Provide inchan and receiver to constructor.</p>
 <dl class="class">
-<dt id="drawer.standard.Drawer">
-<em class="property">class </em><code class="descclassname">drawer.standard.</code><code class="descname">Drawer</code><span class="sig-paren">(</span><em>inchan</em>, <em>receiver</em><span class="sig-paren">)</span><a class="headerlink" href="#drawer.standard.Drawer" title="Permalink to this definition">¶</a></dt>
+<dt id="drawer.standard.StandardDrawer">
+<em class="property">class </em><code class="descclassname">drawer.standard.</code><code class="descname">StandardDrawer</code><span class="sig-paren">(</span><em>inchan</em>, <em>receiver</em>, <em>log=null</em><span class="sig-paren">)</span><a class="headerlink" href="#drawer.standard.StandardDrawer" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -187,6 +191,7 @@
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
 <li><strong>inchan</strong> (<em>Inchan</em>) – Message input channel.</li>
 <li><strong>receiver</strong> (<em>Receiver</em>) – Message receiver to relay messages to.</li>
+<li><strong>log</strong> (<em>Logchan</em>) – Logging channel.</li>
 </ul>
 </td>
 </tr>
@@ -209,7 +214,7 @@
         <a href="../fetcher/each.html" class="btn btn-neutral float-right" title="fetcher/each" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../crypto/bitcore.html" class="btn btn-neutral" title="crypto/bitcore" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../discarder/log.html" class="btn btn-neutral" title="discarder/log" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

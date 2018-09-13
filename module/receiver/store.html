@@ -85,12 +85,16 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../module.html">Module</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../coin/bitcore.html">coin/bitcore</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../crypto/bitcore.html">crypto/bitcore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../discarder/log.html">discarder/log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../drawer/standard.html">drawer/standard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fetcher/each.html">fetcher/each</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inbox/fifo.html">inbox/fifo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchan/inchanbin.html">inchan/inchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inchanbin/nodestream.html">inchanbin/nodestream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/console.html">logchan/console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/distribute.html">logchan/distribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logchan/file.html">logchan/file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logchan/prefix.html">logchan/prefix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchan/outchanbin.html">outchan/outchanbin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outchanbin/nodestream.html">outchanbin/nodestream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="authenticate.html">receiver/authenticate</a></li>
@@ -178,11 +182,11 @@
 <dd><p>Storing message receiver.</p>
 <p>Receives arrays of discard reason and discarded message. Stores all
 messages to inbox.</p>
-<p>Optionally provide <code class="docutils literal notranslate"><span class="pre">Inbox</span></code> instance. Defaults to new
-<code class="docutils literal notranslate"><span class="pre">inbox/fifo~Inbox</span></code> instance.</p>
+<p>Optionally provide <code class="docutils literal notranslate"><span class="pre">Inbox</span></code> instance. Defaults to new <code class="docutils literal notranslate"><span class="pre">FifoInbox</span></code>
+instance.</p>
 <dl class="class">
-<dt id="receiver.store.Receiver">
-<em class="property">class </em><code class="descclassname">receiver.store.</code><code class="descname">Receiver</code><span class="sig-paren">(</span><em>inbox=&lt;fifo&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#receiver.store.Receiver" title="Permalink to this definition">¶</a></dt>
+<dt id="receiver.store.StoreReceiver">
+<em class="property">class </em><code class="descclassname">receiver.store.</code><code class="descname">StoreReceiver</code><span class="sig-paren">(</span><em>inbox=&lt;fifo&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#receiver.store.StoreReceiver" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -194,6 +198,22 @@ messages to inbox.</p>
 </tr>
 </tbody>
 </table>
+<dl class="function">
+<dt id="receiver.store.StoreReceiver.submit">
+<code class="descclassname">receiver.store.StoreReceiver.</code><code class="descname">submit</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#receiver.store.StoreReceiver.submit" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>*&gt; message</strong> (<em>Array.&lt;Error,</em>) – Discard reason and discarded message.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </dd></dl>
