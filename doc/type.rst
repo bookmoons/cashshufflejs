@@ -18,6 +18,11 @@ HexString
 
 .. autofunction:: HexString
 
+LegacyAddress
+-------------
+
+.. autofunction:: LegacyAddress
+
 P2PKHLegacyAddress
 ------------------
 

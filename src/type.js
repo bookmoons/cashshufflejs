@@ -49,6 +49,13 @@ const hexString = '010203a0b0c0'
  */
 
 /**
+ * Bitcoin Cash address in legacy format in a string.
+ *
+ * @typedef {P2PKHLegacyAddress} LegacyAddress
+ * @memberof module:cashshuffle
+ */
+
+/**
  * Bitcoin Cash P2PKH address in legacy format in a string.
  *
  * Format identical to the [Bitcoin Core P2PKH address format][1].
