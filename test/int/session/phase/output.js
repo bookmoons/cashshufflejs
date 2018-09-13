@@ -125,8 +125,7 @@ function verifyOutputList (t, outputList) {
   for (const item of outputList) {
     t.is(typeof item, 'string')
     t.notThrows(() => {
-      /* eslint-disable no-new */
-      new bitcore.Address(item)
+      new bitcore.Address(item) /* eslint-disable-line no-new */
     })
   }
 }

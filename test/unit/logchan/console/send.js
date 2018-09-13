@@ -3,8 +3,7 @@ import consoleMock from 'console-mock'
 import ConsoleLogchan from 'logchan/console/main'
 import send from 'logchan/console/send'
 
-/* eslint-disable no-global-assign */
-console = consoleMock.create()
+console = consoleMock.create() /* eslint-disable-line no-global-assign */
 consoleMock.enabled(false)
 
 const testMessage = 'Test message'
