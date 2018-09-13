@@ -28,6 +28,7 @@ import { outputListDelimiter } from '../value'
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
+ * @prop {Logchan} [log=null] - Logging channel.
  * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network
  *     to generate output key pair for.
  */
@@ -67,6 +68,7 @@ async function shuffle ({
   outchan,
   receiver,
   discarder = null,
+  log = null,
   network = defaultNetwork
 }) {
   const outputList = []
@@ -76,6 +78,7 @@ async function shuffle ({
   const outputKeyPair = new Signing()
   await outputKeyPair.generateKeyPair(network)
   const outputAddress = await outputKeyPair.address()
+  if (log) await log.send('Generated output address')
 
   if (last) {
     // Last participant does nothing. Handles output list in next phase.
@@ -126,6 +129,7 @@ async function shuffle ({
     /* Shuffle output list. */
     const shuffledOutputList = [ ...extendedOutputList ]
     await shuffleList(shuffledOutputList)
+    if (log) await log.send('Shuffled output list')
 
     /* Stage new output list. */
     outputList.push(...shuffledOutputList)
@@ -156,6 +160,7 @@ async function shuffle ({
     ownSignedPacket
   )
   await outchan.send(ownPackage)
+  if (log) await log.send('Sent encrypted output list')
 
   /* Return output key pair. */
   return { outputKeyPair }
