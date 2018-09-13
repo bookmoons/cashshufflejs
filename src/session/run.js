@@ -23,7 +23,7 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from './default'
  *     Assumed ready for use.
  * @prop {Iterable<HexString>} participants - Participant signing public keys.
  *     Will be deduplicated and ordered lexicographically by address.
- * @prop {Map<HexString-CashAddr>} changeAddresses - Change addresses.
+ * @prop {Map<HexString-CashAddress>} changeAddresses - Change addresses.
  *     Key participant signing public key. Value change address.
  * @prop {number} amount - Amount to shuffle in satoshis.
  * @prop {number} fee - Participant fee amount in satoshis.

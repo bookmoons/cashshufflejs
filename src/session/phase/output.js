@@ -20,7 +20,7 @@ import { outputListDelimiter } from '../value'
  * @prop {HexString} priorParticipant - Signing public key of prior
  *     participant.
  * @prop {HexString} lastParticipant - Signing public key of last participant.
- * @prop {CashAddr} outputAddress - Own output address.
+ * @prop {CashAddress} outputAddress - Own output address.
  * @prop {Crypto} crypto - Message encryptor. Assumed ready for use.
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
@@ -33,7 +33,7 @@ import { outputListDelimiter } from '../value'
  * @typedef {object} OutputReturn
  * @memberof module:cashshuffle/session.Session
  *
- * @prop {Array<CashAddr>} outputList - Final output list.
+ * @prop {Array<CashAddress>} outputList - Final output list.
  */
 
 /**

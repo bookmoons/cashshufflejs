@@ -20,7 +20,7 @@
  *
  * [1]: https://cashaddr.org/
  *
- * @typedef {string} CashAddr
+ * @typedef {string} CashAddress
  * @memberof module:cashshuffle
  */
 

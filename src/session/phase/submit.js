@@ -18,10 +18,10 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  * @prop {number} amount - Amount to shuffle in satoshis.
  * @prop {number} fee - Participant fee amount in satoshis.
  *     The produced transaction will charge this fee to each participant.
- * @prop {Map<HexString-CashAddr>} inputAddresses - Input addresses.
+ * @prop {Map<HexString-CashAddress>} inputAddresses - Input addresses.
  *     Key participant signing public key. Value input address.
- * @prop {Iterable<CashAddr>} outputAddresses - Output addresses.
- * @prop {Map<HexString-CashAddr>} changeAddresses - Change addresses.
+ * @prop {Iterable<CashAddress>} outputAddresses - Output addresses.
+ * @prop {Map<HexString-CashAddress>} changeAddresses - Change addresses.
  *     Key participant signing public key. Value change address.
  * @prop {Coin} coin - Bitcoin Cash network interface.
  * @prop {Outchan} outchan - Output message channel.

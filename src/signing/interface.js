@@ -27,7 +27,7 @@
  * @instance
  * @async
  *
- * @return {CashAddr} Bitcoin Cash address.
+ * @return {CashAddress} Bitcoin Cash address.
  *
  * @throws {MissingValueError} If key pair has not been generated or restored.
  */

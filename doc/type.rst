@@ -8,10 +8,10 @@ Base64
 
 .. autofunction:: Base64
 
-CashAddr
---------
+CashAddress
+-----------
 
-.. autofunction:: CashAddr
+.. autofunction:: CashAddress
 
 HexString
 ---------
