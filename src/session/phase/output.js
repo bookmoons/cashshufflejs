@@ -26,6 +26,7 @@ import { outputListDelimiter } from '../value'
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {PhaseReceiver} priorReceiver - Prior phase message receiver.
  * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
+ * @prop {Logchan} [log=null] - Logging channel.
  */
 
 /**
@@ -64,7 +65,8 @@ async function broadcastOutput ({
   outchan,
   receiver,
   priorReceiver,
-  discarder = null
+  discarder = null,
+  log = null
 }) {
   if (last) {
     // Last participant produces final output list
@@ -99,6 +101,7 @@ async function broadcastOutput ({
     /* Shuffle output list. */
     const shuffledOutputList = [ ...extendedOutputList ]
     await shuffleList(shuffledOutputList)
+    if (log) await log.send('Shuffled output list')
 
     /* Broadcast final output list. */
     const signingPublicKey = await signingKeyPair.exportPublicKey()
@@ -124,6 +127,7 @@ async function broadcastOutput ({
       ownSignedPacket
     )
     await outchan.send(ownPackage)
+    if (log) await log.send('Broadcasted final output list')
 
     /* Return final output list. */
     return { outputList: shuffledOutputList }
@@ -152,6 +156,7 @@ async function broadcastOutput ({
         'output missing'
       )
     }
+    if (log) await log.send('Verified own output address in output list')
 
     /* Return final output list. */
     return { outputList }
