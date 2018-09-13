@@ -46,7 +46,7 @@ test('valid', async t => {
   const discarder = new StoreReceiver(discarderInbox)
   const nextInbox = new Inbox()
   const nextReceiver = new StoreReceiver(nextInbox)
-  const receiver = new Receiver(protocol, nextReceiver, discarder)
+  const receiver = new Receiver({ protocol, nextReceiver, discarder })
   const testMessage = protocol.Signed.fromObject(testValidMessageObject)
   await receiver.submit(testMessage)
   t.throws(() => { // Message not discarded
@@ -59,7 +59,7 @@ test('invalid', async t => {
   const discarder = new StoreReceiver(discarderInbox)
   const nextInbox = new Inbox()
   const nextReceiver = new StoreReceiver(nextInbox)
-  const receiver = new Receiver(protocol, nextReceiver, discarder)
+  const receiver = new Receiver({ protocol, nextReceiver, discarder })
   const testMessage = protocol.Signed.fromObject(testInvalidMessageObject)
   await receiver.submit(testMessage)
   t.notThrows(() => { // Message discarded

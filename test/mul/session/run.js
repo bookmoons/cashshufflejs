@@ -194,10 +194,10 @@ test('success', async t => {
     protocol,
     objectifyReceiver1
   )
-  const authenticateReceiver1 = new AuthenticateReceiver(
+  const authenticateReceiver1 = new AuthenticateReceiver({
     protocol,
-    packetifyReceiver1
-  )
+    nextReceiver: packetifyReceiver1
+  })
   const drawer1 = new Drawer(inchan1, authenticateReceiver1)
   await drawer1.start()
   const runPromise1 = session1.run({
@@ -239,10 +239,10 @@ test('success', async t => {
     protocol,
     objectifyReceiver2
   )
-  const authenticateReceiver2 = new AuthenticateReceiver(
+  const authenticateReceiver2 = new AuthenticateReceiver({
     protocol,
-    packetifyReceiver2
-  )
+    nextReceiver: packetifyReceiver2
+  })
   const drawer2 = new Drawer(inchan2, authenticateReceiver2)
   await drawer2.start()
   const runPromise2 = session2.run({
@@ -284,10 +284,10 @@ test('success', async t => {
     protocol,
     objectifyReceiver3
   )
-  const authenticateReceiver3 = new AuthenticateReceiver(
+  const authenticateReceiver3 = new AuthenticateReceiver({
     protocol,
-    packetifyReceiver3
-  )
+    nextReceiver: packetifyReceiver3
+  })
   const drawer3 = new Drawer(inchan3, authenticateReceiver3)
   await drawer3.start()
   const runPromise3 = session3.run({

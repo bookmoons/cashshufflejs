@@ -12,6 +12,6 @@ test.before(async t => {
 
 test('subclass', t => {
   const nextReceiver = new DummyReceiver()
-  const receiver = new AuthenticateReceiver(protocol, nextReceiver)
+  const receiver = new AuthenticateReceiver({ protocol, nextReceiver })
   t.true(receiver instanceof Receiver)
 })

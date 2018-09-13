@@ -5,6 +5,16 @@ import privs from './privs'
 const mainnet = bitcore.Networks.mainnet
 
 /**
+ * @typedef {object} AuthenticateReceiverParams
+ * @memberof module:cashshuffle/receiver/authenticate
+ *
+ * @prop {protobufjs.Root} protocol - Protocol definition.
+ * @prop {Receiver} nextReceiver - Receiver to deliver message to.
+ * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
+ * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
+ */
+
+/**
  * @memberof module:cashshuffle/receiver/authenticate
  */
 class AuthenticateReceiver extends Receiver {
@@ -15,7 +25,12 @@ class AuthenticateReceiver extends Receiver {
    *     discarded messages.
    * @param {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
    */
-  constructor (protocol, nextReceiver, discarder = null, network = mainnet) {
+  constructor ({
+    protocol,
+    nextReceiver,
+    discarder = null,
+    network = mainnet
+  }) {
     super()
     const priv = {
       protocol,
