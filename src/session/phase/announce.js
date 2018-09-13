@@ -21,6 +21,7 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
+ * @prop {Logchan} [log=null] - Logging channel.
  * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
  */
 
@@ -58,6 +59,7 @@ async function announce ({
   outchan,
   receiver,
   discarder = null,
+  log = null,
   network = defaultNetwork
 }) {
   /* Generate encryption key pair. */
@@ -89,6 +91,7 @@ async function announce ({
     ownSignedPacket
   )
   await outchan.send(ownPackage)
+  if (log) await log.send('Broadcasted encryption public key')
 
   /* Gather other participant messages. */
   const otherPackets = await this.gatherAnnounce({
@@ -102,6 +105,7 @@ async function announce ({
     discarder,
     network
   })
+  if (log) await log.send('Gathered participant encryption keys')
 
   /* Return encryption keys. */
   const participantInboxes = receiver.participantInboxes
