@@ -13,7 +13,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} participantNumber - Participant index in pool in join order.
+ * @prop {number} poolNumber - Participant pool number.
  * @prop {Signing} signingKeyPair - Participant signing key pair.
  *     Assumed ready for use.
  * @prop {Iterable<HexString>} encryptionPublicKeys - Encryption public keys
@@ -39,7 +39,7 @@ async function checkEquivocation ({
   attempts = defaultAttempts,
   timeout = defaultTimeout,
   sessionId,
-  participantNumber,
+  poolNumber,
   signingKeyPair,
   encryptionPublicKeys,
   outputList,
@@ -61,7 +61,7 @@ async function checkEquivocation ({
     protocol,
     signingPublicKey,
     sessionId,
-    participantNumber,
+    poolNumber,
     digest: ownDigest
   })
   const signature = await this.sign(

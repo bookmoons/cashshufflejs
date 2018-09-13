@@ -25,7 +25,7 @@ const amount = 10
 const fee = 2
 const sessionId = toArrayBuffer(Buffer.from('123'))
 const sessionIdView = new Uint8Array(sessionId)
-const participantNumber = 12
+const poolNumber = 12
 const signingPrivateKey =
   'b4386d0019b43055341ca3452445cee2805d952fcea1dbb3e7556186df11b958'
 const participant1 =
@@ -111,7 +111,7 @@ const testMessageObject = {
 }
 const testPacketObject = {
   session: sessionIdView,
-  number: participantNumber,
+  number: poolNumber,
   fromKey: { key: participant1 },
   phase: Phase.VerificationSubmission.value,
   message: testMessageObject
@@ -202,7 +202,7 @@ test('output', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     amount,
     fee,
@@ -248,7 +248,7 @@ test('return', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     amount,
     fee,
@@ -289,7 +289,7 @@ test('invalid signature', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     amount,
     fee,
@@ -336,7 +336,7 @@ test('double spend', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     amount,
     fee,

@@ -13,7 +13,7 @@ import { outputListDelimiter } from '../value'
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} participantNumber - Participant index in pool in join order.
+ * @prop {number} poolNumber - Participant pool number.
  * @prop {Signing} signingKeyPair - Participant signing key pair.
  *     Assumed ready for use.
  * @prop {boolean} first - Whether own client is first in shuffle order.
@@ -57,7 +57,7 @@ async function shuffle ({
   attempts = defaultAttempts,
   timeout = defaultTimeout,
   sessionId,
-  participantNumber,
+  poolNumber,
   signingKeyPair,
   first,
   last,
@@ -141,7 +141,7 @@ async function shuffle ({
     protocol,
     signingPublicKey,
     sessionId,
-    participantNumber,
+    poolNumber,
     outputList,
     nextParticipant
   })

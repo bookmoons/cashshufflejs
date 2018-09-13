@@ -18,7 +18,7 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from './default'
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} participantNumber - Participant index in pool in join order.
+ * @prop {number} poolNumber - Participant pool number.
  * @prop {Signing} signingKeyPair - Participant signing key pair.
  *     Assumed ready for use.
  * @prop {Iterable<HexString>} participants - Participant signing public keys.
@@ -62,7 +62,7 @@ async function run ({
   attempts = defaultAttempts,
   timeout = defaultTimeout,
   sessionId,
-  participantNumber,
+  poolNumber,
   signingKeyPair,
   participants,
   changeAddresses,
@@ -115,7 +115,7 @@ async function run ({
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair,
     amount,
     fee,
@@ -162,7 +162,7 @@ async function run ({
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair,
     first,
     last,
@@ -202,7 +202,7 @@ async function run ({
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair,
     last,
     priorParticipant,
@@ -244,7 +244,7 @@ async function run ({
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair,
     encryptionPublicKeys: hashEncryptionPublicKeys,
     outputList,
@@ -283,7 +283,7 @@ async function run ({
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair,
     amount,
     fee,

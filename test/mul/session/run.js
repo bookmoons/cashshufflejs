@@ -21,9 +21,9 @@ const timeout = 2000
 const amount = 5
 const fee = 1
 const sessionId = toArrayBuffer(Buffer.from('123'))
-const participantNumber1 = 3
-const participantNumber2 = 7
-const participantNumber3 = 9
+const poolNumber1 = 3
+const poolNumber2 = 7
+const poolNumber3 = 9
 const signingPrivateKey1 =
   'bf4354ccb69609d3faa567f5c963c8cbf7a51e1e0d52245a3659eba85edfa9cf'
 const signingPrivateKey2 =
@@ -205,7 +205,7 @@ test('success', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber: participantNumber1,
+    poolNumber: poolNumber1,
     signingKeyPair: signing1,
     participants,
     changeAddresses,
@@ -250,7 +250,7 @@ test('success', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber: participantNumber2,
+    poolNumber: poolNumber2,
     signingKeyPair: signing2,
     participants,
     changeAddresses,
@@ -295,7 +295,7 @@ test('success', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber: participantNumber3,
+    poolNumber: poolNumber3,
     signingKeyPair: signing3,
     participants,
     changeAddresses,

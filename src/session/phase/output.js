@@ -13,7 +13,7 @@ import { outputListDelimiter } from '../value'
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} participantNumber - Participant index in pool in join order.
+ * @prop {number} poolNumber - Participant pool number.
  * @prop {Signing} signingKeyPair - Participant signing key pair.
  *     Assumed ready for use.
  * @prop {boolean} last - Whether own client is last in shuffle order.
@@ -55,7 +55,7 @@ async function broadcastOutput ({
   attempts = defaultAttempts,
   timeout = defaultTimeout,
   sessionId,
-  participantNumber,
+  poolNumber,
   signingKeyPair,
   last,
   priorParticipant,
@@ -109,7 +109,7 @@ async function broadcastOutput ({
       protocol,
       signingPublicKey,
       sessionId,
-      participantNumber,
+      poolNumber,
       outputList: shuffledOutputList
     })
     const signature = await this.sign(

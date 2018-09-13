@@ -8,14 +8,14 @@ const sessionIdString = '123'
 const sessionIdBuffer = Buffer.from(sessionIdString)
 const sessionId = toArrayBuffer(sessionIdBuffer)
 const sessionIdView = new Uint8Array(sessionId)
-const participantNumber = 3
+const poolNumber = 3
 const signingPublicKey =
   '02fb043436476ebd0391350016a6003f9e02f97e96a9ece386aac2d2060158b377'
 const encryptionPublicKey =
   '0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798'
 const expectedPacketObject = {
   session: sessionIdView,
-  number: participantNumber,
+  number: poolNumber,
   fromKey: { key: signingPublicKey },
   phase: Phase.Announcement.value,
   message: {
@@ -33,7 +33,7 @@ test('construct', t => {
     protocol,
     signingPublicKey,
     sessionId,
-    participantNumber,
+    poolNumber,
     encryptionPublicKey
   })
   const packetObject = protocol.Packet.toObject(packet)

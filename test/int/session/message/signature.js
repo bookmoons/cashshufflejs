@@ -9,7 +9,7 @@ const sessionIdString = '123'
 const sessionIdBuffer = Buffer.from(sessionIdString)
 const sessionId = toArrayBuffer(sessionIdBuffer)
 const sessionIdView = new Uint8Array(sessionId)
-const participantNumber = 4
+const poolNumber = 4
 const signingPublicKey =
   '03f09e7bbaf09669b1cde3394db0b72c3408ed0826f98d7985a3cecc1486075d3b'
 const index1 = '0'
@@ -39,7 +39,7 @@ const expectedSignaturesObject = [
 ]
 const expectedPacketObject = {
   session: sessionIdView,
-  number: participantNumber,
+  number: poolNumber,
   fromKey: { key: signingPublicKey },
   phase: Phase.VerificationSubmission.value,
   message: { signatures: expectedSignaturesObject }
@@ -55,7 +55,7 @@ test('construct', t => {
     protocol,
     signingPublicKey,
     sessionId,
-    participantNumber,
+    poolNumber,
     signatures
   })
   const packetObject = protocol.Packet.toObject(packet)

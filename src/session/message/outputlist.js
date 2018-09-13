@@ -8,7 +8,7 @@ import { outputListDelimiter } from '../value'
  * @prop {protobufjs.Root} protocol - Protocol definition.
  * @prop {HexString} signingPublicKey - Signing public key.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} participantNumber - Participant index in pool in join order.
+ * @prop {number} poolNumber - Participant pool number.
  * @prop {Iterable<Base64>} outputList - List of output address layered
  *     encryptions.
  * @prop {HexString} nextParticipant - Signing public key of next participant.
@@ -31,7 +31,7 @@ function messageOutputList ({
   protocol,
   signingPublicKey,
   sessionId,
-  participantNumber,
+  poolNumber,
   outputList,
   nextParticipant
 }) {
@@ -43,7 +43,7 @@ function messageOutputList ({
   const toKeyObject = { key: nextParticipant }
   const packetObject = {
     session: sessionIdView,
-    number: participantNumber,
+    number: poolNumber,
     fromKey: fromKeyObject,
     toKey: toKeyObject,
     phase: Phase.Shuffle.value,

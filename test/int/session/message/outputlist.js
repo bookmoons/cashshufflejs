@@ -9,7 +9,7 @@ const sessionIdString = '123'
 const sessionIdBuffer = Buffer.from(sessionIdString)
 const sessionId = toArrayBuffer(sessionIdBuffer)
 const sessionIdView = new Uint8Array(sessionId)
-const participantNumber = 7
+const poolNumber = 7
 const signingPublicKey =
   '03f09e7bbaf09669b1cde3394db0b72c3408ed0826f98d7985a3cecc1486075d3b'
 const nextParticipant =
@@ -30,7 +30,7 @@ const outputList = [ output1, output2, output3 ]
 const outputListEncoded = outputList.join(outputListDelimiter)
 const expectedPacketObject = {
   session: sessionIdView,
-  number: participantNumber,
+  number: poolNumber,
   fromKey: { key: signingPublicKey },
   toKey: { key: nextParticipant },
   phase: Phase.Shuffle.value,
@@ -47,7 +47,7 @@ test('construct', t => {
     protocol,
     signingPublicKey,
     sessionId,
-    participantNumber,
+    poolNumber,
     outputList,
     nextParticipant
   })

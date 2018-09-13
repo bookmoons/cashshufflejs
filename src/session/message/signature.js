@@ -9,7 +9,7 @@ import toArrayBuffer from '../../util/toarraybuffer'
  * @prop {protobufjs.Root} protocol - Protocol definition.
  * @prop {HexString} signingPublicKey - Signing public key.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} participantNumber - Participant index in pool in join order.
+ * @prop {number} poolNumber - Participant pool number.
  * @prop {Iterable<Coin~InputSignature>} signatures - Signatures.
  *     `Map` instances work well. Key input index. Value signature.
  */
@@ -29,7 +29,7 @@ function messageSignature ({
   protocol,
   signingPublicKey,
   sessionId,
-  participantNumber,
+  poolNumber,
   signatures
 }) {
   const sessionIdView = new Uint8Array(sessionId)
@@ -49,7 +49,7 @@ function messageSignature ({
   const fromKeyObject = { key: signingPublicKey }
   const packetObject = {
     session: sessionIdView,
-    number: participantNumber,
+    number: poolNumber,
     fromKey: fromKeyObject,
     phase: Phase.VerificationSubmission.value,
     message: messageObject

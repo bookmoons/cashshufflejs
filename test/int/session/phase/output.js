@@ -27,7 +27,7 @@ const attempts = 2
 const timeout = 500
 const sessionId = toArrayBuffer(Buffer.from('123'))
 const sessionIdView = new Uint8Array(sessionId)
-const participantNumber = 12
+const poolNumber = 12
 /*
 const signingPrivateKey1 =
   '5906456d210ba118d153fde79b74d3806710c979d41b8b38d15c2e8a84d48466'
@@ -75,7 +75,7 @@ let protocol
 
 const encryptedOutputListPacket = {
   session: sessionId,
-  number: participantNumber,
+  number: poolNumber,
   fromKey: { key: signingPublicKey2 },
   toKey: { key: signingPublicKey3 },
   phase: Phase.Shuffle.value,
@@ -83,14 +83,14 @@ const encryptedOutputListPacket = {
 }
 const finalOutputListPacket = {
   session: sessionId,
-  number: participantNumber,
+  number: poolNumber,
   fromKey: { key: signingPublicKey3 },
   phase: Phase.Broadcast.value,
   message: { str: finalOutputListEncoded }
 }
 const badOutputListPacket = {
   session: sessionId,
-  number: participantNumber,
+  number: poolNumber,
   fromKey: { key: signingPublicKey3 },
   phase: Phase.Broadcast.value,
   message: { str: badOutputListEncoded }
@@ -98,7 +98,7 @@ const badOutputListPacket = {
 
 const testFinalOutputPacket = {
   session: sessionIdView,
-  number: participantNumber,
+  number: poolNumber,
   fromKey: { key: signingPublicKey3 },
   phase: Phase.Broadcast.value
 }
@@ -171,7 +171,7 @@ test('return last', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     last: true,
     priorParticipant: signingPublicKey2,
@@ -204,7 +204,7 @@ test('return nonlast', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     last: false,
     priorParticipant: signingPublicKey1,
@@ -237,7 +237,7 @@ test('output', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     last: true,
     priorParticipant: signingPublicKey2,
@@ -285,7 +285,7 @@ test('missing output', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     last: false,
     priorParticipant: signingPublicKey1,

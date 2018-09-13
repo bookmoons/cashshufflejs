@@ -25,7 +25,7 @@ const attempts = 2
 const timeout = 500
 const sessionId = toArrayBuffer(Buffer.from('123'))
 const sessionIdView = new Uint8Array(sessionId)
-const participantNumber = 4
+const poolNumber = 4
 const signingPrivateKey1 =
   '5906456d210ba118d153fde79b74d3806710c979d41b8b38d15c2e8a84d48466'
 const signingPrivateKey2 =
@@ -76,7 +76,7 @@ let protocol
 
 const validPacket1 = {
   session: sessionId,
-  number: participantNumber,
+  number: poolNumber,
   fromKey: { key: signingPublicKey1 },
   toKey: { key: signingPublicKey2 },
   phase: Phase.Shuffle.value,
@@ -84,7 +84,7 @@ const validPacket1 = {
 }
 const invalidOutputPacket1 = {
   session: sessionId,
-  number: participantNumber,
+  number: poolNumber,
   fromKey: { key: signingPublicKey1 },
   toKey: { key: signingPublicKey2 },
   phase: Phase.Shuffle.value,
@@ -92,7 +92,7 @@ const invalidOutputPacket1 = {
 }
 const duplicateOutputPacket2 = {
   session: sessionId,
-  number: participantNumber,
+  number: poolNumber,
   fromKey: { key: signingPublicKey2 },
   toKey: { key: signingPublicKey3 },
   phase: Phase.Shuffle.value,
@@ -101,7 +101,7 @@ const duplicateOutputPacket2 = {
 
 const testPacketObject1 = {
   session: sessionIdView,
-  number: participantNumber,
+  number: poolNumber,
   fromKey: { key: signingPublicKey1 },
   toKey: { key: signingPublicKey2 },
   phase: Phase.Shuffle.value
@@ -111,7 +111,7 @@ const testPacketsObject1 = { packet: [ testSignedObject1 ] }
 
 const testPacketObject2 = {
   session: sessionIdView,
-  number: participantNumber,
+  number: poolNumber,
   fromKey: { key: signingPublicKey2 },
   toKey: { key: signingPublicKey3 },
   phase: Phase.Shuffle.value
@@ -174,7 +174,7 @@ test('return first', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     first: true,
     last: false,
@@ -206,7 +206,7 @@ test('return inner', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     first: false,
     last: false,
@@ -235,7 +235,7 @@ test('return last', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     first: false,
     last: true,
@@ -264,7 +264,7 @@ test('output first', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     first: true,
     last: false,
@@ -314,7 +314,7 @@ test('output inner', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     first: false,
     last: false,
@@ -364,7 +364,7 @@ test('decrypt failure', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     first: false,
     last: false,
@@ -402,7 +402,7 @@ test('duplicate items', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     first: false,
     last: false,

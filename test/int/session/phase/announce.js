@@ -24,7 +24,7 @@ const amount = 5
 const fee = 1
 const sessionId = toArrayBuffer(Buffer.from('123'))
 const sessionIdView = new Uint8Array(sessionId)
-const participantNumber = 3
+const poolNumber = 3
 const signingPrivateKey =
   'b4386d0019b43055341ca3452445cee2805d952fcea1dbb3e7556186df11b958'
 const participant1 =
@@ -50,7 +50,7 @@ let protocol
 
 const testPacketObject = {
   session: sessionIdView,
-  number: participantNumber,
+  number: poolNumber,
   phase: Phase.Announcement.value
 }
 const testSignedObject = { packet: testPacketObject }
@@ -109,7 +109,7 @@ test('output', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     amount,
     fee,
@@ -146,7 +146,7 @@ test('return', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     amount,
     fee,
@@ -181,7 +181,7 @@ test('encryption key pair', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     amount,
     fee,
@@ -214,7 +214,7 @@ test('fail', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber,
+    poolNumber,
     signingKeyPair: signing,
     amount,
     fee,

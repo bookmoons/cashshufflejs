@@ -7,7 +7,7 @@ import { Phase } from '../../protocol'
  * @prop {protobufjs.Root} protocol - Protocol definition.
  * @prop {HexString} signingPublicKey - Signing public key.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} participantNumber - Participant index in pool in join order.
+ * @prop {number} poolNumber - Participant pool number.
  * @prop {ArrayBuffer} digest - Digest.
  */
 
@@ -26,7 +26,7 @@ function messageDigest ({
   protocol,
   signingPublicKey,
   sessionId,
-  participantNumber,
+  poolNumber,
   digest
 }) {
   const sessionIdView = new Uint8Array(sessionId)
@@ -36,7 +36,7 @@ function messageDigest ({
   const fromKeyObject = { key: signingPublicKey }
   const packetObject = {
     session: sessionIdView,
-    number: participantNumber,
+    number: poolNumber,
     fromKey: fromKeyObject,
     phase: Phase.EquivocationCheck.value,
     message: messageObject

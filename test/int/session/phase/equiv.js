@@ -22,9 +22,9 @@ const attempts = 2
 const timeout = 500
 const sessionId = toArrayBuffer(Buffer.from('123'))
 const sessionIdView = new Uint8Array(sessionId)
-const participantNumber1 = 1
-const participantNumber2 = 2
-const participantNumber3 = 3
+const poolNumber1 = 1
+const poolNumber2 = 2
+const poolNumber3 = 3
 const signingPrivateKey1 =
   '5906456d210ba118d153fde79b74d3806710c979d41b8b38d15c2e8a84d48466'
 /*
@@ -64,7 +64,7 @@ let protocol
 
 const expectedPacket1 = {
   session: sessionIdView,
-  number: participantNumber1,
+  number: poolNumber1,
   fromKey: { key: signingPublicKey1 },
   phase: Phase.EquivocationCheck.value,
   message: { hash: { hash: hashView } }
@@ -74,21 +74,21 @@ const expectedPackets1 = { packet: [ expectedSigned1 ] }
 
 const testPacket2 = {
   session: sessionIdView,
-  number: participantNumber2,
+  number: poolNumber2,
   fromKey: { key: signingPublicKey2 },
   phase: Phase.EquivocationCheck.value,
   message: { hash: { hash: hashView } }
 }
 const testPacket3 = {
   session: sessionIdView,
-  number: participantNumber3,
+  number: poolNumber3,
   fromKey: { key: signingPublicKey3 },
   phase: Phase.EquivocationCheck.value,
   message: { hash: { hash: hashView } }
 }
 const equivocatedPacket3 = {
   session: sessionIdView,
-  number: participantNumber3,
+  number: poolNumber3,
   fromKey: { key: signingPublicKey3 },
   phase: Phase.EquivocationCheck.value,
   message: { hash: { hash: badHashView } }
@@ -156,7 +156,7 @@ test('succeed', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber: participantNumber1,
+    poolNumber: poolNumber1,
     signingKeyPair: signing,
     encryptionPublicKeys,
     outputList,
@@ -192,7 +192,7 @@ test('fail', async t => {
     attempts,
     timeout,
     sessionId,
-    participantNumber: participantNumber1,
+    poolNumber: poolNumber1,
     signingKeyPair: signing,
     encryptionPublicKeys,
     outputList,
