@@ -33,7 +33,7 @@ test('1 message', async t => {
   const inbox = new Inbox()
   const receiver = new StoreReceiver(inbox)
   const drawer = new StandardDrawer(inchan, receiver)
-  drawer.start()
+  await drawer.start()
   const messageDrawn = drawer.watch
   const testMessage = protocol.Signed.fromObject(testSignedObject1)
   const testMessageEncoded = protocol.Signed.encode(testMessage).finish()
@@ -53,7 +53,7 @@ test('2 messages', async t => {
   const inbox = new Inbox()
   const receiver = new StoreReceiver(inbox)
   const drawer = new StandardDrawer(inchan, receiver)
-  drawer.start()
+  await drawer.start()
   const message1Drawn = drawer.watch
   const testMessage1 = protocol.Signed.fromObject(testSignedObject1)
   const testMessage1Encoded = protocol.Signed.encode(testMessage1).finish()

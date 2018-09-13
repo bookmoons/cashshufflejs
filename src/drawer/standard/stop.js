@@ -1,7 +1,7 @@
 import StopSignal from './StopSignal'
 import privs from './privs'
 
-function stop () {
+async function stop () {
   const priv = privs.get(this)
   const stopSignal = new StopSignal()
   priv.cancel(stopSignal)

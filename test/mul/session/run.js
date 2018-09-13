@@ -199,7 +199,7 @@ test('success', async t => {
     packetifyReceiver1
   )
   const drawer1 = new Drawer(inchan1, authenticateReceiver1)
-  drawer1.start()
+  await drawer1.start()
   const runPromise1 = session1.run({
     protocol,
     attempts,
@@ -244,7 +244,7 @@ test('success', async t => {
     packetifyReceiver2
   )
   const drawer2 = new Drawer(inchan2, authenticateReceiver2)
-  drawer2.start()
+  await drawer2.start()
   const runPromise2 = session2.run({
     protocol,
     attempts,
@@ -289,7 +289,7 @@ test('success', async t => {
     packetifyReceiver3
   )
   const drawer3 = new Drawer(inchan3, authenticateReceiver3)
-  drawer3.start()
+  await drawer3.start()
   const runPromise3 = session3.run({
     protocol,
     attempts,
