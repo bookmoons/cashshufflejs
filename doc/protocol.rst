@@ -5,7 +5,8 @@ CashShuffle_ is an extension to CoinShuffle_. The CoinShuffle protocol defines
 a sequence of 5 phases (+ a 6th blame phase for identifying protocol
 violators). Several details are left implementation defined.
 
-`cashshufflejs` uses this configuration for the variable details:
+`cashshufflejs` uses this configuration for conformance with the reference
+implementation:
 
 - Message types are defined with protobuf_.
 - Messages on the wire are preceded by a byte length count represented as an
