@@ -49,7 +49,7 @@ const hexString = '010203a0b0c0'
  */
 
 /**
- * Bitcoin Cash P2PKH address in a string.
+ * Bitcoin Cash P2PKH address in legacy format in a string.
  *
  * Format identical to the [Bitcoin Core P2PKH address format][1].
  *
