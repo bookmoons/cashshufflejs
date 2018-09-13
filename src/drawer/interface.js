@@ -21,6 +21,7 @@
  * @method start
  * @memberof module:cashshuffle/drawer~Drawer
  * @instance
+ * @async
  */
 
 /**
@@ -32,6 +33,7 @@
  * @method stop
  * @memberof module:cashshuffle/drawer~Drawer
  * @instance
+ * @async
  */
 
 /**
