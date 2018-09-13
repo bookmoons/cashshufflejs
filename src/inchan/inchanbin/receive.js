@@ -1,6 +1,11 @@
 import { BusyError, FormatError } from '../../error'
 import privs from './privs'
 
+/**
+ * @memberof module:cashshuffle/inchan/inchanbin~InchanbinInchan
+ *
+ * @throws {FormatError} If received binary message fails to parse.
+ */
 async function receive () {
   const priv = privs.get(this)
   if (priv.receiving) throw new BusyError('Another receive call is running')

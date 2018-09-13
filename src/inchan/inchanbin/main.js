@@ -3,8 +3,6 @@ import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/inchan/inchanbin
- *
- * @throws {FormatError} If received binary message fails to parse.
  */
 class InchanbinInchan extends Inbox {
   /**
