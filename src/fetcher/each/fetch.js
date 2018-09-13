@@ -1,7 +1,7 @@
 import privs from './privs'
 
 /**
- * @memberof module:cashshuffle/fetcher/each~EachFetcher
+ * @memberof module:cashshuffle/fetcher/each.EachFetcher
  *
  * @param {number} [timeout=null] - Maximum time to wait in milliseconds.
  *     `null` to wait forever.

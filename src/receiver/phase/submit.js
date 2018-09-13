@@ -2,7 +2,7 @@ import { MissingValueError, ValueError } from '../../error'
 import privs from './privs'
 
 /**
- * @memberof module:cashshuffle/receiver/phase~PhaseReceiver
+ * @memberof module:cashshuffle/receiver/phase.PhaseReceiver
  *
  * @param {object} message
  */

@@ -1,7 +1,7 @@
 import privs from './privs'
 
 /**
- * @memberof module:cashshuffle/receiver/store~StoreReceiver
+ * @memberof module:cashshuffle/receiver/store.StoreReceiver
  *
  * @param {Array<Error,*>} message - Discard reason and discarded message.
  */

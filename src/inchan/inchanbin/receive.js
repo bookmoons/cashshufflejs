@@ -2,7 +2,7 @@ import { BusyError, FormatError } from '../../error'
 import privs from './privs'
 
 /**
- * @memberof module:cashshuffle/inchan/inchanbin~InchanbinInchan
+ * @memberof module:cashshuffle/inchan/inchanbin.InchanbinInchan
  *
  * @throws {FormatError} If received binary message fails to parse.
  */

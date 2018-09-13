@@ -1,7 +1,7 @@
 import privs from './privs'
 
 /**
- * @memberof module:cashshuffle/receiver/objectify~ObjectifyReceiver
+ * @memberof module:cashshuffle/receiver/objectify.ObjectifyReceiver
  *
  * @param {protocol.Packet} message - Packet to convert to object.
  *     Assumed valid.
