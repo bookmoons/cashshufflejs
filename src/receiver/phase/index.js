@@ -12,7 +12,7 @@
  * - Optionally `Receiver` instance to receive discarded messages.
  * - Optionally factory function returning `Inbox` instances.
  *
- * Inbox defaults to `inbox/fifo`.
+ * Inbox defaults to `FifoInbox`.
  *
  * @module cashshuffle/receiver/phase
  */
