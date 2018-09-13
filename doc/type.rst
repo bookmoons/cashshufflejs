@@ -6,7 +6,7 @@ Custom types.
 Address
 -------
 
-.. autofunction:: Address
+.. autofunction:: module:cashshuffle.Address
 
 Base64
 ------
