@@ -8,8 +8,9 @@ class StandardDrawer extends Drawer {
   /**
    * @param {Inchan} inchan - Message input channel.
    * @param {Receiver} receiver - Message receiver to relay messages to.
+   * @param {Logchan} [log=null] - Logging channel.
    */
-  constructor (inchan, receiver) {
+  constructor (inchan, receiver, log = null) {
     super()
     const priv = {
       drawing: false,
@@ -19,7 +20,8 @@ class StandardDrawer extends Drawer {
       resolveWatch: null,
       rejectWatch: null,
       inchan,
-      receiver
+      receiver,
+      log
     }
     privs.set(this, priv)
   }
