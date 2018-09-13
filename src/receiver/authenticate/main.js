@@ -19,11 +19,7 @@ const mainnet = bitcore.Networks.mainnet
  */
 class AuthenticateReceiver extends Receiver {
   /**
-   * @param {protobufjs.Root} protocol - Protocol definition.
-   * @param {Receiver} nextReceiver - Receiver to deliver message to.
-   * @param {Receiver} [discarder=null] - Message receiver that handles
-   *     discarded messages.
-   * @param {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
+   * @param {AuthenticateReceiverParams} params
    */
   constructor ({
     protocol,
