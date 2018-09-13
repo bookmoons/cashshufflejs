@@ -6,6 +6,7 @@ Modules implementing CashShuffle interfaces.
 .. toctree::
    module/coin/bitcore
    module/crypto/bitcore
+   module/discarder/log
    module/drawer/standard
    module/fetcher/each
    module/inbox/fifo
