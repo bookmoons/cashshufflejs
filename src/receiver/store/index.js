@@ -5,7 +5,7 @@
  * Stores all messages to inbox.
  *
  * Optionally provide `Inbox` instance.
- * Defaults to new `inbox/fifo~Inbox` instance.
+ * Defaults to new `FifoInbox` instance.
  *
  * @module cashshuffle/receiver/store
  */
