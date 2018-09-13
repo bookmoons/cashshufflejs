@@ -50,7 +50,7 @@ async function checkEquivocation ({
   log = null
 }) {
   /* Prepare hash input. */
-  const hashInput = [ ...encryptionPublicKeys, ...outputList ].join('')
+  const hashInput = this.hashInput(encryptionPublicKeys, outputList)
 
   /* Compute digest. */
   const ownDigest = await crypto.hash(hashInput)

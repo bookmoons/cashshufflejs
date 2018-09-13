@@ -12,6 +12,7 @@ import toArrayBuffer from 'util/toarraybuffer'
 import loadProtocol from 'helper/loadprot'
 import affix from 'session/affix'
 import gatherDigest from 'session/gather/digest'
+import hashInput from 'session/hashin'
 import messageDigest from 'session/message/digest'
 import packageSignedPacket from 'session/package'
 import sign from 'session/sign'
@@ -98,6 +99,7 @@ function produceSession () {
   const session = {
     affix,
     gatherDigest,
+    hashInput,
     messageDigest,
     packageSignedPacket,
     sign,
