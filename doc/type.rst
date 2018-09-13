@@ -3,6 +3,11 @@ Type
 
 Custom types.
 
+Address
+-------
+
+.. autofunction:: Address
+
 Base64
 ------
 

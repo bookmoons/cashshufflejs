@@ -1,6 +1,13 @@
 /* Common cashshufflejs types. */
 
 /**
+ * Bitcoin Cash address in a string.
+ *
+ * @typedef {(CashAddress|LegacyAddress)} Address
+ * @memberof module:cashshuffle
+ */
+
+/**
  * Base64 string.
  *
  * Represents binary data as an [RFC 4648][1] conforming Base64 encoded value
