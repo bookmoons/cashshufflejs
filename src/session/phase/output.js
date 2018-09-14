@@ -83,6 +83,7 @@ async function broadcastOutput ({
       receiver: priorReceiver,
       discarder
     })
+    if (log) await log.send('Received encrypted output list')
 
     /* Extract encoded output list. */
     const encodedOutputList = priorOutputListPacket.message.str
@@ -101,6 +102,7 @@ async function broadcastOutput ({
       ...decryptedOutputList,
       outputAddress
     ]
+    if (log) await log.send('Added own output address to output list')
 
     /* Shuffle output list. */
     const shuffledOutputList = [ ...extendedOutputList ]
@@ -146,6 +148,7 @@ async function broadcastOutput ({
       receiver,
       discarder
     })
+    if (log) await log.send('Received final output list')
 
     /* Extract encoded output list. */
     const encodedOutputList = finalOutputListPacket.message.str

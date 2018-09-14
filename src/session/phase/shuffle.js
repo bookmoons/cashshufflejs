@@ -102,6 +102,7 @@ async function shuffle ({
   if (first) {
     /* Construct initial output list. */
     outputList.push(encryptedOutputAddress)
+    if (log) await log.send('Constructed initial output list')
   } else { // Inner shuffler
     /* Gather output list message from prior shuffler. */
     const priorOutputListPacket = await this.gatherOutputList({
@@ -111,6 +112,7 @@ async function shuffle ({
       receiver,
       discarder
     })
+    if (log) await log.send('Received encrypted output list')
 
     /* Extract encoded output list. */
     const encodedOutputList = priorOutputListPacket.message.str
@@ -129,6 +131,7 @@ async function shuffle ({
       ...decryptedOutputList,
       encryptedOutputAddress
     ]
+    if (log) await log.send('Added own output address to output list')
 
     /* Shuffle output list. */
     const shuffledOutputList = [ ...extendedOutputList ]
