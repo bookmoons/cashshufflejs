@@ -23,8 +23,8 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {Crypto} crypto - Message encryptor. Assumed ready for use.
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
- * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
- * @prop {Logchan} [log=null] - Logging channel.
+ * @prop {Receiver} [discarder=] - Receiver to discard messages to.
+ * @prop {Logchan} [log=] - Logging channel.
  */
 
 /**

@@ -11,7 +11,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  *     in milliseconds.
  * @prop {HexString} signingPublicKey - Participant signing public key.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
- * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
+ * @prop {Receiver} [discarder=] - Receiver to discard messages to.
  */
 
 /**

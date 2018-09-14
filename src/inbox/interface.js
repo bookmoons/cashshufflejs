@@ -49,8 +49,8 @@
  * @instance
  * @async
  *
- * @param {number?} [timeout=null] - Maximum time to wait in milliseconds.
- *     `null` to wait forever.
+ * @param {?number} [timeout=] - Maximum time to wait in milliseconds.
+ *     None or `null` to wait forever.
  *
  * @return {*} The next message.
  *

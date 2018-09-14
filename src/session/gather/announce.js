@@ -21,7 +21,7 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  *     The produced transaction will charge this fee to each participant.
  * @prop {Coin} coin - Bitcoin Cash network interface.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
- * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
+ * @prop {Receiver} [discarder=] - Receiver to discard messages to.
  * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
  */
 

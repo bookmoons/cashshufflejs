@@ -27,8 +27,8 @@ import { outputListDelimiter } from '../value'
  * @prop {Crypto} crypto - Message encryptor. Assumed ready for use.
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
- * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
- * @prop {Logchan} [log=null] - Logging channel.
+ * @prop {Receiver} [discarder=] - Receiver to discard messages to.
+ * @prop {Logchan} [log=] - Logging channel.
  * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network
  *     to generate output key pair for.
  */

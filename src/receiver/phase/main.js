@@ -8,9 +8,9 @@ import privs from './privs'
 class PhaseReceiver extends Receiver {
   /**
    * @param {Iterable<HexString>} participants - Participant public keys.
-   * @param {Receiver} [discarder=null] - Message receiver that handles
+   * @param {Receiver} [discarder=] - Message receiver that handles
    *     discarded messages.
-   * @param {function} [inboxFactory=null] - Factory function providing
+   * @param {function} [inboxFactory=] - Factory function providing
    *     `Inbox` instances.
    */
   constructor (participants, discarder = null, inboxFactory = null) {

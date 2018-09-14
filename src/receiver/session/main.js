@@ -10,9 +10,9 @@ class SessionReceiver extends Receiver {
    * @param {Iterable<HexString>} participants - Participant public keys.
    * @param {Iterable<number>} phaseIdentifiers - Protocol message phase
    *     identifiers.
-   * @param {Receiver} [discarder=null] - Message receiver that handles
+   * @param {Receiver} [discarder=] - Message receiver that handles
    *     discarded messages.
-   * @param {function} [phaseReceiverFactory=null] - Factory function
+   * @param {function} [phaseReceiverFactory=] - Factory function
    *     providing phase receiver instances.
    */
   constructor (

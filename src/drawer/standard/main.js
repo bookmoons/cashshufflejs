@@ -8,7 +8,7 @@ class StandardDrawer extends Drawer {
   /**
    * @param {Inchan} inchan - Message input channel.
    * @param {Receiver} receiver - Message receiver to relay messages to.
-   * @param {Logchan} [log=null] - Logging channel.
+   * @param {Logchan} [log=] - Logging channel.
    */
   constructor (inchan, receiver, log = null) {
     super()

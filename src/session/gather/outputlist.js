@@ -11,7 +11,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {HexString} priorParticipant - Signing public key of prior
  *     participant.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
- * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
+ * @prop {Receiver} [discarder=] - Receiver to discard messages to.
  */
 
 /**

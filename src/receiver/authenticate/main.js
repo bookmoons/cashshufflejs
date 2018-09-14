@@ -10,7 +10,7 @@ const mainnet = bitcore.Networks.mainnet
  *
  * @prop {protobufjs.Root} protocol - Protocol definition.
  * @prop {Receiver} nextReceiver - Receiver to deliver message to.
- * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
+ * @prop {Receiver} [discarder=] - Receiver to discard messages to.
  * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
  */
 

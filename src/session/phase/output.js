@@ -25,8 +25,8 @@ import { outputListDelimiter } from '../value'
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {PhaseReceiver} priorReceiver - Prior phase message receiver.
- * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
- * @prop {Logchan} [log=null] - Logging channel.
+ * @prop {Receiver} [discarder=] - Receiver to discard messages to.
+ * @prop {Logchan} [log=] - Logging channel.
  */
 
 /**

@@ -26,8 +26,8 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  * @prop {Coin} coin - Bitcoin Cash network interface.
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
- * @prop {Receiver} [discarder=null] - Receiver to discard messages to.
- * @prop {Logchan} [log=null] - Logging channel.
+ * @prop {Receiver} [discarder=] - Receiver to discard messages to.
+ * @prop {Logchan} [log=] - Logging channel.
  * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
  */
 
