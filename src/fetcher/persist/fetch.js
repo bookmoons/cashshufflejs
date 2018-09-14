@@ -18,8 +18,11 @@ async function fetch (attempts, timeout = null) {
   for (let remaining = attempts; remaining > 0; remaining--) {
     const message = await inbox.watch(timeout)
     const rejectionReason = await priv.evaluator(message)
-    if (rejectionReason) continue
-    else return message
+    if (rejectionReason) {
+      const discarder = priv.discarder
+      if (discarder) await discarder.submit([ rejectionReason, message ])
+      continue
+    } else return message
   }
   throw new ExhaustionError(
     { info: { attempts } },

@@ -24,12 +24,14 @@ class PersistFetcher extends Fetcher {
   /**
    * @param {Inbox} inbox - Inbox to fetch from.
    * @param {Evaluator} evaluator - Message acceptance evaluator.
+   * @param {Discarder} [discarder=] - Discarded message handler.
    */
-  constructor (inbox, evaluator) {
+  constructor (inbox, evaluator, discarder = null) {
     super()
     const priv = {
       inbox,
-      evaluator
+      evaluator,
+      discarder
     }
     privs.set(this, priv)
   }
