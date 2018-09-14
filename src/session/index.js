@@ -1,7 +1,7 @@
 /** @module cashshuffle/session */
 
 import Session from './main'
-import affix from './affix'
+import affix from './util/affix'
 import announce from './phase/announce'
 import broadcastOutput from './phase/output'
 import checkEquivocation from './phase/equiv'

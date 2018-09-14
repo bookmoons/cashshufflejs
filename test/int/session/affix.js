@@ -1,6 +1,6 @@
 import test from 'ava'
 import loadProtocol from 'helper/loadprot'
-import affix from 'session/affix'
+import affix from 'session/util/affix'
 
 const testSignatureString = 'Test signature'
 const testSignature = Buffer.from(testSignatureString)
