@@ -7,7 +7,7 @@ import privs from './privs'
  * May be `async`.
  *
  * @callback Evaluator
- * @memberof module:cashshuffle/fetcher/each
+ * @memberof module:cashshuffle/fetcher/persist
  *
  * @param message - Message to evaluate for acceptance.
  *
@@ -17,7 +17,7 @@ import privs from './privs'
  */
 
 /**
- * @memberof module:cashshuffle/fetcher/each
+ * @memberof module:cashshuffle/fetcher/persist
  */
 class PersistFetcher extends Fetcher {
   /**
