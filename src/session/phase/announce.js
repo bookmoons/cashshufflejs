@@ -1,4 +1,5 @@
 import Crypto from '../../crypto/bitcore'
+import PrefixLogchan from '../../logchan/prefix'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
@@ -62,6 +63,9 @@ async function announce ({
   log = null,
   network = defaultNetwork
 }) {
+  /* Prefix log messages. */
+  log = log ? new PrefixLogchan('P1: ', log) : null
+
   /* Generate encryption key pair. */
   const encryptionKeyPair = new Crypto()
   await encryptionKeyPair.generateKeyPair(network)

@@ -1,5 +1,6 @@
 import isEqual from 'arraybuffer-equal'
 import { ValueError } from '../../error'
+import PrefixLogchan from '../../logchan/prefix'
 import toArrayBuffer from 'util/toarraybuffer'
 import { defaultAttempts, defaultTimeout } from '../default'
 
@@ -49,6 +50,9 @@ async function checkEquivocation ({
   discarder = null,
   log = null
 }) {
+  /* Prefix log messages. */
+  log = log ? new PrefixLogchan('P4: ', log) : null
+
   /* Prepare hash input. */
   const hashInput = this.hashInput(encryptionPublicKeys, outputList)
 

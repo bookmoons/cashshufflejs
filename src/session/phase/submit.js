@@ -1,5 +1,6 @@
 import bitcore from 'bitcore-lib-cash'
 import { InadequateError, ValueError } from '../../error'
+import PrefixLogchan from '../../logchan/prefix'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
@@ -71,6 +72,9 @@ async function submit ({
   log = null,
   network = defaultNetwork
 }) {
+  /* Prefix log messages. */
+  log = log ? new PrefixLogchan('P5: ', log) : null
+
   /* Construct unsigned transaction. */
   const transaction = await coin.makeUnsignedTransaction(
     amount,

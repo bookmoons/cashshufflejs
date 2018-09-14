@@ -1,4 +1,5 @@
 import shuffleList from 'crypto-secure-shuffle'
+import PrefixLogchan from '../../logchan/prefix'
 import Signing from '../../signing/bitcore'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 import { outputListDelimiter } from '../value'
@@ -71,6 +72,9 @@ async function shuffle ({
   log = null,
   network = defaultNetwork
 }) {
+  /* Prefix log messages. */
+  log = log ? new PrefixLogchan('P2: ', log) : null
+
   const outputList = []
   const reversedEncryptionPublicKeys = [ ...encryptionPublicKeys ].reverse()
 

@@ -1,5 +1,6 @@
 import shuffleList from 'crypto-secure-shuffle'
 import { ValueError } from '../../error'
+import PrefixLogchan from '../../logchan/prefix'
 import { defaultAttempts, defaultTimeout } from '../default'
 import { outputListDelimiter } from '../value'
 
@@ -68,6 +69,9 @@ async function broadcastOutput ({
   discarder = null,
   log = null
 }) {
+  /* Prefix log messages. */
+  log = log ? new PrefixLogchan('P3: ', log) : null
+
   if (last) {
     // Last shuffler produces final output list
 
