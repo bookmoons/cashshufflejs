@@ -15,7 +15,7 @@ import affix from 'session/util/affix'
 import gatherSignature from 'session/gather/signature'
 import messageSignature from 'session/message/signature'
 import packageSignedPacket from 'session/package'
-import sign from 'session/sign'
+import sign from 'session/util/sign'
 import validateSignature from 'session/validate/signature'
 import submit from 'session/phase/submit'
 

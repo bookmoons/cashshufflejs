@@ -15,7 +15,7 @@ import gatherDigest from 'session/gather/digest'
 import hashInput from 'session/adjunct/hashin'
 import messageDigest from 'session/message/digest'
 import packageSignedPacket from 'session/package'
-import sign from 'session/sign'
+import sign from 'session/util/sign'
 import validateDigest from 'session/validate/digest'
 import checkEquivocation from 'session/phase/equiv'
 

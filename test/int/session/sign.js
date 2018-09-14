@@ -3,7 +3,7 @@ import loadProtocol from 'helper/loadprot'
 import bitcore from 'bitcore-lib-cash'
 import Message from '@bookmoons/bitcore-message-cash'
 import Signing from 'signing/bitcore'
-import sign from 'session/sign'
+import sign from 'session/util/sign'
 
 const signingPrivateKey =
   'ad6110ba1413c6b9f4f1538c86fd5809e8a7e638905a75c95ade5d02afb54931'

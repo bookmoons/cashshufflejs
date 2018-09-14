@@ -20,7 +20,7 @@ import messageFinalOutput from 'session/message/finaloutput'
 import packageSignedPacket from 'session/package'
 import validateFinalOutput from 'session/validate/finaloutput'
 import validateOutputList from 'session/validate/outputlist'
-import sign from 'session/sign'
+import sign from 'session/util/sign'
 import broadcastOutput from 'session/phase/output'
 
 const attempts = 2

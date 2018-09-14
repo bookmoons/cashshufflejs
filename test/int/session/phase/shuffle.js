@@ -18,7 +18,7 @@ import gatherOutputList from 'session/gather/outputlist'
 import messageOutputList from 'session/message/outputlist'
 import packageSignedPacket from 'session/package'
 import validateOutputList from 'session/validate/outputlist'
-import sign from 'session/sign'
+import sign from 'session/util/sign'
 import shuffle from 'session/phase/shuffle'
 
 const attempts = 2

@@ -15,7 +15,7 @@ import gatherAnnounce from 'session/gather/announce'
 import messageAnnounce from 'session/message/announce'
 import packageSignedPacket from 'session/package'
 import validateAnnounce from 'session/validate/announce'
-import sign from 'session/sign'
+import sign from 'session/util/sign'
 import announce from 'session/phase/announce'
 
 const attempts = 2
