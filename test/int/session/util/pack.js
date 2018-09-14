@@ -1,7 +1,7 @@
 import test from 'ava'
 import loadProtocol from 'helper/loadprot'
 import Signing from 'signing/bitcore'
-import packageSignedPacket from 'session/package'
+import packageSignedPacket from 'session/util/pack'
 
 const signingPrivateKey =
   'ad6110ba1413c6b9f4f1538c86fd5809e8a7e638905a75c95ade5d02afb54931'
