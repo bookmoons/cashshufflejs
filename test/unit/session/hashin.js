@@ -1,5 +1,5 @@
 import test from 'ava'
-import hashInput from 'session/hashin'
+import hashInput from 'session/adjunct/hashin'
 
 const key1 = 'KEY1'
 const key2 = 'KEY2'
