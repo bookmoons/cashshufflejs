@@ -9,6 +9,7 @@ import MissingFeatureError from 'error/MissingFeature'
 import MissingValueError from 'error/MissingValue'
 import NotImplementedError from 'error/NotImplemented'
 import TimeoutError from 'error/Timeout'
+import UnavailableError from 'error/Unavailable'
 import ValueError from 'error/Value'
 import * as error from 'error'
 
@@ -50,6 +51,10 @@ test('NotImplemented', t => {
 
 test('Timeout', t => {
   t.is(error.TimeoutError, TimeoutError)
+})
+
+test('Unavailable', t => {
+  t.is(error.UnavailableError, UnavailableError)
 })
 
 test('Value', t => {

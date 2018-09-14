@@ -67,6 +67,12 @@ TimeoutError
 .. autoclass:: TimeoutError
    :members:
 
+UnavailableError
+----------------
+
+.. autoclass:: UnavailableError
+   :members:
+
 ValueError
 ----------
 
