@@ -18,16 +18,16 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from './default'
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} poolNumber - Participant pool number.
- * @prop {Signing} signingKeyPair - Participant signing key pair.
+ * @prop {number} poolNumber - Shuffler pool number.
+ * @prop {Signing} signingKeyPair - Shuffler signing key pair.
  *     Assumed ready for use.
- * @prop {Iterable<HexString>} participants - Participant signing public keys.
+ * @prop {Iterable<HexString>} shufflers - Shuffler signing public keys.
  *     Will be deduplicated and ordered lexicographically by address.
  * @prop {Map<HexString-Address>} changeAddresses - Change addresses.
- *     Key participant signing public key. Value change address.
+ *     Key shuffler signing public key. Value change address.
  * @prop {number} amount - Amount to shuffle in satoshis.
- * @prop {number} fee - Participant fee amount in satoshis.
- *     The produced transaction will charge this fee to each participant.
+ * @prop {number} fee - Shuffler fee amount in satoshis.
+ *     The produced transaction will charge this fee to each shuffler.
  * @prop {Coin} coin - Bitcoin Cash network interface.
  * @prop {Outchan} outchan - Output message channel.
  * @prop {SessionReceiver} receiver - Session message receiver.
@@ -54,8 +54,8 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from './default'
  *
  * @throws {NotImplementedError} For any event that should enter blame phase.
  *     Message `'blame'`.
- * @throws {MissingValueError} If participants list does not contain
- *     own signing public key. Message `'own key in participants list'`.
+ * @throws {MissingValueError} If shufflers list does not contain
+ *     own signing public key. Message `'own key in shufflers list'`.
  */
 async function run ({
   protocol,
@@ -64,7 +64,7 @@ async function run ({
   sessionId,
   poolNumber,
   signingKeyPair,
-  participants,
+  shufflers,
   changeAddresses,
   amount,
   fee,
@@ -75,32 +75,32 @@ async function run ({
   log = null,
   network = defaultNetwork
 }) {
-  // Order participants
-  const participantsOrdered = await this.orderParticipants(participants)
+  // Order shufflers
+  const shufflersOrdered = await this.orderShufflers(shufflers)
 
-  // Participant variables
+  // Shuffler variables
   const signingPublicKey = await signingKeyPair.exportPublicKey()
-  const ownParticipantIndex = participantsOrdered.indexOf(signingPublicKey)
-  if (ownParticipantIndex === -1) {
+  const ownShufflerIndex = shufflersOrdered.indexOf(signingPublicKey)
+  if (ownShufflerIndex === -1) {
     throw new MissingValueError(
       { info: { signingPublicKey } },
-      'own key in participants list'
+      'own key in shufflers list'
     )
   }
-  const first = (ownParticipantIndex === 0)
-  const participantsCount = participantsOrdered.length
-  const lastParticipantIndex = participantsCount - 1
-  const last = (ownParticipantIndex === lastParticipantIndex)
-  const priorParticipantIndex = first ? null : ownParticipantIndex - 1
-  const priorParticipant =
-    first ? null : participantsOrdered[priorParticipantIndex]
-  const nextParticipantIndex = last ? null : ownParticipantIndex + 1
-  const nextParticipant =
-    last ? null : participantsOrdered[nextParticipantIndex]
-  const lastParticipant =
-    last ? signingPublicKey : participantsOrdered[lastParticipantIndex]
+  const first = (ownShufflerIndex === 0)
+  const shufflersCount = shufflersOrdered.length
+  const lastShufflerIndex = shufflersCount - 1
+  const last = (ownShufflerIndex === lastShufflerIndex)
+  const priorShufflerIndex = first ? null : ownShufflerIndex - 1
+  const priorShuffler =
+    first ? null : shufflersOrdered[priorShufflerIndex]
+  const nextShufflerIndex = last ? null : ownShufflerIndex + 1
+  const nextShuffler =
+    last ? null : shufflersOrdered[nextShufflerIndex]
+  const lastShuffler =
+    last ? signingPublicKey : shufflersOrdered[lastShufflerIndex]
   if (log) {
-    const message = 'Shuffling with ' + participantsCount + ' participants'
+    const message = 'Shuffling with ' + shufflersCount + ' shufflers'
     await log.send(message)
   }
 
@@ -142,17 +142,17 @@ async function run ({
   // Prepare ordered encryption public keys
   const encryptionPublicKeysOrdered = []
   const ownEncryptionPublicKey = await encryptionKeyPair.exportPublicKey()
-  for (const participant of participantsOrdered) {
+  for (const shuffler of shufflersOrdered) {
     const encryptionPublicKey =
-      participant === signingPublicKey
+      shuffler === signingPublicKey
         ? ownEncryptionPublicKey
-        : encryptionPublicKeys.get(participant)
+        : encryptionPublicKeys.get(shuffler)
     encryptionPublicKeysOrdered.push(encryptionPublicKey)
   }
 
-  // Prepare subsequent participant encryption public keys
+  // Prepare subsequent shuffler encryption public keys
   const subsequentEncryptionPublicKeys =
-    last ? [] : encryptionPublicKeysOrdered.slice(nextParticipantIndex)
+    last ? [] : encryptionPublicKeysOrdered.slice(nextShufflerIndex)
 
   /* Phase 2: Shuffle. */
   const shufflePhaseIdentifier = Phase.Shuffle.value
@@ -166,8 +166,8 @@ async function run ({
     signingKeyPair,
     first,
     last,
-    priorParticipant,
-    nextParticipant,
+    priorShuffler,
+    nextShuffler,
     encryptionPublicKeys: subsequentEncryptionPublicKeys,
     crypto: encryptionKeyPair,
     outchan,
@@ -205,8 +205,8 @@ async function run ({
     poolNumber,
     signingKeyPair,
     last,
-    priorParticipant,
-    lastParticipant,
+    priorShuffler,
+    lastShuffler,
     outputAddress,
     crypto: encryptionKeyPair,
     outchan,
@@ -268,7 +268,7 @@ async function run ({
 
   // Prepare input addresses
   const inputAddresses = new Map()
-  for (const publicKeyString of participantsOrdered) {
+  for (const publicKeyString of shufflersOrdered) {
     const publicKey = new bitcore.PublicKey(publicKeyString, { network })
     const address = new bitcore.Address(publicKey, network)
     const addressString = address.toCashAddress()
