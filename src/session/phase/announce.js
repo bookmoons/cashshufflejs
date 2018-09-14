@@ -11,12 +11,12 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} poolNumber - Participant pool number.
- * @prop {Signing} signingKeyPair - Participant signing key pair.
+ * @prop {number} poolNumber - Shuffler pool number.
+ * @prop {Signing} signingKeyPair - Shuffler signing key pair.
  *     Assumed ready for use.
  * @prop {number} amount - Amount to shuffle in satoshis.
- * @prop {number} fee - Participant fee amount in satoshis.
- *     The produced transaction will charge this fee to each participant.
+ * @prop {number} fee - Shuffler fee amount in satoshis.
+ *     The produced transaction will charge this fee to each shuffler.
  * @prop {Coin} coin - Bitcoin Cash network interface.
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
@@ -31,9 +31,9 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  *
  * @prop {Crypto} encryptionKeyPair - Own encryption key pair.
  * @prop {Map<HexString-HexString>} encryptionPublicKeys
- *     Other participant encryption public keys.
- *     Index participant signing public key.
- *     Value participant encryption public key.
+ *     Other shuffler encryption public keys.
+ *     Index shuffler signing public key.
+ *     Value shuffler encryption public key.
  */
 
 /**
@@ -43,7 +43,7 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  *
  * @return {AnnounceReturn}
  *
- * @throws {InadequateError} If any participant has insufficient funds.
+ * @throws {InadequateError} If any shuffler has insufficient funds.
  *     Message `'insufficient funds'`.
  */
 async function announce ({
@@ -93,7 +93,7 @@ async function announce ({
   await outchan.send(ownPackage)
   if (log) await log.send('Broadcasted encryption public key')
 
-  /* Gather other participant messages. */
+  /* Gather other shuffler messages. */
   const otherPackets = await this.gatherAnnounce({
     attempts,
     timeout,
@@ -105,12 +105,12 @@ async function announce ({
     discarder,
     network
   })
-  if (log) await log.send('Gathered participant encryption keys')
+  if (log) await log.send('Gathered shuffler encryption keys')
 
   /* Return encryption keys. */
-  const participantInboxes = receiver.participantInboxes
-  participantInboxes.delete(signingPublicKey)
-  const signingKeys = [ ...participantInboxes.keys() ]
+  const shufflerInboxes = receiver.shufflerInboxes
+  shufflerInboxes.delete(signingPublicKey)
+  const signingKeys = [ ...shufflerInboxes.keys() ]
   const encryptionPublicKeys = new Map()
   for (const signingKey of signingKeys) {
     const packet = otherPackets.get(signingKey)

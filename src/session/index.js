@@ -18,9 +18,9 @@ import messageAnnounce from './message/announce'
 import messageDigest from './message/digest'
 import messageFinalOutput from './message/finaloutput'
 import messageOutputList from './message/outputlist'
-import messageShuffleOutput from 'message/shuffleout'
+import messageShuffleOutput from './message/shuffleout'
 import messageSignature from './message/signature'
-import orderParticipants from './adjunct/order'
+import orderShufflers from './adjunct/order'
 import packageSignedPacket from './util/pack'
 import packageSignedPackets from './util/packs'
 import run from './run'
@@ -54,7 +54,7 @@ Object.assign(Session.prototype, {
   messageOutputList,
   messageShuffleOutput,
   messageSignature,
-  orderParticipants,
+  orderShufflers,
   packageSignedPacket,
   packageSignedPackets,
   run,

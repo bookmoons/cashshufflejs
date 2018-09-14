@@ -9,13 +9,13 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {number} [attempts=<default>] - Maximum attempts. Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {HexString} signingPublicKey - Participant signing public key.
+ * @prop {HexString} signingPublicKey - Shuffler signing public key.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=] - Receiver to discard messages to.
  */
 
 /**
- * Gather signature messages from other participants.
+ * Gather signature messages from other shufflers.
  *
  * Validates each received message.
  *
@@ -24,7 +24,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @param {GatherDigestParams} params
  *
  * @return {Map<HexString,object>} Signature messages from all other
- *     participants. Index participant public key. Value packet as object.
+ *     shufflers. Index shuffler public key. Value packet as object.
  *
  * @throws {ExhaustionError} If attempts are exhausted without success.
  * @throws {TimeoutError} If wait for message times out.
@@ -36,13 +36,13 @@ async function gatherSignature ({
   receiver,
   discarder = null
 }) {
-  const participantInboxes = receiver.participantInboxes
-  participantInboxes.delete(signingPublicKey)
-  const participantsCount = participantInboxes.size
-  const participantPackets = new Map()
+  const shufflerInboxes = receiver.shufflerInboxes
+  shufflerInboxes.delete(signingPublicKey)
+  const shufflersCount = shufflerInboxes.size
+  const shufflerPackets = new Map()
   for (let remaining = attempts; remaining > 0; remaining--) {
-    const publicKeys = [ ...participantInboxes.keys() ]
-    const inboxes = [ ...participantInboxes.values() ]
+    const publicKeys = [ ...shufflerInboxes.keys() ]
+    const inboxes = [ ...shufflerInboxes.values() ]
     const fetcher = new Fetcher(inboxes)
     const packets = await fetcher.fetch(timeout)
     for (let i = 0; i < packets.length; i++) {
@@ -56,18 +56,18 @@ async function gatherSignature ({
         } else throw e
       }
       const publicKey = publicKeys[i]
-      participantPackets.set(publicKey, packet)
-      participantInboxes.delete(publicKey)
+      shufflerPackets.set(publicKey, packet)
+      shufflerInboxes.delete(publicKey)
     }
-    if (participantPackets.size === participantsCount) {
-      return participantPackets
+    if (shufflerPackets.size === shufflersCount) {
+      return shufflerPackets
     }
   }
   throw new ExhaustionError(
     { info: {
       attempts,
-      total: participantsCount,
-      acquired: participantPackets.size
+      total: shufflersCount,
+      acquired: shufflerPackets.size
     } },
     'max attempts'
   )

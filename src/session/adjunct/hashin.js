@@ -6,7 +6,7 @@
  * delimiter.
  *
  * @param {Iterable<HexString>} encryptionPublicKeys - Encryption public keys
- *     for participants 2 through last ascending in shuffle order.
+ *     for shufflers 2 through last ascending in shuffle order.
  * @param {Iterable<Address>} outputList - Final output list
  *     in message stream order.
  */

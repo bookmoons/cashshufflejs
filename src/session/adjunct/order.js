@@ -2,20 +2,20 @@ import bitcore from 'bitcore-lib-cash'
 import { defaultNetwork } from '../default'
 
 /**
- * Order participants.
+ * Order shufflers.
  *
- * Deduplicates provided participants list.
+ * Deduplicates provided shufflers list.
  * Orders list lexicographically by address.
  *
  * @memberof module:cashshuffle/session.Session
  *
- * @param {Iterable<HexString>} participants - Participant signing public keys.
+ * @param {Iterable<HexString>} shufflers - Shuffler signing public keys.
  * @param {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
  *
- * @return {Array<HexString>} Ordered participants list.
+ * @return {Array<HexString>} Ordered shufflers list.
  */
-async function orderParticipants (participants, network = defaultNetwork) {
-  const keysSet = new Set(participants) // Deduplicate
+async function orderShufflers (shufflers, network = defaultNetwork) {
+  const keysSet = new Set(shufflers) // Deduplicate
   const keys = [ ...keysSet ]
   const addresses = []
   for (const keyString of keys) {
@@ -39,4 +39,4 @@ async function orderParticipants (participants, network = defaultNetwork) {
   return keysOrdered
 }
 
-export default orderParticipants
+export default orderShufflers

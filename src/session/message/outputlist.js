@@ -8,10 +8,10 @@ import { outputListDelimiter } from '../value'
  * @prop {protobufjs.Root} protocol - Protocol definition.
  * @prop {HexString} signingPublicKey - Signing public key.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} poolNumber - Participant pool number.
+ * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Iterable<Base64>} outputList - List of output address layered
  *     encryptions.
- * @prop {HexString} nextParticipant - Signing public key of next participant.
+ * @prop {HexString} nextShuffler - Signing public key of next shuffler.
  */
 
 /**
@@ -33,14 +33,14 @@ function messageOutputList ({
   sessionId,
   poolNumber,
   outputList,
-  nextParticipant
+  nextShuffler
 }) {
   const sessionIdView = new Uint8Array(sessionId)
   const outputListArray = [ ...outputList ]
   const outputListEncoded = outputListArray.join(outputListDelimiter)
   const messageObject = { str: outputListEncoded }
   const fromKeyObject = { key: signingPublicKey }
-  const toKeyObject = { key: nextParticipant }
+  const toKeyObject = { key: nextShuffler }
   const packetObject = {
     session: sessionIdView,
     number: poolNumber,

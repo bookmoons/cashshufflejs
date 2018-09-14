@@ -7,7 +7,7 @@ import submit from 'receiver/phase/submit'
 
 const invalidKey = 'Invalid key'
 const validKey = 'Valid key'
-const participants = [ validKey ]
+const shufflers = [ validKey ]
 
 test.before(t => {
   Object.assign(Receiver.prototype, {
@@ -18,7 +18,7 @@ test.before(t => {
 test('missing from_key', async t => {
   const inbox = new Inbox()
   const storeReceiver = new StoreReceiver(inbox)
-  const receiver = new Receiver(participants, storeReceiver)
+  const receiver = new Receiver(shufflers, storeReceiver)
   const message = {}
   await receiver.submit(message)
   const discarded = inbox.receive()
@@ -30,7 +30,7 @@ test('missing from_key', async t => {
 test('missing from_key.key', async t => {
   const inbox = new Inbox()
   const storeReceiver = new StoreReceiver(inbox)
-  const receiver = new Receiver(participants, storeReceiver)
+  const receiver = new Receiver(shufflers, storeReceiver)
   const message = { fromKey: {} }
   await receiver.submit(message)
   const discarded = inbox.receive()
@@ -42,7 +42,7 @@ test('missing from_key.key', async t => {
 test('unrecognized sender key', async t => {
   const inbox = new Inbox()
   const storeReceiver = new StoreReceiver(inbox)
-  const receiver = new Receiver(participants, storeReceiver)
+  const receiver = new Receiver(shufflers, storeReceiver)
   const message = { fromKey: { key: invalidKey } }
   await receiver.submit(message)
   const discarded = inbox.receive()
@@ -53,7 +53,7 @@ test('unrecognized sender key', async t => {
 test('recognized sender key', async t => {
   const inbox = new Inbox()
   const storeReceiver = new StoreReceiver(inbox)
-  const receiver = new Receiver(participants, storeReceiver)
+  const receiver = new Receiver(shufflers, storeReceiver)
   const message = { fromKey: { key: validKey } }
   await receiver.submit(message)
   t.throws(() => {

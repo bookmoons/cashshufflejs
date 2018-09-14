@@ -7,7 +7,7 @@ import { Phase } from '../../protocol'
  * @prop {protobufjs.Root} protocol - Protocol definition.
  * @prop {HexString} signingPublicKey - Signing public key.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} poolNumber - Participant pool number.
+ * @prop {number} poolNumber - Shuffler pool number.
  * @prop {HexString} encryptionPublicKey - Public key of encryption key pair.
  */
 

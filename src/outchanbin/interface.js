@@ -6,7 +6,7 @@
 /**
  * Binary message output channel.
  *
- * Delivers raw binary network messages to other participants.
+ * Delivers raw binary network messages to other shufflers.
  * Terminates each message with protocol delimiter.
  *
  * Means of delivering messages implementation defined.

@@ -28,20 +28,20 @@ const sessionIdView = new Uint8Array(sessionId)
 const poolNumber = 12
 const signingPrivateKey =
   'b4386d0019b43055341ca3452445cee2805d952fcea1dbb3e7556186df11b958'
-const participant1 =
+const shuffler1 =
   '02fb043436476ebd0391350016a6003f9e02f97e96a9ece386aac2d2060158b377'
-const participant2 =
+const shuffler2 =
   '03b726b7920ec51a575696b368be5470142434124ade29bcee744ae248365ee3b4'
-const participant3 =
+const shuffler3 =
   '036da9c411c438138a73224ebe382f4bfad63d496cf611e91da375d1ebb343ad43'
-const participants = [ participant1, participant2, participant3 ]
+const shufflers = [ shuffler1, shuffler2, shuffler3 ]
 const input1 = 'bitcoincash:qpm9dd5325c8qgtd47y58chax4jxw75hmvd4wptwtn'
 const input2 = 'bitcoincash:qpp36jccwkh70rtzk42uue4t635fk9uh0ywdfwxp7p'
 const input3 = 'bitcoincash:qqaajfdedtvtpdaax7pgt4hej750pqdrmgcwfzm0ld'
 const inputAddresses = new Map([
-  [ participant1, input1 ],
-  [ participant2, input2 ],
-  [ participant3, input3 ]
+  [ shuffler1, input1 ],
+  [ shuffler2, input2 ],
+  [ shuffler3, input3 ]
 ])
 const output1 = 'bitcoincash:qqhrze5zaju6njnlzcgwhkjkrghdkkjulg4v2qsenk'
 const output2 = 'bitcoincash:qzgwp2yy8glwq22jkjwx4vzjgurz3edz4skj77krw4'
@@ -50,8 +50,8 @@ const outputAddresses = [ output1, output2, output3 ]
 const change1 = 'bitcoincash:qz2ahqhgl636s66qglza4wn89ys4ekwjqqwf5jl4zk'
 const change3 = 'bitcoincash:qza2fzdzxjku5ve03tldx45vx30r4tltsq6nr3uax2'
 const changeAddresses = new Map([
-  [ participant1, change1 ],
-  [ participant3, change3 ]
+  [ shuffler1, change1 ],
+  [ shuffler3, change3 ]
 ])
 const index11 = '1'
 const index12 = '2'
@@ -82,7 +82,7 @@ const inputSignature2 = {
   signature: { signature: signature2 }
 }
 const validPacket2 = {
-  fromKey: { key: participant2 },
+  fromKey: { key: shuffler2 },
   message: { signatures: [ inputSignature2 ] }
 }
 const inputSignature31 = {
@@ -94,7 +94,7 @@ const inputSignature32 = {
   signature: { signature: signature32 }
 }
 const validPacket3 = {
-  fromKey: { key: participant3 },
+  fromKey: { key: shuffler3 },
   message: { signatures: [ inputSignature31, inputSignature32 ] }
 }
 
@@ -112,7 +112,7 @@ const testMessageObject = {
 const testPacketObject = {
   session: sessionIdView,
   number: poolNumber,
-  fromKey: { key: participant1 },
+  fromKey: { key: shuffler1 },
   phase: Phase.VerificationSubmission.value,
   message: testMessageObject
 }
@@ -191,11 +191,11 @@ test('output', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
-  const inbox2 = inboxes.get(participant2)
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
+  const inbox2 = inboxes.get(shuffler2)
   inbox2.add(validPacket2)
-  const inbox3 = inboxes.get(participant3)
+  const inbox3 = inboxes.get(shuffler3)
   inbox3.add(validPacket3)
   await session.submit({
     protocol,
@@ -237,11 +237,11 @@ test('return', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
-  const inbox2 = inboxes.get(participant2)
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
+  const inbox2 = inboxes.get(shuffler2)
   inbox2.add(validPacket2)
-  const inbox3 = inboxes.get(participant3)
+  const inbox3 = inboxes.get(shuffler3)
   inbox3.add(validPacket3)
   const { transaction: returnedTransaction } = await session.submit({
     protocol,
@@ -278,11 +278,11 @@ test('invalid signature', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
-  const inbox2 = inboxes.get(participant2)
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
+  const inbox2 = inboxes.get(shuffler2)
   inbox2.add(validPacket2)
-  const inbox3 = inboxes.get(participant3)
+  const inbox3 = inboxes.get(shuffler3)
   inbox3.add(validPacket3)
   const submitPromise = session.submit({
     protocol,
@@ -325,11 +325,11 @@ test('double spend', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
-  const inbox2 = inboxes.get(participant2)
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
+  const inbox2 = inboxes.get(shuffler2)
   inbox2.add(validPacket2)
-  const inbox3 = inboxes.get(participant3)
+  const inbox3 = inboxes.get(shuffler3)
   inbox3.add(validPacket3)
   const submitPromise = session.submit({
     protocol,

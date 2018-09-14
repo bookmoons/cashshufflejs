@@ -42,9 +42,9 @@ const signingPublicKey2 =
   '0350efbed967151d023f4b9a8637fa01328d5851cc6e94f33ccdad659e6ff6ca57'
 const signingPublicKey3 =
   '026e41a59fa68163abf6bec552fe48688ad7d342f2c047db7aa6acaf3d447709c5'
-const participants =
+const shufflers =
   [ signingPublicKey1, signingPublicKey2, signingPublicKey3 ]
-const lastParticipant = signingPublicKey3
+const lastShuffler = signingPublicKey3
 /*
 const encryptionPrivateKey1 =
   '32ff3a7363f71e0bc7cfbb36947d219a97d35c7d667bb25ed39b1999e78ac915'
@@ -161,9 +161,9 @@ test('return last', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const priorReceiver = new PhaseReceiver(participants)
-  const inboxes = priorReceiver.participantInboxes
+  const receiver = new PhaseReceiver(shufflers)
+  const priorReceiver = new PhaseReceiver(shufflers)
+  const inboxes = priorReceiver.shufflerInboxes
   const inbox = inboxes.get(signingPublicKey2)
   inbox.add(encryptedOutputListPacket)
   const { outputList } = await session.broadcastOutput({
@@ -174,8 +174,8 @@ test('return last', async t => {
     poolNumber,
     signingKeyPair: signing,
     last: true,
-    priorParticipant: signingPublicKey2,
-    lastParticipant,
+    priorShuffler: signingPublicKey2,
+    lastShuffler,
     outputAddress: output3,
     crypto,
     outchan,
@@ -194,9 +194,9 @@ test('return nonlast', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const priorReceiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
+  const receiver = new PhaseReceiver(shufflers)
+  const priorReceiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
   const inbox = inboxes.get(signingPublicKey3)
   inbox.add(finalOutputListPacket)
   const { outputList } = await session.broadcastOutput({
@@ -207,8 +207,8 @@ test('return nonlast', async t => {
     poolNumber,
     signingKeyPair: signing,
     last: false,
-    priorParticipant: signingPublicKey1,
-    lastParticipant,
+    priorShuffler: signingPublicKey1,
+    lastShuffler,
     outputAddress: output2,
     crypto,
     outchan,
@@ -227,9 +227,9 @@ test('output', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const priorReceiver = new PhaseReceiver(participants)
-  const inboxes = priorReceiver.participantInboxes
+  const receiver = new PhaseReceiver(shufflers)
+  const priorReceiver = new PhaseReceiver(shufflers)
+  const inboxes = priorReceiver.shufflerInboxes
   const inbox = inboxes.get(signingPublicKey2)
   inbox.add(encryptedOutputListPacket)
   await session.broadcastOutput({
@@ -240,8 +240,8 @@ test('output', async t => {
     poolNumber,
     signingKeyPair: signing,
     last: true,
-    priorParticipant: signingPublicKey2,
-    lastParticipant,
+    priorShuffler: signingPublicKey2,
+    lastShuffler,
     outputAddress: output3,
     crypto,
     outchan,
@@ -276,8 +276,8 @@ test('missing output', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
   const inbox = inboxes.get(signingPublicKey3)
   inbox.add(badOutputListPacket)
   const broadcastOutputPromise = session.broadcastOutput({
@@ -288,8 +288,8 @@ test('missing output', async t => {
     poolNumber,
     signingKeyPair: signing,
     last: false,
-    priorParticipant: signingPublicKey1,
-    lastParticipant,
+    priorShuffler: signingPublicKey1,
+    lastShuffler,
     outputAddress: output2,
     crypto,
     outchan,

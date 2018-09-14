@@ -8,12 +8,12 @@
  *
  * Provide:
  *
- * - Iterable of all participant public keys as hex strings.
+ * - Iterable of all shuffler public keys as hex strings.
  * - Iterable of protocol message phase identifiers.
  * - Optionally `Receiver` instance to receive discarded messages.
  * - Optionally factory function returning phase receiver instances.
  *
- * Default phase receiver uses provided participants and discarder.
+ * Default phase receiver uses provided shufflers and discarder.
  *
  * @module cashshuffle/receiver/session
  */

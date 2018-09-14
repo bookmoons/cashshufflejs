@@ -1,5 +1,5 @@
 import test from 'ava'
-import orderParticipants from 'session/adjunct/order'
+import orderShufflers from 'session/adjunct/order'
 
 const key1 =
   '026e41a59fa68163abf6bec552fe48688ad7d342f2c047db7aa6acaf3d447709c5'
@@ -15,17 +15,17 @@ const address3 = 'bitcoincash:qq69fk8pfnlf9vlyqfly6yg6aswz8t3fxynqqw4glg'
 */
 
 test('unordered', async t => {
-  const participants = [ key1, key2, key3 ]
-  const participantsOrdered = await orderParticipants(participants)
-  t.is(participantsOrdered[0], key2)
-  t.is(participantsOrdered[1], key3)
-  t.is(participantsOrdered[2], key1)
+  const shufflers = [ key1, key2, key3 ]
+  const shufflersOrdered = await orderShufflers(shufflers)
+  t.is(shufflersOrdered[0], key2)
+  t.is(shufflersOrdered[1], key3)
+  t.is(shufflersOrdered[2], key1)
 })
 
 test('ordered', async t => {
-  const participants = [ key2, key3, key1 ]
-  const participantsOrdered = await orderParticipants(participants)
-  t.is(participantsOrdered[0], key2)
-  t.is(participantsOrdered[1], key3)
-  t.is(participantsOrdered[2], key1)
+  const shufflers = [ key2, key3, key1 ]
+  const shufflersOrdered = await orderShufflers(shufflers)
+  t.is(shufflersOrdered[0], key2)
+  t.is(shufflersOrdered[1], key3)
+  t.is(shufflersOrdered[2], key1)
 })

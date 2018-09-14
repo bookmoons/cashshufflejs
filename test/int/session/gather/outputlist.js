@@ -7,13 +7,13 @@ import gatherOutputList from 'session/gather/outputlist'
 
 const attempts = 2
 const timeout = 500
-const participant1 =
+const shuffler1 =
   '03a8213dda332b827cf54c49ac9b3ad4566c293b5da40e7eea5e07c77fe0d5b32e'
-const participant2 =
+const shuffler2 =
   '03b726b7920ec51a575696b368be5470142434124ade29bcee744ae248365ee3b4'
-const participant3 =
+const shuffler3 =
   '036da9c411c438138a73224ebe382f4bfad63d496cf611e91da375d1ebb343ad43'
-const participants = [ participant1, participant2, participant3 ]
+const shufflers = [ shuffler1, shuffler2, shuffler3 ]
 const output1 =
   'A/Cee7rwlmmxzeM5TbC3LDQI7Qgm+Y15haPOzBSGB1071Zs6T8FR5uuJCTBrBJnGxqv4' +
   'ii6cXLpkVyrcKsK+epO9J6F9V0qkt1Ic0OR32Be5W2ddGr13HQIFS+RltmeACikqq120' +
@@ -29,8 +29,8 @@ const output3 =
 const outputList = [ output1, output2, output3 ]
 const outputListEncoded = outputList.join(outputListDelimiter)
 const validPacket = {
-  fromKey: { key: participant1 },
-  toKey: { key: participant2 },
+  fromKey: { key: shuffler1 },
+  toKey: { key: shuffler2 },
   message: { str: outputListEncoded }
 }
 const invalidPacket = {}
@@ -40,13 +40,13 @@ test('1 attempt', async t => {
     gatherOutputList,
     validateOutputList
   }
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
-  const inbox = inboxes.get(participant1)
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
+  const inbox = inboxes.get(shuffler1)
   const gatherOutputListPromise = session.gatherOutputList({
     attempts,
     timeout,
-    priorParticipant: participant1,
+    priorShuffler: shuffler1,
     receiver
   })
   inbox.add(validPacket)
@@ -59,13 +59,13 @@ test('2 attempts', async t => {
     gatherOutputList,
     validateOutputList
   }
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
-  const inbox = inboxes.get(participant1)
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
+  const inbox = inboxes.get(shuffler1)
   const gatherOutputListPromise = session.gatherOutputList({
     attempts,
     timeout,
-    priorParticipant: participant1,
+    priorShuffler: shuffler1,
     receiver
   })
   inbox.add(invalidPacket)
@@ -79,11 +79,11 @@ test('timeout', async t => {
     gatherOutputList,
     validateOutputList
   }
-  const receiver = new PhaseReceiver(participants)
+  const receiver = new PhaseReceiver(shufflers)
   const gatherOutputListPromise = session.gatherOutputList({
     attempts,
     timeout: 0,
-    priorParticipant: participant1,
+    priorShuffler: shuffler1,
     receiver
   })
   try {
@@ -99,13 +99,13 @@ test('exhaust', async t => {
     gatherOutputList,
     validateOutputList
   }
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
-  const inbox = inboxes.get(participant1)
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
+  const inbox = inboxes.get(shuffler1)
   const gatherOutputListPromise = session.gatherOutputList({
     attempts,
     timeout,
-    priorParticipant: participant1,
+    priorShuffler: shuffler1,
     receiver
   })
   inbox.add(invalidPacket)

@@ -8,7 +8,7 @@
  * @enum
  *
  * @prop {number} None - Before protocol start. Value 0.
- * @prop {number} Announcement - Phase 1. Participants announce themselves.
+ * @prop {number} Announcement - Phase 1. Shufflers announce themselves.
  *     Value 1.
  * @prop {number} Shuffle - Phase 2. Blind shuffling of output addresses.
  *     Value 2.
@@ -133,7 +133,7 @@
 /**
  * Verification key.
  *
- * Public key of a participant.
+ * Public key of a shuffler.
  * Used to identify sender and recipient in messages.
 *
 * @typedef VerificationKey
@@ -208,7 +208,7 @@
  *
  * @prop {protocol.Reason} [reason=] - Blame reason.
  * @prop {protocol.VerificationKey} [accused=]
- *     Public key of accused participant.
+ *     Public key of accused shuffler.
  * @prop {protocol.DecryptionKey} [key=] - Decryption key.
  * @prop {protocol.Transaction} [transaction=]
  * @prop {protocol.Invalid} [invalid=] - Invalid message.

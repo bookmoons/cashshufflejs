@@ -12,7 +12,7 @@ const sessionIdView = new Uint8Array(sessionId)
 const poolNumber = 7
 const signingPublicKey =
   '03f09e7bbaf09669b1cde3394db0b72c3408ed0826f98d7985a3cecc1486075d3b'
-const nextParticipant =
+const nextShuffler =
   '023fd1952670be6e23cd120d3441ef696976a805147a8e034eb779e2d8b22102b9'
 const output1 =
   'A/Cee7rwlmmxzeM5TbC3LDQI7Qgm+Y15haPOzBSGB1071Zs6T8FR5uuJCTBrBJnGxqv4' +
@@ -32,7 +32,7 @@ const expectedPacketObject = {
   session: sessionIdView,
   number: poolNumber,
   fromKey: { key: signingPublicKey },
-  toKey: { key: nextParticipant },
+  toKey: { key: nextShuffler },
   phase: Phase.Shuffle.value,
   message: { str: outputListEncoded }
 }
@@ -49,7 +49,7 @@ test('construct', t => {
     sessionId,
     poolNumber,
     outputList,
-    nextParticipant
+    nextShuffler
   })
   const packetObject = protocol.Packet.toObject(packet)
   t.deepEqual(packetObject, expectedPacketObject)

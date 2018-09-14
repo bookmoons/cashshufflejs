@@ -7,24 +7,24 @@ import privs from './privs'
  */
 class PhaseReceiver extends Receiver {
   /**
-   * @param {Iterable<HexString>} participants - Participant public keys.
+   * @param {Iterable<HexString>} shufflers - Shuffler public keys.
    * @param {Receiver} [discarder=] - Message receiver that handles
    *     discarded messages.
    * @param {function} [inboxFactory=] - Factory function providing
    *     `Inbox` instances.
    */
-  constructor (participants, discarder = null, inboxFactory = null) {
+  constructor (shufflers, discarder = null, inboxFactory = null) {
     super()
     if (!inboxFactory) {
       inboxFactory = function produceFifoInbox () { return new FifoInbox() }
     }
-    const participantsSet = new Set(participants)
+    const shufflersSet = new Set(shufflers)
     const inboxes = new Map()
-    for (const participant of participantsSet) {
-      inboxes.set(participant, inboxFactory())
+    for (const shuffler of shufflersSet) {
+      inboxes.set(shuffler, inboxFactory())
     }
     const priv = {
-      participants: participantsSet,
+      shufflers: shufflersSet,
       inboxes,
       discarder
     }

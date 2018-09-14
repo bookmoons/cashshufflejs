@@ -9,7 +9,7 @@ import toArrayBuffer from '../../util/toarraybuffer'
  * @prop {protobufjs.Root} protocol - Protocol definition.
  * @prop {HexString} signingPublicKey - Signing public key.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} poolNumber - Participant pool number.
+ * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Iterable<Coin~InputSignature>} signatures - Signatures.
  *     `Map` instances work well. Key input index. Value signature.
  */

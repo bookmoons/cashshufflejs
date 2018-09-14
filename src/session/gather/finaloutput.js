@@ -8,13 +8,13 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {number} [attempts=<default>] - Maximum attempts. Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {HexString} lastParticipant - Signing public key of last participant.
+ * @prop {HexString} lastShuffler - Signing public key of last shuffler.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=] - Receiver to discard messages to.
  */
 
 /**
- * Gather final output list message from last participant.
+ * Gather final output list message from last shuffler.
  *
  * @memberof module:cashshuffle/session.Session
  *
@@ -29,12 +29,12 @@ import { defaultAttempts, defaultTimeout } from '../default'
 async function gatherFinalOutput ({
   attempts = defaultAttempts,
   timeout = defaultTimeout,
-  lastParticipant,
+  lastShuffler,
   receiver,
   discarder = null
 }) {
-  const participantInboxes = receiver.participantInboxes
-  const inbox = participantInboxes.get(lastParticipant)
+  const shufflerInboxes = receiver.shufflerInboxes
+  const inbox = shufflerInboxes.get(lastShuffler)
   for (let remaining = attempts; remaining > 0; remaining--) {
     const packet = await inbox.watch(timeout)
     try {

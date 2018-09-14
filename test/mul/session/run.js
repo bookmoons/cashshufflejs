@@ -30,13 +30,13 @@ const signingPrivateKey2 =
   '9d7fe9da900eab1dc61f43a6fc56de0f0c825b7bd12ebf026114b128602b72ea'
 const signingPrivateKey3 =
   '5c36158d65bce2d2f16272d11af8ec55cc3ee4e14e35f01df5d9d6c88ba0e345'
-const participant1 =
+const shuffler1 =
   '02a531fcc67d22625870997768d81b8d1dce9afb6e9e1b103c443151b736e37217'
-const participant2 =
+const shuffler2 =
   '034db2d72042976e79e39aed8d929cf464759e08d727768ecd96b76e1231711aab'
-const participant3 =
+const shuffler3 =
   '0259cac3388c029f2d1ea0ea7838da00fcbcc0d94a37d2fd59b468e57ed4a91265'
-const participants = [ participant1, participant2, participant3 ]
+const shufflers = [ shuffler1, shuffler2, shuffler3 ]
 /*
 const input1 = 'bitcoincash:qq0wfzpsqjxssmxxf76egga37tw547mkpqf9t7zjt9'
 const input2 = 'bitcoincash:qrlvvrea0tesymu7hruzhczql0xpx4rt9v2jgvu3ty'
@@ -45,8 +45,8 @@ const input3 = 'bitcoincash:qzgw35h5vchh654cylrwqam96p3p0vkxpc4ky0sqvd'
 const changeAddress1 = 'bitcoincash:qr6yyd3pkr36mlw5w26n02ajspqjd64h55yv9rdcse'
 const changeAddress3 = 'bitcoincash:qqhd4y29fgdujqwhau0aqwgn6vaneaeuevq6lqhh03'
 const changeAddresses = new Map([
-  [ participant1, changeAddress1 ],
-  [ participant3, changeAddress3 ]
+  [ shuffler1, changeAddress1 ],
+  [ shuffler3, changeAddress3 ]
 ])
 const phaseAnnounce = Phase.Announcement.value
 const phaseShuffle = Phase.Shuffle.value
@@ -171,7 +171,7 @@ test('success', async t => {
   }
   Object.assign(coin3, coin)
 
-  // Participant 1
+  // Shuffler 1
   const serverDecoder1 = new ServerDecoder(protocol)
   serverDecoder1.pipe(serverExtractor)
   const outputStream1 = new PassThrough()
@@ -185,7 +185,7 @@ test('success', async t => {
   serverEncoder.pipe(inputStream1)
   const inchanbin1 = new Inchanbin(inputStream1)
   const inchan1 = new Inchan(inchanbin1, protocol)
-  const sessionReceiver1 = new SessionReceiver(participants, phases)
+  const sessionReceiver1 = new SessionReceiver(shufflers, phases)
   const objectifyReceiver1 = new ObjectifyReceiver(
     protocol,
     sessionReceiver1
@@ -207,7 +207,7 @@ test('success', async t => {
     sessionId,
     poolNumber: poolNumber1,
     signingKeyPair: signing1,
-    participants,
+    shufflers,
     changeAddresses,
     amount,
     fee,
@@ -216,7 +216,7 @@ test('success', async t => {
     receiver: sessionReceiver1
   })
 
-  // Participant 2
+  // Shuffler 2
   const serverDecoder2 = new ServerDecoder(protocol)
   serverDecoder2.pipe(serverExtractor)
   const outputStream2 = new PassThrough()
@@ -230,7 +230,7 @@ test('success', async t => {
   serverEncoder.pipe(inputStream2)
   const inchanbin2 = new Inchanbin(inputStream2)
   const inchan2 = new Inchan(inchanbin2, protocol)
-  const sessionReceiver2 = new SessionReceiver(participants, phases)
+  const sessionReceiver2 = new SessionReceiver(shufflers, phases)
   const objectifyReceiver2 = new ObjectifyReceiver(
     protocol,
     sessionReceiver2
@@ -252,7 +252,7 @@ test('success', async t => {
     sessionId,
     poolNumber: poolNumber2,
     signingKeyPair: signing2,
-    participants,
+    shufflers,
     changeAddresses,
     amount,
     fee,
@@ -261,7 +261,7 @@ test('success', async t => {
     receiver: sessionReceiver2
   })
 
-  // Participant 3
+  // Shuffler 3
   const serverDecoder3 = new ServerDecoder(protocol)
   serverDecoder3.pipe(serverExtractor)
   const outputStream3 = new PassThrough()
@@ -275,7 +275,7 @@ test('success', async t => {
   serverEncoder.pipe(inputStream3)
   const inchanbin3 = new Inchanbin(inputStream3)
   const inchan3 = new Inchan(inchanbin3, protocol)
-  const sessionReceiver3 = new SessionReceiver(participants, phases)
+  const sessionReceiver3 = new SessionReceiver(shufflers, phases)
   const objectifyReceiver3 = new ObjectifyReceiver(
     protocol,
     sessionReceiver3
@@ -297,7 +297,7 @@ test('success', async t => {
     sessionId,
     poolNumber: poolNumber3,
     signingKeyPair: signing3,
-    participants,
+    shufflers,
     changeAddresses,
     amount,
     fee,

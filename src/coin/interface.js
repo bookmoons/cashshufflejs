@@ -42,22 +42,22 @@ const inputSignature = [ inputIndex, signature ]
  */
 
 /**
- * Participant address pair.
+ * Shuffler address pair.
  *
- * Associates a Bitcoin Cash address to a named participant.
+ * Associates a Bitcoin Cash address to a named shuffler.
  * 2 element array.
  *
- * @typedef {Array<string>} ParticipantAddress
+ * @typedef {Array<string>} ShufflerAddress
  * @memberof module:cashshuffle/coin~Coin
  *
- * @prop {HexString} 1 - Participant session public key.
+ * @prop {HexString} 1 - Shuffler session public key.
  * @prop {Address} 2 - Bitcoin Cash address.
  *
  * @example
 const sessionPublicKey =
   '020db431245713add097421a29ec3089f01587a3808d1043fee5956fc5e08effcd'
 const address = 'bitcoincash:qr975e2q784jnk0pq2rrk9enuywttyhxryfkyuyjq3'
-const participantAddress = [ sessionPublicKey, address ]
+const shufflerAddress = [ sessionPublicKey, address ]
  */
 
 /**
@@ -157,16 +157,16 @@ const participantAddress = [ sessionPublicKey, address ]
  * @instance
  * @async
  *
- * @param {number} amount - Participant transaction amount in satoshis.
- *     The produced transaction will transfer this amount for each participant.
- * @param {number} fee - Participant fee amount in satoshis.
- *     The produced transaction will charge this fee to each participant.
- * @param {Iterable<ParticipantAddress>} inputAddresses - Input addresses.
- *     1 for each participant.
+ * @param {number} amount - Shuffler transaction amount in satoshis.
+ *     The produced transaction will transfer this amount for each shuffler.
+ * @param {number} fee - Shuffler fee amount in satoshis.
+ *     The produced transaction will charge this fee to each shuffler.
+ * @param {Iterable<ShufflerAddress>} inputAddresses - Input addresses.
+ *     1 for each shuffler.
  * @param {Iterable<Address>} outputAddresses - Output addresses. 1 for each
- *     participant. Participant associated with each output unspecified.
- * @param {Iterable<ParticipantAddress>} changeAddresses - Change output
- *     addresses. 0-1 for each participant.
+ *     shuffler. Shuffler associated with each output unspecified.
+ * @param {Iterable<ShufflerAddress>} changeAddresses - Change output
+ *     addresses. 0-1 for each shuffler.
  *
  * @return {Transaction} The unsigned transaction.
  */

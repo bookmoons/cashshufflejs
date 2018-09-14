@@ -13,13 +13,13 @@ import { outputListDelimiter } from '../value'
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} poolNumber - Participant pool number.
- * @prop {Signing} signingKeyPair - Participant signing key pair.
+ * @prop {number} poolNumber - Shuffler pool number.
+ * @prop {Signing} signingKeyPair - Shuffler signing key pair.
  *     Assumed ready for use.
  * @prop {boolean} last - Whether own client is last in shuffle order.
- * @prop {HexString} priorParticipant - Signing public key of prior
- *     participant.
- * @prop {HexString} lastParticipant - Signing public key of last participant.
+ * @prop {HexString} priorShuffler - Signing public key of prior
+ *     shuffler.
+ * @prop {HexString} lastShuffler - Signing public key of last shuffler.
  * @prop {CashAddress} outputAddress - Own output address.
  * @prop {Crypto} crypto - Message encryptor. Assumed ready for use.
  * @prop {Outchan} outchan - Output message channel.
@@ -58,8 +58,8 @@ async function broadcastOutput ({
   poolNumber,
   signingKeyPair,
   last,
-  priorParticipant,
-  lastParticipant,
+  priorShuffler,
+  lastShuffler,
   outputAddress,
   crypto,
   outchan,
@@ -69,13 +69,13 @@ async function broadcastOutput ({
   log = null
 }) {
   if (last) {
-    // Last participant produces final output list
+    // Last shuffler produces final output list
 
-    /* Gather output list message from prior participant. */
+    /* Gather output list message from prior shuffler. */
     const priorOutputListPacket = await this.gatherOutputList({
       attempts,
       timeout,
-      priorParticipant,
+      priorShuffler,
       receiver: priorReceiver,
       discarder
     })
@@ -132,13 +132,13 @@ async function broadcastOutput ({
     /* Return final output list. */
     return { outputList: shuffledOutputList }
   } else {
-    // Nonlast participant verifies own output address in final output list
+    // Nonlast shuffler verifies own output address in final output list
 
-    /** Gather final output list message from last participant. */
+    /** Gather final output list message from last shuffler. */
     const finalOutputListPacket = await this.gatherFinalOutput({
       attempts,
       timeout,
-      lastParticipant,
+      lastShuffler,
       receiver,
       discarder
     })

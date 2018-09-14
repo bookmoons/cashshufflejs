@@ -13,16 +13,16 @@ import { outputListDelimiter } from '../value'
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} poolNumber - Participant pool number.
- * @prop {Signing} signingKeyPair - Participant signing key pair.
+ * @prop {number} poolNumber - Shuffler pool number.
+ * @prop {Signing} signingKeyPair - Shuffler signing key pair.
  *     Assumed ready for use.
  * @prop {boolean} first - Whether own client is first in shuffle order.
  * @prop {boolean} last - Whether own client is last in shuffle order.
- * @prop {HexString} priorParticipant - Signing public key of prior
- *     participant. `null` for none.
- * @prop {HexString} nextParticipant - Signing public key of next participant.
+ * @prop {HexString} priorShuffler - Signing public key of prior
+ *     shuffler. `null` for none.
+ * @prop {HexString} nextShuffler - Signing public key of next shuffler.
  *     `null` for none.
- * @prop {Iterable<HexString>} encryptionPublicKeys - Subsequent participant
+ * @prop {Iterable<HexString>} encryptionPublicKeys - Subsequent shuffler
  *     encryption public keys in shuffle order. Empty `Iterable` for none.
  * @prop {Crypto} crypto - Message encryptor. Assumed ready for use.
  * @prop {Outchan} outchan - Output message channel.
@@ -61,8 +61,8 @@ async function shuffle ({
   signingKeyPair,
   first,
   last,
-  priorParticipant,
-  nextParticipant,
+  priorShuffler,
+  nextShuffler,
   encryptionPublicKeys,
   crypto,
   outchan,
@@ -81,7 +81,7 @@ async function shuffle ({
   if (log) await log.send('Generated output address')
 
   if (last) {
-    // Last participant does nothing. Handles output list in next phase.
+    // Last shuffler does nothing. Handles output list in next phase.
 
     /* Return output key pair. */
     return { outputKeyPair }
@@ -98,12 +98,12 @@ async function shuffle ({
   if (first) {
     /* Construct initial output list. */
     outputList.push(encryptedOutputAddress)
-  } else { // Inner participant
-    /* Gather output list message from prior participant. */
+  } else { // Inner shuffler
+    /* Gather output list message from prior shuffler. */
     const priorOutputListPacket = await this.gatherOutputList({
       attempts,
       timeout,
-      priorParticipant,
+      priorShuffler,
       receiver,
       discarder
     })
@@ -143,7 +143,7 @@ async function shuffle ({
     sessionId,
     poolNumber,
     outputList,
-    nextParticipant
+    nextShuffler
   })
   const signature = await this.sign(
     signingKeyPair,

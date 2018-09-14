@@ -6,7 +6,7 @@
 /**
  * Binary message input channel.
  *
- * Delivers raw binary network messages from other participants.
+ * Delivers raw binary network messages from other shufflers.
  *
  * Means of acquiring returned message implementation defined.
  * Order of returned messages implementation defined.
@@ -22,7 +22,7 @@
  * @instance
  * @async
  *
- * @return {ArrayBuffer} message - Network message from other participant.
+ * @return {ArrayBuffer} message - Network message from other shuffler.
  *
  * @throws {BusyError} If another receive is already in progress.
  */

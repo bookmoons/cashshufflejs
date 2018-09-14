@@ -40,7 +40,7 @@ const signingPublicKey2 =
   '0350efbed967151d023f4b9a8637fa01328d5851cc6e94f33ccdad659e6ff6ca57'
 const signingPublicKey3 =
   '026e41a59fa68163abf6bec552fe48688ad7d342f2c047db7aa6acaf3d447709c5'
-const participants =
+const shufflers =
   [ signingPublicKey1, signingPublicKey2, signingPublicKey3 ]
 const encryptionPrivateKey1 =
   '32ff3a7363f71e0bc7cfbb36947d219a97d35c7d667bb25ed39b1999e78ac915'
@@ -147,8 +147,8 @@ test('succeed', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
   const inbox2 = inboxes.get(signingPublicKey2)
   inbox2.add(testPacket2)
   const inbox3 = inboxes.get(signingPublicKey3)
@@ -183,8 +183,8 @@ test('fail', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
   const inbox2 = inboxes.get(signingPublicKey2)
   inbox2.add(testPacket2)
   const inbox3 = inboxes.get(signingPublicKey3)

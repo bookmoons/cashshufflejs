@@ -15,10 +15,10 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  * @prop {number} [attempts=<default>] - Maximum attempts. Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {HexString} signingPublicKey - Participant signing public key.
+ * @prop {HexString} signingPublicKey - Shuffler signing public key.
  * @prop {number} amount - Amount to shuffle in satoshis.
- * @prop {number} fee - Participant fee amount in satoshis.
- *     The produced transaction will charge this fee to each participant.
+ * @prop {number} fee - Shuffler fee amount in satoshis.
+ *     The produced transaction will charge this fee to each shuffler.
  * @prop {Coin} coin - Bitcoin Cash network interface.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=] - Receiver to discard messages to.
@@ -26,14 +26,14 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  */
 
 /**
- * Gather announce messages from other participants.
+ * Gather announce messages from other shufflers.
  *
  * Validates each received message.
  * Verifies sufficient funds for each valid message.
  *
  * Makes repeated attempts until max attempts exhausted or a network timeout
  * expires. An invalid message causes an additional attempt for a message
- * from that participant. Insufficient funds for any participant fails
+ * from that shuffler. Insufficient funds for any shuffler fails
  * the entire process.
  *
  * @memberof module:cashshuffle/session.Session
@@ -41,11 +41,11 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  * @param {GatherAnnounceParams} params
  *
  * @return {Map<HexString,object>} Announce messages from all other
- *     participants. Index participant public key. Value packet as object.
+ *     shufflers. Index shuffler public key. Value packet as object.
  *
  * @throws {ExhaustionError} If attempts are exhausted without success.
  * @throws {TimeoutError} If wait for message times out.
- * @throws {InadequateError} If any participant has insufficient funds.
+ * @throws {InadequateError} If any shuffler has insufficient funds.
  */
 async function gatherAnnounce ({
   attempts = defaultAttempts,
@@ -58,14 +58,14 @@ async function gatherAnnounce ({
   discarder = null,
   network = defaultNetwork
 }) {
-  const participantTotal = amount + fee
-  const participantInboxes = receiver.participantInboxes
-  participantInboxes.delete(signingPublicKey)
-  const participantsCount = participantInboxes.size
-  const participantPackets = new Map()
+  const shufflerTotal = amount + fee
+  const shufflerInboxes = receiver.shufflerInboxes
+  shufflerInboxes.delete(signingPublicKey)
+  const shufflersCount = shufflerInboxes.size
+  const shufflerPackets = new Map()
   for (let remaining = attempts; remaining > 0; remaining--) {
-    const publicKeys = [ ...participantInboxes.keys() ]
-    const inboxes = [ ...participantInboxes.values() ]
+    const publicKeys = [ ...shufflerInboxes.keys() ]
+    const inboxes = [ ...shufflerInboxes.values() ]
     const fetcher = new Fetcher(inboxes)
     const packets = await fetcher.fetch(timeout)
     for (let i = 0; i < packets.length; i++) {
@@ -87,7 +87,7 @@ async function gatherAnnounce ({
       const addressString = address.toCashAddress()
       const sufficientFunds = await coin.sufficientFunds(
         addressString,
-        participantTotal
+        shufflerTotal
       )
       if (!sufficientFunds) {
         throw new InadequateError(
@@ -95,18 +95,18 @@ async function gatherAnnounce ({
           'insufficient funds'
         )
       }
-      participantPackets.set(publicKeyString, packet)
-      participantInboxes.delete(publicKeyString)
+      shufflerPackets.set(publicKeyString, packet)
+      shufflerInboxes.delete(publicKeyString)
     }
-    if (participantPackets.size === participantsCount) {
-      return participantPackets
+    if (shufflerPackets.size === shufflersCount) {
+      return shufflerPackets
     }
   }
   throw new ExhaustionError(
     { info: {
       attempts,
-      total: participantsCount,
-      acquired: participantPackets.size
+      total: shufflersCount,
+      acquired: shufflerPackets.size
     } },
     'max attempts'
   )

@@ -13,11 +13,11 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} poolNumber - Participant pool number.
- * @prop {Signing} signingKeyPair - Participant signing key pair.
+ * @prop {number} poolNumber - Shuffler pool number.
+ * @prop {Signing} signingKeyPair - Shuffler signing key pair.
  *     Assumed ready for use.
  * @prop {Iterable<HexString>} encryptionPublicKeys - Encryption public keys
- *     for participants 2 through last ascending in shuffle order.
+ *     for shufflers 2 through last ascending in shuffle order.
  * @prop {Iterable<Address>} outputList - Final output list
  *     in broadcast message order.
  * @prop {Crypto} crypto - Message encryptor. Assumed ready for use.
@@ -81,7 +81,7 @@ async function checkEquivocation ({
   await outchan.send(ownPackage)
   if (log) await log.send('Broadcasted output list hash')
 
-  /* Gather other participant messages. */
+  /* Gather other shuffler messages. */
   const otherPackets = await this.gatherDigest({
     attempts,
     timeout,
@@ -90,7 +90,7 @@ async function checkEquivocation ({
     discarder
   })
 
-  /* Extract other participant digests. */
+  /* Extract other shuffler digests. */
   const otherDigests = new Map()
   for (const [ publicKey, packetObject ] of otherPackets) {
     const messageObject = packetObject.message

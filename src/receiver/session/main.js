@@ -7,7 +7,7 @@ import privs from './privs'
  */
 class SessionReceiver extends Receiver {
   /**
-   * @param {Iterable<HexString>} participants - Participant public keys.
+   * @param {Iterable<HexString>} shufflers - Shuffler public keys.
    * @param {Iterable<number>} phaseIdentifiers - Protocol message phase
    *     identifiers.
    * @param {Receiver} [discarder=] - Message receiver that handles
@@ -16,16 +16,16 @@ class SessionReceiver extends Receiver {
    *     providing phase receiver instances.
    */
   constructor (
-    participants,
+    shufflers,
     phaseIdentifiers,
     discarder = null,
     phaseReceiverFactory = null
   ) {
     super()
-    const participantsSet = new Set(participants)
+    const shufflersSet = new Set(shufflers)
     if (!phaseReceiverFactory) {
       phaseReceiverFactory = function produceDefaultPhaseReceiver () {
-        return new PhaseReceiver(participantsSet, discarder)
+        return new PhaseReceiver(shufflersSet, discarder)
       }
     }
     const phaseIdentifiersSet = new Set(phaseIdentifiers)
@@ -34,7 +34,7 @@ class SessionReceiver extends Receiver {
       phaseReceivers.set(phaseIdentifier, phaseReceiverFactory())
     }
     const priv = {
-      participants: participantsSet,
+      shufflers: shufflersSet,
       phaseIdentifiers: phaseIdentifiersSet,
       phaseReceivers,
       discarder

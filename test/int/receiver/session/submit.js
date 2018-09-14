@@ -4,8 +4,8 @@ import StoreReceiver from 'receiver/store'
 import Receiver from 'receiver/session/main'
 import submit from 'receiver/session/submit'
 
-const participantKey = 'Participant key'
-const participants = [ participantKey ]
+const shufflerKey = 'Shuffler key'
+const shufflers = [ shufflerKey ]
 const validPhaseIdentifier1 = 0
 const validPhaseIdentifier2 = 1
 const invalidPhaseIdentifier = -1
@@ -33,7 +33,7 @@ test('1 message', async t => {
   const discarderInbox = new Inbox()
   const discarder = new StoreReceiver(discarderInbox)
   const receiver = new Receiver(
-    participants,
+    shufflers,
     phaseIdentifiers,
     discarder,
     phaseReceiverFactory
@@ -53,7 +53,7 @@ test('2 messages', async t => {
   const discarderInbox = new Inbox()
   const discarder = new StoreReceiver(discarderInbox)
   const receiver = new Receiver(
-    participants,
+    shufflers,
     phaseIdentifiers,
     discarder,
     phaseReceiverFactory
@@ -78,7 +78,7 @@ test('invalid phase', async t => {
   const discarderInbox = new Inbox()
   const discarder = new StoreReceiver(discarderInbox)
   const receiver = new Receiver(
-    participants,
+    shufflers,
     phaseIdentifiers,
     discarder,
     phaseReceiverFactory

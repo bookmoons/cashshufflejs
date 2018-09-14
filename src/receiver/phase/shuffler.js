@@ -1,19 +1,19 @@
 import privs from './privs'
 
 /**
- * Participant inboxes.
+ * Shuffler inboxes.
  *
- * Index participant public key.
- * Value participant inbox.
+ * Index shuffler public key.
+ * Value shuffler inbox.
  *
- * @var {Map<HexString,Inbox>} participantInboxes
+ * @var {Map<HexString,Inbox>} shufflerInboxes
  * @memberof module:cashshuffle/receiver/phase.PhaseReceiver
  * @instance
  */
-function participantInboxes () {
+function shufflerInboxes () {
   const priv = privs.get(this)
-  const participantInboxesCopy = new Map(priv.inboxes)
-  return participantInboxesCopy
+  const shufflerInboxesCopy = new Map(priv.inboxes)
+  return shufflerInboxesCopy
 }
 
-export default participantInboxes
+export default shufflerInboxes

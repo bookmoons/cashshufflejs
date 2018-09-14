@@ -2,13 +2,13 @@
  * Phase message receiver.
  *
  * Receives messages labeled for a specific phase.
- * Contains inbox for each participant.
+ * Contains inbox for each shuffler.
  * Routes received message to inbox of sender.
  * Discards messages from unrecognized senders.
  *
  * Provide:
  *
- * - Iterable of all participant public keys as hex strings.
+ * - Iterable of all shuffler public keys as hex strings.
  * - Optionally `Receiver` instance to receive discarded messages.
  * - Optionally factory function returning `Inbox` instances.
  *
@@ -18,15 +18,15 @@
  */
 
 import PhaseReceiver from './main'
-import participantInboxes from './participant'
+import shufflerInboxes from './shuffler'
 import submit from './submit'
 
 Object.assign(PhaseReceiver.prototype, {
   submit
 })
 
-Object.defineProperty(PhaseReceiver.prototype, 'participantInboxes', {
-  get: participantInboxes
+Object.defineProperty(PhaseReceiver.prototype, 'shufflerInboxes', {
+  get: shufflerInboxes
 })
 
 export default PhaseReceiver

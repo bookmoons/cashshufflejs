@@ -6,7 +6,7 @@
 /**
  * Message input channel.
  *
- * Delivers network messages from other participants.
+ * Delivers network messages from other shufflers.
  *
  * Means of acquiring returned messages implementation defined.
  * Order of returned messages implementation defined.
@@ -22,7 +22,7 @@
  * @instance
  * @async
  *
- * @return {protocol.Signed} message - Network message from other participant.
+ * @return {protocol.Signed} message - Network message from other shuffler.
  *
  * @throws {BusyError} If another receive is already in progress.
  */

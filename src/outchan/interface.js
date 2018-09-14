@@ -6,7 +6,7 @@
 /**
  * Message output channel.
  *
- * Delivers network messages to other participants.
+ * Delivers network messages to other shufflers.
  *
  * Means of delivering messages implementation defined.
  * Delivery order implementation defined.

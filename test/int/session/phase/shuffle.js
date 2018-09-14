@@ -40,7 +40,7 @@ const signingPublicKey2 =
   '0350efbed967151d023f4b9a8637fa01328d5851cc6e94f33ccdad659e6ff6ca57'
 const signingPublicKey3 =
   '026e41a59fa68163abf6bec552fe48688ad7d342f2c047db7aa6acaf3d447709c5'
-const participants =
+const shufflers =
   [ signingPublicKey1, signingPublicKey2, signingPublicKey3 ]
 const encryptionPrivateKey1 =
   '32ff3a7363f71e0bc7cfbb36947d219a97d35c7d667bb25ed39b1999e78ac915'
@@ -168,7 +168,7 @@ test('return first', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
+  const receiver = new PhaseReceiver(shufflers)
   const { outputKeyPair } = await session.shuffle({
     protocol,
     attempts,
@@ -178,8 +178,8 @@ test('return first', async t => {
     signingKeyPair: signing,
     first: true,
     last: false,
-    priorParticipant: null,
-    nextParticipant: signingPublicKey2,
+    priorShuffler: null,
+    nextShuffler: signingPublicKey2,
     encryptionPublicKeys: encryptionPublicKeys1,
     crypto,
     outchan,
@@ -197,8 +197,8 @@ test('return inner', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
   const inbox = inboxes.get(signingPublicKey1)
   inbox.add(validPacket1)
   const { outputKeyPair } = await session.shuffle({
@@ -210,8 +210,8 @@ test('return inner', async t => {
     signingKeyPair: signing,
     first: false,
     last: false,
-    priorParticipant: signingPublicKey1,
-    nextParticipant: signingPublicKey3,
+    priorShuffler: signingPublicKey1,
+    nextShuffler: signingPublicKey3,
     encryptionPublicKeys: encryptionPublicKeys2,
     crypto,
     outchan,
@@ -229,7 +229,7 @@ test('return last', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
+  const receiver = new PhaseReceiver(shufflers)
   const { outputKeyPair } = await session.shuffle({
     protocol,
     attempts,
@@ -239,8 +239,8 @@ test('return last', async t => {
     signingKeyPair: signing,
     first: false,
     last: true,
-    priorParticipant: signingPublicKey2,
-    nextParticipant: null,
+    priorShuffler: signingPublicKey2,
+    nextShuffler: null,
     encryptionPublicKeys: [],
     crypto,
     outchan,
@@ -258,7 +258,7 @@ test('output first', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
+  const receiver = new PhaseReceiver(shufflers)
   await session.shuffle({
     protocol,
     attempts,
@@ -268,8 +268,8 @@ test('output first', async t => {
     signingKeyPair: signing,
     first: true,
     last: false,
-    priorParticipant: null,
-    nextParticipant: signingPublicKey2,
+    priorShuffler: null,
+    nextShuffler: signingPublicKey2,
     encryptionPublicKeys: encryptionPublicKeys1,
     crypto,
     outchan,
@@ -305,8 +305,8 @@ test('output inner', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
   const inbox = inboxes.get(signingPublicKey1)
   inbox.add(validPacket1)
   await session.shuffle({
@@ -318,8 +318,8 @@ test('output inner', async t => {
     signingKeyPair: signing,
     first: false,
     last: false,
-    priorParticipant: signingPublicKey1,
-    nextParticipant: signingPublicKey3,
+    priorShuffler: signingPublicKey1,
+    nextShuffler: signingPublicKey3,
     encryptionPublicKeys: encryptionPublicKeys2,
     crypto,
     outchan,
@@ -355,8 +355,8 @@ test('decrypt failure', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
   const inbox = inboxes.get(signingPublicKey1)
   inbox.add(invalidOutputPacket1)
   const shufflePromise = session.shuffle({
@@ -368,8 +368,8 @@ test('decrypt failure', async t => {
     signingKeyPair: signing,
     first: false,
     last: false,
-    priorParticipant: signingPublicKey1,
-    nextParticipant: signingPublicKey2,
+    priorShuffler: signingPublicKey1,
+    nextShuffler: signingPublicKey2,
     encryptionPublicKeys: encryptionPublicKeys2,
     crypto,
     outchan,
@@ -393,8 +393,8 @@ test('duplicate items', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
   const inbox = inboxes.get(signingPublicKey1)
   inbox.add(duplicateOutputPacket2)
   const shufflePromise = session.shuffle({
@@ -406,8 +406,8 @@ test('duplicate items', async t => {
     signingKeyPair: signing,
     first: false,
     last: false,
-    priorParticipant: signingPublicKey1,
-    nextParticipant: signingPublicKey2,
+    priorShuffler: signingPublicKey1,
+    nextShuffler: signingPublicKey2,
     encryptionPublicKeys: encryptionPublicKeys2,
     crypto,
     outchan,

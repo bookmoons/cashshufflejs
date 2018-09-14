@@ -27,23 +27,23 @@ const sessionIdView = new Uint8Array(sessionId)
 const poolNumber = 3
 const signingPrivateKey =
   'b4386d0019b43055341ca3452445cee2805d952fcea1dbb3e7556186df11b958'
-const participant1 =
+const shuffler1 =
   '02fb043436476ebd0391350016a6003f9e02f97e96a9ece386aac2d2060158b377'
-const participant2 =
+const shuffler2 =
   '03b726b7920ec51a575696b368be5470142434124ade29bcee744ae248365ee3b4'
-const participant3 =
+const shuffler3 =
   '036da9c411c438138a73224ebe382f4bfad63d496cf611e91da375d1ebb343ad43'
-const participants = [ participant1, participant2, participant3 ]
+const shufflers = [ shuffler1, shuffler2, shuffler3 ]
 const testEncryptionKey2 =
   '0376e48539f388b2c5df77a1314ab05483e9da31112ffc8d9efb7dac9df1e8fe60'
 const testEncryptionKey3 =
   '039a950dd71620d3f638500ed27dfcf20e17f074721ef9e203673eca86938c490c'
 const validPacket2 = {
-  fromKey: { key: participant2 },
+  fromKey: { key: shuffler2 },
   message: { key: { key: testEncryptionKey2 } }
 }
 const validPacket3 = {
-  fromKey: { key: participant3 },
+  fromKey: { key: shuffler3 },
   message: { key: { key: testEncryptionKey3 } }
 }
 let protocol
@@ -98,11 +98,11 @@ test('output', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
-  const inbox2 = inboxes.get(participant2)
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
+  const inbox2 = inboxes.get(shuffler2)
   inbox2.add(validPacket2)
-  const inbox3 = inboxes.get(participant3)
+  const inbox3 = inboxes.get(shuffler3)
   inbox3.add(validPacket3)
   await session.announce({
     protocol,
@@ -135,11 +135,11 @@ test('return', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
-  const inbox2 = inboxes.get(participant2)
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
+  const inbox2 = inboxes.get(shuffler2)
   inbox2.add(validPacket2)
-  const inbox3 = inboxes.get(participant3)
+  const inbox3 = inboxes.get(shuffler3)
   inbox3.add(validPacket3)
   const { encryptionPublicKeys } = await session.announce({
     protocol,
@@ -154,9 +154,9 @@ test('return', async t => {
     outchan,
     receiver
   })
-  const encryptionKey2 = encryptionPublicKeys.get(participant2)
+  const encryptionKey2 = encryptionPublicKeys.get(shuffler2)
   t.is(encryptionKey2, testEncryptionKey2)
-  const encryptionKey3 = encryptionPublicKeys.get(participant3)
+  const encryptionKey3 = encryptionPublicKeys.get(shuffler3)
   t.is(encryptionKey3, testEncryptionKey3)
 })
 
@@ -170,11 +170,11 @@ test('encryption key pair', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
-  const inbox2 = inboxes.get(participant2)
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
+  const inbox2 = inboxes.get(shuffler2)
   inbox2.add(validPacket2)
-  const inbox3 = inboxes.get(participant3)
+  const inbox3 = inboxes.get(shuffler3)
   inbox3.add(validPacket3)
   const { encryptionKeyPair } = await session.announce({
     protocol,
@@ -203,11 +203,11 @@ test('fail', async t => {
   const outputStream = new PassThrough()
   const outchanbin = new Outchanbin(outputStream)
   const outchan = new Outchan(outchanbin, protocol)
-  const receiver = new PhaseReceiver(participants)
-  const inboxes = receiver.participantInboxes
-  const inbox2 = inboxes.get(participant2)
+  const receiver = new PhaseReceiver(shufflers)
+  const inboxes = receiver.shufflerInboxes
+  const inbox2 = inboxes.get(shuffler2)
   inbox2.add(validPacket2)
-  const inbox3 = inboxes.get(participant3)
+  const inbox3 = inboxes.get(shuffler3)
   inbox3.add(validPacket3)
   const announcePromise = session.announce({
     protocol,

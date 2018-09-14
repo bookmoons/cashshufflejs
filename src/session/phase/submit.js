@@ -12,17 +12,17 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
  * @prop {ArrayBuffer} sessionId - Session identifier.
- * @prop {number} poolNumber - Participant pool number.
- * @prop {Signing} signingKeyPair - Participant signing key pair.
+ * @prop {number} poolNumber - Shuffler pool number.
+ * @prop {Signing} signingKeyPair - Shuffler signing key pair.
  *     Assumed ready for use.
  * @prop {number} amount - Amount to shuffle in satoshis.
- * @prop {number} fee - Participant fee amount in satoshis.
- *     The produced transaction will charge this fee to each participant.
+ * @prop {number} fee - Shuffler fee amount in satoshis.
+ *     The produced transaction will charge this fee to each shuffler.
  * @prop {Map<HexString-CashAddress>} inputAddresses - Input addresses.
- *     Key participant signing public key. Value input address.
+ *     Key shuffler signing public key. Value input address.
  * @prop {Iterable<Address>} outputAddresses - Output addresses.
  * @prop {Map<HexString-Address>} changeAddresses - Change addresses.
- *     Key participant signing public key. Value change address.
+ *     Key shuffler signing public key. Value change address.
  * @prop {Coin} coin - Bitcoin Cash network interface.
  * @prop {Outchan} outchan - Output message channel.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
@@ -48,7 +48,7 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  *
  * @throws {ValueError} If any received signature is invalid.
  *     Message `'invalid signature'`.
- * @throws {InadequateError} If any other participant input now shows
+ * @throws {InadequateError} If any other shuffler input now shows
  *     insufficient funds. Message `'insufficient funds'`.
  */
 async function submit ({
@@ -58,7 +58,7 @@ async function submit ({
   sessionId,
   poolNumber,
   signingKeyPair,
-  participantsCount,
+  shufflersCount,
   amount,
   fee,
   inputAddresses,
@@ -115,7 +115,7 @@ async function submit ({
   await outchan.send(ownPackage)
   if (log) await log.send('Broadcasted own transaction signature')
 
-  /* Gather other participant messages. */
+  /* Gather other shuffler messages. */
   const otherPackets = await this.gatherSignature({
     attempts,
     timeout,
@@ -123,9 +123,9 @@ async function submit ({
     receiver,
     discarder
   })
-  if (log) await log.send('Gathered participant transaction signatures')
+  if (log) await log.send('Gathered shuffler transaction signatures')
 
-  /* Extract other participant signatures. */
+  /* Extract other shuffler signatures. */
   const otherSignatures = new Map()
   for (const [ publicKey, packetObject ] of otherPackets) {
     const messageObject = packetObject.message
@@ -170,8 +170,8 @@ async function submit ({
 
   /* Construct signed transaction. */
   await coin.addTransactionSignatures(transaction, ownSignatures)
-  for (const participantInputSignatures of otherSignatures) {
-    const signatures = participantInputSignatures[1]
+  for (const shufflerInputSignatures of otherSignatures) {
+    const signatures = shufflerInputSignatures[1]
     await coin.addTransactionSignatures(transaction, signatures)
   }
 
@@ -181,21 +181,21 @@ async function submit ({
 
   /* Detect double spend. */
   // TODO: Is there a danger of detecting the shuffle spend here?
-  const participantTotal = amount + fee
-  const participantInboxes = receiver.participantInboxes
-  participantInboxes.delete(signingPublicKey)
-  const publicKeyStrings = [ ...participantInboxes.keys() ]
+  const shufflerTotal = amount + fee
+  const shufflerInboxes = receiver.shufflerInboxes
+  shufflerInboxes.delete(signingPublicKey)
+  const publicKeyStrings = [ ...shufflerInboxes.keys() ]
   for (const publicKeyString of publicKeyStrings) {
     const publicKey = new bitcore.PublicKey(publicKeyString, { network })
     const address = publicKey.toAddress(network)
     const addressString = address.toCashAddress()
     const sufficientFunds = await coin.sufficientFunds(
       addressString,
-      participantTotal
+      shufflerTotal
     )
     if (!sufficientFunds) {
       throw new InadequateError(
-        { info: { address: addressString, amount: participantTotal } },
+        { info: { address: addressString, amount: shufflerTotal } },
         'insufficient funds'
       )
     }

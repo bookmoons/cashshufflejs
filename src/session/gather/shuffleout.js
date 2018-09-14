@@ -8,15 +8,15 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {number} [attempts=<default>] - Maximum attempts. Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {HexString} priorParticipant - Signing public key of prior
- *     participant.
- * @prop {number} precedingParticipantsCount - Count of preceding participants.
+ * @prop {HexString} priorShuffler - Signing public key of prior
+ *     shuffler.
+ * @prop {number} precedingShufflersCount - Count of preceding shufflers.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=] - Receiver to discard messages to.
  */
 
 /**
- * Gather shuffle output messages from prior participant.
+ * Gather shuffle output messages from prior shuffler.
  *
  * @memberof module:cashshuffle/session.Session
  *
@@ -31,21 +31,21 @@ import { defaultAttempts, defaultTimeout } from '../default'
 async function gatherShuffleOutput ({
   attempts = defaultAttempts,
   timeout = defaultTimeout,
-  priorParticipant,
-  precedingParticipantsCount,
+  priorShuffler,
+  precedingShufflersCount,
   receiver,
   discarder = null
 }) {
   const self = this
-  const participantInboxes = receiver.participantInboxes
-  const inbox = participantInboxes.get(priorParticipant)
+  const shufflerInboxes = receiver.shufflerInboxes
+  const inbox = shufflerInboxes.get(priorShuffler)
   const evaluator = async function evaluateShuffleOutputMessage (packet) {
     try { await self.validateShuffleOutput(packet) } catch (e) { return e }
   }
   const fetcher = new PersistFetcher(inbox, evaluator, discarder)
   const packets = []
   for (
-    let remaining = precedingParticipantsCount;
+    let remaining = precedingShufflersCount;
     remaining > 0;
     remaining--
   ) {
