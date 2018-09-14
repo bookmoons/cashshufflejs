@@ -9,6 +9,7 @@ Modules implementing CashShuffle interfaces.
    module/discarder/log
    module/drawer/standard
    module/fetcher/each
+   module/fetcher/persist
    module/inbox/fifo
    module/inchan/inchanbin
    module/inchanbin/nodestream
