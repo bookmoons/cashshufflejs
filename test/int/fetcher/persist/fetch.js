@@ -8,7 +8,10 @@ const attempts = 2
 const timeout = 500
 const validMessage = 'Valid message'
 const invalidMessage = 'Invalid message'
-function evaluator (message) { return (message === validMessage) }
+
+function evaluator (message) {
+  if (message !== validMessage) return new Error('invalid')
+}
 
 test.before(t => {
   Object.assign(PersistFetcher.prototype, {

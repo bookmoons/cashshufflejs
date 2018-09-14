@@ -11,8 +11,7 @@ import privs from './privs'
  *
  * @param message - Message to evaluate for acceptance.
  *
- * @return {boolean} Whether to accept message.
- *     True for accept. False for reject.
+ * @return {Error=} Rejection reason. No value to indicate acceptance.
  *
  * @throws If any error occurs. Propagated as an error.
  */
