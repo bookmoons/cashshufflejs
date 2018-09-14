@@ -11,7 +11,8 @@ import privs from './privs'
  *
  * @param message - Message to evaluate for acceptance.
  *
- * @return {Error=} Rejection reason. No value to indicate acceptance.
+ * @return {(Error|undefined)} Rejection reason.
+ *     No value to indicate acceptance.
  *
  * @throws If any error occurs. Propagated as an error.
  */
