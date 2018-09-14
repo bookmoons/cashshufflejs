@@ -25,7 +25,7 @@ class PersistFetcher extends Fetcher {
    * @param {Inbox} inbox - Inbox to fetch from.
    * @param {Evaluator} evaluator - Message acceptance evaluator.
    */
-  constructor (inbox, evaluator, attempts) {
+  constructor (inbox, evaluator) {
     super()
     const priv = {
       inbox,
