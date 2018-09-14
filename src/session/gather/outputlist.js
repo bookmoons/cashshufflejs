@@ -35,7 +35,7 @@ async function gatherOutputList ({
 }) {
   const participantInboxes = receiver.participantInboxes
   const inbox = participantInboxes.get(priorParticipant)
-  for (; attempts > 0; attempts--) {
+  for (let remaining = attempts; remaining > 0; remaining--) {
     const packet = await inbox.watch(timeout)
     try {
       await this.validateOutputList(packet)

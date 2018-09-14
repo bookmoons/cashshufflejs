@@ -40,7 +40,7 @@ async function gatherSignature ({
   participantInboxes.delete(signingPublicKey)
   const participantsCount = participantInboxes.size
   const participantPackets = new Map()
-  for (; attempts > 0; attempts--) {
+  for (let remaining = attempts; remaining > 0; remaining--) {
     const publicKeys = [ ...participantInboxes.keys() ]
     const inboxes = [ ...participantInboxes.values() ]
     const fetcher = new Fetcher(inboxes)
