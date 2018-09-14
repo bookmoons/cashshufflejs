@@ -20,6 +20,7 @@ import messageOutputList from './message/outputlist'
 import messageSignature from './message/signature'
 import orderParticipants from './adjunct/order'
 import packageSignedPacket from './util/pack'
+import packageSignedPackets from './util/packs'
 import run from './run'
 import shuffle from './phase/shuffle'
 import sign from './util/sign'
@@ -50,6 +51,7 @@ Object.assign(Session.prototype, {
   messageSignature,
   orderParticipants,
   packageSignedPacket,
+  packageSignedPackets,
   run,
   shuffle,
   sign,
