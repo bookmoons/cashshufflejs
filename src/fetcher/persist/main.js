@@ -24,14 +24,12 @@ class PersistFetcher extends Fetcher {
   /**
    * @param {Inbox} inbox - Inbox to fetch from.
    * @param {Evaluator} evaluator - Message acceptance evaluator.
-   * @param {number} attempts - Maximum attempts. Positive integer.
    */
   constructor (inbox, evaluator, attempts) {
     super()
     const priv = {
       inbox,
-      evaluator,
-      attempts
+      evaluator
     }
     privs.set(this, priv)
   }
