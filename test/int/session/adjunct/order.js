@@ -1,5 +1,5 @@
 import test from 'ava'
-import orderParticipants from 'session/order'
+import orderParticipants from 'session/adjunct/order'
 
 const key1 =
   '026e41a59fa68163abf6bec552fe48688ad7d342f2c047db7aa6acaf3d447709c5'

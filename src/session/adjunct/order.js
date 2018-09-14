@@ -1,5 +1,5 @@
 import bitcore from 'bitcore-lib-cash'
-import { defaultNetwork } from './default'
+import { defaultNetwork } from '../default'
 
 /**
  * Order participants.
