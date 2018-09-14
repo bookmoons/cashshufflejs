@@ -30,6 +30,7 @@ import validateAnnounce from './validate/announce'
 import validateDigest from './validate/digest'
 import validateFinalOutput from './validate/finaloutput'
 import validateOutputList from './validate/outputlist'
+import validateShuffleOutput from './validate/shuffleout'
 import validateSignature from './validate/signature'
 
 Object.assign(Session.prototype, {
@@ -62,6 +63,7 @@ Object.assign(Session.prototype, {
   validateDigest,
   validateFinalOutput,
   validateOutputList,
+  validateShuffleOutput,
   validateSignature
 })
 
