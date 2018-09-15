@@ -18,13 +18,13 @@ test('1 chunk', async t => {
   const written = new Promise(resolve => {
     resolveWritten = resolve
   })
-  async function writeHandler (chunk) {
+  async function write (chunk) {
     output.push(chunk)
     resolveWritten()
   }
   const socketEnd = new SocketEndSimulator({
-    readHandler: dummyFunction,
-    writeHandler
+    read: dummyFunction,
+    write
   })
   socketEnd.write(testChunk1)
   await written
@@ -38,13 +38,13 @@ test('2 chunks', async t => {
   const written = new Promise(resolve => {
     resolveWritten = resolve
   })
-  async function writeHandler (chunk) {
+  async function write (chunk) {
     output.push(chunk)
     if (output.length === 2) resolveWritten()
   }
   const socketEnd = new SocketEndSimulator({
     readHandler: dummyFunction,
-    writeHandler
+    write
   })
   socketEnd.write(testChunk1)
   socketEnd.write(testChunk2)

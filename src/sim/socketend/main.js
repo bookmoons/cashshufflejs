@@ -6,8 +6,8 @@ import privs from './privs'
  * @typedef {object} SocketEndParams
  * @memberof module:cashshuffle/sim/socketend.SocketEndSimulator
  *
- * @prop {ReadHandler} readHandler - Read handler.
- * @prop {WriteHandler} writeHandler - Write handler.
+ * @prop {ReadHandler} read - Read handler.
+ * @prop {WriteHandler} write - Write handler.
  */
 
 /**
@@ -18,8 +18,8 @@ class SocketEndSimulator extends Duplex {
    * @param {SocketEndParms} params
    */
   constructor ({
-    readHandler,
-    writeHandler
+    read,
+    write
   }) {
     super()
     const self = this
@@ -28,8 +28,8 @@ class SocketEndSimulator extends Duplex {
     }
     const priv = {
       deliverReadData,
-      readHandler,
-      writeHandler
+      readHandler: read,
+      writeHandler: write
     }
     privs.set(this, priv)
   }

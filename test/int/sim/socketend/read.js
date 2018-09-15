@@ -13,25 +13,25 @@ test.before(t => {
 })
 
 test('1 chunk', async t => {
-  async function readHandler (size, deliver) {
+  async function read (size, deliver) {
     deliver(testChunk1)
   }
   const socketEnd = new SocketEndSimulator({
-    readHandler,
-    writeHandler: dummyFunction
+    read,
+    write: dummyFunction
   })
   const chunk = socketEnd.read()
   t.deepEqual(chunk, testChunk1)
 })
 
 test('2 chunks', async t => {
-  async function readHandler (size, deliver) {
+  async function read (size, deliver) {
     deliver(testChunk1)
     deliver(testChunk2)
   }
   const socketEnd = new SocketEndSimulator({
-    readHandler,
-    writeHandler: dummyFunction
+    read,
+    write: dummyFunction
   })
   const chunk = socketEnd.read()
   const expectedChunk = Buffer.concat([ testChunk1, testChunk2 ])
