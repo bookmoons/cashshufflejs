@@ -1,0 +1,5 @@
+SocketSimulator
+---------------
+
+.. autoclass:: SocketSimulator
+   :members:
