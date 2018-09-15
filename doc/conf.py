@@ -47,7 +47,13 @@ extensions = [
 templates_path = ['_templates']
 
 # JavaScript source directory
-js_source_path = '../src'
+js_source_path = [
+    '../src',
+    '../test/sim'
+]
+
+# JavaScript path root
+root_for_relative_js_paths = '..'
 
 # JSDoc configuration file
 jsdoc_config_path = '.jsdoc.json'
