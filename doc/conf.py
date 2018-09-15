@@ -50,7 +50,7 @@ templates_path = ['_templates']
 js_source_path = '../src'
 
 # JSDoc configuration file
-jsdoc_config_path = 'jsdoc.json'
+jsdoc_config_path = '.jsdoc.json'
 
 # sphinx-js markdown processing
 js_markdown = True
