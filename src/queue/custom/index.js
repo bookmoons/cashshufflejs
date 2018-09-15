@@ -3,7 +3,7 @@
  *
  * Accepts custom processing procedure.
  *
- * @module cashshuffle/queue/simple
+ * @module cashshuffle/queue/custom
  */
 
 import CustomQueue from './main'
