@@ -1,5 +1,6 @@
 {
     "verbose": true,
+    "timeout": "20s",
     "require": [
         "@babel/polyfill",
         "@babel/register"
