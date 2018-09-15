@@ -2,8 +2,7 @@ import privs from './privs'
 
 function _write (chunk, encoding, callback) {
   const priv = privs.get(this)
-  const writeHandler = priv.writeHandler
-  const writeHandlerDone = writeHandler(chunk)
+  const writeHandlerDone = priv.writeHandler(chunk)
   writeHandlerDone
     .then(function handleWriteHandlerDone () {
       callback()
