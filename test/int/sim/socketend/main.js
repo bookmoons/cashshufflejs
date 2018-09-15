@@ -5,7 +5,7 @@ import SocketEndSimulator from 'sim/socketend/main'
 
 test('subclass', t => {
   const socketEnd = new SocketEndSimulator({
-    writeHandler: dummyFunction
+    write: dummyFunction
   })
   t.true(socketEnd instanceof Duplex)
 })
