@@ -1,4 +1,5 @@
 import test from 'ava'
+import dummyFunction from 'dummy/function'
 import SocketEndSimulator from 'sim/socketend/main'
 import _write from 'sim/socketend/write'
 
@@ -22,6 +23,7 @@ test('1 chunk', async t => {
     resolveWritten()
   }
   const socketEnd = new SocketEndSimulator({
+    readHandler: dummyFunction,
     writeHandler
   })
   socketEnd.write(testChunk1)
@@ -41,6 +43,7 @@ test('2 chunks', async t => {
     if (output.length === 2) resolveWritten()
   }
   const socketEnd = new SocketEndSimulator({
+    readHandler: dummyFunction,
     writeHandler
   })
   socketEnd.write(testChunk1)

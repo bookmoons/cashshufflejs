@@ -7,9 +7,11 @@
  */
 
 import SocketEndSimulator from './main'
+import _read from './read'
 import _write from './write'
 
 Object.assign(SocketEndSimulator.prototype, {
+  _read,
   _write
 })
 
