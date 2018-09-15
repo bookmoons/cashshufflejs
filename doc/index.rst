@@ -14,8 +14,8 @@
 .. toctree::
    :maxdepth: 2
 
-   protocol
    client
+   protocol
    interface
    module
    type
