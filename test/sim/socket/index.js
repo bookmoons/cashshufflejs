@@ -8,8 +8,13 @@
  */
 
 import SocketSimulator from './main'
+import close from './close'
 import first from './first'
 import second from './second'
+
+Object.assign(SocketSimulator.prototype, {
+  close
+})
 
 Object.defineProperty(SocketSimulator.prototype, 'first', {
   get: first

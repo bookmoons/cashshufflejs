@@ -13,7 +13,8 @@ class SocketSimulator {
     const second = makeSocketEnd(secondFirst, firstSecond)
     const priv = {
       first,
-      second
+      second,
+      open: true
     }
     privs.set(this, priv)
   }
