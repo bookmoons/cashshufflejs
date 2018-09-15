@@ -20,3 +20,4 @@
    module
    type
    error
+   simulator
