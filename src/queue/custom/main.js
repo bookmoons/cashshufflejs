@@ -7,6 +7,8 @@ import privs from './privs'
  * Accepts data to process.
  * Return value ignored.
  *
+ * May be `async`.
+ *
  * @callback Processor
  *
  * @param data - Data to process.
