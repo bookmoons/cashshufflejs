@@ -148,7 +148,7 @@
  * @prop {protocol.EncryptionKey} [key=] - Encryption key.
  * @prop {protocol.Hash} [hash=] - Equivocation check digest.
  * @prop {protocol.Signature} [signature=] - Transaction signature.
- * @prop {string} [str=]
+ * @prop {string} [str=] - Encrypted output address. Plaintext output address.
  * @prop {protocol.Blame} [blame=] - Blame details.
  * @prop {protocol.Message} [next=] - Unused.
  * @prop {Array<protocol.InputSignature>} [signatures=] - Input signatures.
