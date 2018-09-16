@@ -23,6 +23,16 @@
  */
 
 /**
+ * 8 bit byte.
+ *
+ * A single octet represented as a number literal.
+ * Valid values 0-255 inclusive.
+ *
+ * @typedef {number} Byte
+ * @memberof module:cashshuffle
+ */
+
+/**
  * Bitcoin Cash address in [CashAddr][1] format in a string.
  *
  * [1]: https://cashaddr.org/
@@ -59,16 +69,6 @@ const hexString = '010203a0b0c0'
  * Bitcoin Cash address in legacy format in a string.
  *
  * @typedef {P2PKHLegacyAddress} LegacyAddress
- * @memberof module:cashshuffle
- */
-
-/**
- * Octet.
- *
- * A single octet represented as a number literal.
- * Valid values 0-255 inclusive.
- *
- * @typedef {number} Octet
  * @memberof module:cashshuffle
  */
 

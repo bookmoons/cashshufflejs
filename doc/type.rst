@@ -13,6 +13,11 @@ Base64
 
 .. autofunction:: Base64
 
+Byte
+----
+
+.. autofunction:: Byte
+
 CashAddress
 -----------
 
@@ -27,11 +32,6 @@ LegacyAddress
 -------------
 
 .. autofunction:: LegacyAddress
-
-Octet
------
-
-.. autofunction:: Octet
 
 P2PKHLegacyAddress
 ------------------
