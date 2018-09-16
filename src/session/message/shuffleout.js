@@ -1,7 +1,7 @@
 import { Phase } from '../../protocol'
 
 /**
- * @typedef {object} MessageOutputParams
+ * @typedef {object} MessageShuffleOutputParams
  * @memberof module:cashshuffle/session.Session
  *
  * @prop {protobufjs.Root} protocol - Protocol definition.
@@ -21,7 +21,7 @@ import { Phase } from '../../protocol'
  *
  * @memberof module:cashshuffle/session.Session
  *
- * @param {MessageOutputParams} params
+ * @param {MessageShuffleOutputParams} params
  *
  * @return {protocol.Packet} Unsigned output item message.
  */
