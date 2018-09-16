@@ -81,9 +81,7 @@
  */
 
 /**
- * Message hash.
- *
- * Enables validating message integrity.
+ * Equivocation check digest.
  *
  * @typedef Hash
  * @memberof module:cashshuffle/protocol
@@ -150,7 +148,7 @@
  *
  * @prop {protocol.Address} [address=] - Bitcoin Cash address.
  * @prop {protocol.EncryptionKey} [key=] - Encryption key.
- * @prop {protocol.Hash} [hash=] - Message hash.
+ * @prop {protocol.Hash} [hash=] - Equivocation check digest.
  * @prop {protocol.Signature} [signature=] - Message signature.
  * @prop {string} [str=]
  * @prop {protocol.Blame} [blame=] - Blame details.
