@@ -158,7 +158,7 @@
  *     Message signature.
  * @prop {string} [str=]
  * @prop {protocol.Blame} [blame=] - Blame details.
- * @prop {protocol.Message} [next=]
+ * @prop {protocol.Message} [next=] - Unused.
  * @prop {Array<protocol.InputSignature>} [signatures=] - Input signatures.
  */
 
