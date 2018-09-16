@@ -148,14 +148,10 @@
  * @typedef Message
  * @memberof module:cashshuffle/protocol
  *
- * @prop {protocol.Address} [address=]
- *     Bitcoin Cash address.
- * @prop {protocol.EncryptionKey} [key=]
- *     Encryption key.
- * @prop {protocol.Hash} [hash=]
- *     Message hash.
- * @prop {protocol.Signature} [signature=]
- *     Message signature.
+ * @prop {protocol.Address} [address=] - Bitcoin Cash address.
+ * @prop {protocol.EncryptionKey} [key=] - Encryption key.
+ * @prop {protocol.Hash} [hash=] - Message hash.
+ * @prop {protocol.Signature} [signature=] - Message signature.
  * @prop {string} [str=]
  * @prop {protocol.Blame} [blame=] - Blame details.
  * @prop {protocol.Message} [next=] - Unused.
