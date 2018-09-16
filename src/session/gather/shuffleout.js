@@ -8,8 +8,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {number} [attempts=<default>] - Maximum attempts. Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {HexString} priorShuffler - Signing public key of prior
- *     shuffler.
+ * @prop {HexString} priorShuffler - Signing public key of prior shuffler.
  * @prop {number} precedingShufflersCount - Count of preceding shufflers.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=] - Receiver to discard messages to.
