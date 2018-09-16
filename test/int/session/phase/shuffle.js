@@ -10,14 +10,13 @@ import { Phase, terminatorBuffer, terminatorByteLength } from 'protocol'
 import toArrayBuffer from 'util/toarraybuffer'
 import { ValueError } from 'error'
 import loadProtocol from 'helper/loadprot'
-import { outputListDelimiter } from 'session/value'
 import affix from 'session/util/affix'
 import decryptOutputList from 'session/adjunct/decrypt'
 import encryptLayered from 'session/adjunct/layered'
-import gatherOutputList from 'session/gather/outputlist'
-import messageOutputList from 'session/message/outputlist'
-import packageSignedPacket from 'session/util/pack'
-import validateOutputList from 'session/validate/outputlist'
+import gatherShuffleOutput from 'session/gather/shuffleout'
+import messageShuffleOutput from 'session/message/shuffleout'
+import packageSignedPackets from 'session/util/packs'
+import validateShuffleOutput from 'session/validate/shuffleout'
 import sign from 'session/util/sign'
 import shuffle from 'session/phase/shuffle'
 
@@ -65,13 +64,6 @@ const invalidOutput =
   'ArtnDVpFV3ICkIqUQJ8ekNMv6+27ngdP4gXgE/YuJhzWfvyxkxHrEQhiUVDlTcS4QN/0' +
   'OWZEXfOws1R170zQb8nFsB++XK2YILubW1KPfZ2TFUT/zTKN6xiTXZiZGXm2tJg0p6Cz' +
   'ZZZMs/XZWxiq77klhyXk7tOBHrFJqYHKDEZ2hyQ8epi7EO3bL6pMA4ICloONQ=='
-const outputList1 = [ output1 ]
-const outputListEncoded1 = outputList1.join(outputListDelimiter)
-const invalidOutputList = [ invalidOutput ]
-const invalidOutputListEncoded = invalidOutputList.join(outputListDelimiter)
-const duplicateOutputList = [ output1, output1 ]
-const duplicateOutputListEncoded =
-  duplicateOutputList.join(outputListDelimiter)
 let protocol
 
 const validPacket1 = {
@@ -80,7 +72,7 @@ const validPacket1 = {
   fromKey: { key: signingPublicKey1 },
   toKey: { key: signingPublicKey2 },
   phase: Phase.Shuffle.value,
-  message: { str: outputListEncoded1 }
+  message: { str: output1 }
 }
 const invalidOutputPacket1 = {
   session: sessionId,
@@ -88,15 +80,7 @@ const invalidOutputPacket1 = {
   fromKey: { key: signingPublicKey1 },
   toKey: { key: signingPublicKey2 },
   phase: Phase.Shuffle.value,
-  message: { str: invalidOutputListEncoded }
-}
-const duplicateOutputPacket2 = {
-  session: sessionId,
-  number: poolNumber,
-  fromKey: { key: signingPublicKey2 },
-  toKey: { key: signingPublicKey3 },
-  phase: Phase.Shuffle.value,
-  message: { str: duplicateOutputListEncoded }
+  message: { str: invalidOutput }
 }
 
 const testPacketObject1 = {
@@ -117,42 +101,51 @@ const testPacketObject2 = {
   phase: Phase.Shuffle.value
 }
 const testSignedObject2 = { packet: testPacketObject2 }
-const testPacketsObject2 = { packet: [ testSignedObject2 ] }
+const testSignedPackets2 = [ testSignedObject2, testSignedObject2 ]
+const testPacketsObject2 = { packet: testSignedPackets2 }
 
 function produceSession () {
   const session = {
     affix,
     decryptOutputList,
     encryptLayered,
-    gatherOutputList,
-    messageOutputList,
-    packageSignedPacket,
-    validateOutputList,
+    gatherShuffleOutput,
+    messageShuffleOutput,
+    packageSignedPackets,
+    validateShuffleOutput,
     sign,
     shuffle
   }
   return session
 }
 
+function verifyEqualPacket (t, observed, expected) {
+  t.is(observed.number, expected.number)
+  t.is(observed.phase, expected.phase)
+  const observedSessionId = Buffer.from(observed.session)
+  const expectedSessionId = Buffer.from(expected.session)
+  t.deepEqual(observedSessionId, expectedSessionId)
+  const observedFromKey = observed.fromKey
+  const expectedFromKey = expected.fromKey
+  t.is(observedFromKey.key, expectedFromKey.key)
+  const observedToKey = observed.toKey
+  const expectedToKey = expected.toKey
+  t.is(observedToKey.key, expectedToKey.key)
+}
+
 function verifyEqualPackets (t, observed, expected) {
   t.is(typeof observed, 'object')
   t.is(typeof expected, 'object')
   t.is(observed.packet.length, expected.packet.length)
-  const observedSigned = observed.packet[0]
-  const expectedSigned = expected.packet[0]
-  const observedPacket = observedSigned.packet
-  const expectedPacket = expectedSigned.packet
-  t.is(observedPacket.number, expectedPacket.number)
-  t.is(observedPacket.phase, expectedPacket.phase)
-  const observedSessionId = Buffer.from(observedPacket.session)
-  const expectedSessionId = Buffer.from(expectedPacket.session)
-  t.deepEqual(observedSessionId, expectedSessionId)
-  const observedFromKey = observedPacket.fromKey
-  const expectedFromKey = expectedPacket.fromKey
-  t.is(observedFromKey.key, expectedFromKey.key)
-  const observedToKey = observedPacket.toKey
-  const expectedToKey = expectedPacket.toKey
-  t.is(observedToKey.key, expectedToKey.key)
+  const observedSignedPackets = observed.packet
+  const expectedSignedPackets = expected.packet
+  for (let i = 0; i < observedSignedPackets.length; i++) {
+    const observedSigned = observedSignedPackets[i]
+    const expectedSigned = expectedSignedPackets[i]
+    const observedPacket = observedSigned.packet
+    const expectedPacket = expectedSigned.packet
+    verifyEqualPacket(t, observedPacket, expectedPacket)
+  }
 }
 
 test.before(async t => {
@@ -178,6 +171,7 @@ test('return first', async t => {
     signingKeyPair: signing,
     first: true,
     last: false,
+    precedingShufflersCount: 0,
     priorShuffler: null,
     nextShuffler: signingPublicKey2,
     encryptionPublicKeys: encryptionPublicKeys1,
@@ -210,6 +204,7 @@ test('return inner', async t => {
     signingKeyPair: signing,
     first: false,
     last: false,
+    precedingShufflersCount: 1,
     priorShuffler: signingPublicKey1,
     nextShuffler: signingPublicKey3,
     encryptionPublicKeys: encryptionPublicKeys2,
@@ -239,6 +234,7 @@ test('return last', async t => {
     signingKeyPair: signing,
     first: false,
     last: true,
+    precedingShufflersCount: 2,
     priorShuffler: signingPublicKey2,
     nextShuffler: null,
     encryptionPublicKeys: [],
@@ -268,6 +264,7 @@ test('output first', async t => {
     signingKeyPair: signing,
     first: true,
     last: false,
+    precedingShufflersCount: 0,
     priorShuffler: null,
     nextShuffler: signingPublicKey2,
     encryptionPublicKeys: encryptionPublicKeys1,
@@ -281,16 +278,15 @@ test('output first', async t => {
   const packets = protocol.Packets.decode(messageBuffer)
   const packetsObject = protocol.Packets.toObject(packets)
   verifyEqualPackets(t, packetsObject, testPacketsObject1)
-  const signedObject = packetsObject.packet[0]
-  const packetObject = signedObject.packet
-  const messageObject = packetObject.message
-  const outputListEncoded = messageObject.str
-  const outputList = outputListEncoded.split(outputListDelimiter)
-  t.is(outputList.length, 1)
+  const signedPacketObjects = packetsObject.packet
+  t.is(signedPacketObjects.length, 1)
   const crypto2 = new Crypto()
   await crypto2.restoreKeyPair(encryptionPrivateKey2)
   await t.notThrowsAsync(async () => {
-    for (const outputItem of outputList) {
+    for (const signedPacketObject of signedPacketObjects) {
+      const packetObject = signedPacketObject.packet
+      const messageObject = packetObject.message
+      const outputItem = messageObject.str
       await crypto2.decrypt(outputItem)
     }
   })
@@ -318,6 +314,7 @@ test('output inner', async t => {
     signingKeyPair: signing,
     first: false,
     last: false,
+    precedingShufflersCount: 1,
     priorShuffler: signingPublicKey1,
     nextShuffler: signingPublicKey3,
     encryptionPublicKeys: encryptionPublicKeys2,
@@ -331,16 +328,15 @@ test('output inner', async t => {
   const packets = protocol.Packets.decode(messageBuffer)
   const packetsObject = protocol.Packets.toObject(packets)
   verifyEqualPackets(t, packetsObject, testPacketsObject2)
-  const signedObject = packetsObject.packet[0]
-  const packetObject = signedObject.packet
-  const messageObject = packetObject.message
-  const outputListEncoded = messageObject.str
-  const outputList = outputListEncoded.split(outputListDelimiter)
-  t.is(outputList.length, outputList1.length + 1)
+  const signedPacketObjects = packetsObject.packet
+  t.is(signedPacketObjects.length, 2)
   const crypto3 = new Crypto()
   await crypto3.restoreKeyPair(encryptionPrivateKey3)
   await t.notThrowsAsync(async () => {
-    for (const outputItem of outputList) {
+    for (const signedPacketObject of signedPacketObjects) {
+      const packetObject = signedPacketObject.packet
+      const messageObject = packetObject.message
+      const outputItem = messageObject.str
       await crypto3.decrypt(outputItem)
     }
   })
@@ -368,6 +364,7 @@ test('decrypt failure', async t => {
     signingKeyPair: signing,
     first: false,
     last: false,
+    precedingShufflersCount: 1,
     priorShuffler: signingPublicKey1,
     nextShuffler: signingPublicKey2,
     encryptionPublicKeys: encryptionPublicKeys2,
@@ -396,7 +393,8 @@ test('duplicate items', async t => {
   const receiver = new PhaseReceiver(shufflers)
   const inboxes = receiver.shufflerInboxes
   const inbox = inboxes.get(signingPublicKey1)
-  inbox.add(duplicateOutputPacket2)
+  inbox.add(validPacket1)
+  inbox.add(validPacket1)
   const shufflePromise = session.shuffle({
     protocol,
     attempts,
@@ -406,6 +404,7 @@ test('duplicate items', async t => {
     signingKeyPair: signing,
     first: false,
     last: false,
+    precedingShufflersCount: 2,
     priorShuffler: signingPublicKey1,
     nextShuffler: signingPublicKey2,
     encryptionPublicKeys: encryptionPublicKeys2,

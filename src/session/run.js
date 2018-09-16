@@ -87,6 +87,7 @@ async function run ({
       'own key in shufflers list'
     )
   }
+  const precedingShufflersCount = ownShufflerIndex
   const first = (ownShufflerIndex === 0)
   const shufflersCount = shufflersOrdered.length
   const lastShufflerIndex = shufflersCount - 1
@@ -166,6 +167,7 @@ async function run ({
     signingKeyPair,
     first,
     last,
+    precedingShufflersCount,
     priorShuffler,
     nextShuffler,
     encryptionPublicKeys: subsequentEncryptionPublicKeys,
@@ -205,6 +207,7 @@ async function run ({
     poolNumber,
     signingKeyPair,
     last,
+    precedingShufflersCount,
     priorShuffler,
     lastShuffler,
     outputAddress,

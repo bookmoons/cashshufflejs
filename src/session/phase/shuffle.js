@@ -2,7 +2,6 @@ import shuffleList from 'crypto-secure-shuffle'
 import PrefixLogchan from '../../logchan/prefix'
 import Signing from '../../signing/bitcore'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
-import { outputListDelimiter } from '../value'
 
 /**
  * @typedef {object} ShuffleParams
@@ -19,6 +18,7 @@ import { outputListDelimiter } from '../value'
  *     Assumed ready for use.
  * @prop {boolean} first - Whether own client is first in shuffle order.
  * @prop {boolean} last - Whether own client is last in shuffle order.
+ * @prop {number} precedingShufflersCount - Count of preceding shufflers.
  * @prop {HexString} priorShuffler - Signing public key of prior
  *     shuffler. `null` for none.
  * @prop {HexString} nextShuffler - Signing public key of next shuffler.
@@ -62,6 +62,7 @@ async function shuffle ({
   signingKeyPair,
   first,
   last,
+  precedingShufflersCount,
   priorShuffler,
   nextShuffler,
   encryptionPublicKeys,
@@ -104,21 +105,23 @@ async function shuffle ({
     outputList.push(encryptedOutputAddress)
     if (log) await log.send('Constructed initial output list')
   } else { // Inner shuffler
-    /* Gather output list message from prior shuffler. */
-    const priorOutputListPacket = await this.gatherOutputList({
+    /* Gather output list messages from prior shuffler. */
+    const priorOutputListPackets = await this.gatherShuffleOutput({
       attempts,
       timeout,
       priorShuffler,
+      precedingShufflersCount,
       receiver,
       discarder
     })
     if (log) await log.send('Received encrypted output list')
 
-    /* Extract encoded output list. */
-    const encodedOutputList = priorOutputListPacket.message.str
-
-    /* Deserialize encrypted output list. */
-    const encryptedOutputList = encodedOutputList.split(outputListDelimiter)
+    /* Extract output list items. */
+    const encryptedOutputList = priorOutputListPackets.map(
+      function iteratePriorOutputListPackets (packet) {
+        return packet.message.str
+      }
+    )
 
     /* Decrypt output list. */
     const decryptedOutputList = await this.decryptOutputList(
@@ -144,27 +147,31 @@ async function shuffle ({
 
   /* Unicast output list. */
   const signingPublicKey = await signingKeyPair.exportPublicKey()
-  const ownPacket = await this.messageOutputList({
+  const ownSignedPackets = []
+  for (const output of outputList) {
+    const ownPacket = await this.messageShuffleOutput({
+      protocol,
+      signingPublicKey,
+      sessionId,
+      poolNumber,
+      output,
+      nextShuffler
+    })
+    const signature = await this.sign(
+      signingKeyPair,
+      ownPacket,
+      protocol.Packet
+    )
+    const ownSignedPacket = await this.affix(
+      ownPacket,
+      signature,
+      protocol
+    )
+    ownSignedPackets.push(ownSignedPacket)
+  }
+  const ownPackage = await this.packageSignedPackets(
     protocol,
-    signingPublicKey,
-    sessionId,
-    poolNumber,
-    outputList,
-    nextShuffler
-  })
-  const signature = await this.sign(
-    signingKeyPair,
-    ownPacket,
-    protocol.Packet
-  )
-  const ownSignedPacket = await this.affix(
-    ownPacket,
-    signature,
-    protocol
-  )
-  const ownPackage = await this.packageSignedPacket(
-    protocol,
-    ownSignedPacket
+    ownSignedPackets
   )
   await outchan.send(ownPackage)
   if (log) await log.send('Sent encrypted output list')

@@ -18,6 +18,7 @@ import { outputListDelimiter } from '../value'
  * @prop {Signing} signingKeyPair - Shuffler signing key pair.
  *     Assumed ready for use.
  * @prop {boolean} last - Whether own client is last in shuffle order.
+ * @prop {number} precedingShufflersCount - Count of preceding shufflers.
  * @prop {HexString} priorShuffler - Signing public key of prior
  *     shuffler.
  * @prop {HexString} lastShuffler - Signing public key of last shuffler.
@@ -59,6 +60,7 @@ async function broadcastOutput ({
   poolNumber,
   signingKeyPair,
   last,
+  precedingShufflersCount,
   priorShuffler,
   lastShuffler,
   outputAddress,
@@ -75,21 +77,23 @@ async function broadcastOutput ({
   if (last) {
     // Last shuffler produces final output list
 
-    /* Gather output list message from prior shuffler. */
-    const priorOutputListPacket = await this.gatherOutputList({
+    /* Gather output list messages from prior shuffler. */
+    const priorOutputListPackets = await this.gatherShuffleOutput({
       attempts,
       timeout,
       priorShuffler,
+      precedingShufflersCount,
       receiver: priorReceiver,
       discarder
     })
     if (log) await log.send('Received encrypted output list')
 
-    /* Extract encoded output list. */
-    const encodedOutputList = priorOutputListPacket.message.str
-
-    /* Deserialize encrypted output list. */
-    const encryptedOutputList = encodedOutputList.split(outputListDelimiter)
+    /* Extract output list items. */
+    const encryptedOutputList = priorOutputListPackets.map(
+      function iteratePriorOutputListPackets (packet) {
+        return packet.message.str
+      }
+    )
 
     /* Decrypt output list. */
     const decryptedOutputList = await this.decryptOutputList(

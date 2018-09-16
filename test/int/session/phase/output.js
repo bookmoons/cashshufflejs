@@ -15,11 +15,11 @@ import { outputListDelimiter } from 'session/value'
 import affix from 'session/util/affix'
 import decryptOutputList from 'session/adjunct/decrypt'
 import gatherFinalOutput from 'session/gather/finaloutput'
-import gatherOutputList from 'session/gather/outputlist'
+import gatherShuffleOutput from 'session/gather/shuffleout'
 import messageFinalOutput from 'session/message/finaloutput'
 import packageSignedPacket from 'session/util/pack'
 import validateFinalOutput from 'session/validate/finaloutput'
-import validateOutputList from 'session/validate/outputlist'
+import validateShuffleOutput from 'session/validate/shuffleout'
 import sign from 'session/util/sign'
 import broadcastOutput from 'session/phase/output'
 
@@ -64,22 +64,27 @@ const encryptedOutput2 =
   'A0k1fAyJsM2RPr2vdKetM3cnwAtgASBPmD78cqNoxOSqQ7Bg3Rt40cFuOm9R3ZlG1HGU' +
   'LipoGf15WG1Q83DQ6NXOqqpR65iUBHMW8MOtF5JW9IVFkynj6omY5cx9QrgMzQF64erB' +
   'PdGlQmpXOM4yH92RbfdgeSbszdm0S7JwESvyF+zfey/RkfK+BQpe646Zrw=='
-const encryptedOutputList = [ encryptedOutput1, encryptedOutput2 ]
-const encryptedOutputListEncoded =
-  encryptedOutputList.join(outputListDelimiter)
 const finalOutputList = [ output1, output2, output3 ]
 const finalOutputListEncoded = finalOutputList.join(outputListDelimiter)
 const badOutputList = [ output1, output3 ]
 const badOutputListEncoded = badOutputList.join(outputListDelimiter)
 let protocol
 
-const encryptedOutputListPacket = {
+const encryptedOutputListPacket1 = {
   session: sessionId,
   number: poolNumber,
   fromKey: { key: signingPublicKey2 },
   toKey: { key: signingPublicKey3 },
   phase: Phase.Shuffle.value,
-  message: { str: encryptedOutputListEncoded }
+  message: { str: encryptedOutput1 }
+}
+const encryptedOutputListPacket2 = {
+  session: sessionId,
+  number: poolNumber,
+  fromKey: { key: signingPublicKey2 },
+  toKey: { key: signingPublicKey3 },
+  phase: Phase.Shuffle.value,
+  message: { str: encryptedOutput2 }
 }
 const finalOutputListPacket = {
   session: sessionId,
@@ -110,11 +115,11 @@ function produceSession () {
     affix,
     decryptOutputList,
     gatherFinalOutput,
-    gatherOutputList,
+    gatherShuffleOutput,
     messageFinalOutput,
     packageSignedPacket,
     validateFinalOutput,
-    validateOutputList,
+    validateShuffleOutput,
     sign,
     broadcastOutput
   }
@@ -130,22 +135,30 @@ function verifyOutputList (t, outputList) {
   }
 }
 
+function verifyEqualPacket (t, observed, expected) {
+  t.is(observed.number, expected.number)
+  t.is(observed.phase, expected.phase)
+  const observedSessionId = Buffer.from(observed.session)
+  const expectedSessionId = Buffer.from(expected.session)
+  t.deepEqual(observedSessionId, expectedSessionId)
+  const observedFromKey = observed.fromKey
+  const expectedFromKey = expected.fromKey
+  t.is(observedFromKey.key, expectedFromKey.key)
+}
+
 function verifyEqualPackets (t, observed, expected) {
   t.is(typeof observed, 'object')
   t.is(typeof expected, 'object')
   t.is(observed.packet.length, expected.packet.length)
-  const observedSigned = observed.packet[0]
-  const expectedSigned = expected.packet[0]
-  const observedPacket = observedSigned.packet
-  const expectedPacket = expectedSigned.packet
-  t.is(observedPacket.number, expectedPacket.number)
-  t.is(observedPacket.phase, expectedPacket.phase)
-  const observedSessionId = Buffer.from(observedPacket.session)
-  const expectedSessionId = Buffer.from(expectedPacket.session)
-  t.deepEqual(observedSessionId, expectedSessionId)
-  const observedFromKey = observedPacket.fromKey
-  const expectedFromKey = expectedPacket.fromKey
-  t.is(observedFromKey.key, expectedFromKey.key)
+  const observedSignedPackets = observed.packet
+  const expectedSignedPackets = expected.packet
+  for (let i = 0; i < observedSignedPackets.length; i++) {
+    const observedSigned = observedSignedPackets[i]
+    const expectedSigned = expectedSignedPackets[i]
+    const observedPacket = observedSigned.packet
+    const expectedPacket = expectedSigned.packet
+    verifyEqualPacket(t, observedPacket, expectedPacket)
+  }
 }
 
 test.before(async t => {
@@ -165,7 +178,8 @@ test('return last', async t => {
   const priorReceiver = new PhaseReceiver(shufflers)
   const inboxes = priorReceiver.shufflerInboxes
   const inbox = inboxes.get(signingPublicKey2)
-  inbox.add(encryptedOutputListPacket)
+  inbox.add(encryptedOutputListPacket1)
+  inbox.add(encryptedOutputListPacket2)
   const { outputList } = await session.broadcastOutput({
     protocol,
     attempts,
@@ -174,6 +188,7 @@ test('return last', async t => {
     poolNumber,
     signingKeyPair: signing,
     last: true,
+    precedingShufflersCount: 2,
     priorShuffler: signingPublicKey2,
     lastShuffler,
     outputAddress: output3,
@@ -207,6 +222,7 @@ test('return nonlast', async t => {
     poolNumber,
     signingKeyPair: signing,
     last: false,
+    precedingShufflersCount: 1,
     priorShuffler: signingPublicKey1,
     lastShuffler,
     outputAddress: output2,
@@ -231,7 +247,8 @@ test('output', async t => {
   const priorReceiver = new PhaseReceiver(shufflers)
   const inboxes = priorReceiver.shufflerInboxes
   const inbox = inboxes.get(signingPublicKey2)
-  inbox.add(encryptedOutputListPacket)
+  inbox.add(encryptedOutputListPacket1)
+  inbox.add(encryptedOutputListPacket2)
   await session.broadcastOutput({
     protocol,
     attempts,
@@ -240,6 +257,7 @@ test('output', async t => {
     poolNumber,
     signingKeyPair: signing,
     last: true,
+    precedingShufflersCount: 2,
     priorShuffler: signingPublicKey2,
     lastShuffler,
     outputAddress: output3,
@@ -288,6 +306,7 @@ test('missing output', async t => {
     poolNumber,
     signingKeyPair: signing,
     last: false,
+    precedingShufflersCount: 1,
     priorShuffler: signingPublicKey1,
     lastShuffler,
     outputAddress: output2,
