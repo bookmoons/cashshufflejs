@@ -23,7 +23,7 @@ import { Phase } from '../../protocol'
  *
  * @param {MessageShuffleOutputParams} params
  *
- * @return {protocol.Packet} Unsigned output item message.
+ * @return {protocol.Packet} Unsigned shuffle output item message.
  */
 function messageShuffleOutput ({
   protocol,
