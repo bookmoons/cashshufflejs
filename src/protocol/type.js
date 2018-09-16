@@ -109,9 +109,7 @@
  */
 
 /**
- * Digital signature.
- *
- * Enables verifying message authenticity.
+ * Transaction digital signature.
  *
  * @typedef Signature
  * @memberof module:cashshuffle/protocol
@@ -149,7 +147,7 @@
  * @prop {protocol.Address} [address=] - Bitcoin Cash address.
  * @prop {protocol.EncryptionKey} [key=] - Encryption key.
  * @prop {protocol.Hash} [hash=] - Equivocation check digest.
- * @prop {protocol.Signature} [signature=] - Message signature.
+ * @prop {protocol.Signature} [signature=] - Transaction signature.
  * @prop {string} [str=]
  * @prop {protocol.Blame} [blame=] - Blame details.
  * @prop {protocol.Message} [next=] - Unused.
