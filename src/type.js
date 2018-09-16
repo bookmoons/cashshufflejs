@@ -63,6 +63,16 @@ const hexString = '010203a0b0c0'
  */
 
 /**
+ * Octet.
+ *
+ * A single octet represented as a number literal.
+ * Valid values 0-255 inclusive.
+ *
+ * @typedef {number} Octet
+ * @memberof module:cashshuffle
+ */
+
+/**
  * Bitcoin Cash P2PKH address in legacy format in a string.
  *
  * Format identical to the [Bitcoin Core P2PKH address format][1].

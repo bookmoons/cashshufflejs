@@ -28,6 +28,11 @@ LegacyAddress
 
 .. autofunction:: LegacyAddress
 
+Octet
+-----
+
+.. autofunction:: Octet
+
 P2PKHLegacyAddress
 ------------------
 
