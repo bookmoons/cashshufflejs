@@ -207,6 +207,7 @@ async function run ({
     poolNumber,
     signingKeyPair,
     last,
+    shufflersCount,
     precedingShufflersCount,
     priorShuffler,
     lastShuffler,

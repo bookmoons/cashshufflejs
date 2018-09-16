@@ -11,14 +11,13 @@ import Signing from 'signing/bitcore'
 import { Phase, terminatorBuffer, terminatorByteLength } from 'protocol'
 import toArrayBuffer from 'util/toarraybuffer'
 import loadProtocol from 'helper/loadprot'
-import { outputListDelimiter } from 'session/value'
 import affix from 'session/util/affix'
 import decryptOutputList from 'session/adjunct/decrypt'
-import gatherFinalOutput from 'session/gather/finaloutput'
+import gatherFinalOutput from 'session/gather/finalout'
 import gatherShuffleOutput from 'session/gather/shuffleout'
-import messageFinalOutput from 'session/message/finaloutput'
-import packageSignedPacket from 'session/util/pack'
-import validateFinalOutput from 'session/validate/finaloutput'
+import messageFinalOutput from 'session/message/finalout'
+import packageSignedPackets from 'session/util/packs'
+import validateFinalOutput from 'session/validate/finalout'
 import validateShuffleOutput from 'session/validate/shuffleout'
 import sign from 'session/util/sign'
 import broadcastOutput from 'session/phase/output'
@@ -26,7 +25,6 @@ import broadcastOutput from 'session/phase/output'
 const attempts = 2
 const timeout = 500
 const sessionId = toArrayBuffer(Buffer.from('123'))
-const sessionIdView = new Uint8Array(sessionId)
 const poolNumber = 12
 /*
 const signingPrivateKey1 =
@@ -44,6 +42,7 @@ const signingPublicKey3 =
   '026e41a59fa68163abf6bec552fe48688ad7d342f2c047db7aa6acaf3d447709c5'
 const shufflers =
   [ signingPublicKey1, signingPublicKey2, signingPublicKey3 ]
+const shufflersCount = shufflers.length
 const lastShuffler = signingPublicKey3
 /*
 const encryptionPrivateKey1 =
@@ -56,6 +55,7 @@ const encryptionPrivateKey3 =
 const output1 = 'bitcoincash:qrqpqsvcy94qfm3a8px0sxr5lmm825u3wv3l8fd6xf'
 const output2 = 'bitcoincash:qqvm3zp009x5pvaclc7tf3r7h5v2k2le0qxazfnv6w'
 const output3 = 'bitcoincash:qqqcrwfqh9jqpq8juwptrw384ltt2qyrcujwunn3v2'
+const badOutput = 'bitcoincash:qqqcrwfqh9jqpq8juwptrw384ltt2qyrcujwunn3v3'
 const encryptedOutput1 =
   'ArtnDVpFV3ICkIqUQJ8ekNMv6+27ngdP4gXgE/YuJhzWG5YpTsglHm0B1lfMlJdE1v9o' +
   'scpEuCUbw/Rzj/QEIgH29CgmhyFTvyGAJPTMdw2Qo/yDllIB/i4f+uf5PAwq5xxwytju' +
@@ -64,10 +64,6 @@ const encryptedOutput2 =
   'A0k1fAyJsM2RPr2vdKetM3cnwAtgASBPmD78cqNoxOSqQ7Bg3Rt40cFuOm9R3ZlG1HGU' +
   'LipoGf15WG1Q83DQ6NXOqqpR65iUBHMW8MOtF5JW9IVFkynj6omY5cx9QrgMzQF64erB' +
   'PdGlQmpXOM4yH92RbfdgeSbszdm0S7JwESvyF+zfey/RkfK+BQpe646Zrw=='
-const finalOutputList = [ output1, output2, output3 ]
-const finalOutputListEncoded = finalOutputList.join(outputListDelimiter)
-const badOutputList = [ output1, output3 ]
-const badOutputListEncoded = badOutputList.join(outputListDelimiter)
 let protocol
 
 const encryptedOutputListPacket1 = {
@@ -86,29 +82,44 @@ const encryptedOutputListPacket2 = {
   phase: Phase.Shuffle.value,
   message: { str: encryptedOutput2 }
 }
-const finalOutputListPacket = {
+const finalOutputListPacket1 = {
   session: sessionId,
   number: poolNumber,
   fromKey: { key: signingPublicKey3 },
   phase: Phase.Broadcast.value,
-  message: { str: finalOutputListEncoded }
+  message: { str: output1 }
+}
+const finalOutputListPacket2 = {
+  session: sessionId,
+  number: poolNumber,
+  fromKey: { key: signingPublicKey3 },
+  phase: Phase.Broadcast.value,
+  message: { str: output2 }
+}
+const finalOutputListPacket3 = {
+  session: sessionId,
+  number: poolNumber,
+  fromKey: { key: signingPublicKey3 },
+  phase: Phase.Broadcast.value,
+  message: { str: output3 }
 }
 const badOutputListPacket = {
   session: sessionId,
   number: poolNumber,
   fromKey: { key: signingPublicKey3 },
   phase: Phase.Broadcast.value,
-  message: { str: badOutputListEncoded }
+  message: { str: badOutput }
 }
 
-const testFinalOutputPacket = {
-  session: sessionIdView,
-  number: poolNumber,
-  fromKey: { key: signingPublicKey3 },
-  phase: Phase.Broadcast.value
-}
-const testFinalOutputSigned = { packet: testFinalOutputPacket }
-const testFinalOutputPackets = { packet: [ testFinalOutputSigned ] }
+const finalOutputListSigned1 = { packet: finalOutputListPacket1 }
+const finalOutputListSigned2 = { packet: finalOutputListPacket2 }
+const finalOutputListSigned3 = { packet: finalOutputListPacket3 }
+const finalOutputSignedPackets = [
+  finalOutputListSigned1,
+  finalOutputListSigned2,
+  finalOutputListSigned3
+]
+const finalOutputListPackets = { packet: finalOutputSignedPackets }
 
 function produceSession () {
   const session = {
@@ -117,7 +128,7 @@ function produceSession () {
     gatherFinalOutput,
     gatherShuffleOutput,
     messageFinalOutput,
-    packageSignedPacket,
+    packageSignedPackets,
     validateFinalOutput,
     validateShuffleOutput,
     sign,
@@ -188,6 +199,7 @@ test('return last', async t => {
     poolNumber,
     signingKeyPair: signing,
     last: true,
+    shufflersCount,
     precedingShufflersCount: 2,
     priorShuffler: signingPublicKey2,
     lastShuffler,
@@ -213,7 +225,9 @@ test('return nonlast', async t => {
   const priorReceiver = new PhaseReceiver(shufflers)
   const inboxes = receiver.shufflerInboxes
   const inbox = inboxes.get(signingPublicKey3)
-  inbox.add(finalOutputListPacket)
+  inbox.add(finalOutputListPacket1)
+  inbox.add(finalOutputListPacket2)
+  inbox.add(finalOutputListPacket3)
   const { outputList } = await session.broadcastOutput({
     protocol,
     attempts,
@@ -222,6 +236,7 @@ test('return nonlast', async t => {
     poolNumber,
     signingKeyPair: signing,
     last: false,
+    shufflersCount,
     precedingShufflersCount: 1,
     priorShuffler: signingPublicKey1,
     lastShuffler,
@@ -257,6 +272,7 @@ test('output', async t => {
     poolNumber,
     signingKeyPair: signing,
     last: true,
+    shufflersCount,
     precedingShufflersCount: 2,
     priorShuffler: signingPublicKey2,
     lastShuffler,
@@ -271,18 +287,19 @@ test('output', async t => {
   const messageBuffer = frameBuffer.slice(0, messageLength)
   const packets = protocol.Packets.decode(messageBuffer)
   const packetsObject = protocol.Packets.toObject(packets)
-  verifyEqualPackets(t, packetsObject, testFinalOutputPackets)
-  const signedObject = packetsObject.packet[0]
-  const packetObject = signedObject.packet
-  const messageObject = packetObject.message
-  const outputListEncoded = messageObject.str
-  const outputList = outputListEncoded.split(outputListDelimiter)
-  t.is(outputList.length, 3)
-  verifyOutputList(t, outputList)
-  const outputListSet = new Set(outputList)
-  t.true(outputListSet.has(output1))
-  t.true(outputListSet.has(output2))
-  t.true(outputListSet.has(output3))
+  verifyEqualPackets(t, packetsObject, finalOutputListPackets)
+  const signedPacketObjects = packetsObject.packet
+  const outputList = new Set()
+  for (const signedPacketObject of signedPacketObjects) {
+    const packetObject = signedPacketObject.packet
+    const messageObject = packetObject.message
+    const observedOutput = messageObject.str
+    outputList.add(observedOutput)
+  }
+  t.is(outputList.size, 3)
+  t.true(outputList.has(output1))
+  t.true(outputList.has(output2))
+  t.true(outputList.has(output3))
 })
 
 test('missing output', async t => {
@@ -297,7 +314,9 @@ test('missing output', async t => {
   const receiver = new PhaseReceiver(shufflers)
   const inboxes = receiver.shufflerInboxes
   const inbox = inboxes.get(signingPublicKey3)
+  inbox.add(finalOutputListPacket1)
   inbox.add(badOutputListPacket)
+  inbox.add(finalOutputListPacket3)
   const broadcastOutputPromise = session.broadcastOutput({
     protocol,
     attempts,
@@ -306,6 +325,7 @@ test('missing output', async t => {
     poolNumber,
     signingKeyPair: signing,
     last: false,
+    shufflersCount,
     precedingShufflersCount: 1,
     priorShuffler: signingPublicKey1,
     lastShuffler,

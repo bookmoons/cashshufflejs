@@ -2,7 +2,6 @@ import shuffleList from 'crypto-secure-shuffle'
 import { ValueError } from '../../error'
 import PrefixLogchan from '../../logchan/prefix'
 import { defaultAttempts, defaultTimeout } from '../default'
-import { outputListDelimiter } from '../value'
 
 /**
  * @typedef {object} OutputParams
@@ -18,6 +17,7 @@ import { outputListDelimiter } from '../value'
  * @prop {Signing} signingKeyPair - Shuffler signing key pair.
  *     Assumed ready for use.
  * @prop {boolean} last - Whether own client is last in shuffle order.
+ * @prop {number} shufflersCount - Count of shufflers.
  * @prop {number} precedingShufflersCount - Count of preceding shufflers.
  * @prop {HexString} priorShuffler - Signing public key of prior
  *     shuffler.
@@ -60,6 +60,7 @@ async function broadcastOutput ({
   poolNumber,
   signingKeyPair,
   last,
+  shufflersCount,
   precedingShufflersCount,
   priorShuffler,
   lastShuffler,
@@ -115,26 +116,30 @@ async function broadcastOutput ({
 
     /* Broadcast final output list. */
     const signingPublicKey = await signingKeyPair.exportPublicKey()
-    const ownPacket = await this.messageFinalOutput({
+    const ownSignedPackets = []
+    for (const outputAddress of shuffledOutputList) {
+      const ownPacket = await this.messageFinalOutput({
+        protocol,
+        signingPublicKey,
+        sessionId,
+        poolNumber,
+        outputAddress
+      })
+      const signature = await this.sign(
+        signingKeyPair,
+        ownPacket,
+        protocol.Packet
+      )
+      const ownSignedPacket = await this.affix(
+        ownPacket,
+        signature,
+        protocol
+      )
+      ownSignedPackets.push(ownSignedPacket)
+    }
+    const ownPackage = await this.packageSignedPackets(
       protocol,
-      signingPublicKey,
-      sessionId,
-      poolNumber,
-      outputList: shuffledOutputList
-    })
-    const signature = await this.sign(
-      signingKeyPair,
-      ownPacket,
-      protocol.Packet
-    )
-    const ownSignedPacket = await this.affix(
-      ownPacket,
-      signature,
-      protocol
-    )
-    const ownPackage = await this.packageSignedPacket(
-      protocol,
-      ownSignedPacket
+      ownSignedPackets
     )
     await outchan.send(ownPackage)
     if (log) await log.send('Broadcasted final output list')
@@ -144,21 +149,23 @@ async function broadcastOutput ({
   } else {
     // Nonlast shuffler verifies own output address in final output list
 
-    /** Gather final output list message from last shuffler. */
-    const finalOutputListPacket = await this.gatherFinalOutput({
+    /* Gather final output list messages from last shuffler. */
+    const finalOutputListPackets = await this.gatherFinalOutput({
       attempts,
       timeout,
       lastShuffler,
+      shufflersCount,
       receiver,
       discarder
     })
     if (log) await log.send('Received final output list')
 
-    /* Extract encoded output list. */
-    const encodedOutputList = finalOutputListPacket.message.str
-
-    /* Deserialize output list. */
-    const outputList = encodedOutputList.split(outputListDelimiter)
+    /* Extract output list items. */
+    const outputList = finalOutputListPackets.map(
+      function iterateFinalOutputListPackets (packet) {
+        return packet.message.str
+      }
+    )
 
     /* Verify own output address. */
     if (!outputList.includes(outputAddress)) {
