@@ -163,7 +163,7 @@
  * @memberof module:cashshuffle/protocol
  *
  * @prop {bytes} [session=] - Session number.
- * @prop {uint32} [number=]
+ * @prop {uint32} [number=] - Shuffler pool number. Count of shufflers.
  * @prop {protocol.VerificationKey} [from_key=] - Sender public key.
  * @prop {protocol.VerificationKey} [to_key=] - Recipient public key.
  * @prop {protocol.Phase} [phase=] - Protocol phase.
