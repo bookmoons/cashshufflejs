@@ -9,7 +9,7 @@ import Outchanbin from 'outchanbin/nodestream'
 import PhaseReceiver from 'receiver/phase'
 import Signing from 'signing/bitcore'
 import { Phase, terminatorByteLength, terminatorBuffer } from 'protocol'
-import toArrayBuffer from 'util/toarraybuffer'
+import hexToBytes from 'util/tobytes/hex'
 import loadProtocol from 'helper/loadprot'
 import affix from 'session/util/affix'
 import gatherSignature from 'session/gather/signature'
@@ -23,8 +23,8 @@ const attempts = 2
 const timeout = 500
 const amount = 10
 const fee = 2
-const sessionId = toArrayBuffer(Buffer.from('123'))
-const sessionIdView = new Uint8Array(sessionId)
+const sessionIdView = hexToBytes('1234')
+const sessionId = sessionIdView.buffer
 const poolNumber = 12
 const signingPrivateKey =
   'b4386d0019b43055341ca3452445cee2805d952fcea1dbb3e7556186df11b958'
@@ -58,23 +58,17 @@ const index12 = '2'
 const index2 = Long.fromString('8', true, 10)
 const index31 = Long.fromString('54', true, 10)
 const index32 = Long.fromString('55', true, 10)
-const signature11 = 'Signature 1 1'
-const signature11Buffer = Buffer.from(signature11)
-const signature11String = signature11Buffer.toString('hex')
-const signature11Binary = toArrayBuffer(signature11Buffer)
-const signature11View = new Uint8Array(signature11Binary)
-const signature12 = 'Signature 1 2'
-const signature12Buffer = Buffer.from(signature12)
-const signature12String = signature12Buffer.toString('hex')
-const signature12Binary = toArrayBuffer(signature12Buffer)
-const signature12View = new Uint8Array(signature12Binary)
-const signature2 = 'Signature 2'
-const signature31 = 'Signature 3 1'
-const signature32 = 'Signature 3 2'
+const signature11 = '1111'
+const signature11View = hexToBytes(signature11)
+const signature12 = '1212'
+const signature12View = hexToBytes(signature12)
+const signature2 = '2222'
+const signature31 = '3131'
+const signature32 = '3232'
 let protocol
 
-const inputSignature11 = [ index11, signature11String ]
-const inputSignature12 = [ index12, signature12String ]
+const inputSignature11 = [ index11, signature11 ]
+const inputSignature12 = [ index12, signature12 ]
 const inputSignatures1 = [ inputSignature11, inputSignature12 ]
 
 const inputSignature2 = {

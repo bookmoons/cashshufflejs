@@ -1,7 +1,7 @@
 import isEqual from 'arraybuffer-equal'
 import { ValueError } from '../../error'
 import PrefixLogchan from '../../logchan/prefix'
-import toArrayBuffer from 'util/toarraybuffer'
+import bufferToBytes from 'util/tobytes/buffer'
 import { defaultAttempts, defaultTimeout } from '../default'
 
 /**
@@ -102,7 +102,7 @@ async function checkEquivocation ({
     const digestValue = hashObject.hash
     // Normalize to Buffer. protobufjs can return Uint8Array Buffer Array.
     const digestBuffer = Buffer.from(digestValue)
-    const digest = toArrayBuffer(digestBuffer)
+    const digest = bufferToBytes(digestBuffer).buffer
     otherDigests.set(publicKey, digest)
   }
 

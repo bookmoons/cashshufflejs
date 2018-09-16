@@ -1,12 +1,10 @@
 import test from 'ava'
 import { MissingValueError } from 'error'
-import toArrayBuffer from 'util/toarraybuffer'
+import hexToBytes from 'util/tobytes/hex'
 import validateDigest from 'session/validate/digest'
 
 const dummyDigestString = '987234082750978abcddfebc'
-const dummyDigestBuffer = Buffer.from(dummyDigestString, 'hex')
-const dummyDigest = toArrayBuffer(dummyDigestBuffer)
-const dummyDigestView = new Uint8Array(dummyDigest)
+const dummyDigestView = hexToBytes(dummyDigestString)
 
 test('missing message', async t => {
   const packet = {}

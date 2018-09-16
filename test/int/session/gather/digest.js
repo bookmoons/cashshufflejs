@@ -1,7 +1,7 @@
 import test from 'ava'
 import { ExhaustionError, TimeoutError } from 'error'
 import PhaseReceiver from 'receiver/phase'
-import toArrayBuffer from 'util/toarraybuffer'
+import hexToBytes from 'util/tobytes/hex'
 import validateDigest from 'session/validate/digest'
 import gatherDigest from 'session/gather/digest'
 
@@ -14,19 +14,15 @@ const shuffler2 =
 const shuffler3 =
   '036da9c411c438138a73224ebe382f4bfad63d496cf611e91da375d1ebb343ad43'
 const shufflers = [ shuffler1, shuffler2, shuffler3 ]
-const digestBuffer2 = Buffer.from('123', 'hex')
-const digest2 = toArrayBuffer(digestBuffer2)
-const digestView2 = new Uint8Array(digest2)
-const digestBuffer3 = Buffer.from('456', 'hex')
-const digest3 = toArrayBuffer(digestBuffer3)
-const digestView3 = new Uint8Array(digest3)
+const digest2 = hexToBytes('1234')
+const digest3 = hexToBytes('5678')
 const validPacket2 = {
   fromKey: { key: shuffler2 },
-  message: { hash: { hash: digestView2 } }
+  message: { hash: { hash: digest2 } }
 }
 const validPacket3 = {
   fromKey: { key: shuffler3 },
-  message: { hash: { hash: digestView3 } }
+  message: { hash: { hash: digest3 } }
 }
 const invalidPacket = {}
 

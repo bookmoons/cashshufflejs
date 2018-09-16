@@ -1,20 +1,17 @@
 import test from 'ava'
-import toArrayBuffer from 'util/toarraybuffer'
+import hexToBytes from 'util/tobytes/hex'
 import { Phase } from 'protocol'
 import loadProtocol from 'helper/loadprot'
 import messageDigest from 'session/message/digest'
 
-const sessionIdString = '123'
-const sessionIdBuffer = Buffer.from(sessionIdString)
-const sessionId = toArrayBuffer(sessionIdBuffer)
-const sessionIdView = new Uint8Array(sessionId)
+const sessionIdView = hexToBytes('1234')
+const sessionId = sessionIdView.buffer
 const poolNumber = 100
 const signingPublicKey =
   '03f09e7bbaf09669b1cde3394db0b72c3408ed0826f98d7985a3cecc1486075d3b'
 const digestString = '0239480926758749870abdfefe'
-const digestBuffer = Buffer.from(digestString, 'hex')
-const digest = toArrayBuffer(digestBuffer)
-const digestView = new Uint8Array(digest)
+const digestView = hexToBytes(digestString)
+const digest = digestView.buffer
 const expectedHashObject = { hash: digestView }
 const expectedPacketObject = {
   session: sessionIdView,

@@ -7,7 +7,7 @@ import Outchanbin from 'outchanbin/nodestream'
 import PhaseReceiver from 'receiver/phase'
 import Signing from 'signing/bitcore'
 import { Phase, terminatorBuffer, terminatorByteLength } from 'protocol'
-import toArrayBuffer from 'util/toarraybuffer'
+import hexToBytes from 'util/tobytes/hex'
 import { ValueError } from 'error'
 import loadProtocol from 'helper/loadprot'
 import affix from 'session/util/affix'
@@ -22,8 +22,8 @@ import shuffle from 'session/phase/shuffle'
 
 const attempts = 2
 const timeout = 500
-const sessionId = toArrayBuffer(Buffer.from('123'))
-const sessionIdView = new Uint8Array(sessionId)
+const sessionIdView = hexToBytes('1234')
+const sessionId = sessionIdView.buffer
 const poolNumber = 4
 const signingPrivateKey1 =
   '5906456d210ba118d153fde79b74d3806710c979d41b8b38d15c2e8a84d48466'

@@ -2,7 +2,7 @@ import test from 'ava'
 import Long from 'long'
 import { ExhaustionError, TimeoutError } from 'error'
 import PhaseReceiver from 'receiver/phase'
-import toArrayBuffer from 'util/toarraybuffer'
+import hexToBytes from 'util/tobytes/hex'
 import validateSignature from 'session/validate/signature'
 import gatherSignature from 'session/gather/signature'
 
@@ -16,26 +16,20 @@ const shuffler3 =
   '036da9c411c438138a73224ebe382f4bfad63d496cf611e91da375d1ebb343ad43'
 const shufflers = [ shuffler1, shuffler2, shuffler3 ]
 const index2 = Long.fromString('1', true, 10)
-const signature2String = '1234'
-const signature2Buffer = Buffer.from(signature2String, 'hex')
-const signature2 = toArrayBuffer(signature2Buffer)
-const signature2View = new Uint8Array(signature2)
+const signature2 = hexToBytes('1234')
 const inputSignature2 = {
   index: index2,
-  signature: { signature: signature2View }
+  signature: { signature: signature2 }
 }
 const validPacket2 = {
   fromKey: { key: shuffler2 },
   message: { signatures: [ inputSignature2 ] }
 }
 const index3 = Long.fromString('2', true, 10)
-const signature3String = 'ABCD'
-const signature3Buffer = Buffer.from(signature3String, 'hex')
-const signature3 = toArrayBuffer(signature3Buffer)
-const signature3View = new Uint8Array(signature3)
+const signature3 = hexToBytes('ABCD')
 const inputSignature3 = {
   index: index3,
-  signature: { signature: signature3View }
+  signature: { signature: signature3 }
 }
 const validPacket3 = {
   fromKey: { key: shuffler3 },

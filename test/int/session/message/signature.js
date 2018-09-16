@@ -1,14 +1,12 @@
 import test from 'ava'
 import Long from 'long'
-import toArrayBuffer from 'util/toarraybuffer'
+import hexToBytes from 'util/tobytes/hex'
 import { Phase } from 'protocol'
 import loadProtocol from 'helper/loadprot'
 import messageSignature from 'session/message/signature'
 
-const sessionIdString = '123'
-const sessionIdBuffer = Buffer.from(sessionIdString)
-const sessionId = toArrayBuffer(sessionIdBuffer)
-const sessionIdView = new Uint8Array(sessionId)
+const sessionIdView = hexToBytes('1234')
+const sessionId = sessionIdView.buffer
 const poolNumber = 4
 const signingPublicKey =
   '03f09e7bbaf09669b1cde3394db0b72c3408ed0826f98d7985a3cecc1486075d3b'
@@ -18,24 +16,21 @@ const index2 = '1'
 const index2Encoded = Long.fromString(index2, true, 10)
 const index3 = '2'
 const index3Encoded = Long.fromString(index3, true, 10)
-const signature1Buffer = Buffer.from('5678', 'hex')
-const signature1 = toArrayBuffer(signature1Buffer)
-const signature1View = new Uint8Array(signature1)
-const signature2Buffer = Buffer.from('1234', 'hex')
-const signature2 = toArrayBuffer(signature2Buffer)
-const signature2View = new Uint8Array(signature2)
-const signature3Buffer = Buffer.from('94ab', 'hex')
-const signature3 = toArrayBuffer(signature3Buffer)
-const signature3View = new Uint8Array(signature3)
+const signature1String = '5676'
+const signature1 = hexToBytes(signature1String)
+const signature2String = '1234'
+const signature2 = hexToBytes(signature2String)
+const signature3String = '94ab'
+const signature3 = hexToBytes(signature3String)
 const signatures = new Map([
-  [ index1, signature1 ],
-  [ index2, signature2 ],
-  [ index3, signature3 ]
+  [ index1, signature1String ],
+  [ index2, signature2String ],
+  [ index3, signature3String ]
 ])
 const expectedSignaturesObject = [
-  { index: index1Encoded, signature: { signature: signature1View } },
-  { index: index2Encoded, signature: { signature: signature2View } },
-  { index: index3Encoded, signature: { signature: signature3View } }
+  { index: index1Encoded, signature: { signature: signature1 } },
+  { index: index2Encoded, signature: { signature: signature2 } },
+  { index: index3Encoded, signature: { signature: signature3 } }
 ]
 const expectedPacketObject = {
   session: sessionIdView,

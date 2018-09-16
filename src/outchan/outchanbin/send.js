@@ -1,4 +1,4 @@
-import toArrayBuffer from '../../util/toarraybuffer'
+import bufferToBytes from '../../util/tobytes/buffer'
 import { BusyError } from '../../error'
 import privs from './privs'
 
@@ -9,7 +9,7 @@ async function send (message) {
   const messageBinaryView = priv.protocol.Packets.encode(message).finish()
   // Normalize to buffer. protobufjs can return Uint8Array or Buffer.
   const messageBuffer = Buffer.from(messageBinaryView)
-  const messageBinary = toArrayBuffer(messageBuffer)
+  const messageBinary = bufferToBytes(messageBuffer).buffer
   await priv.outchanbin.send(messageBinary)
   priv.sending = false
 }

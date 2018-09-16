@@ -11,7 +11,7 @@ import PacketifyReceiver from 'receiver/packetify'
 import SessionReceiver from 'receiver/session'
 import Signing from 'signing/bitcore'
 import { Phase } from 'protocol'
-import toArrayBuffer from 'util/toarraybuffer'
+import hexToBytes from 'util/tobytes/hex'
 import SessionServerSimulator from 'sim/server/session'
 import loadProtocol from 'helper/loadprot'
 import Session from 'session'
@@ -20,7 +20,7 @@ const attempts = 2
 const timeout = 2000
 const amount = 5
 const fee = 1
-const sessionId = toArrayBuffer(Buffer.from('123'))
+const sessionId = hexToBytes('1234').buffer
 const poolNumber1 = 3
 const poolNumber2 = 7
 const poolNumber3 = 9

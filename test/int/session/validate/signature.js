@@ -1,7 +1,7 @@
 import test from 'ava'
 import Long from 'long'
 import { MissingValueError } from 'error'
-import toArrayBuffer from 'util/toarraybuffer'
+import hexToBytes from 'util/tobytes/hex'
 import validateSignature from 'session/validate/signature'
 
 test('missing message', async t => {
@@ -44,9 +44,7 @@ test('missing signature [0]', async t => {
 
 test('missing signature [1]', async t => {
   const index1 = Long.fromString('1', true, 10)
-  const signature1Buffer = Buffer.from('1234', 'hex')
-  const signature1Binary = toArrayBuffer(signature1Buffer)
-  const signature1 = new Uint8Array(signature1Binary)
+  const signature1 = hexToBytes('1234')
   const signatureObject1 = { signature: signature1 }
   const inputSignature1 = { index: index1, signature: signatureObject1 }
   const index2 = Long.fromString('2', true, 10)
@@ -66,15 +64,11 @@ test('missing signature [1]', async t => {
 
 test('valid', async t => {
   const index1 = Long.fromString('1', true, 10)
-  const signature1Buffer = Buffer.from('1234', 'hex')
-  const signature1Binary = toArrayBuffer(signature1Buffer)
-  const signature1 = new Uint8Array(signature1Binary)
+  const signature1 = hexToBytes('1234')
   const signatureObject1 = { signature: signature1 }
   const inputSignature1 = { index: index1, signature: signatureObject1 }
   const index2 = Long.fromString('2', true, 10)
-  const signature2Buffer = Buffer.from('5678', 'hex')
-  const signature2Binary = toArrayBuffer(signature2Buffer)
-  const signature2 = new Uint8Array(signature2Binary)
+  const signature2 = hexToBytes('5678')
   const signatureObject2 = { signature: signature2 }
   const inputSignature2 = { index: index2, signature: signatureObject2 }
   const inputSignatures = [ inputSignature1, inputSignature2 ]

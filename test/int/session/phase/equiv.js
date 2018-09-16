@@ -8,7 +8,7 @@ import Outchanbin from 'outchanbin/nodestream'
 import PhaseReceiver from 'receiver/phase'
 import Signing from 'signing/bitcore'
 import { Phase, terminatorBuffer, terminatorByteLength } from 'protocol'
-import toArrayBuffer from 'util/toarraybuffer'
+import hexToBytes from 'util/tobytes/hex'
 import loadProtocol from 'helper/loadprot'
 import affix from 'session/util/affix'
 import gatherDigest from 'session/gather/digest'
@@ -21,8 +21,8 @@ import checkEquivocation from 'session/phase/equiv'
 
 const attempts = 2
 const timeout = 500
-const sessionId = toArrayBuffer(Buffer.from('123'))
-const sessionIdView = new Uint8Array(sessionId)
+const sessionIdView = hexToBytes('1234')
+const sessionId = sessionIdView.buffer
 const poolNumber1 = 1
 const poolNumber2 = 2
 const poolNumber3 = 3
@@ -54,13 +54,9 @@ const output2 = 'bitcoincash:qqvm3zp009x5pvaclc7tf3r7h5v2k2le0qxazfnv6w'
 const output3 = 'bitcoincash:qqqcrwfqh9jqpq8juwptrw384ltt2qyrcujwunn3v2'
 const outputList = [ output1, output2, output3 ]
 const hashString = '41765618ffef0694181d0a41ff122ae0078a7a905bad0196864649c4'
-const hashBuffer = Buffer.from(hashString, 'hex')
-const hash = toArrayBuffer(hashBuffer)
-const hashView = new Uint8Array(hash)
+const hash = hexToBytes(hashString)
 const badHashString = '5678'
-const badHashBuffer = Buffer.from(badHashString, 'hex')
-const badHash = toArrayBuffer(badHashBuffer)
-const badHashView = new Uint8Array(badHash)
+const badHash = hexToBytes(badHashString)
 let protocol
 
 const expectedPacket1 = {
@@ -68,7 +64,7 @@ const expectedPacket1 = {
   number: poolNumber1,
   fromKey: { key: signingPublicKey1 },
   phase: Phase.EquivocationCheck.value,
-  message: { hash: { hash: hashView } }
+  message: { hash: { hash } }
 }
 const expectedSigned1 = { packet: expectedPacket1 }
 const expectedPackets1 = { packet: [ expectedSigned1 ] }
@@ -78,21 +74,21 @@ const testPacket2 = {
   number: poolNumber2,
   fromKey: { key: signingPublicKey2 },
   phase: Phase.EquivocationCheck.value,
-  message: { hash: { hash: hashView } }
+  message: { hash: { hash } }
 }
 const testPacket3 = {
   session: sessionIdView,
   number: poolNumber3,
   fromKey: { key: signingPublicKey3 },
   phase: Phase.EquivocationCheck.value,
-  message: { hash: { hash: hashView } }
+  message: { hash: { hash } }
 }
 const equivocatedPacket3 = {
   session: sessionIdView,
   number: poolNumber3,
   fromKey: { key: signingPublicKey3 },
   phase: Phase.EquivocationCheck.value,
-  message: { hash: { hash: badHashView } }
+  message: { hash: { hash: badHash } }
 }
 
 function produceSession () {

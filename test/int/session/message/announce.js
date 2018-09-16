@@ -1,13 +1,11 @@
 import test from 'ava'
-import toArrayBuffer from 'util/toarraybuffer'
+import hexToBytes from 'util/tobytes/hex'
 import { Phase } from 'protocol'
 import loadProtocol from 'helper/loadprot'
 import messageAnnounce from 'session/message/announce'
 
-const sessionIdString = '123'
-const sessionIdBuffer = Buffer.from(sessionIdString)
-const sessionId = toArrayBuffer(sessionIdBuffer)
-const sessionIdView = new Uint8Array(sessionId)
+const sessionIdView = hexToBytes('1234')
+const sessionId = sessionIdView.buffer
 const poolNumber = 3
 const signingPublicKey =
   '02fb043436476ebd0391350016a6003f9e02f97e96a9ece386aac2d2060158b377'

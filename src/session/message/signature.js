@@ -1,6 +1,6 @@
 import Long from 'long'
 import { Phase } from '../../protocol'
-import toArrayBuffer from '../../util/toarraybuffer'
+import hexToBytes from '../../util/tobytes/hex'
 
 /**
  * @typedef {object} MessageSignatureParams
@@ -36,12 +36,10 @@ function messageSignature ({
   const inputSignatureObjects = []
   for (const [ inputIndexString, signature ] of signatures) {
     const inputIndex = Long.fromString(inputIndexString, true, 10)
-    const signatureBuffer = Buffer.from(signature, 'hex')
-    const signatureBinary = toArrayBuffer(signatureBuffer)
-    const signatureView = new Uint8Array(signatureBinary)
+    const signatureBytes = hexToBytes(signature)
     const inputSignatureObject = {
       index: inputIndex,
-      signature: { signature: signatureView }
+      signature: { signature: signatureBytes }
     }
     inputSignatureObjects.push(inputSignatureObject)
   }
