@@ -28,7 +28,7 @@ async function connect (signingPublicKey) {
   const socket = new SocketSimulator()
   const localEnd = socket.first
   const remoteEnd = socket.second
-  const buffer = Buffer.from([])
+  const buffer = Buffer.alloc(0)
   const queue = new CustomQueue(drawData)
   const connection = {
     socket,
