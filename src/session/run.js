@@ -34,6 +34,8 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from './default'
  * @prop {Receiver} [discarder=] - Receiver to discard messages to.
  * @prop {Logchan} [log=] - Logging channel.
  * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
+ * @prop {Address} [outputAddress=] - Own output address.
+ *     Defaults to a newly generated key pair.
  */
 
 /**
@@ -73,7 +75,8 @@ async function run ({
   receiver,
   discarder = null,
   log = null,
-  network = defaultNetwork
+  network = defaultNetwork,
+  outputAddress = null
 }) {
   // Order shufflers
   const shufflersOrdered = await this.orderShufflers(shufflers)
@@ -198,7 +201,7 @@ async function run ({
   /* Phase 3: Broadcast Output. */
   const outputPhaseIdentifier = Phase.Broadcast.value
   const outputReceiver = phaseReceivers.get(outputPhaseIdentifier)
-  const outputAddress = await outputKeyPair.address()
+  if (!outputAddress) outputAddress = await outputKeyPair.address()
   const outputPromise = this.broadcastOutput({
     protocol,
     attempts,

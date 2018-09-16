@@ -32,13 +32,16 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  * @prop {Logchan} [log=] - Logging channel.
  * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network
  *     to generate output key pair for.
+ * @prop {Address} [outputAddress=] - Own output address.
+ *     Defaults to a newly generated key pair.
  */
 
 /**
  * @typedef {object} ShuffleReturn
  * @memberof module:cashshuffle/session.Session
  *
- * @prop {Signing} outputKeyPair - Own output key pair.
+ * @prop {(Signing|null)} outputKeyPair - Own output key pair.
+ *     `null` if using externally provided output address.
  */
 
 /**
@@ -71,7 +74,8 @@ async function shuffle ({
   receiver,
   discarder = null,
   log = null,
-  network = defaultNetwork
+  network = defaultNetwork,
+  outputAddress = null
 }) {
   /* Prefix log messages. */
   log = log ? new PrefixLogchan('P2: ', log) : null
@@ -80,10 +84,14 @@ async function shuffle ({
   const reversedEncryptionPublicKeys = [ ...encryptionPublicKeys ].reverse()
 
   /* Generate output key pair. */
-  const outputKeyPair = new Signing()
-  await outputKeyPair.generateKeyPair(network)
-  const outputAddress = await outputKeyPair.address()
-  if (log) await log.send('Generated output address')
+  const outputKeyPair = await (async function generateOutputKeyPair () {
+    if (outputAddress) return null
+    const outputKeyPair = new Signing()
+    await outputKeyPair.generateKeyPair(network)
+    outputAddress = await outputKeyPair.address()
+    if (log) await log.send('Generated output address')
+    return outputKeyPair
+  })()
 
   if (last) {
     // Last shuffler does nothing. Handles output list in next phase.
