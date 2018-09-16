@@ -3,7 +3,8 @@ import { FormatError } from 'error'
 import validateBase64 from 'util/validate/base64'
 
 const testEmpty = ''
-const testValid = 'AQID'
+const testValidUnpadded = 'AQID'
+const testValidPadded = 'AQIDBA=='
 const testInvalidAscii = 'aaa}'
 const testInvalidUnicode = 'aaaä'
 
@@ -13,9 +14,15 @@ test('empty', t => {
   })
 })
 
-test('valid', t => {
+test('valid unpadded', t => {
   t.notThrows(() => {
-    validateBase64(testValid)
+    validateBase64(testValidUnpadded)
+  })
+})
+
+test('valid padded', t => {
+  t.notThrows(() => {
+    validateBase64(testValidPadded)
   })
 })
 
