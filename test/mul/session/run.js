@@ -1,6 +1,5 @@
 import test from 'ava'
 import sinon from 'sinon'
-import { PassThrough, Transform } from 'stream'
 import AuthenticateReceiver from 'receiver/authenticate'
 import Drawer from 'drawer/standard'
 import Inchan from 'inchan/inchanbin'
@@ -11,8 +10,9 @@ import Outchanbin from 'outchanbin/nodestream'
 import PacketifyReceiver from 'receiver/packetify'
 import SessionReceiver from 'receiver/session'
 import Signing from 'signing/bitcore'
-import { Phase, terminatorBuffer, terminatorByteLength } from 'protocol'
+import { Phase } from 'protocol'
 import toArrayBuffer from 'util/toarraybuffer'
+import SessionServerSimulator from 'sim/server/session'
 import loadProtocol from 'helper/loadprot'
 import Session from 'session'
 
@@ -76,67 +76,6 @@ const inputSignatures3 = new Map([
 ])
 let protocol
 
-class ServerDecoder extends Transform {
-  constructor (protocol) {
-    super({
-      readableObjectMode: true
-    })
-    this.protocol = protocol
-    this.buffer = Buffer.from([])
-  }
-
-  _transform (chunk, encoding, callback) {
-    this.buffer = Buffer.concat([ this.buffer, chunk ])
-    const index = this.buffer.indexOf(terminatorBuffer)
-    if (index !== -1) {
-      const finalIndex = index + terminatorByteLength - 1
-      const frameLength = finalIndex + 1
-      const frameBuffer = this.buffer.slice(0, frameLength)
-      const nextIndex = finalIndex + 1
-      this.buffer =
-        this.buffer.length >= nextIndex
-          ? this.buffer.slice(nextIndex)
-          : Buffer.from([])
-      const messageLength = frameLength - terminatorByteLength
-      const messageBuffer = frameBuffer.slice(0, messageLength)
-      const packets = this.protocol.Packets.decode(messageBuffer)
-      this.push(packets)
-    }
-    callback()
-  }
-}
-
-class ServerExtractor extends Transform {
-  constructor () {
-    super({
-      objectMode: true
-    })
-  }
-
-  _transform (packets, encoding, callback) {
-    const signed = packets.packet[0]
-    this.push(signed)
-    callback()
-  }
-}
-
-class ServerEncoder extends Transform {
-  constructor (protocol) {
-    super({
-      writableObjectMode: true
-    })
-    this.protocol = protocol
-  }
-
-  _transform (signed, encoding, callback) {
-    const signedEncoded = this.protocol.Signed.encode(signed).finish()
-    const signedBuffer = Buffer.from(signedEncoded)
-    const signedFrame = Buffer.concat([ signedBuffer, terminatorBuffer ])
-    this.push(signedFrame)
-    callback()
-  }
-}
-
 class MockTransaction {}
 
 test.before(async t => {
@@ -144,10 +83,8 @@ test.before(async t => {
 })
 
 test('success', async t => {
-  // Mock server
-  const serverExtractor = new ServerExtractor()
-  const serverEncoder = new ServerEncoder(protocol)
-  serverExtractor.pipe(serverEncoder)
+  // Server
+  const server = new SessionServerSimulator(protocol)
 
   // Coin
   const transaction = new MockTransaction()
@@ -172,18 +109,13 @@ test('success', async t => {
   Object.assign(coin3, coin)
 
   // Shuffler 1
-  const serverDecoder1 = new ServerDecoder(protocol)
-  serverDecoder1.pipe(serverExtractor)
-  const outputStream1 = new PassThrough()
-  outputStream1.pipe(serverDecoder1)
-  const outchanbin1 = new Outchanbin(outputStream1)
+  const socket1 = await server.connect(shuffler1)
+  const outchanbin1 = new Outchanbin(socket1)
   const outchan1 = new Outchan(outchanbin1, protocol)
   const session1 = new Session()
   const signing1 = new Signing()
   await signing1.restoreKeyPair(signingPrivateKey1)
-  const inputStream1 = new PassThrough()
-  serverEncoder.pipe(inputStream1)
-  const inchanbin1 = new Inchanbin(inputStream1)
+  const inchanbin1 = new Inchanbin(socket1)
   const inchan1 = new Inchan(inchanbin1, protocol)
   const sessionReceiver1 = new SessionReceiver(shufflers, phases)
   const objectifyReceiver1 = new ObjectifyReceiver(
@@ -217,18 +149,13 @@ test('success', async t => {
   })
 
   // Shuffler 2
-  const serverDecoder2 = new ServerDecoder(protocol)
-  serverDecoder2.pipe(serverExtractor)
-  const outputStream2 = new PassThrough()
-  outputStream2.pipe(serverDecoder2)
-  const outchanbin2 = new Outchanbin(outputStream2)
+  const socket2 = await server.connect(shuffler2)
+  const outchanbin2 = new Outchanbin(socket2)
   const outchan2 = new Outchan(outchanbin2, protocol)
   const session2 = new Session()
   const signing2 = new Signing()
   await signing2.restoreKeyPair(signingPrivateKey2)
-  const inputStream2 = new PassThrough()
-  serverEncoder.pipe(inputStream2)
-  const inchanbin2 = new Inchanbin(inputStream2)
+  const inchanbin2 = new Inchanbin(socket2)
   const inchan2 = new Inchan(inchanbin2, protocol)
   const sessionReceiver2 = new SessionReceiver(shufflers, phases)
   const objectifyReceiver2 = new ObjectifyReceiver(
@@ -262,18 +189,13 @@ test('success', async t => {
   })
 
   // Shuffler 3
-  const serverDecoder3 = new ServerDecoder(protocol)
-  serverDecoder3.pipe(serverExtractor)
-  const outputStream3 = new PassThrough()
-  outputStream3.pipe(serverDecoder3)
-  const outchanbin3 = new Outchanbin(outputStream3)
+  const socket3 = await server.connect(shuffler3)
+  const outchanbin3 = new Outchanbin(socket3)
   const outchan3 = new Outchan(outchanbin3, protocol)
   const session3 = new Session()
   const signing3 = new Signing()
   await signing3.restoreKeyPair(signingPrivateKey3)
-  const inputStream3 = new PassThrough()
-  serverEncoder.pipe(inputStream3)
-  const inchanbin3 = new Inchanbin(inputStream3)
+  const inchanbin3 = new Inchanbin(socket3)
   const inchan3 = new Inchan(inchanbin3, protocol)
   const sessionReceiver3 = new SessionReceiver(shufflers, phases)
   const objectifyReceiver3 = new ObjectifyReceiver(
