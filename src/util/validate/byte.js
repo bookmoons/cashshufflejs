@@ -14,7 +14,7 @@ import { ValueError } from '../../error'
  * @param {number} number - Number to validate.
  *
  * @throws {ValueError} If `number` is not a valid `Byte`.
- *     Message `'invalid byte: *'`.
+ *     Message starts `'invalid byte'`.
  */
 function validateByte (number) {
   const type = typeof number
