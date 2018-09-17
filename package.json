@@ -59,5 +59,10 @@
         "test-unit": "cross-env NODE_PATH=src:test ava test/unit",
         "test": "npm-run-all test-unit test-com test-int test-mul",
         "test-hoc": "cross-env NODE_PATH=src:test ava"
+    },
+    "standard": {
+        "ignore": [
+            "test/helper/loadmod.js"
+        ]
     }
 }
