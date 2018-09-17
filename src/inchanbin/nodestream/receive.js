@@ -1,5 +1,5 @@
 import { readTo } from 'promised-read'
-import bufferToBytes from '../../util/tobytes/buffer'
+import nodeBufferToBytes from '../../util/tobytes/nodebuffer'
 import { terminatorByteLength, terminatorBuffer } from '../../protocol'
 import { BusyError } from '../../error'
 import privs from './privs'
@@ -11,7 +11,7 @@ async function receive () {
   const frameBuffer = await readTo(priv.stream, terminatorBuffer)
   const messageLength = frameBuffer.length - terminatorByteLength
   const messageBuffer = frameBuffer.slice(0, messageLength)
-  const messageBinary = bufferToBytes(messageBuffer).buffer
+  const messageBinary = nodeBufferToBytes(messageBuffer).buffer
   priv.receiving = false
   return messageBinary
 }
