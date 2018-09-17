@@ -2,7 +2,6 @@ import test from 'ava'
 import { MissingValueError } from 'error'
 import validateFinalOutput from 'session/validate/finalout'
 
-const dummyMessage = { str: 'Dummy str' }
 const dummyToKey = { key: 'Dummy key' }
 const outputAddress = 'bitcoincash:qrqpqsvcy94qfm3a8px0sxr5lmm825u3wv3l8fd6xf'
 
