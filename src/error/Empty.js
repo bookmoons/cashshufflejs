@@ -15,9 +15,9 @@ class EmptyError extends CashShuffleError {
    * @constant {string}
    * @default 'EmptyError'
    */
-   get name () {
-     return 'EmptyError'
-   }
+  get name () {
+    return 'EmptyError'
+  }
 }
 
 export default EmptyError
