@@ -50,6 +50,7 @@
     },
     "scripts": {
         "lint-js": "standard",
+        "lint": "npm-run-all lint-js",
         "demo:session": "cross-env NODE_PATH=src:test ava demo/session.js",
         "doc": "jsdoc -c .jsdoc.json --pedantic",
         "test-com": "cross-env NODE_PATH=src:test ava test/com",
