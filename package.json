@@ -29,7 +29,7 @@
         "long": "^4.0.0",
         "promised-read": "^2.0.1",
         "protobufjs": "~6.8.8",
-        "verror": "1"
+        "verror": "^1.10.0"
     },
     "devDependencies": {
         "@babel/core": "^7.0.0",
