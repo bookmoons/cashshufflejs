@@ -37,6 +37,7 @@
         "@babel/register": "^7.0.0",
         "array-buffer-to-hex": "1",
         "ava": "1.0.0-beta.8",
+        "babel-plugin-dynamic-import-node": "^2.1.0",
         "console-mock": "^1.0.24",
         "cross-env": "^5.2.0",
         "jsdoc": "^3.5.5",
