@@ -20,4 +20,5 @@
    module
    type
    error
+   utility
    simulator
