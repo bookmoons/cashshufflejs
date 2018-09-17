@@ -18,6 +18,11 @@ Byte
 
 .. autofunction:: Byte
 
+ByteString
+----------
+
+.. autofunction:: ByteString
+
 CashAddress
 -----------
 

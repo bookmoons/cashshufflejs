@@ -33,6 +33,18 @@
  */
 
 /**
+ * String of byte values.
+ *
+ * A string value containing only the Unicode code points 0-255 inclusive.
+ * Used by the [`utf8`][1] library.
+ *
+ * [1]: https://www.npmjs.com/package/utf8
+ *
+ * @typedef {string} ByteString
+ * @memberof module:cashshuffle
+ */
+
+/**
  * Bitcoin Cash address in [CashAddr][1] format in a string.
  *
  * [1]: https://cashaddr.org/
