@@ -1,15 +1,14 @@
 /**
- * Convert `Array` to `Uint8Array`.
+ * Convert `Array` of `Byte` to `Uint8Array`.
  * @module cashshuffle/util/tobytes/array
  */
 
 import validateByte from '../validate/byte'
 
 /**
- * Convert `Array` to `Uint8Array`.
+ * Convert `Array` of `Byte` to `Uint8Array`.
  *
- * @param {Array} array - `Array` to convert. Must contain number literals
- *     in range 0-255 inclusive.
+ * @param {Array<Byte>} array - `Array` to convert.
  *
  * @return {Uint8Array} New `Uint8Array` containing bytes in `array`.
  */
