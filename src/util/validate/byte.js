@@ -1,8 +1,3 @@
-/**
- * Validate `Byte`.
- * @module cashshuffle/util/validate/byte
- */
-
 import { ValueError } from '../../error'
 
 /**
@@ -10,6 +5,8 @@ import { ValueError } from '../../error'
  *
  * Throws error if validation fails.
  * Returns without error if validation succeeds.
+ *
+ * @memberof module:cashshuffle/util
  *
  * @param {number} number - Number to validate.
  *

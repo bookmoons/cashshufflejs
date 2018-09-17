@@ -1,10 +1,7 @@
 /**
  * Convert `Uint8Array` to `Array` of `Byte`.
- * @module cashshuffle/util/toarray/bytes
- */
-
-/**
- * Convert `Uint8Array` to `Array` of `Byte`.
+ *
+ * @memberof module:cashshuffle/util
  *
  * @param {Uint8Array} bytes - Bytes to convert.
  *

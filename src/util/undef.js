@@ -6,8 +6,8 @@
  * since `global.undefined` can be redefined.
  *
  * @constant {undefined}
+ * @memberof module:cashshuffle/util
  * @default undefined
- * @module cashshuffle/util/undef
  */
 const undef = void 0
 

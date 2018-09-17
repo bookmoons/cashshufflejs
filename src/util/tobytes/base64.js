@@ -1,8 +1,3 @@
-/**
- * Convert Base64 string to `Uint8Array`.
- * @module cashshuffle/util/tobytes/base64
- */
-
 import { toByteArray } from 'base64-js'
 import { FormatError } from '../../error'
 import arrayToBytes from './array'
@@ -12,6 +7,8 @@ const invalidLengthMessage = 'Invalid string. Length must be a multiple of 4'
 
 /**
  * Convert Base64 string to `Uint8Array`.
+ *
+ * @memberof module:cashshuffle/util
  *
  * @param {Base64} base64 - Base64 string to convert.
  *

@@ -1,10 +1,7 @@
 /**
  * Convert `Uint8Array` to `HexString`.
- * @module cashshuffle/util/tohex/bytes
- */
-
-/**
- * Convert `Uint8Array` to `HexString`.
+ *
+ * @memberof module:cashshuffle/util
  *
  * @param {Uint8Array} bytes - Bytes to convert.
  *

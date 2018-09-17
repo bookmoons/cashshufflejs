@@ -1,10 +1,7 @@
 /**
  * Convert `Uint8Array` to `Buffer`.
- * @module cashshuffle/util/tonodebuffer/bytes
- */
-
-/**
- * Convert `Uint8Array` to `Buffer`.
+ *
+ * @memberof module:cashshuffle/util
  *
  * @param {Uint8Array} bytes - Bytes to convert.
  *

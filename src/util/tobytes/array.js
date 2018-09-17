@@ -1,12 +1,9 @@
-/**
- * Convert `Array` of `Byte` to `Uint8Array`.
- * @module cashshuffle/util/tobytes/array
- */
-
 import validateByte from '../validate/byte'
 
 /**
  * Convert `Array` of `Byte` to `Uint8Array`.
+ *
+ * @memberof module:cashshuffle/util
  *
  * @param {Array<Byte>} array - `Array` to convert.
  *

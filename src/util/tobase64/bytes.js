@@ -1,13 +1,10 @@
-/**
- * Convert `Uint8Array` to Base64 string.
- * @module cashshuffle/util/tobase64/bytes
- */
-
 import { fromByteArray } from 'base64-js'
 import bytesToArray from '../toarray/bytes'
 
 /**
  * Convert `Uint8Array` to Base64 string.
+ *
+ * @memberof module:cashshuffle/util
  *
  * @param {Uint8Array} bytes - Bytes to convert.
  *

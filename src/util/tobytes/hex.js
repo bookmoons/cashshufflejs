@@ -1,12 +1,9 @@
-/**
- * Convert `HexString` to `Uint8Array`.
- * @module cashshuffle/util/tobytes/hex
- */
-
 import { FormatError } from '../../error'
 
 /**
  * Convert `HexString` to `Uint8Array`.
+ *
+ * @memberof module:cashshuffle/util
  *
  * @param {HexString} hex - `HexString` to convert.
  *
