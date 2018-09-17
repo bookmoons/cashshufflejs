@@ -9,8 +9,10 @@ test('empty', t => {
 })
 
 test('nonempty', t => {
-  const testNodeBuffer = Buffer.from([ 0x01, 0x02, 0x03 ])
-  const expectedBytes = Uint8Array.from([ 0x01, 0x02, 0x03 ])
+  const testNodeBuffer = Buffer.alloc(256)
+  for (let i = 0; i <= 255; i++) testNodeBuffer[i] = i
+  const expectedBytes = new Uint8Array(256)
+  for (let i = 0; i <= 255; i++) expectedBytes[i] = i
   const bytes = nodeBufferToBytes(testNodeBuffer)
   t.deepEqual(bytes, expectedBytes)
 })
