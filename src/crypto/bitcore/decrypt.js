@@ -6,8 +6,8 @@ async function decrypt (cryptogram) {
   const priv = privs.get(this)
   if (!priv.keyPair) throw new MissingValueError('no key pair')
   const decryptor = new ECIES()
-  const cryptogramBuffer = Buffer.from(cryptogram, 'base64')
   decryptor.privateKey(priv.keyPair.privateKey)
+  const cryptogramBuffer = Buffer.from(cryptogram, 'base64')
   const messageBuffer = decryptor.decrypt(cryptogramBuffer)
   const messageString = messageBuffer.toString('utf8')
   return messageString
