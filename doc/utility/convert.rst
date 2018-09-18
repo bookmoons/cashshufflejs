@@ -53,6 +53,11 @@ bytesToNodeBuffer
 
 .. autofunction:: bytesToNodeBuffer
 
+hexToBytes
+----------
+
+.. autofunction:: hexToBytes
+
 stringToUtf8
 ------------
 

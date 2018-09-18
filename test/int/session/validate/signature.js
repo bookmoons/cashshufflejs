@@ -1,7 +1,7 @@
 import test from 'ava'
 import Long from 'long'
 import { MissingValueError } from 'error'
-import hexToBytes from 'aid/tobytes/hex'
+import { hexToBytes } from 'aid/convert'
 import validateSignature from 'session/validate/signature'
 
 test('missing message', async t => {

@@ -1,6 +1,6 @@
 import test from 'ava'
-import hexToBytes from 'aid/tobytes/hex'
 import { Phase } from 'protocol'
+import { hexToBytes } from 'aid/convert'
 import loadProtocol from 'helper/loadprot'
 import messageDigest from 'session/message/digest'
 

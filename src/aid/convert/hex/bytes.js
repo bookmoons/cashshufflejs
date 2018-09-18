@@ -1,9 +1,9 @@
-import { FormatError } from '../../error'
+import { FormatError } from '../../../error'
 
 /**
  * Convert `HexString` to `Uint8Array`.
  *
- * @memberof module:cashshuffle/aid
+ * @memberof module:cashshuffle/aid/convert
  *
  * @param {HexString} hex - `HexString` to convert.
  *

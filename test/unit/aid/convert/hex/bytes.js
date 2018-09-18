@@ -1,6 +1,6 @@
 import test from 'ava'
 import { FormatError } from 'error'
-import hexToBytes from 'aid/tobytes/hex'
+import hexToBytes from 'aid/convert/hex/bytes'
 
 const testHexEmpty = ''
 const expectedBytesEmpty = new Uint8Array(0)

@@ -1,6 +1,6 @@
 import test from 'ava'
 import { MissingValueError } from 'error'
-import hexToBytes from 'aid/tobytes/hex'
+import { hexToBytes } from 'aid/convert'
 import validateDigest from 'session/validate/digest'
 
 const dummyDigestString = '987234082750978abcddfebc'

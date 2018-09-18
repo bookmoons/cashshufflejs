@@ -1,6 +1,6 @@
 import Long from 'long'
 import { Phase } from '../../protocol'
-import hexToBytes from '../../aid/tobytes/hex'
+import { hexToBytes } from '../../aid/convert'
 
 /**
  * @typedef {object} MessageSignatureParams

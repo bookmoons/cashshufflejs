@@ -3,11 +3,6 @@ Aid
 
 Utility procedures.
 
-hexToBytes
-----------
-
-.. autofunction:: hexToBytes
-
 nodeBufferToBytes
 -----------------
 
