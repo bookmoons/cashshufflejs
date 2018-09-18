@@ -1,5 +1,11 @@
 import { MissingValueError } from '../../error'
 import ECIES from '@bookmoons/bitcore-ecies-cash'
+import {
+  base64ToBytes,
+  bytesToNodeBuffer,
+  nodeBufferToBytes,
+  utf8ToString
+} from '../../util'
 import privs from './privs'
 
 async function decrypt (cryptogram) {
@@ -7,9 +13,11 @@ async function decrypt (cryptogram) {
   if (!priv.keyPair) throw new MissingValueError('no key pair')
   const decryptor = new ECIES()
   decryptor.privateKey(priv.keyPair.privateKey)
-  const cryptogramBuffer = Buffer.from(cryptogram, 'base64')
-  const messageBuffer = decryptor.decrypt(cryptogramBuffer)
-  const messageString = messageBuffer.toString('utf8')
+  const cryptogramBytes = base64ToBytes(cryptogram)
+  const cryptogramNodeBuffer = bytesToNodeBuffer(cryptogramBytes)
+  const messageNodeBuffer = decryptor.decrypt(cryptogramNodeBuffer)
+  const messageBytes = nodeBufferToBytes(messageNodeBuffer)
+  const messageString = utf8ToString(messageBytes)
   return messageString
 }
 
