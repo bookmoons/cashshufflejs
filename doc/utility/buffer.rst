@@ -1,5 +1,5 @@
 Buffer
-------
+======
 
 ``ArrayBuffer`` utility procedures.
 

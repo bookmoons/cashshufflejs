@@ -1,5 +1,5 @@
 Bytes
------
+=====
 
 ``Uint8Array`` utility procedures.
 
