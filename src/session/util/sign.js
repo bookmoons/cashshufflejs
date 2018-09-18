@@ -1,4 +1,4 @@
-import { bytesToHex } from '../../aid'
+import { bytesToHex } from '../../aid/convert'
 import { normalizeProtobufBytes } from '../../aid/normalize'
 
 /**

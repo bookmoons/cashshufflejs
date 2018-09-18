@@ -22,3 +22,8 @@ bytesToByteString
 -----------------
 
 .. autofunction:: bytesToByteString
+
+bytesToHex
+----------
+
+.. autofunction:: bytesToHex

@@ -1,5 +1,5 @@
 import test from 'ava'
-import bytesToHex from 'aid/tohex/bytes'
+import bytesToHex from 'aid/convert/bytes/hex'
 
 const testBytesEmpty = new Uint8Array(0)
 const expectedHexEmpty = ''
