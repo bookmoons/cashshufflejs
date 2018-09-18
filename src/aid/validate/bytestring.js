@@ -6,7 +6,7 @@ import { FormatError, ValueError } from '../../error'
  * Throws error if validation fails.
  * Returns without error if validation succeeds.
  *
- * @memberof module:cashshuffle/aid
+ * @memberof module:cashshuffle/aid/validate
  *
  * @param {string} string - String to validate.
  *

@@ -77,8 +77,3 @@ utf8ToString
 ------------
 
 .. autofunction:: utf8ToString
-
-validateByteString
-------------------
-
-.. autofunction:: validateByteString

@@ -12,3 +12,8 @@ validateByte
 ------------
 
 .. autofunction:: validateByte
+
+validateByteString
+------------------
+
+.. autofunction:: validateByteString
