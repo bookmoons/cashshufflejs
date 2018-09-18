@@ -1,6 +1,6 @@
 import { BusyError } from '../../error'
 import { terminatorBuffer } from '../../protocol'
-import { bufferToBytes, bytesToNodeBuffer } from '../../util'
+import { bufferToBytes, bytesToNodeBuffer } from '../../aid'
 import privs from './privs'
 
 async function send (message) {

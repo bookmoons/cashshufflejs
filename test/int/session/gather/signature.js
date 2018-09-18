@@ -2,7 +2,7 @@ import test from 'ava'
 import Long from 'long'
 import { ExhaustionError, TimeoutError } from 'error'
 import PhaseReceiver from 'receiver/phase'
-import hexToBytes from 'util/tobytes/hex'
+import hexToBytes from 'aid/tobytes/hex'
 import validateSignature from 'session/validate/signature'
 import gatherSignature from 'session/gather/signature'
 

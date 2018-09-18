@@ -1,5 +1,5 @@
 import test from 'ava'
-import bytesToHex from 'util/tohex/bytes'
+import bytesToHex from 'aid/tohex/bytes'
 import hash from 'crypto/bitcore/hash'
 
 const text = 'The quick brown fox jumps over the lazy dog.'

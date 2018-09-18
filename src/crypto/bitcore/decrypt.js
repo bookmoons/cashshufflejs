@@ -5,7 +5,7 @@ import {
   bytesToNodeBuffer,
   nodeBufferToBytes,
   utf8ToString
-} from '../../util'
+} from '../../aid'
 import privs from './privs'
 
 async function decrypt (cryptogram) {

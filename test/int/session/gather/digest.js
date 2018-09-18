@@ -1,7 +1,7 @@
 import test from 'ava'
 import { ExhaustionError, TimeoutError } from 'error'
 import PhaseReceiver from 'receiver/phase'
-import hexToBytes from 'util/tobytes/hex'
+import hexToBytes from 'aid/tobytes/hex'
 import validateDigest from 'session/validate/digest'
 import gatherDigest from 'session/gather/digest'
 

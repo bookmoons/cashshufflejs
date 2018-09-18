@@ -1,5 +1,5 @@
 import test from 'ava'
-import hexToBytes from 'util/tobytes/hex'
+import hexToBytes from 'aid/tobytes/hex'
 import { Phase } from 'protocol'
 import loadProtocol from 'helper/loadprot'
 import messageFinalOutput from 'session/message/finalout'

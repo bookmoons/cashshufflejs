@@ -9,7 +9,7 @@ import StoreReceiver from 'receiver/store'
 import {
   bytesToNodeBuffer,
   normalizeProtobufBytes
-} from '../../../../src/util'
+} from '../../../../src/aid'
 import StandardDrawer from 'drawer/standard/main'
 import start from 'drawer/standard/start'
 import stop from 'drawer/standard/stop'

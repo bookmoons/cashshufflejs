@@ -5,7 +5,7 @@ import Message from '@bookmoons/bitcore-message-cash'
 import {
   bytesToHex,
   normalizeProtobufBytes
-} from '../../../../src/util'
+} from '../../../../src/aid'
 import Signing from 'signing/bitcore'
 import sign from 'session/util/sign'
 

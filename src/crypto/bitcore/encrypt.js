@@ -5,7 +5,7 @@ import {
   bytesToNodeBuffer,
   nodeBufferToBytes,
   stringToUtf8
-} from '../../util'
+} from '../../aid'
 
 const mainnet = bitcore.Networks.mainnet
 

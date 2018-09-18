@@ -1,5 +1,5 @@
 import { BusyError } from '../../error'
-import { normalizeProtobufBytes } from '../../util'
+import { normalizeProtobufBytes } from '../../aid'
 import privs from './privs'
 
 async function send (message) {

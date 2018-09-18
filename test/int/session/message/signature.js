@@ -1,6 +1,6 @@
 import test from 'ava'
 import Long from 'long'
-import hexToBytes from 'util/tobytes/hex'
+import hexToBytes from 'aid/tobytes/hex'
 import { Phase } from 'protocol'
 import loadProtocol from 'helper/loadprot'
 import messageSignature from 'session/message/signature'

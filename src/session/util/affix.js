@@ -1,4 +1,4 @@
-import { stringToUtf8 } from '../../util'
+import { stringToUtf8 } from '../../aid'
 
 /**
  * Affix signature to packet.

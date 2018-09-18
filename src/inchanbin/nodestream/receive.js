@@ -1,5 +1,5 @@
 import { readTo } from 'promised-read'
-import nodeBufferToBytes from '../../util/tobytes/nodebuffer'
+import nodeBufferToBytes from '../../aid/tobytes/nodebuffer'
 import { terminatorByteLength, terminatorBuffer } from '../../protocol'
 import { BusyError } from '../../error'
 import privs from './privs'

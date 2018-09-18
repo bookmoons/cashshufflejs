@@ -1,4 +1,4 @@
-import { bytesToHex, normalizeProtobufBytes } from '../../util'
+import { bytesToHex, normalizeProtobufBytes } from '../../aid'
 
 /**
  * Sign a protocol message.

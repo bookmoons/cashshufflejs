@@ -1,7 +1,7 @@
 import bitcore from 'bitcore-lib-cash'
 import Message from '@bookmoons/bitcore-message-cash'
 import { MissingValueError, ValueError } from '../../error'
-import { bytesToHex, normalizeProtobufBytes, utf8ToString } from '../../util'
+import { bytesToHex, normalizeProtobufBytes, utf8ToString } from '../../aid'
 import privs from './privs'
 
 /**
