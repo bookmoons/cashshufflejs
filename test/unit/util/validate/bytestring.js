@@ -29,7 +29,7 @@ test('valid', t => {
   const codePoints = []
   for (let i = 0; i <= 255; i++) codePoints.push(i)
   const byteString = codePoints.reduce(
-    function reduceCodePoint (byteString, codePoint) {
+    function reduceCodePoints (byteString, codePoint) {
       const character = String.fromCodePoint(codePoint)
       byteString += character
       return byteString
