@@ -2,13 +2,13 @@ import test from 'ava'
 import loadProtocol from 'helper/loadprot'
 import affix from 'session/util/affix'
 
-const testSignatureString = 'Test signature'
-const testSignature = Buffer.from(testSignatureString)
+const testSignature = 'YWJj'
+const testSignatureBytes = Uint8Array.from([ 0x59, 0x57, 0x4a, 0x6a ])
 const testKey = 'Test key'
 const testPacketObject = { fromKey: { key: testKey } }
 const testSignedObject = {
   packet: testPacketObject,
-  signature: { signature: testSignature }
+  signature: { signature: testSignatureBytes }
 }
 let protocol
 
