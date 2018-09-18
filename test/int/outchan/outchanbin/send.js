@@ -9,7 +9,7 @@ import send from 'outchan/outchanbin/send'
 // Signed { signature: Signature { signature: [ 5, 6, 7 ] } }
 // Packets { packet: [ <Signed> ] }
 let testMessage
-const testMessageEncoded = Buffer.from([
+const testMessageEncoded = Uint8Array.from([
   0x0a, 0x07, 0x12, 0x05, 0x0a, 0x03, 0x05, 0x06, 0x07
 ])
 const testPackets = Buffer.concat([ testMessageEncoded, terminatorBuffer ])
@@ -21,7 +21,7 @@ test.before(async t => {
   })
   protocol = await loadProtocol()
   const signature = protocol.Signature.create({
-    signature: Buffer.from([ 0x05, 0x06, 0x07 ])
+    signature: Uint8Array.from([ 0x05, 0x06, 0x07 ])
   })
   const testPacket = protocol.Signed.create({
     signature

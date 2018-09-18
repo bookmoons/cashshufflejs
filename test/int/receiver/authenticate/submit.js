@@ -2,6 +2,7 @@ import test from 'ava'
 import loadProtocol from 'helper/loadprot'
 import Inbox from 'inbox/fifo'
 import StoreReceiver from 'receiver/store'
+import { stringToUtf8 } from 'aid'
 import Receiver from 'receiver/authenticate/main'
 import submit from 'receiver/authenticate/submit'
 
@@ -10,11 +11,11 @@ const publicKeyString =
 const validSignatureString =
   'H36L4/TUjDBu62OKoAbDK7BNw/Ds26t8G/9rnaodz9NvTn2HUAop/7/55F2hhF/T9E' +
   'vgLp/j8yCA/9GFDxC6LaQ='
-const validSignatureBuffer = Buffer.from(validSignatureString)
+const validSignatureBytes = stringToUtf8(validSignatureString)
 const invalidSignatureString =
   'A36L4/TUjDBu62OKoAbDK7BNw/Ds26t8G/9rnaodz9NvTn2HUAop/7/55F2hhF/T9E' +
   'vgLp/j8yCA/9GFDxC6LaQ='
-const invalidSignatureBuffer = Buffer.from(invalidSignatureString)
+const invalidSignatureBytes = stringToUtf8(invalidSignatureString)
 const testPacketObject = {
   fromKey: {
     key: publicKeyString
@@ -23,13 +24,13 @@ const testPacketObject = {
 const testValidMessageObject = {
   packet: testPacketObject,
   signature: {
-    signature: validSignatureBuffer
+    signature: validSignatureBytes
   }
 }
 const testInvalidMessageObject = {
   packet: testPacketObject,
   signature: {
-    signature: invalidSignatureBuffer
+    signature: invalidSignatureBytes
   }
 }
 let protocol

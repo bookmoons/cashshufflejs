@@ -4,7 +4,7 @@ import { terminatorBuffer } from 'protocol'
 import Inchanbin from 'inchanbin/nodestream/main'
 import receive from 'inchanbin/nodestream/receive'
 
-const testMessage = Buffer.from([ 0x05, 0x06, 0x07 ])
+const testMessage = Uint8Array.from([ 0x05, 0x06, 0x07 ])
 const testPacket = Buffer.concat([ testMessage, terminatorBuffer ])
 
 test.before(t => {

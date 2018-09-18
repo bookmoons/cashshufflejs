@@ -8,7 +8,7 @@ import Outchanbin from 'outchanbin/nodestream'
 import PhaseReceiver from 'receiver/phase'
 import Signing from 'signing/bitcore'
 import { Phase, terminatorByteLength, terminatorBuffer } from 'protocol'
-import hexToBytes from 'aid/tobytes/hex'
+import { hexToBytes, normalizeProtobufBytes } from 'aid'
 import loadProtocol from 'helper/loadprot'
 import affix from 'session/util/affix'
 import gatherAnnounce from 'session/gather/announce'
@@ -79,8 +79,8 @@ function verifyEqualPackets (t, observed, expected) {
   const expectedPacket = expectedSigned.packet
   t.is(observedPacket.number, expectedPacket.number)
   t.is(observedPacket.phase, expectedPacket.phase)
-  const observedSessionId = Buffer.from(observedPacket.session)
-  const expectedSessionId = Buffer.from(expectedPacket.session)
+  const observedSessionId = normalizeProtobufBytes(observedPacket.session)
+  const expectedSessionId = normalizeProtobufBytes(expectedPacket.session)
   t.deepEqual(observedSessionId, expectedSessionId)
 }
 

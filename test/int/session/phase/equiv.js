@@ -8,7 +8,7 @@ import Outchanbin from 'outchanbin/nodestream'
 import PhaseReceiver from 'receiver/phase'
 import Signing from 'signing/bitcore'
 import { Phase, terminatorBuffer, terminatorByteLength } from 'protocol'
-import hexToBytes from 'aid/tobytes/hex'
+import { hexToBytes, normalizeProtobufBytes } from 'aid'
 import loadProtocol from 'helper/loadprot'
 import affix from 'session/util/affix'
 import gatherDigest from 'session/gather/digest'
@@ -115,8 +115,8 @@ function verifyEqualPackets (t, observed, expected) {
   const expectedPacket = expectedSigned.packet
   t.is(observedPacket.number, expectedPacket.number)
   t.is(observedPacket.phase, expectedPacket.phase)
-  const observedSessionId = Buffer.from(observedPacket.session)
-  const expectedSessionId = Buffer.from(expectedPacket.session)
+  const observedSessionId = normalizeProtobufBytes(observedPacket.session)
+  const expectedSessionId = normalizeProtobufBytes(expectedPacket.session)
   t.deepEqual(observedSessionId, expectedSessionId)
   const observedFromKey = observedPacket.fromKey
   const expectedFromKey = expectedPacket.fromKey
@@ -125,8 +125,8 @@ function verifyEqualPackets (t, observed, expected) {
   const expectedMessage = expectedPacket.message
   const observedHashObject = observedMessage.hash
   const expectedHashObject = expectedMessage.hash
-  const observedHash = Buffer.from(observedHashObject.hash)
-  const expectedHash = Buffer.from(expectedHashObject.hash)
+  const observedHash = normalizeProtobufBytes(observedHashObject.hash)
+  const expectedHash = normalizeProtobufBytes(expectedHashObject.hash)
   t.deepEqual(observedHash, expectedHash)
 }
 

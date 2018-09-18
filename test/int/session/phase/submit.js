@@ -9,7 +9,7 @@ import Outchanbin from 'outchanbin/nodestream'
 import PhaseReceiver from 'receiver/phase'
 import Signing from 'signing/bitcore'
 import { Phase, terminatorByteLength, terminatorBuffer } from 'protocol'
-import { hexToBytes } from '../../../../src/aid'
+import { hexToBytes, normalizeProtobufBytes } from 'aid'
 import loadProtocol from 'helper/loadprot'
 import affix from 'session/util/affix'
 import gatherSignature from 'session/gather/signature'
@@ -138,8 +138,8 @@ function verifyEqualPackets (t, observed, expected) {
   const expectedPacket = expectedSigned.packet
   t.is(observedPacket.number, expectedPacket.number)
   t.is(observedPacket.phase, expectedPacket.phase)
-  const observedSessionId = Buffer.from(observedPacket.session)
-  const expectedSessionId = Buffer.from(expectedPacket.session)
+  const observedSessionId = normalizeProtobufBytes(observedPacket.session)
+  const expectedSessionId = normalizeProtobufBytes(expectedPacket.session)
   t.deepEqual(observedSessionId, expectedSessionId)
   const observedFromKey = observedPacket.fromKey.key
   const expectedFromKey = expectedPacket.fromKey.key
@@ -159,8 +159,12 @@ function verifyEqualPackets (t, observed, expected) {
     t.is(observedIndexString, expectedIndexString)
     const observedSignatureObject = observedInputSignature.signature
     const expectedSignatureObject = expectedInputSignature.signature
-    const observedSignature = Buffer.from(observedSignatureObject.signature)
-    const expectedSignature = Buffer.from(expectedSignatureObject.signature)
+    const observedSignature = normalizeProtobufBytes(
+      observedSignatureObject.signature
+    )
+    const expectedSignature = normalizeProtobufBytes(
+      expectedSignatureObject.signature
+    )
     t.deepEqual(observedSignature, expectedSignature)
   }
 }

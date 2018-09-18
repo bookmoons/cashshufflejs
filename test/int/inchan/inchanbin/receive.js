@@ -6,9 +6,9 @@ import Inchanbin from 'inchanbin/nodestream'
 import Inchan from 'inchan/inchanbin/main'
 import receive from 'inchan/inchanbin/receive'
 
-const testSignature = Buffer.from([ 0x01, 0x02, 0x03 ])
+const testSignature = Uint8Array.from([ 0x01, 0x02, 0x03 ])
 // Signed { signature: Signature { signature: [ 1, 2, 3 ] } }
-const testMessageEncoded = Buffer.from([
+const testMessageEncoded = Uint8Array.from([
   0x12, 0x05, 0x0a, 0x03, 0x01, 0x02, 0x03
 ])
 const testPacket = Buffer.concat([ testMessageEncoded, terminatorBuffer ])
