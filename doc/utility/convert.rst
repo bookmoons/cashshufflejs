@@ -13,6 +13,11 @@ base64ToBytes
 
 .. autofunction:: base64ToBytes
 
+bufferToBytes
+-------------
+
+.. autofunction:: bufferToBytes
+
 byteStringToArray
 -----------------
 

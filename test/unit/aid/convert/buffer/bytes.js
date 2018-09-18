@@ -1,5 +1,5 @@
 import test from 'ava'
-import bufferToBytes from 'aid/tobytes/buffer'
+import bufferToBytes from 'aid/convert/buffer/bytes'
 
 test('success', t => {
   const buffer = Uint8Array.from([ 0x08, 0x09, 0x0a ]).buffer

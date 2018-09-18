@@ -3,11 +3,6 @@ Aid
 
 Utility procedures.
 
-bufferToBytes
--------------
-
-.. autofunction:: bufferToBytes
-
 hexToBytes
 ----------
 
