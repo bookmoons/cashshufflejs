@@ -26,9 +26,9 @@ test('missing', t => {
 })
 
 test('valid', t => {
-  const validCodePoints = []
-  for (let i = 0; i <= 255; i++) validCodePoints.push(i)
-  const validByteString = validCodePoints.reduce(
+  const codePoints = []
+  for (let i = 0; i <= 255; i++) codePoints.push(i)
+  const byteString = codePoints.reduce(
     function reduceCodePoint (byteString, codePoint) {
       const character = String.fromCodePoint(codePoint)
       byteString += character
@@ -37,15 +37,14 @@ test('valid', t => {
     ''
   )
   t.notThrows(() => {
-    validateByteString(validByteString)
+    validateByteString(byteString)
   })
 })
 
 test('invalid', t => {
-  const invalidCodePoint = 888
-  const invalidByteString = String.fromCodePoint(invalidCodePoint)
+  const byteString = String.fromCodePoint(888)
   const error = t.throws(() => {
-    validateByteString(invalidByteString)
+    validateByteString(byteString)
   })
   verifyOverMax(t, error)
 })
