@@ -1,10 +1,10 @@
 import { fromByteArray } from 'base64-js'
-import bytesToArray from '../convert/bytes/array'
+import bytesToArray from './array'
 
 /**
  * Convert `Uint8Array` to Base64 string.
  *
- * @memberof module:cashshuffle/aid
+ * @memberof module:cashshuffle/aid/convert
  *
  * @param {Uint8Array} bytes - Bytes to convert.
  *

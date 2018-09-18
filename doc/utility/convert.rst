@@ -7,3 +7,8 @@ bytesToArray
 ------------
 
 .. autofunction:: bytesToArray
+
+bytesToBase64
+-------------
+
+.. autofunction:: bytesToBase64

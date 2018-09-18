@@ -1,5 +1,5 @@
 import test from 'ava'
-import bytesToBase64 from 'aid/tobase64/bytes'
+import bytesToBase64 from 'aid/convert/bytes/base64'
 
 test('success', t => {
   const bytes = Uint8Array.from([ 1, 2, 3 ])
