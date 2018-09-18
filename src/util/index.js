@@ -5,6 +5,7 @@
 
 export { default as arrayToBytes } from './tobytes/array'
 export { default as base64ToBytes } from './tobytes/base64'
+export { default as byteStringToArray } from './toarray/bytestring'
 export { default as bytesToArray } from './toarray/bytes'
 export { default as bytesToBase64 } from './tobase64/bytes'
 export { default as bytesToHex } from './tohex/bytes'
