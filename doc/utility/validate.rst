@@ -7,3 +7,8 @@ validateBase64
 --------------
 
 .. autofunction:: validateBase64
+
+validateByte
+------------
+
+.. autofunction:: validateByte
