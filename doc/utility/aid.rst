@@ -78,11 +78,6 @@ utf8ToString
 
 .. autofunction:: utf8ToString
 
-validateBase64
---------------
-
-.. autofunction:: validateBase64
-
 validateByte
 ------------
 
