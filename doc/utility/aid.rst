@@ -68,11 +68,6 @@ stringToUtf8
 
 .. autofunction:: stringToUtf8
 
-undef
------
-
-.. autoattribute:: undef
-
 utf8ToString
 ------------
 

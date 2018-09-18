@@ -1,9 +1,10 @@
 Utility
 =======
 
-Utility procedures.
+Utility procedures and values.
 
 .. toctree::
    utility/aid
    utility/normalize
    utility/validate
+   utility/value

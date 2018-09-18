@@ -1,5 +1,5 @@
 import test from 'ava'
-import undef from 'aid/undef'
+import undef from 'aid/value/undef'
 
 test('is undefined', t => {
   let undefinedValue
