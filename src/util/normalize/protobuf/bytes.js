@@ -9,8 +9,11 @@ import arrayToBytes from '../../tobytes/array'
  * specifies as expected input for a `bytes` field one of: `Uint8Array`
  * `Buffer` `Array<number>`.
  *
+ * The docs for the `Writer` class used to encode a message to a byte string
+ * also variously mention `Uint8Array` `Buffer` `Array` as output type.
+ *
  * For crossplatform safety, `cashshufflejs` normalizes these 3 possible types
- * to `Uint8Array`.
+ * to `Uint8Array` at all points of ambiguity.
  *
  * @param {(Uint8Array|Buffer|Array<number>)} denormalBytes - A `bytes` field
  *     value as provided by `protobufjs`.
