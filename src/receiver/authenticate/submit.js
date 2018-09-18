@@ -1,6 +1,7 @@
 import bitcore from 'bitcore-lib-cash'
 import Message from '@bookmoons/bitcore-message-cash'
 import { MissingValueError, ValueError } from '../../error'
+import { bytesToNodeBuffer, normalizeProtobufBytes } from '../../util'
 import privs from './privs'
 
 /**
@@ -52,8 +53,8 @@ async function submit (message) {
     }
     return
   }
-  const signatureValue = fieldSignature.signature
-  if (!signatureValue) {
+  const signatureBytesDenormal = fieldSignature.signature
+  if (!signatureBytesDenormal) {
     if (priv.discarder) {
       await priv.discarder.submit([
         new MissingValueError('signature.signature'),
@@ -67,14 +68,14 @@ async function submit (message) {
     { network: priv.network }
   )
   const senderAddress = senderPublicKey.toAddress(priv.network)
-  // Normalize to buffer. protobufjs can return Uint8Array Buffer Array.
-  const signatureBuffer = Buffer.from(signatureValue)
-  const signatureString = signatureBuffer.toString('utf8')
-  const packetEncoded = protocol.Packet.encode(packet).finish()
-  // Normalize to buffer.
-  const packetBuffer = Buffer.from(packetEncoded)
-  const packetString = packetBuffer.toString('hex')
-  const messageSigner = new Message(packetString)
+  const signatureBytes = normalizeProtobufBytes(signatureBytesDenormal)
+  const signatureNodeBuffer = bytesToNodeBuffer(signatureBytes)
+  const signatureString = signatureNodeBuffer.toString('utf8')
+  const packetBytesDenormal = protocol.Packet.encode(packet).finish()
+  const packetBytes = normalizeProtobufBytes(packetBytesDenormal)
+  const packetNodeBuffer = bytesToNodeBuffer(packetBytes)
+  const packetHex = packetNodeBuffer.toString('hex')
+  const messageSigner = new Message(packetHex)
   let valid
   try {
     valid = messageSigner.verify(senderAddress, signatureString)

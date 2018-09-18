@@ -6,6 +6,10 @@ import Inchanbin from 'inchanbin/nodestream'
 import Inchan from 'inchan/inchanbin'
 import Inbox from 'inbox/fifo'
 import StoreReceiver from 'receiver/store'
+import {
+  bytesToNodeBuffer,
+  normalizeProtobufBytes
+} from '../../../../src/util'
 import StandardDrawer from 'drawer/standard/main'
 import start from 'drawer/standard/start'
 import stop from 'drawer/standard/stop'
@@ -36,9 +40,10 @@ test('1 message', async t => {
   await drawer.start()
   const messageDrawn = drawer.watch
   const testMessage = protocol.Signed.fromObject(testSignedObject1)
-  const testMessageEncoded = protocol.Signed.encode(testMessage).finish()
-  const testMessageBuffer = Buffer.from(testMessageEncoded) // Normalize
-  stream.write(testMessageBuffer)
+  const testMessageBytesDenormal = protocol.Signed.encode(testMessage).finish()
+  const testMessageBytes = normalizeProtobufBytes(testMessageBytesDenormal)
+  const testMessageNodeBuffer = bytesToNodeBuffer(testMessageBytes)
+  stream.write(testMessageNodeBuffer)
   stream.write(terminatorBuffer)
   await messageDrawn
   const message = inbox.receive()
@@ -56,16 +61,20 @@ test('2 messages', async t => {
   await drawer.start()
   const message1Drawn = drawer.watch
   const testMessage1 = protocol.Signed.fromObject(testSignedObject1)
-  const testMessage1Encoded = protocol.Signed.encode(testMessage1).finish()
-  const testMessage1Buffer = Buffer.from(testMessage1Encoded) // Normalize
-  stream.write(testMessage1Buffer)
+  const testMessage1BytesDenormal =
+    protocol.Signed.encode(testMessage1).finish()
+  const testMessage1Bytes = normalizeProtobufBytes(testMessage1BytesDenormal)
+  const testMessage1NodeBuffer = bytesToNodeBuffer(testMessage1Bytes)
+  stream.write(testMessage1NodeBuffer)
   stream.write(terminatorBuffer)
   await message1Drawn
   const message2Drawn = drawer.watch
   const testMessage2 = protocol.Signed.fromObject(testSignedObject2)
-  const testMessage2Encoded = protocol.Signed.encode(testMessage2).finish()
-  const testMessage2Buffer = Buffer.from(testMessage2Encoded)
-  stream.write(testMessage2Buffer)
+  const testMessage2BytesDenormal =
+    protocol.Signed.encode(testMessage2).finish()
+  const testMessage2Bytes = normalizeProtobufBytes(testMessage2BytesDenormal)
+  const testMessage2NodeBuffer = bytesToNodeBuffer(testMessage2Bytes)
+  stream.write(testMessage2NodeBuffer)
   stream.write(terminatorBuffer)
   await message2Drawn
   const message1 = inbox.receive()

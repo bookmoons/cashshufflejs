@@ -1,3 +1,5 @@
+import { bytesToNodeBuffer, normalizeProtobufBytes } from '../../util'
+
 /**
  * Sign a protocol message.
  *
@@ -12,11 +14,11 @@
  * @return {Base64} Detached message signature.
  */
 async function sign (signingKeyPair, message, type) {
-  const messageEncoded = type.encode(message).finish()
-  // Normalize to Buffer
-  const messageEncodedBuffer = Buffer.from(messageEncoded)
-  const messageEncodedString = messageEncodedBuffer.toString('hex')
-  const signature = await signingKeyPair.sign(messageEncodedString)
+  const messageBytesDenormal = type.encode(message).finish()
+  const messageBytes = normalizeProtobufBytes(messageBytesDenormal)
+  const messageNodeBuffer = bytesToNodeBuffer(messageBytes)
+  const messageHex = messageNodeBuffer.toString('hex')
+  const signature = await signingKeyPair.sign(messageHex)
   return signature
 }
 

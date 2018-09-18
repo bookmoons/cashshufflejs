@@ -9,7 +9,7 @@ import Outchanbin from 'outchanbin/nodestream'
 import PhaseReceiver from 'receiver/phase'
 import Signing from 'signing/bitcore'
 import { Phase, terminatorByteLength, terminatorBuffer } from 'protocol'
-import hexToBytes from 'util/tobytes/hex'
+import { hexToBytes } from '../../../../src/util'
 import loadProtocol from 'helper/loadprot'
 import affix from 'session/util/affix'
 import gatherSignature from 'session/gather/signature'
@@ -58,17 +58,17 @@ const index12 = '2'
 const index2 = Long.fromString('8', true, 10)
 const index31 = Long.fromString('54', true, 10)
 const index32 = Long.fromString('55', true, 10)
-const signature11 = '1111'
-const signature11View = hexToBytes(signature11)
-const signature12 = '1212'
-const signature12View = hexToBytes(signature12)
-const signature2 = '2222'
-const signature31 = '3131'
-const signature32 = '3232'
+const signature11String = '1111'
+const signature12String = '1212'
+const signature11 = hexToBytes(signature11String)
+const signature12 = hexToBytes(signature12String)
+const signature2 = hexToBytes('2222')
+const signature31 = hexToBytes('3131')
+const signature32 = hexToBytes('3232')
 let protocol
 
-const inputSignature11 = [ index11, signature11 ]
-const inputSignature12 = [ index12, signature12 ]
+const inputSignature11 = [ index11, signature11String ]
+const inputSignature12 = [ index12, signature12String ]
 const inputSignatures1 = [ inputSignature11, inputSignature12 ]
 
 const inputSignature2 = {
@@ -94,11 +94,11 @@ const validPacket3 = {
 
 const testInputSignatureObject1 = {
   index: Long.fromString(index11, true, 10),
-  signature: { signature: signature11View }
+  signature: { signature: signature11 }
 }
 const testInputSignatureObject2 = {
   index: Long.fromString(index12, true, 10),
-  signature: { signature: signature12View }
+  signature: { signature: signature12 }
 }
 const testMessageObject = {
   signatures: [ testInputSignatureObject1, testInputSignatureObject2 ]

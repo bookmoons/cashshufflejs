@@ -2,6 +2,10 @@ import test from 'ava'
 import loadProtocol from 'helper/loadprot'
 import bitcore from 'bitcore-lib-cash'
 import Message from '@bookmoons/bitcore-message-cash'
+import {
+  bytesToNodeBuffer,
+  normalizeProtobufBytes
+} from '../../../../src/util'
 import Signing from 'signing/bitcore'
 import sign from 'session/util/sign'
 
@@ -24,11 +28,12 @@ test('sign', async t => {
   await signing.restoreKeyPair(signingPrivateKey)
   const testPacket = protocol.Packet.fromObject(testPacketObject)
   const signature = await sign(signing, testPacket, protocol.Packet)
-  const testPacketEncoded = protocol.Packet.encode(testPacket).finish()
-  // Normalize to Buffer
-  const testPacketEncodedBuffer = Buffer.from(testPacketEncoded)
-  const testPacketEncodedString = testPacketEncodedBuffer.toString('hex')
-  const testPacketSigner = new Message(testPacketEncodedString)
+  const testPacketBytesDenormal =
+    protocol.Packet.encode(testPacket).finish()
+  const testPacketBytes = normalizeProtobufBytes(testPacketBytesDenormal)
+  const testPacketNodeBuffer = bytesToNodeBuffer(testPacketBytes)
+  const testPacketHex = testPacketNodeBuffer.toString('hex')
+  const testPacketSigner = new Message(testPacketHex)
   const privateKey = new bitcore.PrivateKey(signingPrivateKey)
   const publicKey = new bitcore.PublicKey(privateKey)
   const address = publicKey.toAddress()

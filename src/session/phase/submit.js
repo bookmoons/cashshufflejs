@@ -1,6 +1,7 @@
 import bitcore from 'bitcore-lib-cash'
 import { InadequateError, ValueError } from '../../error'
 import PrefixLogchan from '../../logchan/prefix'
+import { bytesToNodeBuffer, normalizeProtobufBytes } from '../../util'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
@@ -139,11 +140,11 @@ async function submit ({
       const indexLong = inputSignatureObject.index
       const index = indexLong.toString(10)
       const signatureObject = inputSignatureObject.signature
-      const signatureValue = signatureObject.signature
-      // Normalize to Buffer.
-      const signatureBuffer = Buffer.from(signatureValue)
-      const signature = signatureBuffer.toString('hex')
-      const inputSignature = [ index, signature ]
+      const signatureBytesDenormal = signatureObject.signature
+      const signatureBytes = normalizeProtobufBytes(signatureBytesDenormal)
+      const signatureNodeBuffer = bytesToNodeBuffer(signatureBytes)
+      const signatureHex = signatureNodeBuffer.toString('hex')
+      const inputSignature = [ index, signatureHex ]
       inputSignatures.push(inputSignature)
     }
     otherSignatures.set(publicKey, inputSignatures)
