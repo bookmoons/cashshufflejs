@@ -58,6 +58,11 @@ hexToBytes
 
 .. autofunction:: hexToBytes
 
+nodeBufferToBytes
+-----------------
+
+.. autofunction:: nodeBufferToBytes
+
 stringToUtf8
 ------------
 

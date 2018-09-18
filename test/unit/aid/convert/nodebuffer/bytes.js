@@ -1,5 +1,5 @@
 import test from 'ava'
-import nodeBufferToBytes from 'aid/tobytes/nodebuffer'
+import nodeBufferToBytes from 'aid/convert/nodebuffer/bytes'
 
 test('empty', t => {
   const emptyNodeBuffer = Buffer.alloc(0)

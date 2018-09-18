@@ -1,9 +1,9 @@
 import { MissingValueError } from '../../error'
 import ECIES from '@bookmoons/bitcore-ecies-cash'
-import { nodeBufferToBytes } from '../../aid'
 import {
   base64ToBytes,
   bytesToNodeBuffer,
+  nodeBufferToBytes,
   utf8ToString
 } from '../../aid/convert'
 import privs from './privs'

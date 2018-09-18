@@ -1,9 +1,9 @@
 import bitcore from 'bitcore-lib-cash'
 import ECIES from '@bookmoons/bitcore-ecies-cash'
-import { nodeBufferToBytes } from '../../aid'
 import {
   bytesToBase64,
   bytesToNodeBuffer,
+  nodeBufferToBytes,
   stringToUtf8
 } from '../../aid/convert'
 

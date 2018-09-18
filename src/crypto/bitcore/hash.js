@@ -1,5 +1,5 @@
 import crypto from 'crypto'
-import nodeBufferToBytes from '../../aid/tobytes/nodebuffer'
+import { nodeBufferToBytes } from '../../aid/convert'
 
 async function hash (text) {
   const hasher = crypto.createHash('sha224')

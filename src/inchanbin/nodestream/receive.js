@@ -1,7 +1,7 @@
 import { readTo } from 'promised-read'
-import nodeBufferToBytes from '../../aid/tobytes/nodebuffer'
 import { terminatorByteLength, terminatorBuffer } from '../../protocol'
 import { BusyError } from '../../error'
+import { nodeBufferToBytes } from '../../aid/convert'
 import privs from './privs'
 
 async function receive () {
