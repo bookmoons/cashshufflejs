@@ -1,4 +1,0 @@
-Aid
-===
-
-Utility procedures.
