@@ -1,3 +1,5 @@
+import { stringToUtf8 } from '../../util'
+
 /**
  * Affix signature to packet.
  *
@@ -11,10 +13,10 @@
  */
 async function affix (packet, signature, protocol) {
   const packetObject = protocol.Packet.toObject(packet)
-  const signatureBuffer = Buffer.from(signature)
+  const signatureBytes = stringToUtf8(signature)
   const signedObject = {
     packet: packetObject,
-    signature: { signature: signatureBuffer }
+    signature: { signature: signatureBytes }
   }
   const signed = protocol.Signed.fromObject(signedObject)
   return signed
