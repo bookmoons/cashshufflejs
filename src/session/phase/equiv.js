@@ -1,7 +1,7 @@
 import isEqual from 'arraybuffer-equal'
 import { ValueError } from '../../error'
 import PrefixLogchan from '../../logchan/prefix'
-import { normalizeProtobufBytes } from '../../aid'
+import { normalizeProtobufBytes } from '../../aid/normalize'
 import { defaultAttempts, defaultTimeout } from '../default'
 
 /**
