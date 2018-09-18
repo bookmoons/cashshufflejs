@@ -11,8 +11,8 @@ async function verifySignature (
 ) {
   const publicKey = new bitcore.PublicKey(publicKeyString, { network })
   const address = publicKey.toAddress(network)
-  const messageObject = new Message(message)
-  const valid = messageObject.verify(address, signature)
+  const verifier = new Message(message)
+  const valid = verifier.verify(address, signature)
   return valid
 }
 
