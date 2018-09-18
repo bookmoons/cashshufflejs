@@ -7,7 +7,7 @@ let arrayToBytes
 
 test.before(async t => {
   mockRequire('aid/validate/byte', validateByte)
-  arrayToBytes = await loadDefault('aid/tobytes/array')
+  arrayToBytes = await loadDefault('aid/convert/array/bytes')
 })
 
 test.beforeEach(t => {

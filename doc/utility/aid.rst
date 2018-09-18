@@ -3,11 +3,6 @@ Aid
 
 Utility procedures.
 
-arrayToBytes
-------------
-
-.. autofunction:: arrayToBytes
-
 base64ToBytes
 -------------
 

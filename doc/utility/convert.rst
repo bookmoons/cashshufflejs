@@ -3,6 +3,11 @@ Convert
 
 Conversion procedures.
 
+arrayToBytes
+------------
+
+.. autofunction:: arrayToBytes
+
 byteStringToArray
 -----------------
 

@@ -7,7 +7,7 @@ const byteStringToArray = sinon.stub()
 let stringToUtf8
 
 test.before(async t => {
-  mockRequire('aid/tobytes/array', arrayToBytes)
+  mockRequire('aid/convert/array/bytes', arrayToBytes)
   mockRequire('aid/convert/bytestring/array', byteStringToArray)
   stringToUtf8 = await loadDefault('aid/convert/string/utf8')
 })

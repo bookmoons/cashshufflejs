@@ -1,4 +1,4 @@
-import arrayToBytes from '../../tobytes/array'
+import arrayToBytes from '../../convert/array/bytes'
 
 /**
  * Normalize `protobufjs` bytes value to `Uint8Array`.

@@ -11,7 +11,7 @@ let base64ToBytes
 test.before(async t => {
   mockRequire('base64-js', { toByteArray })
   mockRequire('aid/validate/base64', validateBase64)
-  mockRequire('aid/tobytes/array', arrayToBytes)
+  mockRequire('aid/convert/array/bytes', arrayToBytes)
   base64ToBytes = await loadDefault('aid/tobytes/base64')
 })
 

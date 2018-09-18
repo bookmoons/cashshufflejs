@@ -1,9 +1,9 @@
-import validateByte from '../validate/byte'
+import validateByte from '../../validate/byte'
 
 /**
  * Convert `Array` of `Byte` to `Uint8Array`.
  *
- * @memberof module:cashshuffle/aid
+ * @memberof module:cashshuffle/aid/convert
  *
  * @param {Array<Byte>} array - `Array` to convert.
  *

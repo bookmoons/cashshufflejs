@@ -1,5 +1,5 @@
 import { encode } from 'utf8'
-import arrayToBytes from '../../tobytes/array'
+import arrayToBytes from '../array/bytes'
 import byteStringToArray from '../bytestring/array'
 
 /**

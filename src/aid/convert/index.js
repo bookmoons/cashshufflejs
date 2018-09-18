@@ -3,6 +3,7 @@
  * @module cashshuffle/aid/convert
  */
 
+export { default as arrayToBytes } from './array/bytes'
 export { default as byteStringToArray } from './bytestring/array'
 export { default as bytesToArray } from './bytes/array'
 export { default as bytesToBase64 } from './bytes/base64'

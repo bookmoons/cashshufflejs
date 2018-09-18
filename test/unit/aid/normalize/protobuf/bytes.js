@@ -6,7 +6,7 @@ const arrayToBytes = sinon.stub()
 let normalizeProtobufBytes
 
 test.before(async t => {
-  mockRequire('aid/tobytes/array', arrayToBytes)
+  mockRequire('aid/convert/array/bytes', arrayToBytes)
   normalizeProtobufBytes = await loadDefault('aid/normalize/protobuf/bytes')
 })
 
