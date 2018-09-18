@@ -53,6 +53,11 @@ nodeBufferToBytes
 
 .. autofunction:: nodeBufferToBytes
 
+normalizeProtobufBytes
+----------------------
+
+.. autofunction:: normalizeProtobufBytes
+
 stringToUtf8
 ------------
 
