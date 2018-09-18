@@ -1,5 +1,6 @@
 import bitcore from 'bitcore-lib-cash'
 import ECIES from '@bookmoons/bitcore-ecies-cash'
+import { bytesToBase64, nodeBufferToBytes } from '../../util'
 
 const mainnet = bitcore.Networks.mainnet
 
@@ -9,8 +10,9 @@ async function encrypt (message, recipient, network = mainnet) {
   encryptor.privateKey(ephemeralPrivateKey)
   const recipientPublicKey = new bitcore.PublicKey(recipient, { network })
   encryptor.publicKey(recipientPublicKey)
-  const cryptogramBuffer = encryptor.encrypt(message)
-  const cryptogramBase64 = cryptogramBuffer.toString('base64')
+  const cryptogramNodeBuffer = encryptor.encrypt(message)
+  const cryptogramBytes = nodeBufferToBytes(cryptogramNodeBuffer)
+  const cryptogramBase64 = bytesToBase64(cryptogramBytes)
   return cryptogramBase64
 }
 
