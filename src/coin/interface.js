@@ -26,7 +26,7 @@
  * Associates an input index to an input signature.
  * 2 element array.
  *
- * @typedef {Array<HexString>} InputSignature
+ * @typedef {Array<string>} InputSignature
  * @memberof module:cashshuffle/coin~Coin
  *
  * @prop {InputIndex} 1 - Input index.
