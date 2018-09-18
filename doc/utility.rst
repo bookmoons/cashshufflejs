@@ -63,6 +63,11 @@ undef
 
 .. autoattribute:: undef
 
+utf8ToString
+------------
+
+.. autofunction:: utf8ToString
+
 validateBase64
 --------------
 
