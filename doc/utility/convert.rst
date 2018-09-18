@@ -27,3 +27,8 @@ bytesToHex
 ----------
 
 .. autofunction:: bytesToHex
+
+bytesToNodeBuffer
+-----------------
+
+.. autofunction:: bytesToNodeBuffer

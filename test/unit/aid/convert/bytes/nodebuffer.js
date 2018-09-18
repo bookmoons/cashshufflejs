@@ -1,5 +1,5 @@
 import test from 'ava'
-import bytesToNodeBuffer from 'aid/tonodebuffer/bytes'
+import bytesToNodeBuffer from 'aid/convert/bytes/nodebuffer'
 
 test('empty', t => {
   const emptyBytes = new Uint8Array(0)
