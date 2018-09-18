@@ -28,6 +28,11 @@ bytesToBase64
 
 .. autofunction:: bytesToBase64
 
+bytesToByteString
+-----------------
+
+.. autofunction:: bytesToByteString
+
 bytesToHex
 ----------
 
