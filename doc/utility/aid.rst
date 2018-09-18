@@ -18,11 +18,6 @@ bufferToBytes
 
 .. autofunction:: bufferToBytes
 
-byteStringToArray
------------------
-
-.. autofunction:: byteStringToArray
-
 hexToBytes
 ----------
 

@@ -6,7 +6,6 @@
 export { default as arrayToBytes } from './tobytes/array'
 export { default as base64ToBytes } from './tobytes/base64'
 export { default as bufferToBytes } from './tobytes/buffer'
-export { default as byteStringToArray } from './toarray/bytestring'
 export { default as hexToBytes } from './tobytes/hex'
 export { default as nodeBufferToBytes } from './tobytes/nodebuffer'
 export { default as stringToUtf8 } from './toutf8/string'

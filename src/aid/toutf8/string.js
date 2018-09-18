@@ -1,6 +1,6 @@
 import { encode } from 'utf8'
 import arrayToBytes from '../tobytes/array'
-import byteStringToArray from '../toarray/bytestring'
+import byteStringToArray from '../convert/bytestring/array'
 
 /**
  * Convert string to UTF-8 bytes in a `Uint8Array`.

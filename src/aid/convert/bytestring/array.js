@@ -1,9 +1,9 @@
-import validateByteString from '../validate/bytestring'
+import validateByteString from '../../validate/bytestring'
 
 /**
  * Convert `ByteString` to `Array` of `Byte`.
  *
- * @memberof module:cashshuffle/aid
+ * @memberof module:cashshuffle/aid/convert
  *
  * @param {ByteString} byteString - `ByteString` to convert.
  *
