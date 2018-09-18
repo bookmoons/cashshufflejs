@@ -12,3 +12,8 @@ bytesToBase64
 -------------
 
 .. autofunction:: bytesToBase64
+
+bytesToBuffer
+-------------
+
+.. autofunction:: bytesToBuffer

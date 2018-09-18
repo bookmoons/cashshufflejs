@@ -23,11 +23,6 @@ byteStringToArray
 
 .. autofunction:: byteStringToArray
 
-bytesToBuffer
--------------
-
-.. autofunction:: bytesToBuffer
-
 bytesToByteString
 -----------------
 

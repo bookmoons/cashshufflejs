@@ -1,7 +1,7 @@
 /**
  * Convert `Uint8Array` to `ArrayBuffer`.
  *
- * @memberof module:cashshuffle/aid
+ * @memberof module:cashshuffle/aid/convert
  *
  * @param {Uint8Array} bytes - `Uint8Array` to convert.
  *
