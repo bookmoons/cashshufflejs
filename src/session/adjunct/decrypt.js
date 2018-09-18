@@ -12,7 +12,7 @@ import { ValueError } from '../../error'
  * @return {Array<string>} Decrypted output list in same order.
  *
  * @throws {ValueError} If any item decryption fails.
- *     Message `'decryption failure'`.
+ *     Message starts `'decryption failure'`.
  * @throws {ValueError} If output list contains duplicates.
  *     Message `'output list duplicates'`.
  */

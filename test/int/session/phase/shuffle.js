@@ -377,7 +377,7 @@ test('decrypt failure', async t => {
     t.fail('Incorrect success')
   } catch (e) {
     t.true(e instanceof ValueError)
-    t.is(e.message, 'decryption failure')
+    t.true(e.message.startsWith('decryption failure'))
   }
 })
 
