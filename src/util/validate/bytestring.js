@@ -1,4 +1,4 @@
-import { ValueError } from '../../error'
+import { FormatError, ValueError } from '../../error'
 
 /**
  * Validate `ByteString`.
@@ -10,7 +10,9 @@ import { ValueError } from '../../error'
  *
  * @param {string} string - String to validate.
  *
- * @throws {ValueError} If `string` is not a valid `ByteString`.
+ * @throws {ValueError} If `string` is not a string.
+ *     Message starts `'invalid byte string'`.
+ * @throws {FormatError} If `string` is not a valid `ByteString`.
  *     Message starts `'invalid byte string'`.
  */
 function validateByteString (string) {
@@ -26,7 +28,7 @@ function validateByteString (string) {
   for (const character of string) {
     const codePoint = character.codePointAt(0)
     if (codePoint > 255) {
-      throw new ValueError(
+      throw new FormatError(
         {
           cause: new RangeError('code point over 255'),
           info: { character, codePoint }

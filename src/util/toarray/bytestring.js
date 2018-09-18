@@ -9,8 +9,8 @@ import validateByteString from '../validate/bytestring'
  *
  * @return {Array<Byte>} New `Array` containing bytes in `byteString`.
  *
- * @throws {ValueError} If `byteString` is not a valid `ByteString`.
- *     Message starts with `'invalid byte string'`.
+ * @throws {(FormatError|ValueError)} If `byteString` is not
+ *     a valid `ByteString`. Message starts with `'invalid byte string'`.
  */
 function byteStringToArray (byteString) {
   validateByteString(byteString)

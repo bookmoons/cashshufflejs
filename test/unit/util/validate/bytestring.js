@@ -1,5 +1,5 @@
 import test from 'ava'
-import { ValueError } from 'error'
+import { FormatError, ValueError } from 'error'
 import validateByteString from 'util/validate/bytestring'
 
 function verifyNotString (t, error) {
@@ -11,7 +11,7 @@ function verifyNotString (t, error) {
 }
 
 function verifyOverMax (t, error) {
-  t.true(error instanceof ValueError)
+  t.true(error instanceof FormatError)
   t.true(error.message.startsWith('invalid byte string'))
   const cause = error.cause()
   t.true(cause instanceof RangeError)
