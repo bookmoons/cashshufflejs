@@ -24,8 +24,7 @@ test.serial('invalid', t => {
 })
 
 test.serial('empty', t => {
-  const byteString = ''
-  const bytesArray = byteStringToArray(byteString)
+  const bytesArray = byteStringToArray('')
   t.deepEqual(bytesArray, [])
 })
 
