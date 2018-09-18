@@ -2,10 +2,7 @@ import test from 'ava'
 import loadProtocol from 'helper/loadprot'
 import bitcore from 'bitcore-lib-cash'
 import Message from '@bookmoons/bitcore-message-cash'
-import {
-  bytesToHex,
-  normalizeProtobufBytes
-} from '../../../../src/aid'
+import { bytesToHex, normalizeProtobufBytes } from 'aid'
 import Signing from 'signing/bitcore'
 import sign from 'session/util/sign'
 
