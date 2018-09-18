@@ -6,10 +6,7 @@ import Inchanbin from 'inchanbin/nodestream'
 import Inchan from 'inchan/inchanbin'
 import Inbox from 'inbox/fifo'
 import StoreReceiver from 'receiver/store'
-import {
-  bytesToNodeBuffer,
-  normalizeProtobufBytes
-} from '../../../../src/aid'
+import { bytesToNodeBuffer, normalizeProtobufBytes } from 'aid'
 import StandardDrawer from 'drawer/standard/main'
 import start from 'drawer/standard/start'
 import stop from 'drawer/standard/stop'
