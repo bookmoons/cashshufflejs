@@ -27,7 +27,7 @@ async function decryptOutputList (encryptedOutputList, crypto) {
       // Decryption failure
       // TODO: Improve specificity of this detection.
       const info = { encryptedItem }
-      throw new ValueError({ info }, 'decryption failure')
+      throw new ValueError({ cause: e, info }, 'decryption failure')
     }
     if (decryptedItems.has(decryptedItem)) {
       // Duplicate item
