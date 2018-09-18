@@ -11,7 +11,7 @@ implementation:
 - Message types are defined with protobuf_.
 - Messages on the wire are preceded by a byte length count represented as an
   unsigned 32-bit integer in big endian byte order.
-- Encryption of strings uses the UTF-8 encoding without BOM.
+- For encryption strings are encoded to UTF-8 without BOM.
 
 .. _CashShuffle: https://cashshuffle.com/
 .. _CoinShuffle: http://crypsys.mmci.uni-saarland.de/projects/CoinShuffle/
