@@ -30,6 +30,7 @@
         "long": "^4.0.0",
         "promised-read": "^2.0.1",
         "protobufjs": "~6.8.8",
+        "utf8": "^3.0.0",
         "verror": "^1.10.0"
     },
     "devDependencies": {
