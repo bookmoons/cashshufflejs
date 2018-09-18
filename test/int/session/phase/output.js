@@ -9,7 +9,7 @@ import Outchanbin from 'outchanbin/nodestream'
 import PhaseReceiver from 'receiver/phase'
 import Signing from 'signing/bitcore'
 import { Phase, terminatorBuffer, terminatorByteLength } from 'protocol'
-import hexToBytes from 'aid/tobytes/hex'
+import { bytesToBuffer, hexToBytes } from 'aid'
 import loadProtocol from 'helper/loadprot'
 import affix from 'session/util/affix'
 import decryptOutputList from 'session/adjunct/decrypt'
@@ -24,7 +24,8 @@ import broadcastOutput from 'session/phase/output'
 
 const attempts = 2
 const timeout = 500
-const sessionId = hexToBytes('1234').buffer
+const sessionIdBytes = hexToBytes('1234')
+const sessionId = bytesToBuffer(sessionIdBytes)
 const poolNumber = 12
 /*
 const signingPrivateKey1 =
@@ -67,7 +68,7 @@ const encryptedOutput2 =
 let protocol
 
 const encryptedOutputListPacket1 = {
-  session: sessionId,
+  session: sessionIdBytes,
   number: poolNumber,
   fromKey: { key: signingPublicKey2 },
   toKey: { key: signingPublicKey3 },
@@ -75,7 +76,7 @@ const encryptedOutputListPacket1 = {
   message: { str: encryptedOutput1 }
 }
 const encryptedOutputListPacket2 = {
-  session: sessionId,
+  session: sessionIdBytes,
   number: poolNumber,
   fromKey: { key: signingPublicKey2 },
   toKey: { key: signingPublicKey3 },
@@ -83,28 +84,28 @@ const encryptedOutputListPacket2 = {
   message: { str: encryptedOutput2 }
 }
 const finalOutputListPacket1 = {
-  session: sessionId,
+  session: sessionIdBytes,
   number: poolNumber,
   fromKey: { key: signingPublicKey3 },
   phase: Phase.Broadcast.value,
   message: { str: output1 }
 }
 const finalOutputListPacket2 = {
-  session: sessionId,
+  session: sessionIdBytes,
   number: poolNumber,
   fromKey: { key: signingPublicKey3 },
   phase: Phase.Broadcast.value,
   message: { str: output2 }
 }
 const finalOutputListPacket3 = {
-  session: sessionId,
+  session: sessionIdBytes,
   number: poolNumber,
   fromKey: { key: signingPublicKey3 },
   phase: Phase.Broadcast.value,
   message: { str: output3 }
 }
 const badOutputListPacket = {
-  session: sessionId,
+  session: sessionIdBytes,
   number: poolNumber,
   fromKey: { key: signingPublicKey3 },
   phase: Phase.Broadcast.value,
