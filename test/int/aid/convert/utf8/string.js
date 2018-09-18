@@ -1,5 +1,5 @@
 import test from 'ava'
-import utf8ToString from 'aid/tostring/utf8'
+import utf8ToString from 'aid/convert/utf8/string'
 
 test('empty', t => {
   const string = utf8ToString(new Uint8Array(0))

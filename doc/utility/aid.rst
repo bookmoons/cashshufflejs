@@ -32,8 +32,3 @@ stringToUtf8
 ------------
 
 .. autofunction:: stringToUtf8
-
-utf8ToString
-------------
-
-.. autofunction:: utf8ToString

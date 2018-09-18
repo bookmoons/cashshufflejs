@@ -9,7 +9,7 @@ let utf8ToString
 test.before(async t => {
   mockRequire('aid/convert/bytes/bytestring', bytesToByteString)
   mockRequire('utf8', { decode })
-  utf8ToString = await loadDefault('aid/tostring/utf8')
+  utf8ToString = await loadDefault('aid/convert/utf8/string')
 })
 
 test.beforeEach(t => {

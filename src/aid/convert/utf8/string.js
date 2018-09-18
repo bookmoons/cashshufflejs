@@ -1,6 +1,6 @@
 import { decode } from 'utf8'
-import { FormatError } from '../../error'
-import bytesToByteString from '../convert/bytes/bytestring'
+import { FormatError } from '../../../error'
+import bytesToByteString from '../bytes/bytestring'
 
 const loneSurrogateMessageStart = 'Lone surrogate'
 const errorMessages = [
@@ -12,7 +12,7 @@ const errorMessages = [
 /**
  * Convert UTF-8 bytes in a `Uint8Array` to string.
  *
- * @memberof module:cashshuffle/aid
+ * @memberof module:cashshuffle/aid/convert
  *
  * @param {Uint8Array} utf8 - `Uint8Array` containing UTF-8 bytes.
  *

@@ -37,3 +37,8 @@ bytesToNodeBuffer
 -----------------
 
 .. autofunction:: bytesToNodeBuffer
+
+utf8ToString
+------------
+
+.. autofunction:: utf8ToString
