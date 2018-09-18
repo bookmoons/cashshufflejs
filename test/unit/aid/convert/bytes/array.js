@@ -1,5 +1,5 @@
 import test from 'ava'
-import bytesToArray from 'aid/toarray/bytes'
+import bytesToArray from 'aid/convert/bytes/array'
 
 test('success', t => {
   const bytes = new Uint8Array(256)

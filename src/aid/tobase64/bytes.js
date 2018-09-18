@@ -1,5 +1,5 @@
 import { fromByteArray } from 'base64-js'
-import bytesToArray from '../toarray/bytes'
+import bytesToArray from '../convert/bytes/array'
 
 /**
  * Convert `Uint8Array` to Base64 string.
