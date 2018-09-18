@@ -3,7 +3,7 @@ import loadProtocol from 'helper/loadprot'
 import bitcore from 'bitcore-lib-cash'
 import Message from '@bookmoons/bitcore-message-cash'
 import {
-  bytesToNodeBuffer,
+  bytesToHex,
   normalizeProtobufBytes
 } from '../../../../src/util'
 import Signing from 'signing/bitcore'
@@ -31,8 +31,7 @@ test('sign', async t => {
   const testPacketBytesDenormal =
     protocol.Packet.encode(testPacket).finish()
   const testPacketBytes = normalizeProtobufBytes(testPacketBytesDenormal)
-  const testPacketNodeBuffer = bytesToNodeBuffer(testPacketBytes)
-  const testPacketHex = testPacketNodeBuffer.toString('hex')
+  const testPacketHex = bytesToHex(testPacketBytes)
   const testPacketSigner = new Message(testPacketHex)
   const privateKey = new bitcore.PrivateKey(signingPrivateKey)
   const publicKey = new bitcore.PublicKey(privateKey)

@@ -1,4 +1,4 @@
-import { bytesToNodeBuffer, normalizeProtobufBytes } from '../../util'
+import { bytesToHex, normalizeProtobufBytes } from '../../util'
 
 /**
  * Sign a protocol message.
@@ -16,8 +16,7 @@ import { bytesToNodeBuffer, normalizeProtobufBytes } from '../../util'
 async function sign (signingKeyPair, message, type) {
   const messageBytesDenormal = type.encode(message).finish()
   const messageBytes = normalizeProtobufBytes(messageBytesDenormal)
-  const messageNodeBuffer = bytesToNodeBuffer(messageBytes)
-  const messageHex = messageNodeBuffer.toString('hex')
+  const messageHex = bytesToHex(messageBytes)
   const signature = await signingKeyPair.sign(messageHex)
   return signature
 }
