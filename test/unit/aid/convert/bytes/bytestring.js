@@ -1,5 +1,5 @@
 import test from 'ava'
-import bytesToByteString from 'aid/tobytestring/bytes'
+import bytesToByteString from 'aid/convert/bytes/bytestring'
 
 test('success', t => {
   const bytesArray = []

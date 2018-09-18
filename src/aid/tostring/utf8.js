@@ -1,6 +1,6 @@
 import { decode } from 'utf8'
 import { FormatError } from '../../error'
-import bytesToByteString from '../tobytestring/bytes'
+import bytesToByteString from '../convert/bytes/bytestring'
 
 const loneSurrogateMessageStart = 'Lone surrogate'
 const errorMessages = [

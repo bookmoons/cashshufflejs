@@ -7,7 +7,7 @@ const decode = sinon.stub()
 let utf8ToString
 
 test.before(async t => {
-  mockRequire('aid/tobytestring/bytes', bytesToByteString)
+  mockRequire('aid/convert/bytes/bytestring', bytesToByteString)
   mockRequire('utf8', { decode })
   utf8ToString = await loadDefault('aid/tostring/utf8')
 })

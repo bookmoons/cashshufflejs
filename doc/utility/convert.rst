@@ -17,3 +17,8 @@ bytesToBuffer
 -------------
 
 .. autofunction:: bytesToBuffer
+
+bytesToByteString
+-----------------
+
+.. autofunction:: bytesToByteString

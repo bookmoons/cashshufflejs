@@ -23,11 +23,6 @@ byteStringToArray
 
 .. autofunction:: byteStringToArray
 
-bytesToByteString
------------------
-
-.. autofunction:: bytesToByteString
-
 bytesToHex
 ----------
 
