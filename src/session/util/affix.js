@@ -1,4 +1,4 @@
-import { stringToUtf8 } from '../../aid'
+import { stringToUtf8 } from '../../aid/convert'
 
 /**
  * Affix signature to packet.

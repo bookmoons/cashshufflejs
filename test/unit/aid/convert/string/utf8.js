@@ -9,7 +9,7 @@ let stringToUtf8
 test.before(async t => {
   mockRequire('aid/tobytes/array', arrayToBytes)
   mockRequire('aid/convert/bytestring/array', byteStringToArray)
-  stringToUtf8 = await loadDefault('aid/toutf8/string')
+  stringToUtf8 = await loadDefault('aid/convert/string/utf8')
 })
 
 test.beforeEach(t => {

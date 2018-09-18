@@ -27,8 +27,3 @@ nodeBufferToBytes
 -----------------
 
 .. autofunction:: nodeBufferToBytes
-
-stringToUtf8
-------------
-
-.. autofunction:: stringToUtf8

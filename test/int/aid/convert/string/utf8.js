@@ -1,5 +1,5 @@
 import test from 'ava'
-import stringToUtf8 from 'aid/toutf8/string'
+import stringToUtf8 from 'aid/convert/string/utf8'
 
 test('empty', t => {
   const bytes = stringToUtf8('')

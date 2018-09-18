@@ -1,10 +1,11 @@
 import bitcore from 'bitcore-lib-cash'
 import ECIES from '@bookmoons/bitcore-ecies-cash'
+import { nodeBufferToBytes } from '../../aid'
 import {
-  nodeBufferToBytes,
+  bytesToBase64,
+  bytesToNodeBuffer,
   stringToUtf8
-} from '../../aid'
-import { bytesToBase64, bytesToNodeBuffer } from '../../aid/convert'
+} from '../../aid/convert'
 
 const mainnet = bitcore.Networks.mainnet
 

@@ -2,7 +2,7 @@ import test from 'ava'
 import loadProtocol from 'helper/loadprot'
 import Inbox from 'inbox/fifo'
 import StoreReceiver from 'receiver/store'
-import { stringToUtf8 } from 'aid'
+import { stringToUtf8 } from 'aid/convert'
 import Receiver from 'receiver/authenticate/main'
 import submit from 'receiver/authenticate/submit'
 
