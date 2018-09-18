@@ -10,8 +10,11 @@ test.before(async t => {
   arrayToBytes = await loadDefault('util/tobytes/array')
 })
 
-test.serial('invalid', t => {
+test.beforeEach(t => {
   validateByte.reset()
+})
+
+test.serial('invalid', t => {
   validateByte.throws()
   const array = [ 'string' ]
   t.throws(() => {
@@ -20,7 +23,6 @@ test.serial('invalid', t => {
 })
 
 test.serial('valid', t => {
-  validateByte.reset()
   const array = []
   for (let i = 0; i <= 255; i++) array[i] = i
   const bytes = arrayToBytes(array)
