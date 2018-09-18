@@ -12,7 +12,7 @@ test.before(async t => {
   mockRequire('base64-js', { toByteArray })
   mockRequire('aid/validate/base64', validateBase64)
   mockRequire('aid/convert/array/bytes', arrayToBytes)
-  base64ToBytes = await loadDefault('aid/tobytes/base64')
+  base64ToBytes = await loadDefault('aid/convert/base64/bytes')
 })
 
 test.beforeEach(t => {

@@ -1,10 +1,11 @@
 import { MissingValueError } from '../../error'
 import ECIES from '@bookmoons/bitcore-ecies-cash'
+import { nodeBufferToBytes } from '../../aid'
 import {
   base64ToBytes,
-  nodeBufferToBytes
-} from '../../aid'
-import { bytesToNodeBuffer, utf8ToString } from '../../aid/convert'
+  bytesToNodeBuffer,
+  utf8ToString
+} from '../../aid/convert'
 import privs from './privs'
 
 async function decrypt (cryptogram) {

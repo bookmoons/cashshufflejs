@@ -4,6 +4,7 @@
  */
 
 export { default as arrayToBytes } from './array/bytes'
+export { default as base64ToBytes } from './base64/bytes'
 export { default as byteStringToArray } from './bytestring/array'
 export { default as bytesToArray } from './bytes/array'
 export { default as bytesToBase64 } from './bytes/base64'

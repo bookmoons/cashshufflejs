@@ -1,6 +1,6 @@
 import test from 'ava'
 import { FormatError } from 'error'
-import base64ToBytes from 'aid/tobytes/base64'
+import base64ToBytes from 'aid/convert/base64/bytes'
 
 test('invalid', t => {
   const invalidBase64 = 'aaa}'
