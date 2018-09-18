@@ -1,11 +1,7 @@
 import bitcore from 'bitcore-lib-cash'
 import Message from '@bookmoons/bitcore-message-cash'
 import { MissingValueError, ValueError } from '../../error'
-import {
-  bytesToHex,
-  bytesToNodeBuffer,
-  normalizeProtobufBytes
-} from '../../util'
+import { bytesToHex, normalizeProtobufBytes, utf8ToString } from '../../util'
 import privs from './privs'
 
 /**
@@ -73,8 +69,7 @@ async function submit (message) {
   )
   const senderAddress = senderPublicKey.toAddress(priv.network)
   const signatureBytes = normalizeProtobufBytes(signatureBytesDenormal)
-  const signatureNodeBuffer = bytesToNodeBuffer(signatureBytes)
-  const signatureString = signatureNodeBuffer.toString('utf8')
+  const signatureString = utf8ToString(signatureBytes)
   const packetBytesDenormal = protocol.Packet.encode(packet).finish()
   const packetBytes = normalizeProtobufBytes(packetBytesDenormal)
   const packetHex = bytesToHex(packetBytes)
