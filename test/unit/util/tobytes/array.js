@@ -1,6 +1,6 @@
 import test from 'ava'
-import mockRequire from 'mock-require'
 import sinon from 'sinon'
+import mockRequire from 'mock-require'
 import loadDefault from 'helper/loaddef'
 const validateByte = sinon.stub()
 let arrayToBytes
