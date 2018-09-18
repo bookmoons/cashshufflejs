@@ -1,5 +1,5 @@
-import { terminatorBuffer } from '../../protocol'
 import { BusyError } from '../../error'
+import { terminatorBuffer } from '../../protocol'
 import privs from './privs'
 
 async function send (message) {
