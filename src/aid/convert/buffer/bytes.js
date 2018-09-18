@@ -1,3 +1,5 @@
+import { copyBuffer } from '../../buffer'
+
 /**
  * Convert `ArrayBuffer` to `Uint8Array`.
  *
@@ -5,11 +7,12 @@
  *
  * @param {ArrayBuffer} buffer - `ArrayBuffer` to convert.
  *
- * @return {Uint8Array} New `Uint8Array` providing access to the bytes of
- *     `buffer`.
+ * @return {Uint8Array} New `Uint8Array` containing a copy of the bytes
+ *     in `buffer`.
  */
 function bufferToBytes (buffer) {
-  const bytes = new Uint8Array(buffer)
+  const bufferCopy = copyBuffer(buffer)
+  const bytes = new Uint8Array(bufferCopy)
   return bytes
 }
 
