@@ -23,6 +23,12 @@ test.serial('invalid', t => {
   t.true(validateByteString.calledOnceWith(byteString))
 })
 
+test.serial('empty', t => {
+  const byteString = ''
+  const bytesArray = byteStringToArray(byteString)
+  t.deepEqual(bytesArray, [])
+})
+
 test.serial('valid', t => {
   const codePoints = []
   for (let i = 0; i <= 255; i++) codePoints.push(i)
