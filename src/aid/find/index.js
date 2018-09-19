@@ -10,3 +10,5 @@
  *
  * @module cashshuffle/aid/find
  */
+
+export { default as findBytesTerminator } from './bytes/terminator'

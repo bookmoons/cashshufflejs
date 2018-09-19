@@ -14,3 +14,8 @@ Finder
 ------
 
 .. autofunction:: Finder
+
+findBytesTerminator
+-------------------
+
+.. autofunction:: findBytesTerminator
