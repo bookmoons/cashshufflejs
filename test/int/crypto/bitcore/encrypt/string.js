@@ -1,6 +1,6 @@
 import test from 'ava'
 import Crypto from 'crypto/bitcore/main'
-import decrypt from 'crypto/bitcore/decrypt'
+import decryptString from 'crypto/bitcore/decrypt/string'
 import encryptString from 'crypto/bitcore/encrypt/string'
 import exportPublicKey from 'crypto/bitcore/exportpub'
 import generateKeyPair from 'crypto/bitcore/generate'
@@ -9,7 +9,7 @@ const message = 'Test message'
 
 test.before(t => {
   Object.assign(Crypto.prototype, {
-    decrypt,
+    decryptString,
     encryptString,
     exportPublicKey,
     generateKeyPair
@@ -25,6 +25,6 @@ test('encrypt', async t => {
     message,
     recipientPublicKey
   )
-  const decryptedMessage = await recipientCrypto.decrypt(cryptogram)
+  const decryptedMessage = await recipientCrypto.decryptString(cryptogram)
   t.is(decryptedMessage, message)
 })

@@ -1,14 +1,14 @@
-import { MissingValueError } from '../../error'
+import { MissingValueError } from '../../../error'
 import ECIES from '@bookmoons/bitcore-ecies-cash'
 import {
   base64ToBytes,
   bytesToNodeBuffer,
   nodeBufferToBytes
-} from '../../aid/convert'
-import { decodeString } from '../../aid/encrypt'
-import privs from './privs'
+} from '../../../aid/convert'
+import { decodeString } from '../../../aid/encrypt'
+import privs from '../privs'
 
-async function decrypt (cryptogram) {
+async function decryptString (cryptogram) {
   const priv = privs.get(this)
   if (!priv.keyPair) throw new MissingValueError('no key pair')
   const decryptor = new ECIES()
@@ -21,4 +21,4 @@ async function decrypt (cryptogram) {
   return messageString
 }
 
-export default decrypt
+export default decryptString

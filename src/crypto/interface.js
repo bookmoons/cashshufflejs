@@ -18,18 +18,18 @@
  */
 
 /**
- * Decrypt cryptogram for active key pair.
+ * Decrypt cryptogram of string for active key pair.
  *
  * Generate or restore key pair prior to use.
  *
- * @method decrypt
+ * @method decryptString
  * @memberof module:cashshuffle/crypto~Crypto
  * @instance
  * @async
  *
  * @param {Base64} cryptogram - Cryptogram to decrypt.
  *
- * @return {string} The decrypted message.
+ * @return {string} The decrypted string.
  *
  * @throws {MissingValueError} If key pair has not been generated or restored.
  */

@@ -288,7 +288,7 @@ test('output first', async t => {
       const packetObject = signedPacketObject.packet
       const messageObject = packetObject.message
       const outputItem = messageObject.str
-      await crypto2.decrypt(outputItem)
+      await crypto2.decryptString(outputItem)
     }
   })
 })
@@ -338,7 +338,7 @@ test('output inner', async t => {
       const packetObject = signedPacketObject.packet
       const messageObject = packetObject.message
       const outputItem = messageObject.str
-      await crypto3.decrypt(outputItem)
+      await crypto3.decryptString(outputItem)
     }
   })
 })

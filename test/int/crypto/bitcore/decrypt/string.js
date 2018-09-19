@@ -1,6 +1,6 @@
 import test from 'ava'
 import Crypto from 'crypto/bitcore/main'
-import decrypt from 'crypto/bitcore/decrypt'
+import decryptString from 'crypto/bitcore/decrypt/string'
 import restoreKeyPair from 'crypto/bitcore/restore'
 
 const recipientPrivateKey =
@@ -12,7 +12,7 @@ const correctMessage = 'Test message'
 
 test.before(t => {
   Object.assign(Crypto.prototype, {
-    decrypt,
+    decryptString,
     restoreKeyPair
   })
 })
@@ -20,6 +20,6 @@ test.before(t => {
 test('decrypt', async t => {
   const crypto = new Crypto()
   await crypto.restoreKeyPair(recipientPrivateKey)
-  const message = await crypto.decrypt(cryptogram)
+  const message = await crypto.decryptString(cryptogram)
   await t.is(message, correctMessage)
 })
