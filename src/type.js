@@ -58,6 +58,12 @@
  *
  * `WireMessage` with delimiting added for transfer in a byte sream.
  *
+ * Uses a separator scheme. Terminates wire message with the Unicode character
+ * [U+23CE Return Symbol][1] in UTF-8. That encodes to the 3 byte sequence
+ * `e2 8f 8e`.
+ *
+ * [1]: https://codepoints.net/U+23CE
+ *
  * @typedef {Uint8Array} DelimitedWireMessage
  * @memberof module:cashshuffle
  */
