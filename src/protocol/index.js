@@ -78,11 +78,20 @@ const terminatorString = '\u23ce'
  */
 const terminatorBuffer = Buffer.from([ 0xe2, 0x8f, 0x8e ])
 
+/**
+ * Message terminator in UTF-8 in a `Uint8Array`.
+ *
+ * @constant {Uint8Array}
+ * @default [ 0xe2, 0x8f, 0x8e ]
+ */
+const terminatorBytes = Uint8Array.from([ 0xe2, 0x8f, 0x8e ])
+
 export {
   Phase,
   Reason,
   terminatorCharLength,
   terminatorByteLength,
   terminatorString,
-  terminatorBuffer
+  terminatorBuffer,
+  terminatorBytes
 }
