@@ -9,13 +9,15 @@ violators). Several details are left implementation defined.
 implementation:
 
 - Message types are defined with protobuf_.
-- Messages on the wire are preceded by a byte length count represented as an
-  unsigned 32-bit integer in big endian byte order.
+- Messages on the wire are delimited using a separator scheme. Each wire
+  message is terminated withe the Unicode character `U+23CE Return Symbol`_
+  in UTF-8. That encodes to the 3 byte sequence ``e2 8f 8e``.
 - For encryption strings are encoded to UTF-8 without BOM.
 
 .. _CashShuffle: https://cashshuffle.com/
 .. _CoinShuffle: http://crypsys.mmci.uni-saarland.de/projects/CoinShuffle/
 .. _protobuf: https://developers.google.com/protocol-buffers/
+.. _`U+23CE Return Symbol`: https://codepoints.net/U+23CE
 
 .. autofunction:: protocol.Phase
 
