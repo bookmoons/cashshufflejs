@@ -9,8 +9,8 @@
  * @memberof module:cashshuffle/aid/reduce
  *
  * @param accumulator - Accumulated value.
- * @param currentValue - Element value.
- * @param {number} currentIndex - Element index.
+ * @param value - Element value.
+ * @param {number} index - Element index.
  * @param collection - Collection being reduced.
  *
  * @return New accumulated value.
