@@ -3,6 +3,11 @@ Bytes
 
 ``Uint8Array`` utility procedures.
 
+bytesEqual
+----------
+
+.. autofunction:: bytesEqual
+
 concatenateBytes
 ----------------
 
