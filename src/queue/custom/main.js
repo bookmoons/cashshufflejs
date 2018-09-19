@@ -11,7 +11,7 @@ import privs from './privs'
  *
  * @callback Processor
  *
- * @param data - Data to process.
+ * @param data - Data to process. Potentially modified.
  *
  * @throws If any error occurs. Propagated.
  */
