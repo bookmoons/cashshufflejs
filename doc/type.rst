@@ -42,3 +42,8 @@ P2PKHLegacyAddress
 ------------------
 
 .. autofunction:: P2PKHLegacyAddress
+
+WireMessage
+-----------
+
+.. autofunction:: WireMessage

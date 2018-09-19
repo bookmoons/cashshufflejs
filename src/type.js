@@ -94,3 +94,10 @@ const hexString = '010203a0b0c0'
  * @typedef {string} P2PKHLegacyAddress
  * @memberof module:cashshuffle
  */
+
+/**
+ * Protocol message encoded for wire transfer.
+ *
+ * @typedef {Uint8Array} WireMessage
+ * @memberof module:cashshuffle
+ */
