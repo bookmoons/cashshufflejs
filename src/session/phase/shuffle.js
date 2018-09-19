@@ -7,12 +7,12 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  * @typedef {object} ShuffleParams
  * @memberof module:cashshuffle/session.Session
  *
- * @prop {protobufjs.Root} protocol - Protocol definition.
+ * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
  * @prop {number} [attempts=<default>] - Maximum gather attempts.
  *     Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {ArrayBuffer} sessionId - Session identifier.
+ * @prop {ArrayBuffer} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Signing} signingKeyPair - Shuffler signing key pair.
  *     Assumed ready for use.
@@ -31,7 +31,7 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  * @prop {Receiver} [discarder=] - Receiver to discard messages to.
  * @prop {Logchan} [log=] - Logging channel.
  * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network
- *     to generate output key pair for.
+ *     to generate output key pair for. Not modified.
  * @prop {Address} [outputAddress=] - Own output address.
  *     Defaults to a newly generated key pair.
  */

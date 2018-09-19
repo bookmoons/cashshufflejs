@@ -11,6 +11,7 @@ import { defaultNetwork } from '../default'
  *
  * @param {Iterable<HexString>} shufflers - Shuffler signing public keys.
  * @param {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
+ *     Not modified.
  *
  * @return {Array<HexString>} Ordered shufflers list.
  */

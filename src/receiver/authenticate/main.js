@@ -8,10 +8,11 @@ const mainnet = bitcore.Networks.mainnet
  * @typedef {object} AuthenticateReceiverParams
  * @memberof module:cashshuffle/receiver/authenticate
  *
- * @prop {protobufjs.Root} protocol - Protocol definition.
+ * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
  * @prop {Receiver} nextReceiver - Receiver to deliver message to.
  * @prop {Receiver} [discarder=] - Receiver to discard messages to.
  * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
+ *     Not modified.
  */
 
 /**

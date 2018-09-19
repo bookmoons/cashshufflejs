@@ -8,12 +8,12 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @typedef {object} EquivocationCheckParams
  * @memberof module:cashshuffle/session.Session
  *
- * @prop {protobufjs.Root} protocol - Protocol definition.
+ * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
  * @prop {number} [attempts=<default>] - Maximum gather attempts.
  *     Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {ArrayBuffer} sessionId - Session identifier.
+ * @prop {ArrayBuffer} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Signing} signingKeyPair - Shuffler signing key pair.
  *     Assumed ready for use.

@@ -10,7 +10,7 @@ class OutchanbinOutchan extends Outchan {
   /**
    * @param {outchanbin~Outchanbin} outchanbin - Binary output channel.
    *     Raw binary messages are delivered to this channel.
-   * @param {protobufjs.Root} protocol - Protocol definition.
+   * @param {protobufjs.Root} protocol - Protocol definition. Not modified.
    */
   constructor (outchanbin, protocol) {
     super()

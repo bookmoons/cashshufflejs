@@ -15,7 +15,7 @@ class SessionReceiver extends Receiver {
    * @param {Receiver} [discarder=] - Message receiver that handles
    *     discarded messages.
    * @param {function} [phaseReceiverFactory=] - Factory function
-   *     providing phase receiver instances.
+   *     providing phase receiver instances. Not modified.
    */
   constructor (
     shufflers,

@@ -8,7 +8,7 @@ import privs from './privs'
  */
 class ObjectifyReceiver extends Receiver {
   /**
-   * @param {protobufjs.Root} protocol - Protocol definition.
+   * @param {protobufjs.Root} protocol - Protocol definition. Not modified.
    * @param {Receiver} nextReceiver - Receiver to deliver message to.
    */
   constructor (protocol, nextReceiver) {

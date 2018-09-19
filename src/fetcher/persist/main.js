@@ -9,7 +9,7 @@ import privs from './privs'
  * @callback Evaluator
  * @memberof module:cashshuffle/fetcher/persist
  *
- * @param message - Message to evaluate for acceptance.
+ * @param message - Message to evaluate for acceptance. Not modified.
  *
  * @return {(Error|undefined)} Rejection reason.
  *     No value to indicate acceptance.
@@ -25,7 +25,7 @@ import privs from './privs'
 class PersistFetcher extends Fetcher {
   /**
    * @param {Inbox} inbox - Inbox to fetch from.
-   * @param {Evaluator} evaluator - Message acceptance evaluator.
+   * @param {Evaluator} evaluator - Message acceptance evaluator. Not modified.
    * @param {Discarder} [discarder=] - Discarded message handler.
    */
   constructor (inbox, evaluator, discarder = null) {

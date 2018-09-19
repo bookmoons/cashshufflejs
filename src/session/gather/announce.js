@@ -23,6 +23,7 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=] - Receiver to discard messages to.
  * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
+ *     Not modified.
  */
 
 /**

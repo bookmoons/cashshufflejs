@@ -6,7 +6,7 @@ import { ValueError } from '../../error'
  * @memberof module:cashshuffle/session.Session
  *
  * @param {Array<Base64>} encryptedOutputList - List of output address
- *     layered encryptions.
+ *     layered encryptions. Not modified.
  * @param {Crypto} crypto - Message encryptor. Assumed ready for use.
  *
  * @return {Array<string>} Decrypted output list in same order.

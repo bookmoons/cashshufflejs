@@ -6,12 +6,13 @@ import { hexToBytes } from '../../aid/convert'
  * @typedef {object} MessageSignatureParams
  * @memberof module:cashshuffle/session.Session
  *
- * @prop {protobufjs.Root} protocol - Protocol definition.
+ * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
  * @prop {HexString} signingPublicKey - Signing public key.
- * @prop {ArrayBuffer} sessionId - Session identifier.
+ * @prop {ArrayBuffer} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Iterable<Coin~InputSignature>} signatures - Signatures.
  *     `Map` instances work well. Key input index. Value signature.
+ *     Items not modified.
  */
 
 /**

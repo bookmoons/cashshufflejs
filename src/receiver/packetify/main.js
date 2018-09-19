@@ -8,7 +8,7 @@ import privs from './privs'
  */
 class PacketifyReceiver extends Receiver {
   /**
-   * @param {protobufjs.Root} protocol - Protocol definition.
+   * @param {protobufjs.Root} protocol - Protocol definition. Not modified.
    * @param {Receiver} nextReceiver - Receiver to deliver message to.
    * @param {Receiver} [discarder=] - Receiver to discard message to.
    */

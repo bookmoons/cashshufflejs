@@ -23,7 +23,7 @@ import privs from './privs'
  */
 class CustomQueue extends Queue {
   /**
-   * @param {Processor} processor - Processing procedure.
+   * @param {Processor} processor - Processing procedure. Not modified.
    */
   constructor (processor) {
     super()

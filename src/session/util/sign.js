@@ -9,8 +9,9 @@ import { normalizeProtobufBytes } from '../../aid/normalize'
  * @param {Signing} signingKeyPair - Key pair to sign with.
  *     Assumed ready for use.
  * @param {protobufjs.Message} message - Protocol message.
- *     Any message type from protocol definition.
+ *     Any message type from protocol definition. Not modified.
  * @param {protobufjs.Type} type - Protocol message type. Used to encode.
+ *     Not modified.
  *
  * @return {Base64} Detached message signature.
  */

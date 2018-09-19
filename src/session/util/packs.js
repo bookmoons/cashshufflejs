@@ -5,8 +5,9 @@
  *
  * @memberof module:cashshuffle/session.Session
  *
- * @param {protobufjs.Root} protocol - Protocol definition.
+ * @param {protobufjs.Root} protocol - Protocol definition. Not modified.
  * @param {Iterable<protocol.Signed>} signedPackets - Signed packet instances.
+ *     Items not modified.
  *
  * @return {protocol.Packets} Packets list containing the signed packets
  *     in provided order.

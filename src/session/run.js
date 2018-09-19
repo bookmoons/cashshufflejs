@@ -12,19 +12,19 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from './default'
  * @typedef {object} RunParams
  * @memberof module:cashshuffle/session.Session
  *
- * @prop {protobufjs.Root} protocol - Protocol definition.
+ * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
  * @prop {number} [attempts=<default>] - Maximum gather attempts.
  *     Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {ArrayBuffer} sessionId - Session identifier.
+ * @prop {ArrayBuffer} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Signing} signingKeyPair - Shuffler signing key pair.
  *     Assumed ready for use.
  * @prop {Iterable<HexString>} shufflers - Shuffler signing public keys.
  *     Will be deduplicated and ordered lexicographically by address.
  * @prop {Map<HexString-Address>} changeAddresses - Change addresses.
- *     Key shuffler signing public key. Value change address.
+ *     Key shuffler signing public key. Value change address. Not modified.
  * @prop {number} amount - Amount to shuffle in satoshis.
  * @prop {number} fee - Shuffler fee amount in satoshis.
  *     The produced transaction will charge this fee to each shuffler.
@@ -34,6 +34,7 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from './default'
  * @prop {Receiver} [discarder=] - Receiver to discard messages to.
  * @prop {Logchan} [log=] - Logging channel.
  * @prop {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
+ *     Not modified.
  * @prop {Address} [outputAddress=] - Own output address.
  *     Defaults to a newly generated key pair.
  */

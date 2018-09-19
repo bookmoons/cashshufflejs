@@ -6,8 +6,9 @@ import { stringToUtf8 } from '../../aid/convert'
  * @memberof module:cashshuffle/session.Session
  *
  * @param {protocol.Packet} packet - Packet to affix signature to.
+ *     Not modified.
  * @param {Base64} signature - Detached signature.
- * @param {protobufjs.Root} protocol - Protocol definition.
+ * @param {protobufjs.Root} protocol - Protocol definition. Not modified.
  *
  * @return {protocol.Signed} The signed packet.
  */

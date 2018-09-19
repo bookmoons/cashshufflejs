@@ -17,6 +17,7 @@ const mainnet = bitcore.Networks.mainnet
  * @param {Iterable<HexString>} encryptionPublicKeys - Public keys to encrypt
  *     for in encryption order. Minimum 1 item.
  * @param {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
+ *     Not modified.
  *
  * @return {Base64} The final cryptogram.
  *

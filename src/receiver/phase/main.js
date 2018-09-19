@@ -13,7 +13,7 @@ class PhaseReceiver extends Receiver {
    * @param {Receiver} [discarder=] - Message receiver that handles
    *     discarded messages.
    * @param {function} [inboxFactory=] - Factory function providing
-   *     `Inbox` instances.
+   *     `Inbox` instances. Not modified.
    */
   constructor (shufflers, discarder = null, inboxFactory = null) {
     super()

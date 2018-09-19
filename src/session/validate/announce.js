@@ -10,7 +10,7 @@ import { MissingValueError, ValueError } from '../../error'
  *
  * @memberof cashshuffle/session.Session
  *
- * @param {object} packet - Packet to validate as object.
+ * @param {object} packet - Packet to validate as object. Not modified.
  *
  * @throws {MissingValueError} If a required value is missing.
  * @throws {ValueError} If contained encryption public key is invalid.

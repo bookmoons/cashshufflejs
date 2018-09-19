@@ -4,11 +4,11 @@ import { Phase } from '../../protocol'
  * @typedef {object} MessageDigestParams
  * @memberof module:cashshuffle/session.Session
  *
- * @prop {protobufjs.Root} protocol - Protocol definition.
+ * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
  * @prop {HexString} signingPublicKey - Signing public key.
- * @prop {ArrayBuffer} sessionId - Session identifier.
+ * @prop {ArrayBuffer} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
- * @prop {ArrayBuffer} digest - Digest.
+ * @prop {ArrayBuffer} digest - Digest. Not modified.
  */
 
 /**

@@ -9,7 +9,7 @@ import { MissingValueError } from '../../error'
  *
  * @memberof cashshuffle/session.Session
  *
- * @param {object} packet - Packet to validate as object.
+ * @param {object} packet - Packet to validate as object. Not modified.
  *
  * @throws {MissingValuError} If a required value is missing.
  */
