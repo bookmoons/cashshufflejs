@@ -13,7 +13,7 @@ import bytesEqual from '../bytes/equal'
  * @param {DelimitedWireMessage} delimitedMessage - Delimited message to
  *     undelimit. Not modified.
  *
- * @return {WireMessage} `delimitedMessage` with delimiting removed.
+ * @return {WireMessage} Message contained in `delimitedMessage`.
  *
  * @throws {FormatError} If `delimitedMessage` is not a valid
  *     `DelimitedWireMessage`. Message `'invalid delimited wire message'`.
