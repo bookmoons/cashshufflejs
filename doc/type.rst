@@ -28,6 +28,11 @@ CashAddress
 
 .. autofunction:: CashAddress
 
+DelimitedWireMessage
+--------------------
+
+.. autofunction:: DelimitedWireMessage
+
 HexString
 ---------
 

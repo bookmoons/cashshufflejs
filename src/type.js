@@ -54,6 +54,15 @@
  */
 
 /**
+ * Delimited wire message.
+ *
+ * `WireMessage` with delimiting added for transfer in a byte sream.
+ *
+ * @typedef {Uint8Array} DelimitedWireMessage
+ * @memberof module:cashshuffle
+ */
+
+/**
  * Hexadecimal string.
  *
  * Represents binary data as a hexadecimal number in a string.
