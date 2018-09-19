@@ -6,6 +6,8 @@
  *
  * @memberof module:cashshuffle/aid/reduce
  *
+ * @implements {Reducer}
+ *
  * @param {ByteString} byteString - Constructed `ByteString`.
  * @param {Byte} byte - `Byte` to reduce. Assumed valid.
  *
