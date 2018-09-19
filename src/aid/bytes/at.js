@@ -9,8 +9,8 @@ import bytesEqual from './equal'
  * @memberof module:cashshuffle/aid/bytes
  *
  * @param {Uint8Array} container - Bytes to check in.
- * @param {Uint8Array} value - Bytes to check for.
  * @param {number} index - Index in `container` to check.
+ * @param {Uint8Array} value - Bytes to check for.
  *
  * @return {boolean} Whether `container` contains `value` at `index`.
  *     `true` if contains. `false` otherwise.
@@ -21,7 +21,7 @@ import bytesEqual from './equal'
  * @return {boolean} Whether a copy of `value` exists at `index` in
  *     `container`. `true` if found. `false` otherwise.
  */
-function bytesAt (container, value, index) {
+function bytesAt (container, index, value) {
   if (!container.length) return false
   if (!value.length) return false
   if (index >= container.length) return false
