@@ -11,13 +11,13 @@
  * @module cashshuffle/inchanbin/nodestream
  */
 
-import NodestreamInchanbin from './main'
+import NodeStreamInchanbin from './main'
 import receive from './receive'
 
-Object.assign(NodestreamInchanbin.prototype, {
+Object.assign(NodeStreamInchanbin.prototype, {
   receive
 })
 
-Object.freeze(NodestreamInchanbin)
+Object.freeze(NodeStreamInchanbin)
 
-export default NodestreamInchanbin
+export default NodeStreamInchanbin

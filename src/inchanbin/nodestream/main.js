@@ -7,7 +7,7 @@ import privs from './privs'
  *
  * @implements {Inchanbin}
  */
-class NodestreamInchanbin extends Inchanbin {
+class NodeStreamInchanbin extends Inchanbin {
   /**
    * @param {Readable<Buffer>} stream - Stream to read from.
    *     Must support `unshift`.
@@ -28,4 +28,4 @@ class NodestreamInchanbin extends Inchanbin {
   }
 }
 
-export default NodestreamInchanbin
+export default NodeStreamInchanbin
