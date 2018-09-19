@@ -44,7 +44,7 @@
  *
  * @param {string} message - Message to encrypt.
  * @param {HexString} recipient - Public key of recipient.
- * @param [network=<mainnet>] - Bitcoin Cash network.
+ * @param [network=<mainnet>] - Bitcoin Cash network. Not modified.
  *
  * @return {Base64} The cryptogram.
  */
