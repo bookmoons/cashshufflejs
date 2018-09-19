@@ -3,6 +3,8 @@ import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/receiver/objectify
+ *
+ * @implements {Receiver}
  */
 class ObjectifyReceiver extends Receiver {
   /**

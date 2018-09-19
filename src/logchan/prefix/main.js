@@ -3,6 +3,8 @@ import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/logchan/prefix
+ *
+ * @implements {Logchan}
  */
 class PrefixLogchan extends Logchan {
   /**

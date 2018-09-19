@@ -16,6 +16,8 @@ const mainnet = bitcore.Networks.mainnet
 
 /**
  * @memberof module:cashshuffle/receiver/authenticate
+ *
+ * @implements {Receiver}
  */
 class AuthenticateReceiver extends Receiver {
   /**

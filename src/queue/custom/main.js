@@ -18,6 +18,8 @@ import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/queue/custom
+ *
+ * @implements {Queue}
  */
 class CustomQueue extends Queue {
   /**

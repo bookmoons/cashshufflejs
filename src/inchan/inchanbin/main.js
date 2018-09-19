@@ -3,6 +3,8 @@ import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/inchan/inchanbin
+ *
+ * @implements {Inchan}
  */
 class InchanbinInchan extends Inchan {
   /**

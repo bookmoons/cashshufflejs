@@ -3,6 +3,8 @@ import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/outchan/outchanbin
+ *
+ * @implements {Outchan}
  */
 class OutchanbinOutchan extends Outchan {
   /**

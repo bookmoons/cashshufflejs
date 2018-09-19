@@ -3,6 +3,8 @@ import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/receiver/packetify
+ *
+ * @implements {Receiver}
  */
 class PacketifyReceiver extends Receiver {
   /**

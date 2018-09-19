@@ -3,6 +3,8 @@ import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/logchan/file
+ *
+ * @implements {Logchan}
  */
 class FileLogchan extends Logchan {
   /**

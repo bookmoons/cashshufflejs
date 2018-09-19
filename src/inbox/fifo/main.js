@@ -1,6 +1,11 @@
 import Inbox from '../base'
 import privs from './privs'
 
+/**
+ * @memberof module:cashshuffle/inbox/fifo
+ *
+ * @implements {Inbox}
+ */
 class FifoInbox extends Inbox {
   constructor () {
     super()

@@ -4,6 +4,8 @@ import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/receiver/store
+ *
+ * @implements {Receiver}
  */
 class StoreReceiver extends Receiver {
   /**

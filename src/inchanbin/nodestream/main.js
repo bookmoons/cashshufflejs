@@ -4,6 +4,8 @@ import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/inchanbin/nodestream
+ *
+ * @implements {Inchanbin}
  */
 class NodestreamInchanbin extends Inchanbin {
   /**

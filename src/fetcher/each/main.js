@@ -3,6 +3,8 @@ import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/fetcher/each
+ *
+ * @implements {Fetcher}
  */
 class EachFetcher extends Fetcher {
   /**

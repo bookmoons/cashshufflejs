@@ -3,6 +3,8 @@ import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/discarder/log
+ *
+ * @implements {Discarder}
  */
 class LogDiscarder extends Discarder {
   /**

@@ -3,6 +3,8 @@ import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/drawer/standard
+ *
+ * @implements {Drawer}
  */
 class StandardDrawer extends Drawer {
   /**

@@ -19,6 +19,8 @@ import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/fetcher/persist
+ *
+ * @implements {Fetcher}
  */
 class PersistFetcher extends Fetcher {
   /**
