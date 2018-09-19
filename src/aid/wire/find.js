@@ -5,7 +5,7 @@ import findBytesTerminator from '../find/bytes/terminator'
 /**
  * Find delimited wire message in a byte string.
  *
- * @memberof module:cashshuffle/wire
+ * @memberof module:cashshuffle/aid/wire
  *
  * @param {Uint8Array} bytes - Bytes to find message in. Not modified.
  *

@@ -8,7 +8,7 @@ import bytesEqual from '../bytes/equal'
  * Removes delimiting from a wire message.
  * Expects valid solitary delimited wire message.
  *
- * @memberof module:cashshuffle/wire
+ * @memberof module:cashshuffle/aid/wire
  *
  * @param {DelimitedWireMessage} delimitedMessage - Delimited message to
  *     undelimit. Not modified.
