@@ -8,7 +8,8 @@
  * @param {protobufjs.Root} protocol - Protocol definition.
  * @param {Iterable<protocol.Signed>} signedPackets - Signed packet instances.
  *
- * @return {protocol.Packets} Packets list containing the signed packets.
+ * @return {protocol.Packets} Packets list containing the signed packets
+ *     in provided order.
  */
 async function packageSignedPackets (protocol, signedPackets) {
   const Signed = protocol.Signed
