@@ -13,4 +13,6 @@ Object.assign(LogDiscarder.prototype, {
   submit
 })
 
+Object.freeze(LogDiscarder)
+
 export default LogDiscarder

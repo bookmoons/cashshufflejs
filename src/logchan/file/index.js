@@ -27,4 +27,6 @@ Object.assign(FileLogchan.prototype, {
   send
 })
 
+Object.freeze(FileLogchan)
+
 export default FileLogchan

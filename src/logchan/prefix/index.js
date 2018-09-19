@@ -26,4 +26,6 @@ Object.assign(PrefixLogchan.prototype, {
   send
 })
 
+Object.freeze(PrefixLogchan)
+
 export default PrefixLogchan

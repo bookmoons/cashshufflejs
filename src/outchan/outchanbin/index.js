@@ -18,4 +18,6 @@ Object.assign(OutchanbinOutchan.prototype, {
   send
 })
 
+Object.freeze(OutchanbinOutchan)
+
 export default OutchanbinOutchan

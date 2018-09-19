@@ -33,4 +33,6 @@ Object.assign(BitcoreSigning.prototype, {
   sign
 })
 
+Object.freeze(BitcoreSigning)
+
 export default BitcoreSigning

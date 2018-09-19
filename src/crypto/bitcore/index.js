@@ -37,4 +37,6 @@ Object.assign(BitcoreCrypto.prototype, {
   restoreKeyPair
 })
 
+Object.freeze(BitcoreCrypto)
+
 export default BitcoreCrypto

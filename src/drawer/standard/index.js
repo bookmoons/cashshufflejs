@@ -20,4 +20,6 @@ Object.defineProperty(StandardDrawer.prototype, 'watch', {
   get: watch
 })
 
+Object.freeze(StandardDrawer)
+
 export default StandardDrawer

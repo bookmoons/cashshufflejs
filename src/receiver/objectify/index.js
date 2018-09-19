@@ -18,4 +18,6 @@ Object.assign(ObjectifyReceiver.prototype, {
   submit
 })
 
+Object.freeze(ObjectifyReceiver)
+
 export default ObjectifyReceiver

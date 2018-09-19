@@ -23,4 +23,6 @@ Object.assign(ConsoleLogchan.prototype, {
   send
 })
 
+Object.freeze(ConsoleLogchan)
+
 export default ConsoleLogchan

@@ -17,4 +17,6 @@ Object.assign(StoreReceiver.prototype, {
   submit
 })
 
+Object.freeze(StoreReceiver)
+
 export default StoreReceiver

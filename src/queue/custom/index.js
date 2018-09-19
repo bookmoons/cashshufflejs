@@ -18,4 +18,6 @@ Object.defineProperty(CustomQueue.prototype, 'empty', {
   get: empty
 })
 
+Object.freeze(CustomQueue)
+
 export default CustomQueue

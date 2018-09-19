@@ -30,4 +30,6 @@ Object.defineProperty(SessionReceiver.prototype, 'phaseReceivers', {
   get: phaseReceivers
 })
 
+Object.freeze(SessionReceiver)
+
 export default SessionReceiver

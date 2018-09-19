@@ -29,4 +29,6 @@ Object.defineProperty(PhaseReceiver.prototype, 'shufflerInboxes', {
   get: shufflerInboxes
 })
 
+Object.freeze(PhaseReceiver)
+
 export default PhaseReceiver

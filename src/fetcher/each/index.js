@@ -13,4 +13,6 @@ Object.assign(EachFetcher.prototype, {
   fetch
 })
 
+Object.freeze(EachFetcher)
+
 export default EachFetcher

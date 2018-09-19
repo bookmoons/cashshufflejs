@@ -18,4 +18,6 @@ Object.assign(InchanbinInchan.prototype, {
   receive
 })
 
+Object.freeze(InchanbinInchan)
+
 export default InchanbinInchan

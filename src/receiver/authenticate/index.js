@@ -19,4 +19,6 @@ Object.assign(AuthenticateReceiver.prototype, {
   submit
 })
 
+Object.freeze(AuthenticateReceiver)
+
 export default AuthenticateReceiver

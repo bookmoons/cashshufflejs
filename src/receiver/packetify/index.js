@@ -19,4 +19,6 @@ Object.assign(PacketifyReceiver.prototype, {
   submit
 })
 
+Object.freeze(PacketifyReceiver)
+
 export default PacketifyReceiver

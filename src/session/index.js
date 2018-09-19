@@ -63,4 +63,6 @@ Object.assign(Session.prototype, {
   validateSignature
 })
 
+Object.freeze(Session)
+
 export default Session

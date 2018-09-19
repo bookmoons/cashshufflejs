@@ -15,4 +15,6 @@ Object.assign(PersistFetcher.prototype, {
   fetch
 })
 
+Object.freeze(PersistFetcher)
+
 export default PersistFetcher

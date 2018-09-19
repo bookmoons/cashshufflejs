@@ -29,4 +29,6 @@ Object.assign(FifoInbox.prototype, {
   watch
 })
 
+Object.freeze(FifoInbox)
+
 export default FifoInbox

@@ -18,4 +18,6 @@ Object.assign(NodestreamOutchanbin.prototype, {
   send
 })
 
+Object.freeze(NodestreamOutchanbin)
+
 export default NodestreamOutchanbin

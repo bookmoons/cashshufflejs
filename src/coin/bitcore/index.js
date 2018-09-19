@@ -25,4 +25,6 @@ Object.assign(BitcoreCoin.prototype, {
   verifySignature
 })
 
+Object.freeze(BitcoreCoin)
+
 export default BitcoreCoin

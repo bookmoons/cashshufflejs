@@ -28,4 +28,6 @@ Object.assign(DistributeLogchan.prototype, {
   send
 })
 
+Object.freeze(DistributeLogchan)
+
 export default DistributeLogchan

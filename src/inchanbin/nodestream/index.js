@@ -18,4 +18,6 @@ Object.assign(NodestreamInchanbin.prototype, {
   receive
 })
 
+Object.freeze(NodestreamInchanbin)
+
 export default NodestreamInchanbin
