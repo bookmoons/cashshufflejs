@@ -21,7 +21,7 @@ const undelimitReturn = [ message, newData ]
  * Extracts from the front of the chunk.
  * Extracted message delivered without delimiter.
  *
- * @param {Buffer} data - Data chunk to undelimit from.
+ * @param {Buffer} data - Data chunk to undelimit from. Not modified.
  *
  * @return {UndelimitReturn} The undelimited message and new data chunk.
  *

@@ -8,7 +8,7 @@ import routeSignedPacket from './route'
  */
 class SessionServerSimulator {
   /**
-   * @param {protobufjs.Root} protocol - Protocol definition.
+   * @param {protobufjs.Root} protocol - Protocol definition. Not modified.
    */
   constructor (protocol) {
     const self = this

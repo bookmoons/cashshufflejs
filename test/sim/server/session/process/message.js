@@ -4,7 +4,7 @@ import privs from '../privs'
  * Process new binary message from connection.
  *
  * @param {object} connection - Connection package.
- * @param {Buffer} message - Binary message to process.
+ * @param {Buffer} message - Binary message to process. Not modified.
  */
 async function processMessage (connection, message) {
   const priv = privs.get(this)

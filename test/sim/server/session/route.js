@@ -9,6 +9,7 @@ import unicast from './unicast'
  * Discards packet with invalid to key.
  *
  * @param {protocol.Signed} signedPacket - Signed packet to route.
+ *     Not modified.
  */
 async function routeSignedPacket (signedPacket) {
   const priv = privs.get(this)

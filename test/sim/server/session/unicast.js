@@ -9,6 +9,7 @@ import delimit from './delimit'
  *
  * @param {HexString} to - Signing public key of recipient.
  * @param {protocol.Signed} signedPacket - Signed packet to unicast.
+ *     Not modified.
  */
 async function unicast (to, signedPacket) {
   const priv = privs.get(this)

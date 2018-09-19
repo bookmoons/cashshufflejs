@@ -5,7 +5,7 @@ import { terminatorBuffer } from 'protocol'
  *
  * Suffixes binary message with the wire delimiter.
  *
- * @param {Buffer} message - Message to delimit.
+ * @param {Buffer} message - Message to delimit. Not modified.
  *
  * @return {Buffer} The delimited message.
  */

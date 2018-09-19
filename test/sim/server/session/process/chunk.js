@@ -6,7 +6,7 @@ import undelimit from '../undelimit'
  * Process new chunk of data from connection.
  *
  * @param {object} connection - Connection package.
- * @param {Buffer} data - Data to process.
+ * @param {Buffer} data - Data to process. Not modified.
  */
 async function processChunk (connection, data) {
   const priv = privs.get(this)

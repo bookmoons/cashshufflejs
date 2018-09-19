@@ -5,6 +5,7 @@ import delimit from './delimit'
  * Broadcast message to all connections.
  *
  * @param {protocol.Signed} signedPacket - Signed packet to broadcast.
+ *     Not modified.
  */
 async function broadcast (signedPacket) {
   const priv = privs.get(this)
