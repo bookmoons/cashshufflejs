@@ -6,6 +6,8 @@ import concatenateBytes from '../bytes/concat'
  *
  * Adds delimiting for transfer in a byte stream.
  *
+ * @memberof module:cashshuffle/wire
+ *
  * @param {WireMessage} message - Message to delimit. Not modified.
  *
  * @return {DelimitedWireMessage} `message` delimited for transfer in
