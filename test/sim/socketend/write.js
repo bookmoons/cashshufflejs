@@ -5,7 +5,7 @@ import privs from './privs'
  *
  * @param {Buffer} chunk - Data chunk written. Not modified.
  * @param {string} encoding - Encoding of string chunk. Unused.
- * @param {function} callback - Done callback. Not modified.
+ * @param {WriteDoneSender} callback - Done signal sender. Not modified.
  */
 function _write (chunk, encoding, callback) {
   const priv = privs.get(this)

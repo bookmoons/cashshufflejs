@@ -30,6 +30,18 @@
  */
 
 /**
+ * Send write done signal.
+ *
+ * Provided to write request fulfiller.
+ *
+ * @callback WriteDoneSender
+ * @memberof module:cashshuffle/sim/socketend.SocketEndSimulator
+ *
+ * @param {Error} [error=] Error encountered during write fulfillment.
+ *     None indicates successful fulfillment.
+ */
+
+/**
  * Receives data written to the socket end.
  *
  * @callback WriteHandler
