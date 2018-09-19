@@ -11,3 +11,4 @@ Utility procedures and values.
    utility/reduce
    utility/validate
    utility/value
+   utility/wire
