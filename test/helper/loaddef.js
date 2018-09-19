@@ -5,7 +5,7 @@ import loadModule from './loadmod'
  *
  * @param {string} path - Module path.
  *
- * @return The default export of the loaded module.
+ * @return The default export of the named module.
  */
 async function loadDefault (path) {
   const module = await loadModule(path)
