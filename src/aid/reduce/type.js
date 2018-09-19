@@ -11,7 +11,7 @@
  * @param accumulator - Accumulated value.
  * @param currentValue - Element value.
  * @param {number} currentIndex - Element index.
- * @param {Array} array - `Array` being reduced.
+ * @param collection - Collection being reduced.
  *
  * @return New accumulated value.
  */
