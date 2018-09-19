@@ -15,4 +15,6 @@ Object.assign(SessionServerSimulator.prototype, {
   connect
 })
 
+Object.freeze(SessionServerSimulator)
+
 export default SessionServerSimulator

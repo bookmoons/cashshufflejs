@@ -23,4 +23,6 @@ Object.defineProperty(SocketSimulator.prototype, 'second', {
   get: second
 })
 
+Object.freeze(SocketSimulator)
+
 export default SocketSimulator

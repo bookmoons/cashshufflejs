@@ -15,4 +15,6 @@ Object.assign(SocketEndSimulator.prototype, {
   _write
 })
 
+Object.freeze(SocketEndSimulator)
+
 export default SocketEndSimulator
