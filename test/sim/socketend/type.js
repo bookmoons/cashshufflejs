@@ -9,7 +9,7 @@
  * @memberof module:cashshuffle/sim/socketend.SocketEndSimulator
  *
  * @param {?Buffer} chunk - Data chunk to deliver.
- *     `null` to signal end of stream.
+ *     `null` signals end of stream.
  *
  * @return {boolean} Whether read is done.
  *     If done cease delivering. Otherwise continue.
