@@ -9,7 +9,7 @@ function _read (size) {
     priv.deliverReadData
   )
   readHandlerDone
-    .catch(function handleReadHandlerError (error) {
+    .catch(function deliverReadError (error) {
       handleReadError.call(self, error)
     })
 }
