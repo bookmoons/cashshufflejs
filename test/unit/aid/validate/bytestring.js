@@ -1,5 +1,6 @@
 import test from 'ava'
 import { FormatError, ValueError } from 'error'
+import { byteToByteString } from 'aid/reduce'
 import validateByteString from 'aid/validate/bytestring'
 
 function verifyNotString (t, error) {
@@ -28,14 +29,7 @@ test('missing', t => {
 test('valid', t => {
   const codePoints = []
   for (let i = 0; i <= 255; i++) codePoints.push(i)
-  const byteString = codePoints.reduce(
-    function reduceCodePoints (byteString, codePoint) {
-      const character = String.fromCodePoint(codePoint)
-      byteString += character
-      return byteString
-    },
-    ''
-  )
+  const byteString = codePoints.reduce(byteToByteString, '')
   t.notThrows(() => {
     validateByteString(byteString)
   })

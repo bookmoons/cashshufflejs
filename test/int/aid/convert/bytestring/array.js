@@ -1,5 +1,6 @@
 import test from 'ava'
 import { FormatError } from 'error'
+import { byteToByteString } from 'aid/reduce'
 import byteStringToArray from 'aid/convert/bytestring/array'
 
 test('invalid', t => {
@@ -19,14 +20,7 @@ test('empty', t => {
 test('valid', t => {
   const codePoints = []
   for (let i = 0; i <= 255; i++) codePoints.push(i)
-  const byteString = codePoints.reduce(
-    function reduceCodePoints (byteString, codePoint) {
-      const character = String.fromCodePoint(codePoint)
-      byteString += character
-      return byteString
-    },
-    ''
-  )
+  const byteString = codePoints.reduce(byteToByteString, '')
   const bytesArray = byteStringToArray(byteString)
   t.is(bytesArray.length, codePoints.length)
   for (let i = 0; i < bytesArray.length; i++) {

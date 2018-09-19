@@ -2,6 +2,7 @@ import test from 'ava'
 import sinon from 'sinon'
 import mockRequire from 'mock-require'
 import loadDefault from 'helper/loaddef'
+import { byteToByteString } from 'aid/reduce'
 const validateByteString = sinon.stub()
 let byteStringToArray
 
@@ -31,14 +32,7 @@ test.serial('empty', t => {
 test.serial('valid', t => {
   const codePoints = []
   for (let i = 0; i <= 255; i++) codePoints.push(i)
-  const byteString = codePoints.reduce(
-    function reduceCodePoints (byteString, codePoint) {
-      const character = String.fromCodePoint(codePoint)
-      byteString += character
-      return byteString
-    },
-    ''
-  )
+  const byteString = codePoints.reduce(byteToByteString, '')
   const bytesArray = byteStringToArray(byteString)
   t.true(validateByteString.calledOnceWith(byteString))
   t.is(bytesArray.length, codePoints.length)
