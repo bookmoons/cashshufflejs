@@ -8,5 +8,6 @@ Utility procedures and values.
    utility/bytes
    utility/convert
    utility/normalize
+   utility/reduce
    utility/validate
    utility/value
