@@ -17,8 +17,8 @@
  * @typedef {Array} ErrorMessagePair
  * @memberof module:cashshuffle/discarder~Discarder
  *
- * @prop {Error} 0 - Error. Explains cause of discard.
- * @prop {*} 1 - Message.
+ * @prop {*} 0 - Message.
+ * @prop {Error} 1 - Error. Explains cause of discard.
  */
 
 /**

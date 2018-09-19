@@ -12,8 +12,8 @@ async function submit (message) {
   if (typeof fieldFromKey !== 'object') {
     if (priv.discarder) {
       await priv.discarder.submit([
-        new MissingValueError('from_key'),
-        message
+        message,
+        new MissingValueError('from_key')
       ])
     }
     return
@@ -22,8 +22,8 @@ async function submit (message) {
   if (typeof senderPublicKey !== 'string') {
     if (priv.discarder) {
       await priv.discarder.submit([
-        new MissingValueError('from_key.key'),
-        message
+        message,
+        new MissingValueError('from_key.key')
       ])
     }
     return
@@ -31,8 +31,8 @@ async function submit (message) {
   if (!priv.inboxes.has(senderPublicKey)) {
     if (priv.discarder) {
       await priv.discarder.submit([
-        new ValueError('Unrecognized public key: ' + senderPublicKey),
-        message
+        message,
+        new ValueError('Unrecognized public key: ' + senderPublicKey)
       ])
     }
     return

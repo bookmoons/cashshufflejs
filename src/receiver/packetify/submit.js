@@ -15,8 +15,8 @@ async function submit (message) {
   if (typeof packetObject !== 'object') {
     if (priv.discarder) {
       await priv.discarder.submit([
-        new MissingValueError('packet'),
-        message
+        message,
+        new MissingValueError('packet')
       ])
     }
     return

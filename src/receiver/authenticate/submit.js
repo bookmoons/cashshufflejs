@@ -18,8 +18,8 @@ async function submit (message) {
   if (typeof packet !== 'object') {
     if (priv.discarder) {
       await priv.discarder.submit([
-        new MissingValueError('packet'),
-        message
+        message,
+        new MissingValueError('packet')
       ])
     }
     return
@@ -28,8 +28,8 @@ async function submit (message) {
   if (typeof fieldFromKey !== 'object') {
     if (priv.discarder) {
       await priv.discarder.submit([
-        new MissingValueError('packet.from_key'),
-        message
+        message,
+        new MissingValueError('packet.from_key')
       ])
     }
     return
@@ -38,8 +38,8 @@ async function submit (message) {
   if (typeof senderPublicKeyString !== 'string') {
     if (priv.discarder) {
       await priv.discarder.submit([
-        new MissingValueError('packet.from_key.key'),
-        message
+        message,
+        new MissingValueError('packet.from_key.key')
       ])
     }
     return
@@ -48,8 +48,8 @@ async function submit (message) {
   if (typeof fieldSignature !== 'object') {
     if (priv.discarder) {
       await priv.discarder.submit([
-        new MissingValueError('signature'),
-        message
+        message,
+        new MissingValueError('signature')
       ])
     }
     return
@@ -58,8 +58,8 @@ async function submit (message) {
   if (!signatureBytesDenormal) {
     if (priv.discarder) {
       await priv.discarder.submit([
-        new MissingValueError('signature.signature'),
-        message
+        message,
+        new MissingValueError('signature.signature')
       ])
     }
     return
@@ -81,8 +81,8 @@ async function submit (message) {
   } catch (e) {
     if (priv.discarder) {
       await priv.discarder.submit([
-        new ValueError(e, 'signature verification failed'),
-        message
+        message,
+        new ValueError(e, 'signature verification failed')
       ])
     }
     return
@@ -91,8 +91,8 @@ async function submit (message) {
     if (priv.discarder) {
       const reason = messageSigner.error
       await priv.discarder.submit([
-        new ValueError(reason),
-        message
+        message,
+        new ValueError(reason)
       ])
     }
     return

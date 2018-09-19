@@ -17,7 +17,7 @@ test.before(t => {
 test('log', async t => {
   const logchan = new SpyLogchan()
   const discarder = new LogDiscarder(logchan)
-  await discarder.submit([ testError, testMessage ])
+  await discarder.submit([ testMessage, testError ])
   const call = logchan.send.firstCall
   const message = call.args[0]
   t.is(message, expectedMessage)

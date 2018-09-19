@@ -77,7 +77,7 @@ async function gatherAnnounce ({
           e instanceof MissingValueError ||
           e instanceof ValueError
         ) {
-          if (discarder) await discarder.submit([ e, packet ])
+          if (discarder) await discarder.submit([ packet, e ])
           continue
         } else throw e
       }

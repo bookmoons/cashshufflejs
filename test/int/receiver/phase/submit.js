@@ -22,7 +22,7 @@ test('missing from_key', async t => {
   const message = {}
   await receiver.submit(message)
   const discarded = inbox.receive()
-  const reason = discarded[0]
+  const reason = discarded[1]
   t.true(reason instanceof MissingValueError)
   t.is(reason.message, 'from_key')
 })
@@ -34,7 +34,7 @@ test('missing from_key.key', async t => {
   const message = { fromKey: {} }
   await receiver.submit(message)
   const discarded = inbox.receive()
-  const reason = discarded[0]
+  const reason = discarded[1]
   t.true(reason instanceof MissingValueError)
   t.is(reason.message, 'from_key.key')
 })
@@ -46,7 +46,7 @@ test('unrecognized sender key', async t => {
   const message = { fromKey: { key: invalidKey } }
   await receiver.submit(message)
   const discarded = inbox.receive()
-  const reason = discarded[0]
+  const reason = discarded[1]
   t.true(reason instanceof ValueError)
 })
 

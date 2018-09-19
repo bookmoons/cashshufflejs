@@ -51,7 +51,7 @@ async function gatherDigest ({
         await this.validateDigest(packet)
       } catch (e) {
         if (e instanceof MissingValueError) {
-          if (discarder) await discarder.submit([ e, packet ])
+          if (discarder) await discarder.submit([ packet, e ])
           continue
         } else throw e
       }

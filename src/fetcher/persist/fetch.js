@@ -20,7 +20,7 @@ async function fetch (attempts, timeout = null) {
     const rejectionReason = await priv.evaluator(message)
     if (rejectionReason) {
       const discarder = priv.discarder
-      if (discarder) await discarder.submit([ rejectionReason, message ])
+      if (discarder) await discarder.submit([ message, rejectionReason ])
       continue
     } else return message
   }
