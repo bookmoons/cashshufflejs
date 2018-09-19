@@ -14,3 +14,8 @@ byteToByteString
 ----------------
 
 .. autofunction:: byteToByteString
+
+bytesToLengthSum
+----------------
+
+.. autofunction:: bytesToLengthSum

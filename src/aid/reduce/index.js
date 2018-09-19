@@ -7,3 +7,4 @@
  */
 
 export { default as byteToByteString } from './byte/bytestring'
+export { default as bytesToLengthSum } from './bytes/length/sum'
