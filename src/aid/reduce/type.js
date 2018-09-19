@@ -3,7 +3,6 @@
 /**
  * Reducer procedure.
  *
- * Argument to `Array.prototype.reduce`.
  * Every function in the `reduce` package implements this interface.
  *
  * @callback Reducer
