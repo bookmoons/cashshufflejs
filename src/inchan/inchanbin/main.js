@@ -1,10 +1,10 @@
-import Inbox from '../base'
+import Inchan from '../base'
 import privs from './privs'
 
 /**
  * @memberof module:cashshuffle/inchan/inchanbin
  */
-class InchanbinInchan extends Inbox {
+class InchanbinInchan extends Inchan {
   /**
    * @param {inchanbin~Inchanbin} inchanbin - Binary input channel.
    *     Raw binary messages are read from this channel.

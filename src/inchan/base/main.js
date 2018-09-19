@@ -1,3 +1,3 @@
-class Inbox {}
+class Inchan {}
 
-export default Inbox
+export default Inchan
