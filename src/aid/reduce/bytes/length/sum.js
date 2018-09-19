@@ -10,7 +10,7 @@
  * @param {number} lengthSum - Summed `length`.
  * @param {Uint8Array} bytes - `Uint8Array` to reduce.
  *
- * @return {number} `lengthSum` with `length` of `bytes` added.
+ * @return {number} Sum of `lengthSum` and `length` of `bytes`.
  */
 function bytesToLengthSum (lengthSum, bytes) {
   const length = bytes.length
