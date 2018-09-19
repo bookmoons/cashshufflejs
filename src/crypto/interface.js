@@ -35,14 +35,14 @@
  */
 
 /**
- * Encrypt message for public key.
+ * Encrypt string for public key.
  *
- * @method encrypt
+ * @method encryptString
  * @memberof module:cashshuffle/crypto~Crypto
  * @instance
  * @async
  *
- * @param {string} message - Message to encrypt.
+ * @param {string} string - String to encrypt.
  * @param {HexString} recipient - Public key of recipient.
  * @param [network=<mainnet>] - Bitcoin Cash network. Not modified.
  *

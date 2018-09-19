@@ -4,12 +4,12 @@ import {
   bytesToBase64,
   bytesToNodeBuffer,
   nodeBufferToBytes
-} from '../../aid/convert'
-import { encodeString } from '../../aid/encrypt'
+} from '../../../aid/convert'
+import { encodeString } from '../../../aid/encrypt'
 
 const mainnet = bitcore.Networks.mainnet
 
-async function encrypt (message, recipient, network = mainnet) {
+async function encryptString (message, recipient, network = mainnet) {
   const ephemeralPrivateKey = new bitcore.PrivateKey(null, network)
   const encryptor = new ECIES()
   encryptor.privateKey(ephemeralPrivateKey)
@@ -23,4 +23,4 @@ async function encrypt (message, recipient, network = mainnet) {
   return cryptogramBase64
 }
 
-export default encrypt
+export default encryptString

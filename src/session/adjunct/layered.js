@@ -44,7 +44,7 @@ async function encryptLayeredStep (
 ) {
   if (!encryptionPublicKeys.length) return message
   const encryptionPublicKey = encryptionPublicKeys.shift()
-  const cryptogram = await crypto.encrypt(
+  const cryptogram = await crypto.encryptString(
     message,
     encryptionPublicKey,
     network
