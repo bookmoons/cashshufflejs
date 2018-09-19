@@ -1,1 +1,5 @@
-export { default } from './main'
+import Signing from './main'
+
+Object.freeze(Signing)
+
+export default Signing

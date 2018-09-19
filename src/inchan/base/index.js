@@ -1,1 +1,5 @@
-export { default } from './main'
+import Inchan from './main'
+
+Object.freeze(Inchan)
+
+export default Inchan

@@ -1,1 +1,5 @@
-export { default } from './main'
+import Fetcher from './main'
+
+Object.freeze(Fetcher)
+
+export default Fetcher

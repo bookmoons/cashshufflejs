@@ -1,1 +1,5 @@
-export { default } from './main'
+import Queue from './main'
+
+Object.freeze(Queue)
+
+export default Queue

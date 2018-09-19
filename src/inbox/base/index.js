@@ -1,1 +1,5 @@
-export { default } from './main'
+import Inbox from './main'
+
+Object.freeze(Inbox)
+
+export default Inbox

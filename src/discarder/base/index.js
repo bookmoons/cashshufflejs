@@ -1,1 +1,5 @@
-export { default } from './main'
+import Discarder from './main'
+
+Object.freeze(Discarder)
+
+export default Discarder

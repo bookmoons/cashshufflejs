@@ -1,1 +1,5 @@
-export { default } from './main'
+import Crypto from './main'
+
+Object.freeze(Crypto)
+
+export default Crypto
