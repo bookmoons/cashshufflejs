@@ -20,5 +20,5 @@
  * @instance
  * @async
  *
- * @param {*} message - Message to submit.
+ * @param {*} message - Message to submit. Not modified.
  */

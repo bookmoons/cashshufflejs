@@ -23,7 +23,7 @@
  * @memberof module:cashshuffle/queue~Queue
  * @instance
  *
- * @param data - Data to add.
+ * @param data - Data to add. Not modified.
  */
 
 /**

@@ -111,6 +111,7 @@ const shufflerAddress = [ sessionPublicKey, address ]
  *
  * @param {Transaction} transaction - Transaction to add signatures to.
  * @param {Iterable<InputSignature>} signatures - Signatures to add.
+ *     Items not modified.
  *
  * @return {Transaction} Transaction with signatures added.
  */
@@ -125,7 +126,7 @@ const shufflerAddress = [ sessionPublicKey, address ]
  *
  * @param {HexString} publicKeyString - Public key.
  * @param [network=<mainnet>] - Bitcoin Cash network.
- *     Type implementation defined.
+ *     Type implementation defined. Not modified.
  *
  * @return {CashAddress} P2PKH address for the public key.
  */
@@ -140,7 +141,7 @@ const shufflerAddress = [ sessionPublicKey, address ]
  * @instance
  * @async
  *
- * @param {Transaction} transaction - Transaction to broadcast.
+ * @param {Transaction} transaction - Transaction to broadcast. Not modified.
  *
  * @throws {BusyError} If any other network operation is running.
  * @throws If transaction submission fails.
@@ -162,11 +163,11 @@ const shufflerAddress = [ sessionPublicKey, address ]
  * @param {number} fee - Shuffler fee amount in satoshis.
  *     The produced transaction will charge this fee to each shuffler.
  * @param {Iterable<ShufflerAddress>} inputAddresses - Input addresses.
- *     1 for each shuffler.
+ *     1 for each shuffler. Items not modified.
  * @param {Iterable<Address>} outputAddresses - Output addresses. 1 for each
  *     shuffler. Shuffler associated with each output unspecified.
  * @param {Iterable<ShufflerAddress>} changeAddresses - Change output
- *     addresses. 0-1 for each shuffler.
+ *     addresses. 0-1 for each shuffler. Items not modified.
  *
  * @return {Transaction} The unsigned transaction.
  */
@@ -181,7 +182,7 @@ const shufflerAddress = [ sessionPublicKey, address ]
  * @instance
  * @async
  *
- * @param {Transaction} transaction - Transaction to sign.
+ * @param {Transaction} transaction - Transaction to sign. Not modified.
  * @param {InputIndex} inputIndex - Index of input to sign.
  * @param {HexString} privateKeyString - Signer private key.
  *
@@ -199,7 +200,7 @@ const shufflerAddress = [ sessionPublicKey, address ]
  * @instance
  * @async
  *
- * @param {Transaction} transaction - Transaction to sign.
+ * @param {Transaction} transaction - Transaction to sign. Not modified.
  * @param {HexString} privateKeyString - Signer private key.
  *
  * @return {Map<InputIndex,Signature>} Signatures. Key input index.
@@ -235,7 +236,7 @@ const shufflerAddress = [ sessionPublicKey, address ]
  * @param {string} message - Plaintext message.
  * @param {HexString} publicKeyString - Signer public key.
  * @param [network=<mainnet>] - Bitcoin Cash network.
- *     Type implementation defined.
+ *     Type implementation defined. Not modified.
  *
  * @return {boolean} Whether the signature is valid. True if from the named
  *     signer and for the given message.
@@ -250,6 +251,7 @@ const shufflerAddress = [ sessionPublicKey, address ]
  * @async
  *
  * @param {Transaction} transaction - Transaction to verify signature for.
+ *     Not modified.
  * @param {InputIndex} inputIndex - Input of index to verify signature of.
  * @param {Signature} signature - Signature to verify.
  *

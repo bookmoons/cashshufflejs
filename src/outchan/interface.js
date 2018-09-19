@@ -22,7 +22,7 @@
  * @instance
  * @async
  *
- * @param {protocol.Packets} message - Message to send.
+ * @param {protocol.Packets} message - Message to send. Not modified.
  *
  * @throws {BusyError} If another send is already in progress.
  */

@@ -30,4 +30,5 @@
  * @async
  *
  * @param {ErrorMessagePair} errorMessagePair - Error and message to submit.
+ *     Not modified. Items not modified.
  */

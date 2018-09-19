@@ -74,7 +74,7 @@
  * @async
  *
  * @param [network=<mainnet>] - Network to generate for.
- *     Type implementation defined.
+ *     Type implementation defined. Not modified.
  */
 
 /**
@@ -87,7 +87,7 @@
  *
  * @param {HexString} privateKeyString - Private key.
  * @param [network=<mainnet>] - Network to restore for.
- *     Type implementation defined.
+ *     Type implementation defined. Not modified.
  */
 
 /**

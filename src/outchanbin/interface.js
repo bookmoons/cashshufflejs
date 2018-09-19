@@ -23,7 +23,7 @@
  * @instance
  * @async
  *
- * @param {ArrayBuffer} message - Message to send.
+ * @param {ArrayBuffer} message - Message to send. Not modified.
  *
  * @throws {BusyError} If another send is already in progress.
  */
