@@ -7,3 +7,8 @@ delimitMessage
 --------------
 
 .. autofunction:: delimitMessage
+
+undelimitMessage
+----------------
+
+.. autofunction:: undelimitMessage

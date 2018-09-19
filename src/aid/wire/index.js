@@ -4,3 +4,4 @@
  */
 
 export { default as delimitMessage } from './delimit'
+export { default as undelimitMessage } from './undelimit'
