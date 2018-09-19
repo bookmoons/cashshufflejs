@@ -3,9 +3,9 @@ import ECIES from '@bookmoons/bitcore-ecies-cash'
 import {
   base64ToBytes,
   bytesToNodeBuffer,
-  nodeBufferToBytes,
-  utf8ToString
+  nodeBufferToBytes
 } from '../../aid/convert'
+import { decodeString } from '../../aid/encrypt'
 import privs from './privs'
 
 async function decrypt (cryptogram) {
@@ -17,7 +17,7 @@ async function decrypt (cryptogram) {
   const cryptogramNodeBuffer = bytesToNodeBuffer(cryptogramBytes)
   const messageNodeBuffer = decryptor.decrypt(cryptogramNodeBuffer)
   const messageBytes = nodeBufferToBytes(messageNodeBuffer)
-  const messageString = utf8ToString(messageBytes)
+  const messageString = decodeString(messageBytes)
   return messageString
 }
 
