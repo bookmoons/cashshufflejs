@@ -1,5 +1,8 @@
 import privs from './privs'
 
+/**
+ * Close socket.
+ */
 async function close () {
   const priv = privs.get(this)
   if (!priv.open) return
