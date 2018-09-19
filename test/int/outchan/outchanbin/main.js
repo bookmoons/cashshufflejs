@@ -1,6 +1,6 @@
 import test from 'ava'
 import { PassThrough } from 'stream'
-import NodestreamOutchanbin from 'outchanbin/nodestream'
+import NodeStreamOutchanbin from 'outchanbin/nodestream'
 import loadProtocol from 'helper/loadprot'
 import Outchan from 'outchan/base'
 import OutchanbinOutchan from 'outchan/outchanbin'
@@ -13,7 +13,7 @@ test.before(async t => {
 
 test('subclass', t => {
   const outputStream = new PassThrough()
-  const outchanbin = new NodestreamOutchanbin(outputStream)
+  const outchanbin = new NodeStreamOutchanbin(outputStream)
   const outchan = new OutchanbinOutchan(outchanbin, protocol)
   t.true(outchan instanceof Outchan)
 })

@@ -6,7 +6,7 @@ import privs from './privs'
  *
  * @implements {Outchanbin}
  */
-class NodestreamOutchanbin extends Outchanbin {
+class NodeStreamOutchanbin extends Outchanbin {
   /**
    * @param {Writable<Buffer>} stream - Stream to write to.
    */
@@ -20,4 +20,4 @@ class NodestreamOutchanbin extends Outchanbin {
   }
 }
 
-export default NodestreamOutchanbin
+export default NodeStreamOutchanbin
