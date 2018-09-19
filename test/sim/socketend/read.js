@@ -1,6 +1,11 @@
 import handleReadError from './read/error'
 import privs from './privs'
 
+/**
+ * Fulfill read request.
+ *
+ * @param {number} size - Number of bytes to read.
+ */
 function _read (size) {
   const priv = privs.get(this)
   const self = this
