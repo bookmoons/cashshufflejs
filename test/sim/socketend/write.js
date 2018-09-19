@@ -1,5 +1,12 @@
 import privs from './privs'
 
+/**
+ * Fulfill write request.
+ *
+ * @param {Buffer} chunk - Data chunk written.
+ * @param {string} encoding - Encoding of string chunk. Unused.
+ * @param {function} callback - Done callback.
+ */
 function _write (chunk, encoding, callback) {
   const priv = privs.get(this)
   const writeHandlerDone = priv.writeHandler(chunk)
