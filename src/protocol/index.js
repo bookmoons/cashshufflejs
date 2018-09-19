@@ -47,7 +47,7 @@ const Reason = new Enum({
 })
 
 /**
- * Length in characters of message terminator.
+ * Length in characters of wire message terminator.
  *
  * @constant {number}
  * @default 1
@@ -55,7 +55,7 @@ const Reason = new Enum({
 const terminatorCharLength = 1
 
 /**
- * Length in bytes of message terminator.
+ * Length in bytes of wire message terminator.
  *
  * @constant {number}
  * @default 3
@@ -63,7 +63,7 @@ const terminatorCharLength = 1
 const terminatorByteLength = 3
 
 /**
- * Message terminator as a string.
+ * Wire message terminator as a string.
  *
  * @constant {string}
  * @default '\u23ce'
@@ -71,7 +71,7 @@ const terminatorByteLength = 3
 const terminatorString = '\u23ce'
 
 /**
- * Message terminator in UTF-8 in a Node.js `Buffer`.
+ * Wire message terminator in UTF-8 in a Node.js `Buffer`.
  *
  * @constant {Buffer}
  * @default [ 0xe2, 0x8f, 0x8e ]
@@ -79,7 +79,7 @@ const terminatorString = '\u23ce'
 const terminatorBuffer = Buffer.from([ 0xe2, 0x8f, 0x8e ])
 
 /**
- * Message terminator in UTF-8 in a `Uint8Array`.
+ * Wire message terminator in UTF-8 in a `Uint8Array`.
  *
  * @constant {Uint8Array}
  * @default [ 0xe2, 0x8f, 0x8e ]
