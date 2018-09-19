@@ -6,11 +6,6 @@ import concatenateBytes from '../bytes/concat'
  *
  * Adds delimiting for transfer in a byte stream.
  *
- * Terminates message with the Unicode character [U+23CE Return Symbol][1]
- * in UTF-8 without BOM. That encodes to the 3 byte sequence `e2 8f 8e`.
- *
- * [1]: https://codepoints.net/U+23CE
- *
  * @param {WireMessage} message - Message to delimit. Not modified.
  *
  * @return {DelimitedWireMessage} `message` delimited for transfer in
