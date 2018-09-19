@@ -3,7 +3,7 @@
  *
  * @memberof module:cashshuffle/aid/convert
  *
- * @param {Buffer} nodeBuffer - `Buffer` to convert.
+ * @param {Buffer} nodeBuffer - `Buffer` to convert. Not modified.
  *
  * @return {Uint8Array} New `Uint8Array` containing copy of `buffer`.
  */

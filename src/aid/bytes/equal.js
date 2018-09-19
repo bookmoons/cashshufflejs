@@ -3,8 +3,8 @@
  *
  * @memberof module:cashshuffle/aid/bytes
  *
- * @param {Uint8Array} first - First `Uint8Array` to compare.
- * @param {Uint8Array} second - Second `Uint8Array` to compare.
+ * @param {Uint8Array} first - First `Uint8Array` to compare. Not modified.
+ * @param {Uint8Array} second - Second `Uint8Array` to compare. Not modified.
  *
  * @return {boolean} Whether `first` is equal to `second`.
  *     `true` if equal. `false` otherwise.

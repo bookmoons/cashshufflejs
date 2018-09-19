@@ -5,7 +5,7 @@ import { copyBuffer } from '../../buffer'
  *
  * @memberof module:cashshuffle/aid/convert
  *
- * @param {ArrayBuffer} buffer - `ArrayBuffer` to convert.
+ * @param {ArrayBuffer} buffer - `ArrayBuffer` to convert. Not modified.
  *
  * @return {Uint8Array} New `Uint8Array` containing a copy of the bytes
  *     in `buffer`.

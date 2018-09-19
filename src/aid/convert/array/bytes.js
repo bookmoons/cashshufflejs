@@ -5,7 +5,7 @@ import validateByte from '../../validate/byte'
  *
  * @memberof module:cashshuffle/aid/convert
  *
- * @param {Array<Byte>} array - `Array` to convert.
+ * @param {Array<Byte>} array - `Array` to convert. Not modified.
  *
  * @return {Uint8Array} New `Uint8Array` containing bytes in `array`.
  */

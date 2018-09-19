@@ -4,6 +4,7 @@ import bytesToLengthSum from '../reduce/bytes/length/sum'
  * Concatenate list of `Uint8Array`s.
  *
  * @param {Iterable<Uint8Array>} components - `Uint8Array`s to concatenate.
+ *     Items not modified.
  *
  * @return {Uint8Array} New `Uint8Array` containing copy of bytes in
  *     `components` in provided order.

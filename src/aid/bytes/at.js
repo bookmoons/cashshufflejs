@@ -8,9 +8,9 @@ import bytesEqual from './equal'
  *
  * @memberof module:cashshuffle/aid/bytes
  *
- * @param {Uint8Array} container - Bytes to check in.
+ * @param {Uint8Array} container - Bytes to check in. Not modified.
  * @param {number} index - Index in `container` to check.
- * @param {Uint8Array} value - Bytes to check for.
+ * @param {Uint8Array} value - Bytes to check for. Not modified.
  *
  * @return {boolean} Whether `container` contains `value` at `index`.
  *     `true` if contains. `false` otherwise.

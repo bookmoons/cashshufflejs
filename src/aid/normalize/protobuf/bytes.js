@@ -18,7 +18,7 @@ import arrayToBytes from '../../convert/array/bytes'
  * @memberof module:cashshuffle/aid/normalize
  *
  * @param {(Uint8Array|Buffer|Array<number>)} denormalBytes - A `bytes` field
- *     value as provided by `protobufjs`.
+ *     value as provided by `protobufjs`. Not modified.
  *
  * @return {Uint8Array} A new `Uint8Array` containing the bytes in
  *     `denormalBytes`.

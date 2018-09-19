@@ -8,7 +8,7 @@
  * @implements {Reducer}
  *
  * @param {number} lengthSum - Summed `length`.
- * @param {Uint8Array} bytes - `Uint8Array` to reduce.
+ * @param {Uint8Array} bytes - `Uint8Array` to reduce. Not modified.
  *
  * @return {number} Sum of `lengthSum` and `length` of `bytes`.
  */

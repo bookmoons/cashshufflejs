@@ -6,7 +6,7 @@ import bytesToArray from './array'
  *
  * @memberof module:cashshuffle/aid/convert
  *
- * @param {Uint8Array} bytes - Bytes to convert.
+ * @param {Uint8Array} bytes - Bytes to convert. Not modified.
  *
  * @return {Base64} `Base64` representation of `bytes`.
  */

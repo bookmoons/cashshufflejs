@@ -7,7 +7,7 @@ import findBytesTerminator from '../find/bytes/terminator'
  *
  * @memberof module:cashshuffle/wire
  *
- * @param {Uint8Array} bytes - Bytes to find message in.
+ * @param {Uint8Array} bytes - Bytes to find message in. Not modified.
  *
  * @return {number} Index of end of first delimited wire message in `bytes`.
  *

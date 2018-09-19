@@ -10,7 +10,7 @@ import bytesAt from '../../bytes/at'
  *
  * @param {Byte} byte - Element value.
  * @param {number} index - Element index.
- * @param {Uint8Array} bytes - Byte string.
+ * @param {Uint8Array} bytes - Byte string. Not modified.
  *
  * @return {boolean} Whether `index` in `bytes` contains a wire message
  *     terminator. `true` if contains. `false` otherwise.

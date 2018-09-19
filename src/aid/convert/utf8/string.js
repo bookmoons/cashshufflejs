@@ -15,6 +15,7 @@ const errorMessages = [
  * @memberof module:cashshuffle/aid/convert
  *
  * @param {Uint8Array} utf8 - `Uint8Array` containing UTF-8 bytes.
+ *     Not modified.
  *
  * @return {string} String encoded by `utf8`.
  *

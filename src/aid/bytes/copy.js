@@ -3,7 +3,7 @@
  *
  * @memberof module:cashshuffle/aid/bytes
  *
- * @param {Uint8Array} bytes `Uint8Array` to copy.
+ * @param {Uint8Array} bytes `Uint8Array` to copy. Not modified.
  *
  * @return {Uint8Array} New `Uint8Array` containing copy of bytes in `bytes`.
  */

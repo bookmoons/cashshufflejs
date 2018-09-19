@@ -3,7 +3,7 @@
  *
  * @memberof module:cashshuffle/aid/convert
  *
- * @param {Uint8Array} bytes - Bytes to convert.
+ * @param {Uint8Array} bytes - Bytes to convert. Not modified.
  *
  * @return {Array<Byte>} New `Array` containing bytes in `bytes`.
  */
