@@ -1,7 +1,10 @@
 /**
  * Reducer procedures.
  *
- * For use with `Array.prototype.reduce`.
+ * For use with:
+ *
+ * - `Array.prototype.reduce`
+ * - `TypedArray.prototype.reduce`
  *
  * @module cashshuffle/aid/reduce
  */
