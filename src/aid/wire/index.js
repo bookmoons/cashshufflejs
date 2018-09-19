@@ -4,4 +4,5 @@
  */
 
 export { default as delimitMessage } from './delimit'
+export { default as findMessage } from './find'
 export { default as undelimitMessage } from './undelimit'

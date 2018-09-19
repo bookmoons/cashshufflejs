@@ -8,6 +8,11 @@ delimitMessage
 
 .. autofunction:: delimitMessage
 
+findMessage
+-----------
+
+.. autofunction:: findMessage
+
 undelimitMessage
 ----------------
 
