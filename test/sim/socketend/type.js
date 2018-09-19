@@ -9,7 +9,7 @@
  * @memberof module:cashshuffle/sim/socketend.SocketEndSimulator
  *
  * @param {?Buffer} chunk - Data chunk to deliver.
- *     `null` signals end of stream.
+ *     `null` signals end of stream. Not modified.
  *
  * @return {boolean} Whether read is done.
  *     If done cease delivering. Otherwise continue.
@@ -26,7 +26,7 @@
  * @async
  *
  * @param {number} size - Number of bytes to read. Advisory.
- * @param {ReadDataReceiver} deliver - Data delivery procedure.
+ * @param {ReadDataReceiver} deliver - Data delivery procedure. Not modified.
  */
 
 /**
@@ -36,5 +36,5 @@
  * @memberof module:cashshuffle/sim/socketend.SocketEndSimulator
  * @async
  *
- * @param {Buffer} chunk - Data chunk written.
+ * @param {Buffer} chunk - Data chunk written. Not modified.
  */

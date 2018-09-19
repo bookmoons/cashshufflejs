@@ -6,8 +6,8 @@ import privs from './privs'
  * @typedef {object} SocketEndParams
  * @memberof module:cashshuffle/sim/socketend.SocketEndSimulator
  *
- * @prop {ReadHandler} read - Read handler.
- * @prop {WriteHandler} write - Write handler.
+ * @prop {ReadHandler} read - Read handler. Not modified.
+ * @prop {WriteHandler} write - Write handler. Not modified.
  */
 
 /**
