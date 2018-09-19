@@ -7,6 +7,7 @@ Utility procedures and values.
    utility/buffer
    utility/bytes
    utility/convert
+   utility/encrypt
    utility/find
    utility/normalize
    utility/reduce
