@@ -27,7 +27,7 @@
  * @instance
  * @async
  *
- * @param {Uint8Array} ciphertext - Ciphertext to decrypt.
+ * @param {Uint8Array} ciphertext - Ciphertext to decrypt. Not modified.
  *
  * @return {Uint8Array} Decrypted plaintext.
  *
@@ -60,7 +60,7 @@
  * @async
  *
  * @param {Uint8Array} plaintext - Plaintext bytes to encrypt. Not modified.
- * @param {Uint8Array} recipient - Public key of recipient.
+ * @param {Uint8Array} recipient - Public key of recipient. Not modified.
  * @param [network=<mainnet>] - Bitcoin Cash network.
  *     Type implementation defined. Not modified.
  *
