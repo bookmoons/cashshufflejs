@@ -19,6 +19,7 @@
  */
 
 import BitcoreCrypto from './main'
+import decryptBytes from './decrypt/bytes'
 import decryptString from './decrypt/string'
 import encryptString from './encrypt/string'
 import exportPrivateKey from './exportpriv'
@@ -28,6 +29,7 @@ import hash from './hash'
 import restoreKeyPair from './restore'
 
 Object.assign(BitcoreCrypto.prototype, {
+  decryptBytes,
   decryptString,
   encryptString,
   exportPrivateKey,

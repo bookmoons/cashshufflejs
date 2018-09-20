@@ -18,6 +18,23 @@
  */
 
 /**
+ * Decrypt ciphertext for active key pair.
+ *
+ * Generate or restore key pair prior to use.
+ *
+ * @method decryptBytes
+ * @memberof module:cashshuffle/crypto~Crypto
+ * @instance
+ * @async
+ *
+ * @param {Base64} ciphertext - Ciphertext to decrypt.
+ *
+ * @return {Uint8Array} Decrypted plaintext.
+ *
+ * @throws {MissingValueError} If key pair has not been generated or restored.
+ */
+
+/**
  * Decrypt cryptogram of string for active key pair.
  *
  * Generate or restore key pair prior to use.
