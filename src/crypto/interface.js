@@ -64,7 +64,7 @@
  * @param [network=<mainnet>] - Bitcoin Cash network.
  *     Type implementation defined. Not modified.
  *
- * @return {Base64} Ciphertext of `string` for `recipient`.
+ * @return {Base64} Ciphertext of `plaintext` for `recipient`.
  */
 
 /**
