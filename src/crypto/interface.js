@@ -60,7 +60,7 @@
  * @async
  *
  * @param {Uint8Array} plaintext - Plaintext bytes to encrypt. Not modified.
- * @param {HexString} recipient - Public key of recipient.
+ * @param {Uint8Array} recipient - Public key of recipient.
  * @param [network=<mainnet>] - Bitcoin Cash network.
  *     Type implementation defined. Not modified.
  *
