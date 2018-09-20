@@ -8,17 +8,17 @@ import {
 import { decodeString } from '../../../aid/encrypt'
 import privs from '../privs'
 
-async function decryptString (cryptogram) {
+async function decryptString (ciphertext) {
   const priv = privs.get(this)
   if (!priv.keyPair) throw new MissingValueError('no key pair')
   const decryptor = new ECIES()
   decryptor.privateKey(priv.keyPair.privateKey)
-  const cryptogramBytes = base64ToBytes(cryptogram)
-  const cryptogramNodeBuffer = bytesToNodeBuffer(cryptogramBytes)
-  const messageNodeBuffer = decryptor.decrypt(cryptogramNodeBuffer)
-  const messageBytes = nodeBufferToBytes(messageNodeBuffer)
-  const messageString = decodeString(messageBytes)
-  return messageString
+  const ciphertextBytes = base64ToBytes(ciphertext)
+  const ciphertextNodeBuffer = bytesToNodeBuffer(ciphertextBytes)
+  const plaintextNodeBuffer = decryptor.decrypt(ciphertextNodeBuffer)
+  const plaintextBytes = nodeBufferToBytes(plaintextNodeBuffer)
+  const plaintextString = decodeString(plaintextBytes)
+  return plaintextString
 }
 
 export default decryptString
