@@ -11,6 +11,7 @@ Utility procedures and values.
    utility/find
    utility/normalize
    utility/reduce
+   utility/sign
    utility/validate
    utility/value
    utility/wire
