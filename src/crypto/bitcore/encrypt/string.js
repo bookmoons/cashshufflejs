@@ -9,15 +9,15 @@ import { encodeString } from '../../../aid/encrypt'
 
 const mainnet = bitcore.Networks.mainnet
 
-async function encryptString (string, recipient, network = mainnet) {
+async function encryptString (plaintext, recipient, network = mainnet) {
   const ephemeralPrivateKey = new bitcore.PrivateKey(null, network)
   const encryptor = new ECIES()
   encryptor.privateKey(ephemeralPrivateKey)
   const recipientPublicKey = new bitcore.PublicKey(recipient, { network })
   encryptor.publicKey(recipientPublicKey)
-  const stringBytes = encodeString(string)
-  const stringNodeBuffer = bytesToNodeBuffer(stringBytes)
-  const ciphertextNodeBuffer = encryptor.encrypt(stringNodeBuffer)
+  const plaintextBytes = encodeString(plaintext)
+  const plaintextNodeBuffer = bytesToNodeBuffer(plaintextBytes)
+  const ciphertextNodeBuffer = encryptor.encrypt(plaintextNodeBuffer)
   const ciphertextBytes = nodeBufferToBytes(ciphertextNodeBuffer)
   const ciphertextBase64 = bytesToBase64(ciphertextBytes)
   return ciphertextBase64

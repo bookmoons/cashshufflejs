@@ -59,7 +59,7 @@
  * @instance
  * @async
  *
- * @param {string} string - String to encrypt.
+ * @param {string} plaintext - Plaintext string to encrypt.
  * @param {HexString} recipient - Public key of recipient.
  * @param [network=<mainnet>] - Bitcoin Cash network.
  *     Type implementation defined. Not modified.
