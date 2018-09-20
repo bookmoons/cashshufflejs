@@ -35,7 +35,7 @@
  */
 
 /**
- * Decrypt ciphertext of string for active key pair.
+ * Decrypt and decode to string ciphertext for active key pair.
  *
  * Generate or restore key pair prior to use.
  *
@@ -46,7 +46,7 @@
  *
  * @param {Base64} ciphertext - Ciphertext to decrypt.
  *
- * @return {string} Decrypted plaintext.
+ * @return {string} Decrypted plaintext decoded to string.
  *
  * @throws {MissingValueError} If key pair has not been generated or restored.
  */
