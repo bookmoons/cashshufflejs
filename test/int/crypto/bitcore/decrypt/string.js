@@ -1,5 +1,6 @@
 import test from 'ava'
 import Crypto from 'crypto/bitcore/main'
+import decryptBytes from 'crypto/bitcore/decrypt/bytes'
 import decryptString from 'crypto/bitcore/decrypt/string'
 import restoreKeyPair from 'crypto/bitcore/restore'
 
@@ -12,6 +13,7 @@ const correctMessage = 'Test message'
 
 test.before(t => {
   Object.assign(Crypto.prototype, {
+    decryptBytes,
     decryptString,
     restoreKeyPair
   })

@@ -1,5 +1,6 @@
 import test from 'ava'
 import Crypto from 'crypto/bitcore/main'
+import decryptBytes from 'crypto/bitcore/decrypt/bytes'
 import decryptString from 'crypto/bitcore/decrypt/string'
 import encryptString from 'crypto/bitcore/encrypt/string'
 import exportPublicKey from 'crypto/bitcore/exportpub'
@@ -9,6 +10,7 @@ const message = 'Test message'
 
 test.before(t => {
   Object.assign(Crypto.prototype, {
+    decryptBytes,
     decryptString,
     encryptString,
     exportPublicKey,
