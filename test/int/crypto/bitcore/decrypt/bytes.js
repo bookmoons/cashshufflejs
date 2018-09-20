@@ -8,7 +8,7 @@ const recipientPrivateKey =
 const ciphertext =
   'A0d1yIXAuC+tQakx1o9hjMQOp6cQmdAQwBf1TrHVFGzM7jHnzIBJhHzp1phjJFri1N' +
   'ZZoRUt8WDqXjBSLenAO52fiv94eTkyuvSsBx/2xfyvbmRod44aeEK7H/IsP1N7ig=='
-const correctBytes = Uint8Array.from([
+const correctPlaintext = Uint8Array.from([
   0x54, 0x65, 0x73, 0x74, 0x20, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65
 ])
 
@@ -22,6 +22,6 @@ test.before(t => {
 test('decrypt', async t => {
   const crypto = new Crypto()
   await crypto.restoreKeyPair(recipientPrivateKey)
-  const bytes = await crypto.decryptBytes(ciphertext)
-  t.deepEqual(bytes, correctBytes)
+  const plaintext = await crypto.decryptBytes(ciphertext)
+  t.deepEqual(plaintext, correctPlaintext)
 })
