@@ -13,6 +13,7 @@ implementation:
   message is terminated withe the Unicode character `U+23CE Return Symbol`_
   in UTF-8. That encodes to the 3 byte sequence ``e2 8f 8e``.
 - For encryption strings are encoded to UTF-8 without BOM.
+- For signing packets are encoded to undelimited wire format.
 
 .. _CashShuffle: https://cashshuffle.com/
 .. _CoinShuffle: http://crypsys.mmci.uni-saarland.de/projects/CoinShuffle/
