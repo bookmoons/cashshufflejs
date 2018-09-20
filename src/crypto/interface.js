@@ -52,7 +52,7 @@
  */
 
 /**
- * Encrypt string for public key.
+ * Encode to bytes and encrypt string for public key.
  *
  * @method encryptString
  * @memberof module:cashshuffle/crypto~Crypto
