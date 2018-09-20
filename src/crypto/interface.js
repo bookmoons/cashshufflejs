@@ -27,7 +27,7 @@
  * @instance
  * @async
  *
- * @param {Base64} ciphertext - Ciphertext to decrypt.
+ * @param {Uint8Array} ciphertext - Ciphertext to decrypt.
  *
  * @return {Uint8Array} Decrypted plaintext.
  *
