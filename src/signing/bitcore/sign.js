@@ -6,8 +6,7 @@ async function sign (message) {
   const priv = privs.get(this)
   if (!priv.keyPair) throw new MissingValueError('no key pair')
   const signer = new Message(message)
-  const privateKey = priv.keyPair.privateKey
-  const signatureBase64 = signer.sign(privateKey)
+  const signatureBase64 = signer.sign(priv.keyPair.privateKey)
   return signatureBase64
 }
 
