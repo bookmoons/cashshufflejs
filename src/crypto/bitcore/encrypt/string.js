@@ -17,10 +17,10 @@ async function encryptString (message, recipient, network = mainnet) {
   encryptor.publicKey(recipientPublicKey)
   const messageBytes = encodeString(message)
   const messageNodeBuffer = bytesToNodeBuffer(messageBytes)
-  const cryptogramNodeBuffer = encryptor.encrypt(messageNodeBuffer)
-  const cryptogramBytes = nodeBufferToBytes(cryptogramNodeBuffer)
-  const cryptogramBase64 = bytesToBase64(cryptogramBytes)
-  return cryptogramBase64
+  const ciphertextNodeBuffer = encryptor.encrypt(messageNodeBuffer)
+  const ciphertextBytes = nodeBufferToBytes(ciphertextNodeBuffer)
+  const ciphertextBase64 = bytesToBase64(ciphertextBytes)
+  return ciphertextBase64
 }
 
 export default encryptString
