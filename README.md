@@ -3,3 +3,6 @@
 JavaScript [CashShuffle](https://cashshuffle.com/) client library.
 
 Enhance the privacy of your Bitcoin Cash transactions.
+
+See the [API docs](https://bookmoons.github.io/cashshufflejs/) for information
+about internals.
