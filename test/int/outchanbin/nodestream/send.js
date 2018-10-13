@@ -1,11 +1,14 @@
 import test from 'ava'
 import { PassThrough } from 'stream'
-import { terminatorBuffer } from 'protocol'
+import { terminatorNodeBuffer } from 'protocol'
 import Outchanbin from 'outchanbin/nodestream/main'
 import send from 'outchanbin/nodestream/send'
 
 const testMessageBuffer = Uint8Array.from([ 0x05, 0x06, 0x07 ])
-const testPacketBuffer = Buffer.concat([ testMessageBuffer, terminatorBuffer ])
+const testPacketBuffer = Buffer.concat([
+  testMessageBuffer,
+  terminatorNodeBuffer
+])
 const testMessage = Uint8Array.from(testMessageBuffer).buffer
 
 test.before(t => {

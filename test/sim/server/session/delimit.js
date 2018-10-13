@@ -1,4 +1,4 @@
-import { terminatorBuffer } from 'protocol'
+import { terminatorNodeBuffer } from 'protocol'
 
 /**
  * Delimit a message.
@@ -10,7 +10,7 @@ import { terminatorBuffer } from 'protocol'
  * @return {Buffer} The delimited message.
  */
 function delimit (message) {
-  const frame = Buffer.concat([ message, terminatorBuffer ])
+  const frame = Buffer.concat([ message, terminatorNodeBuffer ])
   return frame
 }
 

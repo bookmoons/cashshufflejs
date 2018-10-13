@@ -1,5 +1,5 @@
 import { ValueError } from 'error'
-import { terminatorBuffer, terminatorByteLength } from 'protocol'
+import { terminatorByteLength, terminatorNodeBuffer } from 'protocol'
 
 /**
  * @typedef {Array} UndelimitReturn
@@ -29,7 +29,7 @@ const undelimitReturn = [ message, newData ]
  *     Message `'no delimited message'`.
  */
 function undelimit (data) {
-  const index = data.indexOf(terminatorBuffer)
+  const index = data.indexOf(terminatorNodeBuffer)
   if (index === -1) throw new ValueError('no delimited message')
   const message = data.slice(0, index)
   const newDataIndex = index + terminatorByteLength

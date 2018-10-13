@@ -1,6 +1,6 @@
 import test from 'ava'
 import { readTo } from 'promised-read'
-import { terminatorBuffer, terminatorByteLength } from 'protocol'
+import { terminatorByteLength, terminatorNodeBuffer } from 'protocol'
 import loadProtocol from 'helper/loadprot'
 import SessionServerSimulator from 'sim/server/session'
 
@@ -24,7 +24,7 @@ test.before(async t => {
 })
 
 async function readSigned (protocol, socket) {
-  const frame = await readTo(socket, terminatorBuffer)
+  const frame = await readTo(socket, terminatorNodeBuffer)
   const messageLength = frame.length - terminatorByteLength
   const message = frame.slice(0, messageLength)
   const signed = protocol.Signed.decode(message)
@@ -39,7 +39,7 @@ test('1 message', async t => {
   const socket3 = await server.connect(shuffler3)
   const firstMessage =
     protocol.Packets.encode(testPacketsObject1).finish()
-  const firstFrame = Buffer.concat([ firstMessage, terminatorBuffer ])
+  const firstFrame = Buffer.concat([ firstMessage, terminatorNodeBuffer ])
   socket1.write(firstFrame)
   const secondSignedObject = await readSigned(protocol, socket2)
   t.deepEqual(secondSignedObject, testSignedObject1)
@@ -54,7 +54,7 @@ test('2 messages', async t => {
   const socket3 = await server.connect(shuffler3)
   const firstMessage =
     protocol.Packets.encode(testPacketsObject2).finish()
-  const firstFrame = Buffer.concat([ firstMessage, terminatorBuffer ])
+  const firstFrame = Buffer.concat([ firstMessage, terminatorNodeBuffer ])
   socket1.write(firstFrame)
   const secondSignedObject1 = await readSigned(protocol, socket2)
   t.deepEqual(secondSignedObject1, testSignedObject1)

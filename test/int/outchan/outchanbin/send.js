@@ -1,7 +1,7 @@
 import test from 'ava'
 import loadProtocol from 'helper/loadprot'
 import { PassThrough } from 'stream'
-import { terminatorBuffer } from 'protocol'
+import { terminatorNodeBuffer } from 'protocol'
 import Outchanbin from 'outchanbin/nodestream'
 import Outchan from 'outchan/outchanbin/main'
 import send from 'outchan/outchanbin/send'
@@ -12,7 +12,7 @@ let testMessage
 const testMessageEncoded = Uint8Array.from([
   0x0a, 0x07, 0x12, 0x05, 0x0a, 0x03, 0x05, 0x06, 0x07
 ])
-const testPackets = Buffer.concat([ testMessageEncoded, terminatorBuffer ])
+const testPackets = Buffer.concat([ testMessageEncoded, terminatorNodeBuffer ])
 let protocol
 
 test.before(async t => {

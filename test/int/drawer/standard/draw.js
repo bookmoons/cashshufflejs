@@ -1,7 +1,7 @@
 import test from 'ava'
 import { PassThrough } from 'stream'
 import loadProtocol from 'helper/loadprot'
-import { terminatorBuffer } from 'protocol'
+import { terminatorNodeBuffer } from 'protocol'
 import Inchanbin from 'inchanbin/nodestream'
 import Inchan from 'inchan/inchanbin'
 import Inbox from 'inbox/fifo'
@@ -42,7 +42,7 @@ test('1 message', async t => {
   const testMessageBytes = normalizeProtobufBytes(testMessageBytesDenormal)
   const testMessageNodeBuffer = bytesToNodeBuffer(testMessageBytes)
   stream.write(testMessageNodeBuffer)
-  stream.write(terminatorBuffer)
+  stream.write(terminatorNodeBuffer)
   await messageDrawn
   const message = inbox.receive()
   const messageObject = protocol.Signed.toObject(message)
@@ -64,7 +64,7 @@ test('2 messages', async t => {
   const testMessage1Bytes = normalizeProtobufBytes(testMessage1BytesDenormal)
   const testMessage1NodeBuffer = bytesToNodeBuffer(testMessage1Bytes)
   stream.write(testMessage1NodeBuffer)
-  stream.write(terminatorBuffer)
+  stream.write(terminatorNodeBuffer)
   await message1Drawn
   const message2Drawn = drawer.watch
   const testMessage2 = protocol.Signed.fromObject(testSignedObject2)
@@ -73,7 +73,7 @@ test('2 messages', async t => {
   const testMessage2Bytes = normalizeProtobufBytes(testMessage2BytesDenormal)
   const testMessage2NodeBuffer = bytesToNodeBuffer(testMessage2Bytes)
   stream.write(testMessage2NodeBuffer)
-  stream.write(terminatorBuffer)
+  stream.write(terminatorNodeBuffer)
   await message2Drawn
   const message1 = inbox.receive()
   const message1Object = protocol.Signed.toObject(message1)

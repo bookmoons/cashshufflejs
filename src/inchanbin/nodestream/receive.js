@@ -1,5 +1,5 @@
 import { readTo } from 'promised-read'
-import { terminatorByteLength, terminatorBuffer } from '../../protocol'
+import { terminatorByteLength, terminatorNodeBuffer } from '../../protocol'
 import { BusyError } from '../../error'
 import { nodeBufferToBytes } from '../../aid/convert'
 import privs from './privs'
@@ -8,7 +8,7 @@ async function receive () {
   const priv = privs.get(this)
   if (priv.receiving) throw new BusyError('Another receive call is running')
   priv.receiving = true
-  const frameBuffer = await readTo(priv.stream, terminatorBuffer)
+  const frameBuffer = await readTo(priv.stream, terminatorNodeBuffer)
   const messageLength = frameBuffer.length - terminatorByteLength
   const messageBuffer = frameBuffer.slice(0, messageLength)
   const messageBinary = nodeBufferToBytes(messageBuffer).buffer

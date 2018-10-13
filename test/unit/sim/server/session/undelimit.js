@@ -1,17 +1,17 @@
 import test from 'ava'
 import { ValueError } from 'error'
-import { terminatorBuffer } from 'protocol'
+import { terminatorNodeBuffer } from 'protocol'
 import undelimit from 'sim/server/session/undelimit'
 
 const testMessage1 = Buffer.from([ 0x01, 0x02, 0x03 ])
 const testMessage2 = Buffer.from([ 0x04, 0x05, 0x06 ])
 const emptyData = Buffer.alloc(0)
 const noMessageData = Buffer.from([ 0x01 ])
-const emptyMessageData = Buffer.concat([ terminatorBuffer ])
-const oneMessageData = Buffer.concat([ testMessage1, terminatorBuffer ])
+const emptyMessageData = Buffer.concat([ terminatorNodeBuffer ])
+const oneMessageData = Buffer.concat([ testMessage1, terminatorNodeBuffer ])
 const twoMessagesData = Buffer.concat([
-  testMessage1, terminatorBuffer,
-  testMessage2, terminatorBuffer
+  testMessage1, terminatorNodeBuffer,
+  testMessage2, terminatorNodeBuffer
 ])
 
 test('empty data', t => {

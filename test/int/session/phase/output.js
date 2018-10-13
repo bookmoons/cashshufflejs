@@ -8,7 +8,7 @@ import Outchan from 'outchan/outchanbin'
 import Outchanbin from 'outchanbin/nodestream'
 import PhaseReceiver from 'receiver/phase'
 import Signing from 'signing/bitcore'
-import { Phase, terminatorBuffer, terminatorByteLength } from 'protocol'
+import { Phase, terminatorByteLength, terminatorNodeBuffer } from 'protocol'
 import { bytesToBuffer, hexToBytes } from 'aid/convert'
 import { normalizeProtobufBytes } from 'aid/normalize'
 import loadProtocol from 'helper/loadprot'
@@ -284,7 +284,7 @@ test('output', async t => {
     receiver,
     priorReceiver
   })
-  const frameBuffer = await readTo(outputStream, terminatorBuffer)
+  const frameBuffer = await readTo(outputStream, terminatorNodeBuffer)
   const messageLength = frameBuffer.length - terminatorByteLength
   const messageBuffer = frameBuffer.slice(0, messageLength)
   const packets = protocol.Packets.decode(messageBuffer)

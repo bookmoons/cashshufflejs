@@ -76,7 +76,7 @@ const terminatorString = '\u23ce'
  * @constant {Buffer}
  * @default [ 0xe2, 0x8f, 0x8e ]
  */
-const terminatorBuffer = Buffer.from([ 0xe2, 0x8f, 0x8e ])
+const terminatorNodeBuffer = Buffer.from([ 0xe2, 0x8f, 0x8e ])
 
 /**
  * Wire message terminator in UTF-8 in a `Uint8Array`.
@@ -92,6 +92,6 @@ export {
   terminatorCharLength,
   terminatorByteLength,
   terminatorString,
-  terminatorBuffer,
+  terminatorNodeBuffer,
   terminatorBytes
 }

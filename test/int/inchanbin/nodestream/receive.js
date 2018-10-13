@@ -1,11 +1,11 @@
 import test from 'ava'
 import { PassThrough } from 'stream'
-import { terminatorBuffer } from 'protocol'
+import { terminatorNodeBuffer } from 'protocol'
 import Inchanbin from 'inchanbin/nodestream/main'
 import receive from 'inchanbin/nodestream/receive'
 
 const testMessage = Uint8Array.from([ 0x05, 0x06, 0x07 ])
-const testPacket = Buffer.concat([ testMessage, terminatorBuffer ])
+const testPacket = Buffer.concat([ testMessage, terminatorNodeBuffer ])
 
 test.before(t => {
   Object.assign(Inchanbin.prototype, {

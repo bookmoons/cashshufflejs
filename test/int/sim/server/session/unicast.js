@@ -1,6 +1,6 @@
 import test from 'ava'
 import { readTo } from 'promised-read'
-import { terminatorBuffer, terminatorByteLength } from 'protocol'
+import { terminatorByteLength, terminatorNodeBuffer } from 'protocol'
 import loadProtocol from 'helper/loadprot'
 import SessionServerSimulator from 'sim/server/session'
 
@@ -34,9 +34,9 @@ test('1 message', async t => {
   const socket2 = await server.connect(shuffler2)
   const firstMessage =
     protocol.Packets.encode(testPacketsObject1).finish()
-  const firstFrame = Buffer.concat([ firstMessage, terminatorBuffer ])
+  const firstFrame = Buffer.concat([ firstMessage, terminatorNodeBuffer ])
   socket1.write(firstFrame)
-  const secondFrame = await readTo(socket2, terminatorBuffer)
+  const secondFrame = await readTo(socket2, terminatorNodeBuffer)
   const secondLength = secondFrame.length - terminatorByteLength
   const secondMessage = secondFrame.slice(0, secondLength)
   const secondSigned = protocol.Signed.decode(secondMessage)
@@ -50,15 +50,15 @@ test('2 messages', async t => {
   const socket2 = await server.connect(shuffler2)
   const firstMessage =
     protocol.Packets.encode(testPacketsObject2).finish()
-  const firstFrame = Buffer.concat([ firstMessage, terminatorBuffer ])
+  const firstFrame = Buffer.concat([ firstMessage, terminatorNodeBuffer ])
   socket1.write(firstFrame)
-  const secondFrame1 = await readTo(socket2, terminatorBuffer)
+  const secondFrame1 = await readTo(socket2, terminatorNodeBuffer)
   const secondLength1 = secondFrame1.length - terminatorByteLength
   const secondMessage1 = secondFrame1.slice(0, secondLength1)
   const secondSigned1 = protocol.Signed.decode(secondMessage1)
   const secondSignedObject1 = protocol.Signed.toObject(secondSigned1)
   t.deepEqual(secondSignedObject1, testSignedObject1)
-  const secondFrame2 = await readTo(socket2, terminatorBuffer)
+  const secondFrame2 = await readTo(socket2, terminatorNodeBuffer)
   const secondLength2 = secondFrame2.length - terminatorByteLength
   const secondMessage2 = secondFrame2.slice(0, secondLength2)
   const secondSigned2 = protocol.Signed.decode(secondMessage2)

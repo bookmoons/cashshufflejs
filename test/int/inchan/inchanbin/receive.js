@@ -1,7 +1,7 @@
 import test from 'ava'
 import { PassThrough } from 'stream'
 import loadProtocol from 'helper/loadprot'
-import { terminatorBuffer } from 'protocol'
+import { terminatorNodeBuffer } from 'protocol'
 import Inchanbin from 'inchanbin/nodestream'
 import Inchan from 'inchan/inchanbin/main'
 import receive from 'inchan/inchanbin/receive'
@@ -11,7 +11,7 @@ const testSignature = Uint8Array.from([ 0x01, 0x02, 0x03 ])
 const testMessageEncoded = Uint8Array.from([
   0x12, 0x05, 0x0a, 0x03, 0x01, 0x02, 0x03
 ])
-const testPacket = Buffer.concat([ testMessageEncoded, terminatorBuffer ])
+const testPacket = Buffer.concat([ testMessageEncoded, terminatorNodeBuffer ])
 let protocol
 
 test.before(async t => {
