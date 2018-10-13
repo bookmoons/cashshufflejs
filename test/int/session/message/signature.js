@@ -5,8 +5,7 @@ import { hexToBytes } from 'aid/convert'
 import loadProtocol from 'helper/loadprot'
 import messageSignature from 'session/message/signature'
 
-const sessionIdView = hexToBytes('1234')
-const sessionId = sessionIdView.buffer
+const sessionId = hexToBytes('1234')
 const poolNumber = 4
 const signingPublicKey =
   '03f09e7bbaf09669b1cde3394db0b72c3408ed0826f98d7985a3cecc1486075d3b'
@@ -33,7 +32,7 @@ const expectedSignaturesObject = [
   { index: index3Encoded, signature: { signature: signature3 } }
 ]
 const expectedPacketObject = {
-  session: sessionIdView,
+  session: sessionId,
   number: poolNumber,
   fromKey: { key: signingPublicKey },
   phase: Phase.VerificationSubmission.value,

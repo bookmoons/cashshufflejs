@@ -8,7 +8,7 @@ import { hexToBytes } from '../../aid/convert'
  *
  * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
  * @prop {HexString} signingPublicKey - Signing public key.
- * @prop {ArrayBuffer} sessionId - Session identifier. Not modified.
+ * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Iterable<Coin~InputSignature>} signatures - Signatures.
  *     `Map` instances work well. Key input index. Value signature.
@@ -33,7 +33,6 @@ function messageSignature ({
   poolNumber,
   signatures
 }) {
-  const sessionIdView = new Uint8Array(sessionId)
   const inputSignatureObjects = []
   for (const [ inputIndexString, signature ] of signatures) {
     const inputIndex = Long.fromString(inputIndexString, true, 10)
@@ -47,7 +46,7 @@ function messageSignature ({
   const messageObject = { signatures: inputSignatureObjects }
   const fromKeyObject = { key: signingPublicKey }
   const packetObject = {
-    session: sessionIdView,
+    session: sessionId,
     number: poolNumber,
     fromKey: fromKeyObject,
     phase: Phase.VerificationSubmission.value,
