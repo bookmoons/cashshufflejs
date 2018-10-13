@@ -22,8 +22,7 @@ import checkEquivocation from 'session/phase/equiv'
 
 const attempts = 2
 const timeout = 500
-const sessionIdView = hexToBytes('1234')
-const sessionId = sessionIdView.buffer
+const sessionId = hexToBytes('1234')
 const poolNumber1 = 1
 const poolNumber2 = 2
 const poolNumber3 = 3
@@ -61,7 +60,7 @@ const badHash = hexToBytes(badHashString)
 let protocol
 
 const expectedPacket1 = {
-  session: sessionIdView,
+  session: sessionId,
   number: poolNumber1,
   fromKey: { key: signingPublicKey1 },
   phase: Phase.EquivocationCheck.value,
@@ -71,21 +70,21 @@ const expectedSigned1 = { packet: expectedPacket1 }
 const expectedPackets1 = { packet: [ expectedSigned1 ] }
 
 const testPacket2 = {
-  session: sessionIdView,
+  session: sessionId,
   number: poolNumber2,
   fromKey: { key: signingPublicKey2 },
   phase: Phase.EquivocationCheck.value,
   message: { hash: { hash } }
 }
 const testPacket3 = {
-  session: sessionIdView,
+  session: sessionId,
   number: poolNumber3,
   fromKey: { key: signingPublicKey3 },
   phase: Phase.EquivocationCheck.value,
   message: { hash: { hash } }
 }
 const equivocatedPacket3 = {
-  session: sessionIdView,
+  session: sessionId,
   number: poolNumber3,
   fromKey: { key: signingPublicKey3 },
   phase: Phase.EquivocationCheck.value,

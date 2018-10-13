@@ -1,7 +1,6 @@
 import { ValueError } from '../../error'
 import PrefixLogchan from '../../logchan/prefix'
 import { bytesEqual } from '../../aid/bytes'
-import { bufferToBytes } from '../../aid/convert'
 import { normalizeProtobufBytes } from '../../aid/normalize'
 import { defaultAttempts, defaultTimeout } from '../default'
 
@@ -14,7 +13,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  *     Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {ArrayBuffer} sessionId - Session identifier. Not modified.
+ * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Signing} signingKeyPair - Shuffler signing key pair.
  *     Assumed ready for use.
@@ -40,7 +39,7 @@ async function checkEquivocation ({
   protocol,
   attempts = defaultAttempts,
   timeout = defaultTimeout,
-  sessionId: sessionIdBuffer,
+  sessionId,
   poolNumber,
   signingKeyPair,
   encryptionPublicKeys,
@@ -53,9 +52,6 @@ async function checkEquivocation ({
 }) {
   /* Prefix log messages. */
   log = log ? new PrefixLogchan('P4: ', log) : null
-
-  /* Normalize value types. */
-  const sessionId = bufferToBytes(sessionIdBuffer)
 
   /* Prepare hash input. */
   const hashInput = this.hashInput(encryptionPublicKeys, outputList)
