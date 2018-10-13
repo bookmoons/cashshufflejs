@@ -1,6 +1,6 @@
-import isEqual from 'arraybuffer-equal'
 import { ValueError } from '../../error'
 import PrefixLogchan from '../../logchan/prefix'
+import { bytesEqual } from '../../aid/bytes'
 import { normalizeProtobufBytes } from '../../aid/normalize'
 import { defaultAttempts, defaultTimeout } from '../default'
 
@@ -100,14 +100,13 @@ async function checkEquivocation ({
     const messageObject = packetObject.message
     const hashObject = messageObject.hash
     const digestBytesDenormal = hashObject.hash
-    const digestBytes = normalizeProtobufBytes(digestBytesDenormal)
-    const digestBuffer = digestBytes.buffer
-    otherDigests.set(publicKey, digestBuffer)
+    const digest = normalizeProtobufBytes(digestBytesDenormal)
+    otherDigests.set(publicKey, digest)
   }
 
   /* Verify all digests equal. */
   for (const [ publicKey, otherDigest ] of otherDigests) {
-    if (!isEqual(otherDigest, ownDigest)) {
+    if (!bytesEqual(otherDigest, ownDigest)) {
       throw new ValueError(
         { info: {
           ownDigest,

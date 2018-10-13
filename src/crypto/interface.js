@@ -138,7 +138,7 @@
  *
  * @param {string} text - Text to hash.
  *
- * @return {ArrayBuffer} SHA-224 hash of the text.
+ * @return {Uint8Array} SHA-224 hash of the text.
  */
 
 /**

@@ -8,7 +8,7 @@ import { Phase } from '../../protocol'
  * @prop {HexString} signingPublicKey - Signing public key.
  * @prop {ArrayBuffer} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
- * @prop {ArrayBuffer} digest - Digest. Not modified.
+ * @prop {Uint8Array} digest - Digest. Not modified.
  */
 
 /**
@@ -30,8 +30,7 @@ function messageDigest ({
   digest
 }) {
   const sessionIdView = new Uint8Array(sessionId)
-  const digestView = new Uint8Array(digest)
-  const hashObject = { hash: digestView }
+  const hashObject = { hash: digest }
   const messageObject = { hash: hashObject }
   const fromKeyObject = { key: signingPublicKey }
   const packetObject = {
