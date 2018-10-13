@@ -22,7 +22,7 @@
  * @instance
  * @async
  *
- * @return {ArrayBuffer} Network message from other shuffler.
+ * @return {Uint8Array} Network message from other shuffler.
  *
  * @throws {BusyError} If another receive is already in progress.
  */

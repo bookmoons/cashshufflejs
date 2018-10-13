@@ -10,14 +10,13 @@ async function receive () {
   const priv = privs.get(this)
   if (priv.receiving) throw new BusyError('Another receive call is running')
   priv.receiving = true
-  const messageBinary = await priv.inchanbin.receive()
-  const messageBinaryView = new Uint8Array(messageBinary)
+  const messageBytes = await priv.inchanbin.receive()
   let message
   try {
-    message = priv.Signed.decode(messageBinaryView)
+    message = priv.Signed.decode(messageBytes)
   } catch (e) {
     throw new FormatError(
-      { cause: e, info: { messageBinary } },
+      { cause: e, info: { messageBytes } },
       'Invalid binary message'
     )
   }

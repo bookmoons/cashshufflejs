@@ -13,20 +13,12 @@ test.before(t => {
   })
 })
 
-function verifyIdentical (t, binary, buffer) {
-  t.is(binary.byteLength, buffer.length)
-  const binaryView = new Uint8Array(binary)
-  for (let i = 0; i < binary.byteLength; i++) {
-    t.is(binaryView[i], buffer[i])
-  }
-}
-
 test('1 message', async t => {
   const stream = new PassThrough()
   const inchanbin = new Inchanbin(stream)
   stream.write(testPacket)
   const message = await inchanbin.receive()
-  verifyIdentical(t, message, testMessage)
+  t.deepEqual(message, testMessage)
 })
 
 test('2 messages', async t => {
@@ -35,7 +27,7 @@ test('2 messages', async t => {
   stream.write(testPacket)
   stream.write(testPacket)
   const message1 = await inchanbin.receive()
-  verifyIdentical(t, message1, testMessage)
+  t.deepEqual(message1, testMessage)
   const message2 = await inchanbin.receive()
-  verifyIdentical(t, message2, testMessage)
+  t.deepEqual(message2, testMessage)
 })

@@ -8,12 +8,12 @@ async function receive () {
   const priv = privs.get(this)
   if (priv.receiving) throw new BusyError('Another receive call is running')
   priv.receiving = true
-  const frameBuffer = await readTo(priv.stream, terminatorNodeBuffer)
-  const messageLength = frameBuffer.length - terminatorByteLength
-  const messageBuffer = frameBuffer.slice(0, messageLength)
-  const messageBinary = nodeBufferToBytes(messageBuffer).buffer
+  const frameNodeBuffer = await readTo(priv.stream, terminatorNodeBuffer)
+  const frame = nodeBufferToBytes(frameNodeBuffer)
+  const messageLength = frame.byteLength - terminatorByteLength
+  const message = frame.slice(0, messageLength)
   priv.receiving = false
-  return messageBinary
+  return message
 }
 
 export default receive
