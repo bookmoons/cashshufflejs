@@ -294,7 +294,7 @@ async function run ({
     protocol,
     attempts,
     timeout,
-    sessionIdBuffer,
+    sessionId,
     poolNumber,
     signingKeyPair,
     amount,

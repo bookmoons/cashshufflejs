@@ -1,7 +1,7 @@
 import bitcore from 'bitcore-lib-cash'
 import { InadequateError, ValueError } from '../../error'
 import PrefixLogchan from '../../logchan/prefix'
-import { bufferToBytes, bytesToHex } from '../../aid/convert'
+import { bytesToHex } from '../../aid/convert'
 import { normalizeProtobufBytes } from '../../aid/normalize'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
@@ -14,7 +14,7 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  *     Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {ArrayBuffer} sessionId - Session identifier. Not modified.
+ * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Signing} signingKeyPair - Shuffler signing key pair.
  *     Assumed ready for use.
@@ -59,7 +59,7 @@ async function submit ({
   protocol,
   attempts = defaultAttempts,
   timeout = defaultTimeout,
-  sessionId: sessionIdBuffer,
+  sessionId,
   poolNumber,
   signingKeyPair,
   shufflersCount,
@@ -77,9 +77,6 @@ async function submit ({
 }) {
   /* Prefix log messages. */
   log = log ? new PrefixLogchan('P5: ', log) : null
-
-  /* Normalize value types. */
-  const sessionId = bufferToBytes(sessionIdBuffer)
 
   /* Construct unsigned transaction. */
   const transaction = await coin.makeUnsignedTransaction(
