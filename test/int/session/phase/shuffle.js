@@ -7,7 +7,7 @@ import Outchanbin from 'outchanbin/nodestream'
 import PhaseReceiver from 'receiver/phase'
 import Signing from 'signing/bitcore'
 import { Phase, terminatorByteLength, terminatorNodeBuffer } from 'protocol'
-import { bytesToBuffer, hexToBytes } from 'aid/convert'
+import { hexToBytes } from 'aid/convert'
 import { normalizeProtobufBytes } from 'aid/normalize'
 import { ValueError } from 'error'
 import loadProtocol from 'helper/loadprot'
@@ -23,8 +23,7 @@ import shuffle from 'session/phase/shuffle'
 
 const attempts = 2
 const timeout = 500
-const sessionIdBytes = hexToBytes('1234')
-const sessionId = bytesToBuffer(sessionIdBytes)
+const sessionId = hexToBytes('1234')
 const poolNumber = 4
 const signingPrivateKey1 =
   '5906456d210ba118d153fde79b74d3806710c979d41b8b38d15c2e8a84d48466'
@@ -68,7 +67,7 @@ const invalidOutput =
 let protocol
 
 const validPacket1 = {
-  session: sessionIdBytes,
+  session: sessionId,
   number: poolNumber,
   fromKey: { key: signingPublicKey1 },
   toKey: { key: signingPublicKey2 },
@@ -76,7 +75,7 @@ const validPacket1 = {
   message: { str: output1 }
 }
 const invalidOutputPacket1 = {
-  session: sessionIdBytes,
+  session: sessionId,
   number: poolNumber,
   fromKey: { key: signingPublicKey1 },
   toKey: { key: signingPublicKey2 },
@@ -85,7 +84,7 @@ const invalidOutputPacket1 = {
 }
 
 const testPacketObject1 = {
-  session: sessionIdBytes,
+  session: sessionId,
   number: poolNumber,
   fromKey: { key: signingPublicKey1 },
   toKey: { key: signingPublicKey2 },
@@ -95,7 +94,7 @@ const testSignedObject1 = { packet: testPacketObject1 }
 const testPacketsObject1 = { packet: [ testSignedObject1 ] }
 
 const testPacketObject2 = {
-  session: sessionIdBytes,
+  session: sessionId,
   number: poolNumber,
   fromKey: { key: signingPublicKey2 },
   toKey: { key: signingPublicKey3 },
