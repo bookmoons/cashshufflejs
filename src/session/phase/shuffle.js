@@ -1,6 +1,7 @@
 import shuffleList from 'crypto-secure-shuffle'
 import PrefixLogchan from '../../logchan/prefix'
 import Signing from '../../signing/bitcore'
+import { bufferToBytes } from '../../aid/convert'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
@@ -60,7 +61,7 @@ async function shuffle ({
   protocol,
   attempts = defaultAttempts,
   timeout = defaultTimeout,
-  sessionId,
+  sessionId: sessionIdBuffer,
   poolNumber,
   signingKeyPair,
   first,
@@ -79,6 +80,9 @@ async function shuffle ({
 }) {
   /* Prefix log messages. */
   log = log ? new PrefixLogchan('P2: ', log) : null
+
+  /* Normalize value types. */
+  const sessionId = bufferToBytes(sessionIdBuffer)
 
   const outputList = []
   const reversedEncryptionPublicKeys = [ ...encryptionPublicKeys ].reverse()

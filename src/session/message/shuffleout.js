@@ -6,7 +6,7 @@ import { Phase } from '../../protocol'
  *
  * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
  * @prop {HexString} signingPublicKey - Signing public key.
- * @prop {ArrayBuffer} sessionId - Session identifier. Not modified.
+ * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Base64} output - Single output address layered encryption.
  * @prop {HexString} nextShuffler - Signing public key of next shuffler.
@@ -33,12 +33,11 @@ function messageShuffleOutput ({
   output,
   nextShuffler
 }) {
-  const sessionIdView = new Uint8Array(sessionId)
   const messageObject = { str: output }
   const fromKeyObject = { key: signingPublicKey }
   const toKeyObject = { key: nextShuffler }
   const packetObject = {
-    session: sessionIdView,
+    session: sessionId,
     number: poolNumber,
     fromKey: fromKeyObject,
     toKey: toKeyObject,
