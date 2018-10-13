@@ -6,7 +6,7 @@ import { Phase } from '../../protocol'
  *
  * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
  * @prop {HexString} signingPublicKey - Signing public key.
- * @prop {ArrayBuffer} sessionId - Session identifier. Not modified.
+ * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Address} outputAddress - Output address.
  */
@@ -31,11 +31,10 @@ function messageFinalOutput ({
   poolNumber,
   outputAddress
 }) {
-  const sessionIdView = new Uint8Array(sessionId)
   const messageObject = { str: outputAddress }
   const fromKeyObject = { key: signingPublicKey }
   const packetObject = {
-    session: sessionIdView,
+    session: sessionId,
     number: poolNumber,
     fromKey: fromKeyObject,
     phase: Phase.Broadcast.value,
