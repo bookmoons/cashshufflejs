@@ -5,6 +5,7 @@ import {
   NotImplementedError,
   ValueError
 } from '../error'
+import { bufferToBytes } from '../aid/convert'
 import { Phase } from '../protocol'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from './default'
 
@@ -64,7 +65,7 @@ async function run ({
   protocol,
   attempts = defaultAttempts,
   timeout = defaultTimeout,
-  sessionId,
+  sessionId: sessionIdBuffer,
   poolNumber,
   signingKeyPair,
   shufflers,
@@ -79,6 +80,9 @@ async function run ({
   network = defaultNetwork,
   outputAddress = null
 }) {
+  // Normalize value types
+  const sessionId = bufferToBytes(sessionIdBuffer)
+
   // Order shufflers
   const shufflersOrdered = await this.orderShufflers(shufflers)
 
@@ -290,7 +294,7 @@ async function run ({
     protocol,
     attempts,
     timeout,
-    sessionId,
+    sessionIdBuffer,
     poolNumber,
     signingKeyPair,
     amount,
