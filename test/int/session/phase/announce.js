@@ -23,8 +23,7 @@ const attempts = 2
 const timeout = 500
 const amount = 5
 const fee = 1
-const sessionIdView = hexToBytes('1234')
-const sessionId = sessionIdView.buffer
+const sessionId = hexToBytes('1234')
 const poolNumber = 3
 const signingPrivateKey =
   'b4386d0019b43055341ca3452445cee2805d952fcea1dbb3e7556186df11b958'
@@ -50,7 +49,7 @@ const validPacket3 = {
 let protocol
 
 const testPacketObject = {
-  session: sessionIdView,
+  session: sessionId,
   number: poolNumber,
   phase: Phase.Announcement.value
 }

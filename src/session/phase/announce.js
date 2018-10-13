@@ -1,6 +1,5 @@
 import Crypto from '../../crypto/bitcore'
 import PrefixLogchan from '../../logchan/prefix'
-import { bufferToBytes } from '../../aid/convert'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
@@ -12,7 +11,7 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  *     Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {ArrayBuffer} sessionId - Session identifier. Not modified.
+ * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Signing} signingKeyPair - Shuffler signing key pair.
  *     Assumed ready for use.
@@ -53,7 +52,7 @@ async function announce ({
   protocol,
   attempts = defaultAttempts,
   timeout = defaultTimeout,
-  sessionId: sessionIdBuffer,
+  sessionId,
   poolNumber,
   signingKeyPair,
   amount,
@@ -67,9 +66,6 @@ async function announce ({
 }) {
   /* Prefix log messages. */
   log = log ? new PrefixLogchan('P1: ', log) : null
-
-  /* Normalize value types. */
-  const sessionId = bufferToBytes(sessionIdBuffer)
 
   /* Generate encryption key pair. */
   const encryptionKeyPair = new Crypto()
