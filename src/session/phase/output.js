@@ -1,7 +1,6 @@
 import shuffleList from 'crypto-secure-shuffle'
 import { ValueError } from '../../error'
 import PrefixLogchan from '../../logchan/prefix'
-import { bufferToBytes } from '../../aid/convert'
 import { defaultAttempts, defaultTimeout } from '../default'
 
 /**
@@ -13,7 +12,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  *     Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {ArrayBuffer} sessionId - Session identifier. Not modified.
+ * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Signing} signingKeyPair - Shuffler signing key pair.
  *     Assumed ready for use.
@@ -57,7 +56,7 @@ async function broadcastOutput ({
   protocol,
   attempts = defaultAttempts,
   timeout = defaultTimeout,
-  sessionId: sessionIdBuffer,
+  sessionId,
   poolNumber,
   signingKeyPair,
   last,
@@ -75,9 +74,6 @@ async function broadcastOutput ({
 }) {
   /* Prefix log messages. */
   log = log ? new PrefixLogchan('P3: ', log) : null
-
-  /* Normalize value types. */
-  const sessionId = bufferToBytes(sessionIdBuffer)
 
   if (last) {
     // Last shuffler produces final output list
