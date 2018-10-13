@@ -6,7 +6,7 @@ import { Phase } from '../../protocol'
  *
  * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
  * @prop {HexString} signingPublicKey - Signing public key.
- * @prop {ArrayBuffer} sessionId - Session identifier. Not modified.
+ * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Uint8Array} digest - Digest. Not modified.
  */
@@ -29,12 +29,11 @@ function messageDigest ({
   poolNumber,
   digest
 }) {
-  const sessionIdView = new Uint8Array(sessionId)
   const hashObject = { hash: digest }
   const messageObject = { hash: hashObject }
   const fromKeyObject = { key: signingPublicKey }
   const packetObject = {
-    session: sessionIdView,
+    session: sessionId,
     number: poolNumber,
     fromKey: fromKeyObject,
     phase: Phase.EquivocationCheck.value,
