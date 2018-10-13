@@ -8,8 +8,7 @@ async function send (message) {
   priv.sending = true
   const messageBytesDenormal = priv.protocol.Packets.encode(message).finish()
   const messageBytes = normalizeProtobufBytes(messageBytesDenormal)
-  const messageBuffer = messageBytes.buffer
-  await priv.outchanbin.send(messageBuffer)
+  await priv.outchanbin.send(messageBytes)
   priv.sending = false
 }
 

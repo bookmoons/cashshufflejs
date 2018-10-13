@@ -9,7 +9,7 @@ const testPacketBuffer = Buffer.concat([
   testMessageBuffer,
   terminatorNodeBuffer
 ])
-const testMessage = Uint8Array.from(testMessageBuffer).buffer
+const testMessage = Uint8Array.from(testMessageBuffer)
 
 test.before(t => {
   Object.assign(Outchanbin.prototype, {

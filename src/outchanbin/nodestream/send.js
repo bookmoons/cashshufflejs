@@ -1,18 +1,15 @@
 import { BusyError } from '../../error'
-import { terminatorNodeBuffer } from '../../protocol'
-import { bufferToBytes, bytesToNodeBuffer } from '../../aid/convert'
+import { terminatorBytes } from '../../protocol'
+import { bytesToNodeBuffer } from '../../aid/convert'
+import { concatenateBytes } from '../../aid/bytes'
 import privs from './privs'
 
 async function send (message) {
   const priv = privs.get(this)
   if (privs.sending) throw new BusyError('Another send call is running')
   priv.sending = true
-  const messageBytes = bufferToBytes(message)
-  const messageNodeBuffer = bytesToNodeBuffer(messageBytes)
-  const packetNodeBuffer = Buffer.concat([
-    messageNodeBuffer,
-    terminatorNodeBuffer
-  ])
+  const packet = concatenateBytes([ message, terminatorBytes ])
+  const packetNodeBuffer = bytesToNodeBuffer(packet)
   priv.stream.write(packetNodeBuffer)
   priv.sending = false
 }
