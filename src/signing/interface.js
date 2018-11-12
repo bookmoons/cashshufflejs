@@ -102,7 +102,7 @@
  *
  * @param {string} message - Message to sign.
  *
- * @return {Base64} Detached message signature.
+ * @return {Uint8Array} Detached message signature.
  *
  * @throws {MissingValueError} If key pair has not been generated or restored.
  */

@@ -1,4 +1,4 @@
-import { bytesToHex } from '../../aid/convert'
+import { bytesToBase64, bytesToHex } from '../../aid/convert'
 import { normalizeProtobufBytes } from '../../aid/normalize'
 
 /**
@@ -20,7 +20,8 @@ async function sign (signingKeyPair, message, type) {
   const messageBytes = normalizeProtobufBytes(messageBytesDenormal)
   const messageHex = bytesToHex(messageBytes)
   const signature = await signingKeyPair.sign(messageHex)
-  return signature
+  const signatureBase64 = bytesToBase64(signature)
+  return signatureBase64
 }
 
 export default sign

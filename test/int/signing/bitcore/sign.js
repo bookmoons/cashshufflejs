@@ -1,5 +1,6 @@
 import test from 'ava'
 import bitcore from 'bitcore-lib-cash'
+import { bytesToBase64 } from 'aid/convert'
 import Message from '@bookmoons/bitcore-message-cash'
 import Signing from 'signing/bitcore/main'
 import restoreKeyPair from 'signing/bitcore/restore'
@@ -24,6 +25,7 @@ test('sign', async t => {
   const privateKey = new bitcore.PrivateKey(privateKeyString)
   const address = privateKey.toAddress()
   const verifier = new Message(message)
-  const valid = verifier.verify(address, signature)
+  const signatureBase64 = bytesToBase64(signature)
+  const valid = verifier.verify(address, signatureBase64)
   t.true(valid)
 })
