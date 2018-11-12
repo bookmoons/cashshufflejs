@@ -2,7 +2,7 @@ import test from 'ava'
 import loadProtocol from 'helper/loadprot'
 import bitcore from 'bitcore-lib-cash'
 import Message from '@bookmoons/bitcore-message-cash'
-import { bytesToHex } from 'aid/convert'
+import { bytesToBase64, bytesToHex } from 'aid/convert'
 import { normalizeProtobufBytes } from 'aid/normalize'
 import Signing from 'signing/bitcore'
 import sign from 'session/util/sign'
@@ -34,6 +34,7 @@ test('sign', async t => {
   const privateKey = new bitcore.PrivateKey(signingPrivateKey)
   const publicKey = new bitcore.PublicKey(privateKey)
   const address = publicKey.toAddress()
-  const valid = testPacketSigner.verify(address, signature)
+  const signatureBase64 = bytesToBase64(signature)
+  const valid = testPacketSigner.verify(address, signatureBase64)
   t.true(valid)
 })

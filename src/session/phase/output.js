@@ -1,7 +1,6 @@
 import shuffleList from 'crypto-secure-shuffle'
 import { ValueError } from '../../error'
 import PrefixLogchan from '../../logchan/prefix'
-import { base64ToBytes } from '../../aid/convert'
 import { defaultAttempts, defaultTimeout } from '../default'
 
 /**
@@ -126,12 +125,11 @@ async function broadcastOutput ({
         poolNumber,
         outputAddress
       })
-      const signatureBase64 = await this.sign(
+      const signature = await this.sign(
         signingKeyPair,
         ownPacket,
         protocol.Packet
       )
-      const signature = base64ToBytes(signatureBase64)
       const ownSignedPacket = await this.affix(
         ownPacket,
         signature,
