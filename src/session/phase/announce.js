@@ -1,5 +1,6 @@
 import Crypto from '../../crypto/bitcore'
 import PrefixLogchan from '../../logchan/prefix'
+import { base64ToBytes } from '../../aid/convert'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
@@ -81,11 +82,12 @@ async function announce ({
     poolNumber,
     encryptionPublicKey
   })
-  const signature = await this.sign(
+  const signatureBase64 = await this.sign(
     signingKeyPair,
     ownPacket,
     protocol.Packet
   )
+  const signature = base64ToBytes(signatureBase64)
   const ownSignedPacket = await this.affix(
     ownPacket,
     signature,

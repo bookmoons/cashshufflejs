@@ -1,6 +1,7 @@
 import shuffleList from 'crypto-secure-shuffle'
 import PrefixLogchan from '../../logchan/prefix'
 import Signing from '../../signing/bitcore'
+import { base64ToBytes } from '../../aid/convert'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
@@ -165,11 +166,12 @@ async function shuffle ({
       output,
       nextShuffler
     })
-    const signature = await this.sign(
+    const signatureBase64 = await this.sign(
       signingKeyPair,
       ownPacket,
       protocol.Packet
     )
+    const signature = base64ToBytes(signatureBase64)
     const ownSignedPacket = await this.affix(
       ownPacket,
       signature,

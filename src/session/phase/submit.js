@@ -1,7 +1,7 @@
 import bitcore from 'bitcore-lib-cash'
 import { InadequateError, ValueError } from '../../error'
 import PrefixLogchan from '../../logchan/prefix'
-import { bytesToHex } from '../../aid/convert'
+import { base64ToBytes, bytesToHex } from '../../aid/convert'
 import { normalizeProtobufBytes } from '../../aid/normalize'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
@@ -105,11 +105,12 @@ async function submit ({
     poolNumber,
     signatures: ownSignatures
   })
-  const signature = await this.sign(
+  const signatureBase64 = await this.sign(
     signingKeyPair,
     ownPacket,
     protocol.Packet
   )
+  const signature = base64ToBytes(signatureBase64)
   const ownSignedPacket = await this.affix(
     ownPacket,
     signature,

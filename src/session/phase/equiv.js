@@ -1,5 +1,6 @@
 import { ValueError } from '../../error'
 import PrefixLogchan from '../../logchan/prefix'
+import { base64ToBytes } from '../../aid/convert'
 import { bytesEqual } from '../../aid/bytes'
 import { normalizeProtobufBytes } from '../../aid/normalize'
 import { defaultAttempts, defaultTimeout } from '../default'
@@ -68,11 +69,12 @@ async function checkEquivocation ({
     poolNumber,
     digest: ownDigest
   })
-  const signature = await this.sign(
+  const signatureBase64 = await this.sign(
     signingKeyPair,
     ownPacket,
     protocol.Packet
   )
+  const signature = base64ToBytes(signatureBase64)
   const ownSignedPacket = await this.affix(
     ownPacket,
     signature,
