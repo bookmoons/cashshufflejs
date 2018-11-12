@@ -1,6 +1,7 @@
 import shuffleList from 'crypto-secure-shuffle'
 import PrefixLogchan from '../../logchan/prefix'
 import Signing from '../../signing/bitcore'
+import { base64ToBytes } from '../../aid/convert'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
@@ -156,7 +157,8 @@ async function shuffle ({
   /* Unicast output list. */
   const signingPublicKey = await signingKeyPair.exportPublicKey()
   const ownSignedPackets = []
-  for (const output of outputList) {
+  for (const outputBase64 of outputList) {
+    const output = base64ToBytes(outputBase64)
     const ownPacket = await this.messageShuffleOutput({
       protocol,
       signingPublicKey,

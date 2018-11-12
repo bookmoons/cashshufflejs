@@ -1,3 +1,4 @@
+import { bytesToBase64 } from '../../aid/convert'
 import { Phase } from '../../protocol'
 
 /**
@@ -8,7 +9,7 @@ import { Phase } from '../../protocol'
  * @prop {HexString} signingPublicKey - Signing public key.
  * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
- * @prop {Base64} output - Single output address layered encryption.
+ * @prop {Uint8Array} output - Single output address layered encryption.
  * @prop {HexString} nextShuffler - Signing public key of next shuffler.
  */
 
@@ -33,7 +34,8 @@ function messageShuffleOutput ({
   output,
   nextShuffler
 }) {
-  const messageObject = { str: output }
+  const outputBase64 = bytesToBase64(output)
+  const messageObject = { str: outputBase64 }
   const fromKeyObject = { key: signingPublicKey }
   const toKeyObject = { key: nextShuffler }
   const packetObject = {
