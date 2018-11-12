@@ -232,7 +232,7 @@ const shufflerAddress = [ sessionPublicKey, address ]
  * @instance
  * @async
  *
- * @param {Base64} signature - Message signature.
+ * @param {Uint8Array} signature - Message signature.
  * @param {string} message - Plaintext message.
  * @param {HexString} publicKeyString - Signer public key.
  * @param [network=<mainnet>] - Bitcoin Cash network.
