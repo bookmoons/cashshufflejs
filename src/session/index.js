@@ -12,7 +12,6 @@ import gatherDigest from './gather/digest'
 import gatherFinalOutput from './gather/finalout'
 import gatherShuffleOutput from './gather/shuffleout'
 import gatherSignature from './gather/signature'
-import hashInput from './adjunct/hashin'
 import messageAnnounce from './message/announce'
 import messageDigest from './message/digest'
 import messageFinalOutput from './message/finalout'
@@ -43,7 +42,6 @@ Object.assign(Session.prototype, {
   gatherFinalOutput,
   gatherShuffleOutput,
   gatherSignature,
-  hashInput,
   messageAnnounce,
   messageDigest,
   messageFinalOutput,

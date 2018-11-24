@@ -13,7 +13,6 @@ import { normalizeProtobufBytes } from 'aid/normalize'
 import loadProtocol from 'helper/loadprot'
 import affix from 'session/util/affix'
 import gatherDigest from 'session/gather/digest'
-import hashInput from 'session/adjunct/hashin'
 import messageDigest from 'session/message/digest'
 import packageSignedPacket from 'session/util/pack'
 import sign from 'session/util/sign'
@@ -95,7 +94,6 @@ function produceSession () {
   const session = {
     affix,
     gatherDigest,
-    hashInput,
     messageDigest,
     packageSignedPacket,
     sign,
