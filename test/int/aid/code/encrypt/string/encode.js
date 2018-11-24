@@ -1,5 +1,5 @@
 import test from 'ava'
-import cryptEncodeString from 'aid/encrypt/string/encode'
+import cryptEncodeString from 'aid/code/crypt/string/encode'
 
 test('bytes', t => {
   const bytes = cryptEncodeString('Message')
