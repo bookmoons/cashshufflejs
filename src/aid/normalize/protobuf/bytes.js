@@ -15,6 +15,8 @@ import arrayToBytes from '../../convert/array/bytes'
  * For crossplatform safety, `cashshufflejs` normalizes these 3 possible types
  * to `Uint8Array` at all points of ambiguity.
  *
+ * [1]: https://dcode.io/protobuf.js/
+ *
  * @memberof module:cashshuffle/aid/normalize
  *
  * @param {(Uint8Array|Buffer|Array<number>)} denormalBytes - A `bytes` field
