@@ -1,5 +1,5 @@
 import test from 'ava'
-import cryptDecodeString from 'aid/encrypt/string/decode'
+import cryptDecodeString from 'aid/code/crypt/string/decode'
 
 test('string', t => {
   const string = cryptDecodeString(Uint8Array.from([ 0x61 ]))
