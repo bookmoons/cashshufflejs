@@ -6,6 +6,7 @@ Utility procedures and values.
 .. toctree::
    utility/buffer
    utility/bytes
+   utility/code
    utility/convert
    utility/encrypt
    utility/find
