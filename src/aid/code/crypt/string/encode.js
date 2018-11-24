@@ -5,7 +5,7 @@ import stringToUtf8 from '../../../convert/string/utf8'
  *
  * Encodes to UTF-8 without BOM.
  *
- * @memberof module:cashshuffle/aid/encrypt
+ * @memberof module:cashshuffle/aid/code
  *
  * @param {string} string - String to encode.
  *
