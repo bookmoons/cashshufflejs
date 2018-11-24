@@ -1,4 +1,4 @@
 /**
- * Encoding and decoding procedures.
+ * Coding procedures.
  * @module cashshuffle/aid/code
  */

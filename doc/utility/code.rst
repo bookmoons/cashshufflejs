@@ -1,4 +1,4 @@
 Code
 ====
 
-Encoding and decoding procedures.
+Coding procedures.
