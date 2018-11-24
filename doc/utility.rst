@@ -8,7 +8,6 @@ Utility procedures and values.
    utility/bytes
    utility/code
    utility/convert
-   utility/encrypt
    utility/find
    utility/input
    utility/normalize
