@@ -11,9 +11,9 @@ import stringToUtf8 from '../../../convert/string/utf8'
  *
  * @return {Uint8Array} `string` encoded for encryption.
  */
-function encodeString (string) {
+function cryptEncodeString (string) {
   const bytes = stringToUtf8(string)
   return bytes
 }
 
-export default encodeString
+export default cryptEncodeString
