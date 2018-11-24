@@ -12,7 +12,6 @@ Utility procedures and values.
    utility/input
    utility/normalize
    utility/reduce
-   utility/sign
    utility/validate
    utility/value
    utility/wire
