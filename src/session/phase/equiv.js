@@ -1,6 +1,7 @@
 import { ValueError } from '../../error'
 import PrefixLogchan from '../../logchan/prefix'
 import { bytesEqual } from '../../aid/bytes'
+import { hashInput } from '../../aid/input'
 import { normalizeProtobufBytes } from '../../aid/normalize'
 import { defaultAttempts, defaultTimeout } from '../default'
 
@@ -53,11 +54,13 @@ async function checkEquivocation ({
   /* Prefix log messages. */
   log = log ? new PrefixLogchan('P4: ', log) : null
 
-  /* Prepare hash input. */
-  const hashInput = this.hashInput(encryptionPublicKeys, outputList)
+  /* Prepare inputs. */
+  const input = {
+    hash: hashInput(encryptionPublicKeys, outputList)
+  }
 
   /* Compute digest. */
-  const ownDigest = await crypto.hash(hashInput)
+  const ownDigest = await crypto.hash(input.hash)
 
   /* Broadcast digest. */
   const signingPublicKey = await signingKeyPair.exportPublicKey()
