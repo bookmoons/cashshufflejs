@@ -5,6 +5,8 @@
  * addresses in observed message stream order all concatenated with no
  * delimiter.
  *
+ * @memberof module:cashshuffle/aid/input
+ *
  * @param {Iterable<HexString>} encryptionPublicKeys - Encryption public keys
  *     for shufflers 2 through last ascending in shuffle order.
  * @param {Iterable<Address>} outputList - Final output list
