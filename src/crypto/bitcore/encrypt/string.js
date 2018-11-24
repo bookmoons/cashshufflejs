@@ -1,11 +1,11 @@
 import bitcore from 'bitcore-lib-cash'
 import { bytesToBase64, hexToBytes } from '../../../aid/convert'
-import { encodeString } from '../../../aid/encrypt'
+import { cryptEncodeString } from '../../../aid/code'
 
 const mainnet = bitcore.Networks.mainnet
 
 async function encryptString (plaintext, recipient, network = mainnet) {
-  const plaintextBytes = encodeString(plaintext)
+  const plaintextBytes = cryptEncodeString(plaintext)
   const recipientBytes = hexToBytes(recipient)
   const ciphertext = await this.encryptBytes(
     plaintextBytes,
