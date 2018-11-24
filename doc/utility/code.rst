@@ -7,3 +7,8 @@ cryptDecodeString
 -----------------
 
 .. autofunction:: cryptDecodeString
+
+cryptEncodeString
+-----------------
+
+.. autofunction:: cryptEncodeString
