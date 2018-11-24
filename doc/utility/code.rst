@@ -12,3 +12,8 @@ cryptEncodeString
 -----------------
 
 .. autofunction:: cryptEncodeString
+
+signEncodePacket
+----------------
+
+.. autofunction:: signEncodePacket
