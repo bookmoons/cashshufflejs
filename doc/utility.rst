@@ -9,6 +9,7 @@ Utility procedures and values.
    utility/convert
    utility/encrypt
    utility/find
+   utility/input
    utility/normalize
    utility/reduce
    utility/sign
