@@ -5,7 +5,7 @@ import utf8ToString from '../../../convert/utf8/string'
  *
  * Decodes from UTF-8 without BOM.
  *
- * @memberof module:cashshuffle/aid/encrypt
+ * @memberof module:cashshuffle/aid/code
  *
  * @param {Uint8Array} bytes - Encoded string to decode. Not modified.
  *
