@@ -11,9 +11,9 @@ import utf8ToString from '../../../convert/utf8/string'
  *
  * @return {string} String encoded by `bytes`.
  */
-function decodeString (bytes) {
+function cryptDecodeString (bytes) {
   const string = utf8ToString(bytes)
   return string
 }
 
-export default decodeString
+export default cryptDecodeString
