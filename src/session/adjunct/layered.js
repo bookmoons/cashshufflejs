@@ -31,21 +31,36 @@ async function encryptLayered (
   encryptionPublicKeys,
   network = mainnet
 ) {
-  const encryptionPublicKeysArray = [ ...encryptionPublicKeys ]
-  if (!encryptionPublicKeysArray.length) {
+  const recipients = [ ...encryptionPublicKeys ]
+  if (!recipients.length) {
     throw new MissingValueError('No encryption keys')
   }
-  return encryptLayeredStep(crypto, message, encryptionPublicKeysArray)
+
+  // Initial encryption from string
+  const layer = await encryptMessage(crypto, message, recipients, network)
+
+  // Subsequent encryptions from bytes
+  const cryptogram = await encryptLayers(crypto, layer, recipients, network)
+  const cryptogramBase64 = bytesToBase64(cryptogram)
+  return cryptogramBase64
 }
 
-async function encryptLayeredStep (
+/**
+ * @param {Crypto} crypto - Message encryptor. Assumed ready for use.
+ * @param {string} message - Message to encrypt.
+ * @param {Array<HexString>} recipients - Public keys to encrypt for in
+ *     encryption order. Minimum 1 item.
+ * @param {bitcore.Network} network - Bitcoin Cash network. Not modified.
+ *
+ * @return {Uint8Array} `message` encrypted for first recipient.
+ */
+async function encryptMessage (
   crypto,
   message,
-  encryptionPublicKeys,
+  recipients,
   network
 ) {
-  if (!encryptionPublicKeys.length) return message
-  const recipient = encryptionPublicKeys.shift()
+  const recipient = recipients.shift()
   const recipientBytes = hexToBytes(recipient)
   const messageEncoded = cryptEncodeString(message)
   const cryptogram = await crypto.encryptBytes(
@@ -53,8 +68,36 @@ async function encryptLayeredStep (
     recipientBytes,
     network
   )
-  const cryptogramBase64 = bytesToBase64(cryptogram)
-  return encryptLayeredStep(crypto, cryptogramBase64, encryptionPublicKeys)
+  return cryptogram
+}
+
+/**
+ * @param {Crypto} crypto - Message encryptor. Assumed ready for use.
+ * @param {Uint8Array} layer - Bytes to encrypt. Previous encryption result.
+ * @param {Array<HexString>} recipients - Public keys to encrypt for in
+ *     encryption order.
+ * @param {bitcore.Network} network - Bitcoin Cash network. Not modified.
+ *
+ * @return {Uint8Array} `layer` encrypted for all subsequent recipients in
+ *     encryption order.
+ */
+async function encryptLayers (
+  crypto,
+  layer,
+  recipients,
+  network
+) {
+  if (!recipients.length) return layer
+  const recipient = recipients.shift()
+  const recipientBytes = hexToBytes(recipient)
+  const layerBase64 = bytesToBase64(layer)
+  const layerEncoded = cryptEncodeString(layerBase64)
+  const cryptogram = await crypto.encryptBytes(
+    layerEncoded,
+    recipientBytes,
+    network
+  )
+  return encryptLayers(crypto, cryptogram, recipients, network)
 }
 
 export default encryptLayered
