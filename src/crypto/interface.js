@@ -68,22 +68,6 @@
  */
 
 /**
- * Encode to bytes and encrypt string for public key.
- *
- * @method encryptString
- * @memberof module:cashshuffle/crypto~Crypto
- * @instance
- * @async
- *
- * @param {string} plaintext - Plaintext string to encrypt.
- * @param {HexString} recipient - Public key of recipient.
- * @param [network=<mainnet>] - Bitcoin Cash network.
- *     Type implementation defined. Not modified.
- *
- * @return {Base64} Ciphertext of `plaintext` for `recipient`.
- */
-
-/**
  * Export private key as hex string.
  *
  * Generate or restore key pair prior to use.
