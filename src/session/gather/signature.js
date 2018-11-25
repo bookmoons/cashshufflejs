@@ -1,5 +1,5 @@
-import { ExhaustionError, MissingValueError } from '../../error'
-import Fetcher from 'fetcher/each'
+import { ExhaustionError, MissingValueError } from '/error'
+import Fetcher from '/fetcher/each'
 import { defaultAttempts, defaultTimeout } from '../default'
 
 /**

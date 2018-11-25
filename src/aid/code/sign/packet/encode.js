@@ -1,4 +1,4 @@
-import normalizeProtobufBytes from '../../../normalize/protobuf/bytes'
+import normalizeProtobufBytes from '/aid/normalize/protobuf/bytes'
 
 /**
  * Encode packet for signing.

@@ -1,4 +1,4 @@
-import Receiver from '../../receiver/base'
+import Receiver from '/receiver/base'
 
 class Discarder extends Receiver {}
 

@@ -1,5 +1,5 @@
-import Crypto from '../../crypto/bitcore'
-import PrefixLogchan from '../../logchan/prefix'
+import Crypto from '/crypto/bitcore'
+import PrefixLogchan from '/logchan/prefix'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**

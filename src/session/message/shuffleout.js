@@ -1,5 +1,5 @@
-import { bytesToBase64 } from '../../aid/convert'
-import { Phase } from '../../protocol'
+import { bytesToBase64 } from '/aid/convert'
+import { Phase } from '/protocol'
 
 /**
  * @typedef {object} MessageShuffleOutputParams

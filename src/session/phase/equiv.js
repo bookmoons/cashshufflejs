@@ -1,8 +1,8 @@
-import { ValueError } from '../../error'
-import PrefixLogchan from '../../logchan/prefix'
-import { bytesEqual } from '../../aid/bytes'
-import { hashInput } from '../../aid/input'
-import { normalizeProtobufBytes } from '../../aid/normalize'
+import { ValueError } from '/error'
+import PrefixLogchan from '/logchan/prefix'
+import { bytesEqual } from '/aid/bytes'
+import { hashInput } from '/aid/input'
+import { normalizeProtobufBytes } from '/aid/normalize'
 import { defaultAttempts, defaultTimeout } from '../default'
 
 /**

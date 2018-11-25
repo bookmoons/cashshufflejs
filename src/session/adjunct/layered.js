@@ -1,5 +1,5 @@
 import bitcore from 'bitcore-lib-cash'
-import { MissingValueError } from '../../error'
+import { MissingValueError } from '/error'
 
 const mainnet = bitcore.Networks.mainnet
 

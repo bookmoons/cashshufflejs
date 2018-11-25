@@ -1,4 +1,4 @@
-import FifoInbox from '../../inbox/fifo'
+import FifoInbox from '/inbox/fifo'
 import Receiver from '../base'
 import privs from './privs'
 

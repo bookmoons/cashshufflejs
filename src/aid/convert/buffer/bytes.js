@@ -1,4 +1,4 @@
-import { copyBuffer } from '../../buffer'
+import copyBuffer from '/aid/buffer/copy'
 
 /**
  * Convert `ArrayBuffer` to `Uint8Array`.

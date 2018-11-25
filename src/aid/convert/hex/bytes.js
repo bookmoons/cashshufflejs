@@ -1,4 +1,4 @@
-import { FormatError } from '../../../error'
+import { FormatError } from '/error'
 
 /**
  * Convert `HexString` to `Uint8Array`.

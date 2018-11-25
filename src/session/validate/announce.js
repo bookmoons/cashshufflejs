@@ -1,5 +1,5 @@
 import bitcore from 'bitcore-lib-cash'
-import { MissingValueError, ValueError } from '../../error'
+import { MissingValueError, ValueError } from '/error'
 
 /**
  * Validate an announcement message.

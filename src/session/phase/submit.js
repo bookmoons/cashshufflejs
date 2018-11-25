@@ -1,8 +1,8 @@
 import bitcore from 'bitcore-lib-cash'
-import { InadequateError, ValueError } from '../../error'
-import PrefixLogchan from '../../logchan/prefix'
-import { bytesToHex } from '../../aid/convert'
-import { normalizeProtobufBytes } from '../../aid/normalize'
+import { InadequateError, ValueError } from '/error'
+import PrefixLogchan from '/logchan/prefix'
+import { bytesToHex } from '/aid/convert'
+import { normalizeProtobufBytes } from '/aid/normalize'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**

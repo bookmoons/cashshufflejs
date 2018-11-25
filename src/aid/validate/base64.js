@@ -1,4 +1,4 @@
-import { FormatError } from '../../error'
+import { FormatError } from '/error'
 
 const format = /^[a-zA-Z0-9+/_-]*={0,2}$/
 

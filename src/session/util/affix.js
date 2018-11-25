@@ -1,4 +1,4 @@
-import { bytesToBase64, stringToUtf8 } from '../../aid/convert'
+import { bytesToBase64, stringToUtf8 } from '/aid/convert'
 
 /**
  * Affix signature to packet.

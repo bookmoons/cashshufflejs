@@ -1,4 +1,4 @@
-import { EmptyError } from '../../error'
+import { EmptyError } from '/error'
 import privs from './privs'
 
 function receive () {

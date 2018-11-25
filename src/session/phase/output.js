@@ -1,6 +1,6 @@
 import shuffleList from 'crypto-secure-shuffle'
-import { ValueError } from '../../error'
-import PrefixLogchan from '../../logchan/prefix'
+import { ValueError } from '/error'
+import PrefixLogchan from '/logchan/prefix'
 import { defaultAttempts, defaultTimeout } from '../default'
 
 /**

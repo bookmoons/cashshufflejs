@@ -1,4 +1,4 @@
-import { ValueError } from '../../error'
+import { ValueError } from '/error'
 
 /**
  * Decrypt output list.

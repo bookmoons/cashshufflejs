@@ -1,7 +1,7 @@
 import { toByteArray } from 'base64-js'
-import { FormatError } from '../../../error'
-import arrayToBytes from '../array/bytes'
-import validateBase64 from '../../validate/base64'
+import { FormatError } from '/error'
+import arrayToBytes from '/aid/convert/array/bytes'
+import validateBase64 from '/aid/validate/base64'
 
 const invalidLengthMessage = 'Invalid string. Length must be a multiple of 4'
 

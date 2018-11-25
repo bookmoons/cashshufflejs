@@ -1,4 +1,4 @@
-import { MissingValueError } from '../../error'
+import { MissingValueError } from '/error'
 import privs from './privs'
 
 async function address () {

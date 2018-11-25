@@ -1,4 +1,4 @@
-import { BusyError, TimeoutError } from '../../error'
+import { BusyError, TimeoutError } from '/error'
 import privs from './privs'
 
 function watch (timeout = null) {

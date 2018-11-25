@@ -1,4 +1,4 @@
-import validateByte from '../../validate/byte'
+import validateByte from '/aid/validate/byte'
 
 /**
  * Convert `Array` of `Byte` to `Uint8Array`.

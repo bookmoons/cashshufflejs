@@ -1,5 +1,5 @@
-import { terminatorBytes } from '../../../protocol'
-import bytesAt from '../../bytes/at'
+import { terminatorBytes } from '/protocol'
+import bytesAt from '/aid/bytes/at'
 
 /**
  * Find wire message terminator in byte string.

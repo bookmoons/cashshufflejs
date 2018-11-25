@@ -1,6 +1,6 @@
 import bitcore from 'bitcore-lib-cash'
-import { bytesToBase64, hexToBytes } from '../../../aid/convert'
-import { cryptEncodeString } from '../../../aid/code'
+import { bytesToBase64, hexToBytes } from '/aid/convert'
+import { cryptEncodeString } from '/aid/code'
 
 const mainnet = bitcore.Networks.mainnet
 

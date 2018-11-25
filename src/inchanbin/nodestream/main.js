@@ -1,5 +1,5 @@
 import Inchanbin from '../base'
-import { MissingFeatureError } from '../../error'
+import { MissingFeatureError } from '/error'
 import privs from './privs'
 
 /**

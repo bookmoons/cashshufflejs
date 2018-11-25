@@ -1,4 +1,4 @@
-import bytesToLengthSum from '../reduce/bytes/length/sum'
+import bytesToLengthSum from '/aid/reduce/bytes/length/sum'
 
 /**
  * Concatenate list of `Uint8Array`s.

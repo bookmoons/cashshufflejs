@@ -4,8 +4,8 @@ import {
   MissingValueError,
   NotImplementedError,
   ValueError
-} from '../error'
-import { Phase } from '../protocol'
+} from '/error'
+import { Phase } from '/protocol'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from './default'
 
 /**

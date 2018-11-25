@@ -1,4 +1,4 @@
-import { MissingValueError } from '../../error'
+import { MissingValueError } from '/error'
 
 /**
  * Validate a final output item message.

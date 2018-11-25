@@ -4,8 +4,8 @@ import {
   InadequateError,
   MissingValueError,
   ValueError
-} from '../../error'
-import Fetcher from 'fetcher/each'
+} from '/error'
+import Fetcher from '/fetcher/each'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**

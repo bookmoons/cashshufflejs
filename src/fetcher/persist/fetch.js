@@ -1,4 +1,4 @@
-import { ExhaustionError } from '../../error'
+import { ExhaustionError } from '/error'
 import privs from './privs'
 
 /**

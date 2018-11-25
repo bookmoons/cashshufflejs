@@ -1,4 +1,4 @@
-import { MissingValueError, ValueError } from '../../error'
+import { MissingValueError, ValueError } from '/error'
 import privs from './privs'
 
 /**

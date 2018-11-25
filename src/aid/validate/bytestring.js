@@ -1,4 +1,4 @@
-import { FormatError, ValueError } from '../../error'
+import { FormatError, ValueError } from '/error'
 
 /**
  * Validate `ByteString`.

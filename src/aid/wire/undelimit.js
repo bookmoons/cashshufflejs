@@ -1,6 +1,6 @@
-import { FormatError } from '../../error'
-import { terminatorByteLength, terminatorBytes } from '../../protocol'
-import bytesEqual from '../bytes/equal'
+import { FormatError } from '/error'
+import { terminatorByteLength, terminatorBytes } from '/protocol'
+import bytesEqual from '/aid/bytes/equal'
 
 /**
  * Undelimit wire message.

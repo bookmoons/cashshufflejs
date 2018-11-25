@@ -1,4 +1,4 @@
-import stringToUtf8 from '../../../convert/string/utf8'
+import stringToUtf8 from '/aid/convert/string/utf8'
 
 /**
  * Encode string for encryption.

@@ -1,4 +1,4 @@
-import PersistFetcher from '../../fetcher/persist'
+import PersistFetcher from '/fetcher/persist'
 import { defaultAttempts, defaultTimeout } from '../default'
 
 /**

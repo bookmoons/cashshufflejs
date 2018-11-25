@@ -1,5 +1,5 @@
-import { terminatorBytes } from '../../protocol'
-import concatenateBytes from '../bytes/concat'
+import { terminatorBytes } from '/protocol'
+import concatenateBytes from '/aid/bytes/concat'
 
 /**
  * Delimit wire message.

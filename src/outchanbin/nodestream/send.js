@@ -1,7 +1,7 @@
-import { BusyError } from '../../error'
-import { terminatorBytes } from '../../protocol'
-import { bytesToNodeBuffer } from '../../aid/convert'
-import { concatenateBytes } from '../../aid/bytes'
+import { BusyError } from '/error'
+import { terminatorBytes } from '/protocol'
+import { bytesToNodeBuffer } from '/aid/convert'
+import { concatenateBytes } from '/aid/bytes'
 import privs from './privs'
 
 async function send (message) {

@@ -1,6 +1,6 @@
-import { MissingValueError } from '../../../error'
+import { MissingValueError } from '/error'
 import ECIES from '@bookmoons/bitcore-ecies-cash'
-import { bytesToNodeBuffer, nodeBufferToBytes } from '../../../aid/convert'
+import { bytesToNodeBuffer, nodeBufferToBytes } from '/aid/convert'
 import privs from '../privs'
 
 async function decryptBytes (ciphertext) {

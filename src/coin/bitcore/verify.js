@@ -1,6 +1,6 @@
 import bitcore from 'bitcore-lib-cash'
 import Message from '@bookmoons/bitcore-message-cash'
-import { bytesToBase64 } from '../../aid/convert'
+import { bytesToBase64 } from '/aid/convert'
 
 const mainnet = bitcore.Networks.mainnet
 

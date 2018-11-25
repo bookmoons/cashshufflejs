@@ -1,6 +1,6 @@
 import Message from '@bookmoons/bitcore-message-cash'
-import { MissingValueError } from '../../error'
-import { base64ToBytes } from '../../aid/convert'
+import { MissingValueError } from '/error'
+import { base64ToBytes } from '/aid/convert'
 import privs from './privs'
 
 async function sign (message) {

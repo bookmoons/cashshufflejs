@@ -1,4 +1,4 @@
-import { BusyError, FormatError } from '../../error'
+import { BusyError, FormatError } from '/error'
 import privs from './privs'
 
 /**

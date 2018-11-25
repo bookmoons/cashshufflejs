@@ -1,6 +1,6 @@
-import { MissingValueError } from '../../error'
-import { terminatorByteLength } from '../../protocol'
-import findBytesTerminator from '../find/bytes/terminator'
+import { MissingValueError } from '/error'
+import { terminatorByteLength } from '/protocol'
+import findBytesTerminator from '/aid/find/bytes/terminator'
 
 /**
  * Find delimited wire message in a byte string.

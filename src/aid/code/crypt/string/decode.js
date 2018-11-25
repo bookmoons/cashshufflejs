@@ -1,4 +1,4 @@
-import utf8ToString from '../../../convert/utf8/string'
+import utf8ToString from '/aid/convert/utf8/string'
 
 /**
  * Decode string after decryption.

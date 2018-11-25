@@ -1,7 +1,7 @@
 import shuffleList from 'crypto-secure-shuffle'
-import PrefixLogchan from '../../logchan/prefix'
-import Signing from '../../signing/bitcore'
-import { base64ToBytes } from '../../aid/convert'
+import PrefixLogchan from '/logchan/prefix'
+import Signing from '/signing/bitcore'
+import { base64ToBytes } from '/aid/convert'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**

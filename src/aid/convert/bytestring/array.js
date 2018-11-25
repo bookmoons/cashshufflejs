@@ -1,4 +1,4 @@
-import validateByteString from '../../validate/bytestring'
+import validateByteString from '/aid/validate/bytestring'
 
 /**
  * Convert `ByteString` to `Array` of `Byte`.

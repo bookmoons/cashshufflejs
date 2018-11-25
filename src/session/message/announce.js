@@ -1,4 +1,4 @@
-import { Phase } from '../../protocol'
+import { Phase } from '/protocol'
 
 /**
  * @typedef {object} MessageAnnounceParams
