@@ -1,5 +1,5 @@
 import sinon from 'sinon'
-import DummyLogchan from '../dummy/logchan'
+import DummyLogchan from 'dummy/logchan'
 
 class SpyLogchan extends DummyLogchan {}
 
