@@ -21,7 +21,7 @@ const mainnet = bitcore.Networks.mainnet
  * @param {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
  *     Not modified.
  *
- * @return {Base64} The final cryptogram.
+ * @return {Uint8Array} The final cryptogram.
  *
  * @throws {MissingValueError} If encryption public keys is empty.
  */
@@ -40,9 +40,7 @@ async function encryptLayered (
   const layer = await encryptMessage(crypto, message, recipients, network)
 
   // Subsequent encryptions from bytes
-  const cryptogram = await encryptLayers(crypto, layer, recipients, network)
-  const cryptogramBase64 = bytesToBase64(cryptogram)
-  return cryptogramBase64
+  return encryptLayers(crypto, layer, recipients, network)
 }
 
 /**

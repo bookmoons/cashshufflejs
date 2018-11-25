@@ -1,7 +1,7 @@
 import shuffleList from 'crypto-secure-shuffle'
 import PrefixLogchan from '/logchan/prefix'
 import Signing from '/signing/bitcore'
-import { base64ToBytes } from '/aid/convert'
+import { base64ToBytes, bytesToBase64 } from '/aid/convert'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
@@ -108,10 +108,11 @@ async function shuffle ({
     reversedEncryptionPublicKeys,
     network
   )
+  const encryptedOutputAddressBase64 = bytesToBase64(encryptedOutputAddress)
 
   if (first) {
     /* Construct initial output list. */
-    outputList.push(encryptedOutputAddress)
+    outputList.push(encryptedOutputAddressBase64)
     if (log) await log.send('Constructed initial output list')
   } else { // Inner shuffler
     /* Gather output list messages from prior shuffler. */
@@ -141,7 +142,7 @@ async function shuffle ({
     /* Extend output list. */
     const extendedOutputList = [
       ...decryptedOutputList,
-      encryptedOutputAddress
+      encryptedOutputAddressBase64
     ]
     if (log) await log.send('Added own output address to output list')
 
