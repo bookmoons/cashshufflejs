@@ -1,5 +1,7 @@
 import bitcore from 'bitcore-lib-cash'
 import { MissingValueError } from '/error'
+import { cryptEncodeString } from '/aid/code'
+import { bytesToBase64, hexToBytes } from '/aid/convert'
 
 const mainnet = bitcore.Networks.mainnet
 
@@ -43,13 +45,16 @@ async function encryptLayeredStep (
   network
 ) {
   if (!encryptionPublicKeys.length) return message
-  const encryptionPublicKey = encryptionPublicKeys.shift()
-  const cryptogram = await crypto.encryptString(
-    message,
-    encryptionPublicKey,
+  const recipient = encryptionPublicKeys.shift()
+  const recipientBytes = hexToBytes(recipient)
+  const messageEncoded = cryptEncodeString(message)
+  const cryptogram = await crypto.encryptBytes(
+    messageEncoded,
+    recipientBytes,
     network
   )
-  return encryptLayeredStep(crypto, cryptogram, encryptionPublicKeys)
+  const cryptogramBase64 = bytesToBase64(cryptogram)
+  return encryptLayeredStep(crypto, cryptogramBase64, encryptionPublicKeys)
 }
 
 export default encryptLayered
