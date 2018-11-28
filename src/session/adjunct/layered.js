@@ -54,7 +54,7 @@ async function encryptMessage (
 ) {
   const recipient = recipients.shift()
   const recipientBytes = hexToBytes(recipient)
-  const cryptogram = await crypto.encryptBytes(
+  const cryptogram = await crypto.encrypt(
     message,
     recipientBytes,
     network
@@ -83,7 +83,7 @@ async function encryptLayers (
   const recipient = recipients.shift()
   const recipientBytes = hexToBytes(recipient)
   const layerEncoded = cryptEncodeBytes(layer)
-  const cryptogram = await crypto.encryptBytes(
+  const cryptogram = await crypto.encrypt(
     layerEncoded,
     recipientBytes,
     network

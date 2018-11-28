@@ -4,7 +4,7 @@ import { bytesToNodeBuffer, nodeBufferToBytes } from '/aid/convert'
 
 const mainnet = bitcore.Networks.mainnet
 
-async function encryptBytes (plaintext, recipient, network = mainnet) {
+async function encrypt (plaintext, recipient, network = mainnet) {
   const plaintextNodeBuffer = bytesToNodeBuffer(plaintext)
   const ciphertextNodeBuffer = (function performEncryption () {
     const encryptor = new ECIES()
@@ -20,4 +20,4 @@ async function encryptBytes (plaintext, recipient, network = mainnet) {
   return ciphertext
 }
 
-export default encryptBytes
+export default encrypt

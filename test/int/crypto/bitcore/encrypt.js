@@ -4,7 +4,7 @@ import Crypto from 'crypto/bitcore/main'
 import decryptBytes from 'crypto/bitcore/decrypt/bytes'
 import exportPublicKey from 'crypto/bitcore/exportpub'
 import generateKeyPair from 'crypto/bitcore/generate'
-import encryptBytes from 'crypto/bitcore/encrypt/bytes'
+import encrypt from 'crypto/bitcore/encrypt'
 
 const plaintext = Uint8Array.from([
   0x54, 0x65, 0x73, 0x74, 0x20, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65
@@ -15,7 +15,7 @@ test.before(t => {
     decryptBytes,
     exportPublicKey,
     generateKeyPair,
-    encryptBytes
+    encrypt
   })
 })
 
@@ -25,7 +25,7 @@ test('encrypt', async t => {
   await recipientCrypto.generateKeyPair()
   const recipientPublicKeyHex = await recipientCrypto.exportPublicKey()
   const recipientPublicKey = hexToBytes(recipientPublicKeyHex)
-  const ciphertext = await senderCrypto.encryptBytes(
+  const ciphertext = await senderCrypto.encrypt(
     plaintext,
     recipientPublicKey
   )

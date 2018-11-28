@@ -54,7 +54,7 @@
 /**
  * Encrypt bytes for public key.
  *
- * @method encryptBytes
+ * @method encrypt
  * @memberof module:cashshuffle/crypto~Crypto
  * @instance
  * @async
