@@ -10,7 +10,7 @@ import utf8ToString from '/aid/convert/utf8/string'
  * @param {Uint8Array} messageEncoded - Encoded message to decode.
  *     Not modified.
  *
- * @return {string} String encoded by `bytes`.
+ * @return {string} String encoded by `messageEncoded`.
  */
 function cryptDecodeString (messageEncoded) {
   const message = utf8ToString(messageEncoded)
