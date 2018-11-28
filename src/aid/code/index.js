@@ -3,6 +3,7 @@
  * @module cashshuffle/aid/code
  */
 
+export { default as cryptDecodeBytes } from './crypt/bytes/decode'
 export { default as cryptDecodeString } from './crypt/string/decode'
 export { default as cryptEncodeBytes } from './crypt/bytes/encode'
 export { default as cryptEncodeString } from './crypt/string/encode'
