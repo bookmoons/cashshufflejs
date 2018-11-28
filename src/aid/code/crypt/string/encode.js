@@ -7,13 +7,13 @@ import stringToUtf8 from '/aid/convert/string/utf8'
  *
  * @memberof module:cashshuffle/aid/code
  *
- * @param {string} string - String to encode.
+ * @param {string} message - Message to encode.
  *
- * @return {Uint8Array} `string` encoded for encryption.
+ * @return {Uint8Array} `message` encoded for encryption.
  */
-function cryptEncodeString (string) {
-  const bytes = stringToUtf8(string)
-  return bytes
+function cryptEncodeString (message) {
+  const messageEncoded = stringToUtf8(message)
+  return messageEncoded
 }
 
 export default cryptEncodeString
