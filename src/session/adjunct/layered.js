@@ -1,7 +1,7 @@
 import bitcore from 'bitcore-lib-cash'
 import { MissingValueError } from '/error'
-import { cryptEncodeString } from '/aid/code'
-import { bytesToBase64, hexToBytes } from '/aid/convert'
+import { cryptEncodeBytes } from '/aid/code'
+import { hexToBytes } from '/aid/convert'
 
 const mainnet = bitcore.Networks.mainnet
 
@@ -84,8 +84,7 @@ async function encryptLayers (
   if (!recipients.length) return layer
   const recipient = recipients.shift()
   const recipientBytes = hexToBytes(recipient)
-  const layerBase64 = bytesToBase64(layer)
-  const layerEncoded = cryptEncodeString(layerBase64)
+  const layerEncoded = cryptEncodeBytes(layer)
   const cryptogram = await crypto.encryptBytes(
     layerEncoded,
     recipientBytes,
