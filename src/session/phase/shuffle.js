@@ -1,6 +1,7 @@
 import shuffleList from 'crypto-secure-shuffle'
 import PrefixLogchan from '/logchan/prefix'
 import Signing from '/signing/bitcore'
+import { cryptEncodeString } from '/aid/code'
 import { base64ToBytes, bytesToBase64 } from '/aid/convert'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
@@ -102,9 +103,10 @@ async function shuffle ({
   }
 
   // Prepare encrypted output address
+  const outputAddressEncoded = cryptEncodeString(outputAddress)
   const encryptedOutputAddress = await this.encryptLayered(
     crypto,
-    outputAddress,
+    outputAddressEncoded,
     reversedEncryptionPublicKeys,
     network
   )

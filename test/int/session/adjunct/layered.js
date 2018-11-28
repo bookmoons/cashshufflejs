@@ -1,9 +1,11 @@
 import test from 'ava'
 import Crypto from 'crypto/bitcore'
+import { cryptEncodeString } from 'aid/code'
 import { bytesToBase64 } from 'aid/convert'
 import encryptLayered from 'session/adjunct/layered'
 
 const testMessage = 'bitcoincash:qpeuavv8256ce3dte2znha05ytjzajztx548p3c7ca'
+const testMessageEncoded = cryptEncodeString(testMessage)
 const ownPrivateKeyString =
   '60932db7a5f192e3973e754d31d491d0fc33324cc48d481c6333035a5d471a73'
 const privateKeyString1 =
@@ -29,8 +31,11 @@ test('encrypt', async t => {
   await crypto2.restoreKeyPair(privateKeyString2)
   const crypto3 = new Crypto()
   await crypto3.restoreKeyPair(privateKeyString3)
-  const cryptogram3Bytes =
-    await encryptLayered(ownCrypto, testMessage, publicKeys)
+  const cryptogram3Bytes = await encryptLayered(
+    ownCrypto,
+    testMessageEncoded,
+    publicKeys
+  )
   const cryptogram3 = bytesToBase64(cryptogram3Bytes)
   const cryptogram2 = await crypto3.decryptString(cryptogram3)
   const cryptogram1 = await crypto2.decryptString(cryptogram2)

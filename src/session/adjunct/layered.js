@@ -15,7 +15,7 @@ const mainnet = bitcore.Networks.mainnet
  * @memberof module:cashshuffle/session.Session
  *
  * @param {Crypto} crypto - Message encryptor. Assumed ready for use.
- * @param {string} message - Message to encrypt.
+ * @param {Uint8Array} message - Message to encrypt. Not modified.
  * @param {Iterable<HexString>} encryptionPublicKeys - Public keys to encrypt
  *     for in encryption order. Minimum 1 item.
  * @param {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
@@ -35,17 +35,13 @@ async function encryptLayered (
   if (!recipients.length) {
     throw new MissingValueError('No encryption keys')
   }
-
-  // Initial encryption from string
   const layer = await encryptMessage(crypto, message, recipients, network)
-
-  // Subsequent encryptions from bytes
   return encryptLayers(crypto, layer, recipients, network)
 }
 
 /**
  * @param {Crypto} crypto - Message encryptor. Assumed ready for use.
- * @param {string} message - Message to encrypt.
+ * @param {Uint8Array} message - Message to encrypt. Not modified.
  * @param {Array<HexString>} recipients - Public keys to encrypt for in
  *     encryption order. Minimum 1 item.
  * @param {bitcore.Network} network - Bitcoin Cash network. Not modified.
@@ -60,9 +56,8 @@ async function encryptMessage (
 ) {
   const recipient = recipients.shift()
   const recipientBytes = hexToBytes(recipient)
-  const messageEncoded = cryptEncodeString(message)
   const cryptogram = await crypto.encryptBytes(
-    messageEncoded,
+    message,
     recipientBytes,
     network
   )
