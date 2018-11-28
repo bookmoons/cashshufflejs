@@ -67,6 +67,7 @@ async function encryptMessage (
 /**
  * @param {Crypto} crypto - Message encryptor. Assumed ready for use.
  * @param {Uint8Array} layer - Bytes to encrypt. Previous encryption result.
+ *     Not modified.
  * @param {Array<HexString>} recipients - Public keys to encrypt for in
  *     encryption order.
  * @param {bitcore.Network} network - Bitcoin Cash network. Not modified.
