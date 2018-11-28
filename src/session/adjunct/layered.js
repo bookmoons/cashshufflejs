@@ -32,9 +32,7 @@ async function encryptLayered (
   network = mainnet
 ) {
   const recipients = [ ...encryptionPublicKeys ]
-  if (!recipients.length) {
-    throw new MissingValueError('No encryption keys')
-  }
+  if (!recipients.length) throw new MissingValueError('No encryption keys')
   const layer = await encryptMessage(crypto, message, recipients, network)
   return encryptLayers(crypto, layer, recipients, network)
 }
