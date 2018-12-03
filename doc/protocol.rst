@@ -8,3 +8,8 @@ violators). Several details are left implementation defined.
 .. toctree::
    protocol/configuration
    protocol/type
+
+.. image:: img/SessionStatechart.png
+   :width: 677
+   :height: 650
+   :alt: protocol diagram
