@@ -48,3 +48,32 @@ A single `Signed` contains the data:
         * ``key``
 
             * ``key`` - Sender encryption public key.
+
+Message 2
+^^^^^^^^^
+
+Delivers an encrypted output list to the next shuffler.
+
+Packaged into a `Packets` for transfer:
+
+* ``packet`` - List of signed packets. One packet per output list item.
+
+Each `Signed` contains a single output list item:
+
+* ``signature`` - Packet signature by sender.
+* ``packet``
+
+    * ``session`` - Session identifier.
+    * ``number`` - Sender pool number.
+    * ``from_key``
+
+        * ``key`` - Sender signing public key.
+
+    * ``to_key``
+
+        * ``key`` - Recipient signing public key.
+
+    * ``phase`` - Phase 2 identifier.
+    * ``message``
+
+        * ``str`` - Encrypted output list item.
