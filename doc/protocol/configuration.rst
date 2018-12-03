@@ -14,6 +14,8 @@ implementation:
   then to UTF-8 without BOM.
 - For transfer signing public keys are encoded to `HexString`.
 - For transfer encryption public keys are encoded to `HexString`.
+- For transfer encrypted output list items are encoded to Base64 with standard
+  alphabet.
 - For signing packets are encoded to undelimited wire format.
 
 .. _protobuf: https://developers.google.com/protocol-buffers/
