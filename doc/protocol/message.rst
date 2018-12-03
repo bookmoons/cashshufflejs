@@ -77,3 +77,28 @@ Each `Signed` contains a single output list item:
     * ``message``
 
         * ``str`` - Encrypted output list item.
+
+Message 3
+^^^^^^^^^
+
+Broadcasts the unencrypted final output list.
+
+Packaged into a `Packets` for transfer:
+
+* ``packet`` - List of signed packets. One packet per output list item.
+
+Each `Signed` contains a single output list item:
+
+* ``signature`` - Packet signature by sender.
+* ``packet``
+
+    * ``session`` - Session identifier.
+    * ``number`` - Sender pool number.
+    * ``from_key``
+
+        * ``key`` - Sender signing public key.
+
+    * ``phase`` - Phase 3 identifier.
+    * ``message``
+
+        * ``str`` - Unencrypted final output list item.
