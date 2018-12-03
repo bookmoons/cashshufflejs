@@ -7,6 +7,7 @@ violators). Several details are left implementation defined.
 
 .. toctree::
    protocol/configuration
+   protocol/message
    protocol/type
 
 .. image:: img/SessionStatechart.png

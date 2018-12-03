@@ -1,0 +1,23 @@
+Message
+-------
+
+A run has minimum 3 shufflers. The protocol defines a well known shuffle order,
+so each shuffler is one of:
+
+* First. Here called F.
+* Inner. Not first or last. Here called I.
+* Last. Here called L.
+
+A session has 5 main phases. Each phase defines a single message. Some subset
+of shufflers (potentially all) send an instance of the message in each phase.
+The messages sent by each shuffler are:
+
+=  =  =
+F  I  L
+=  =  =
+1  1  1
+2  2  \
+\  \  3
+4  4  4
+5  5  5
+=  =  =
