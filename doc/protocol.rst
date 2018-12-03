@@ -23,36 +23,5 @@ implementation:
    https://developers.google.com/protocol-buffers/docs/encoding
 .. _`U+23CE Return Symbol`: https://codepoints.net/U+23CE
 
-.. autofunction:: protocol.Phase
-
-.. autofunction:: protocol.Reason
-
-.. autofunction:: protocol.Invalid
-
-.. autofunction:: protocol.Address
-
-.. autofunction:: protocol.DecryptionKey
-
-.. autofunction:: protocol.EncryptionKey
-
-.. autofunction:: protocol.Hash
-
-.. autofunction:: protocol.InputSignature
-
-.. autofunction:: protocol.Registration
-
-.. autofunction:: protocol.Signature
-
-.. autofunction:: protocol.Transaction
-
-.. autofunction:: protocol.VerificationKey
-
-.. autofunction:: protocol.Message
-
-.. autofunction:: protocol.Packet
-
-.. autofunction:: protocol.Signed
-
-.. autofunction:: protocol.Packets
-
-.. autofunction:: protocol.Blame
+.. toctree::
+   protocol/type
