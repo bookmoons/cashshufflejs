@@ -12,7 +12,7 @@ implementation:
 - For transfer encrypted output list items are encoded to Base64 with standard
   alphabet.
 - Message types are defined with protobuf_.
-- For signing packets are encoded to undelimited wire format.
+- For signing packets are serialized to the `protobuf wire format`_.
 - For wire transfer messages are serialized to the `protobuf wire format`_.
 - Messages on the wire are delimited using a separator scheme. Each wire
   message is terminated withe the Unicode character `U+23CE Return Symbol`_
