@@ -13,6 +13,7 @@ implementation:
 - For encryption byte strings are encoded to Base64 with standard alphabet
   then to UTF-8 without BOM.
 - For transfer signing public keys are encoded to `HexString`.
+- For transfer encryption public keys are encoded to `HexString`.
 - For signing packets are encoded to undelimited wire format.
 
 .. _protobuf: https://developers.google.com/protocol-buffers/
