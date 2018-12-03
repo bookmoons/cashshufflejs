@@ -21,3 +21,21 @@ F  I  L
 4  4  4
 5  5  5
 =  =  =
+
+Message 1
+^^^^^^^^^
+
+Reveals the encryption public key of the sender.
+
+* ``session`` - Session identifier.
+* ``number`` - Sender pool number.
+* ``from_key``
+
+    * ``key`` - Sender signing public key.
+
+* ``phase`` - Phase 1 identifier.
+* ``message``
+
+    * ``key``
+
+        * ``key`` - Sender encryption public key.
