@@ -102,3 +102,30 @@ Each `Signed` contains a single output list item:
     * ``message``
 
         * ``str`` - Unencrypted final output list item.
+
+Message 4
+^^^^^^^^^
+
+Broadcasts a final output list digest for an equivocation check.
+
+Packaged into a `Packets` for transfer:
+
+* ``packet`` - Unary list of single signed packet.
+
+A single `Signed` contains the data:
+
+* ``signature`` - Packet signature by sender.
+* ``packet``
+
+    * ``session`` - Session identifier.
+    * ``number`` - Sender pool number.
+    * ``from_key``
+
+        * ``key`` - Sender signing public key.
+
+    * ``phase`` - Phase 4 identifier.
+    * ``message``
+
+        * ``hash``
+
+            * ``hash`` - Output list digest.
