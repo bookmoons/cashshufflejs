@@ -33,7 +33,10 @@ Packaged into a `Packets` for transfer:
 
 The single `Signed` contains:
 
-* ``signature`` - Packet signature by sender.
+* ``signature``
+
+    * ``signature`` - Packet signature by sender.
+
 * ``packet``
 
     * ``session`` - Session identifier.
@@ -60,7 +63,10 @@ Packaged into a `Packets` for transfer:
 
 Each `Signed` contains a single output list item:
 
-* ``signature`` - Packet signature by sender.
+* ``signature``
+
+    * ``signature`` - Packet signature by sender.
+
 * ``packet``
 
     * ``session`` - Session identifier.
@@ -89,7 +95,10 @@ Packaged into a `Packets` for transfer:
 
 Each `Signed` contains a single output list item:
 
-* ``signature`` - Packet signature by sender.
+* ``signature``
+
+    * ``signature`` - Packet signature by sender.
+
 * ``packet``
 
     * ``session`` - Session identifier.
@@ -114,7 +123,10 @@ Packaged into a `Packets` for transfer:
 
 The single `Signed` contains:
 
-* ``signature`` - Packet signature by sender.
+* ``signature``
+
+    * ``signature`` - Packet signature by sender.
+
 * ``packet``
 
     * ``session`` - Session identifier.
@@ -141,7 +153,10 @@ Packaged into a `Packets` for transfer:
 
 The single `Signed` contains:
 
-* ``signature`` - Packet signature by sender.
+* ``signature``
+
+    * ``signature`` - Packet signature by sender.
+
 * ``packet``
 
     * ``session`` - Session identifier.
