@@ -43,14 +43,14 @@ The single `Signed` contains:
     * ``number`` - Sender pool number.
     * ``from_key``
 
-        * ``key`` - Sender signing public key.
+        * ``key`` - Sender signing public key. Transfer encoded.
 
     * ``phase`` - Phase 1 identifier.
     * ``message``
 
         * ``key``
 
-            * ``key`` - Sender encryption public key.
+            * ``key`` - Sender encryption public key. Transfer encoded.
 
 Message 2
 ^^^^^^^^^
@@ -73,16 +73,16 @@ Each `Signed` contains a single output list item:
     * ``number`` - Sender pool number.
     * ``from_key``
 
-        * ``key`` - Sender signing public key.
+        * ``key`` - Sender signing public key. Transfer encoded.
 
     * ``to_key``
 
-        * ``key`` - Recipient signing public key.
+        * ``key`` - Recipient signing public key. Transfer encoded.
 
     * ``phase`` - Phase 2 identifier.
     * ``message``
 
-        * ``str`` - Encrypted output list item.
+        * ``str`` - Encrypted output list item. Transfer encoded.
 
 Message 3
 ^^^^^^^^^
@@ -105,12 +105,12 @@ Each `Signed` contains a single output list item:
     * ``number`` - Sender pool number.
     * ``from_key``
 
-        * ``key`` - Sender signing public key.
+        * ``key`` - Sender signing public key. Transfer encoded.
 
     * ``phase`` - Phase 3 identifier.
     * ``message``
 
-        * ``str`` - Unencrypted final output list item.
+        * ``str`` - Unencrypted final output list item. Transfer encoded.
 
 Message 4
 ^^^^^^^^^
@@ -133,7 +133,7 @@ The single `Signed` contains:
     * ``number`` - Sender pool number.
     * ``from_key``
 
-        * ``key`` - Sender signing public key.
+        * ``key`` - Sender signing public key. Transfer encoded.
 
     * ``phase`` - Phase 4 identifier.
     * ``message``
@@ -163,7 +163,7 @@ The single `Signed` contains:
     * ``number`` - Sender pool number.
     * ``from_key``
 
-        * ``key`` - Sender signing public key.
+        * ``key`` - Sender signing public key. Transfer encoded.
 
     * ``phase`` - Phase 5 identifier.
     * ``message``
