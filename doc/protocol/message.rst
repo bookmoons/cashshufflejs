@@ -29,9 +29,9 @@ Reveals the encryption public key of the sender.
 
 Packaged into a `Packets` for transfer:
 
-* ``packet`` - Unary list of single signed packet.
+* ``packet`` - Unary list of single `Signed`.
 
-A single `Signed` contains the data:
+The single `Signed` contains:
 
 * ``signature`` - Packet signature by sender.
 * ``packet``
@@ -56,7 +56,7 @@ Delivers an encrypted output list to the next shuffler.
 
 Packaged into a `Packets` for transfer:
 
-* ``packet`` - List of signed packets. One packet per output list item.
+* ``packet`` - List of `Signed`. One packet per output list item.
 
 Each `Signed` contains a single output list item:
 
@@ -85,7 +85,7 @@ Broadcasts the unencrypted final output list.
 
 Packaged into a `Packets` for transfer:
 
-* ``packet`` - List of signed packets. One packet per output list item.
+* ``packet`` - List of `Signed`. One packet per output list item.
 
 Each `Signed` contains a single output list item:
 
@@ -110,9 +110,9 @@ Broadcasts a final output list digest for an equivocation check.
 
 Packaged into a `Packets` for transfer:
 
-* ``packet`` - Unary list of single signed packet.
+* ``packet`` - Unary list of single `Signed`.
 
-A single `Signed` contains the data:
+The single `Signed` contains:
 
 * ``signature`` - Packet signature by sender.
 * ``packet``
@@ -137,9 +137,9 @@ Broadcasts signature of the final Bitcoin Cash shuffle transaction.
 
 Packaged into a `Packets` for transfer:
 
-* ``packet`` - Unary list of single signed packet.
+* ``packet`` - Unary list of single `Signed`.
 
-A single `Signed` contains the data:
+The single `Signed` contains:
 
 * ``signature`` - Packet signature by sender.
 * ``packet``
