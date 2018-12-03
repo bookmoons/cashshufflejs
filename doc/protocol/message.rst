@@ -27,15 +27,24 @@ Message 1
 
 Reveals the encryption public key of the sender.
 
-* ``session`` - Session identifier.
-* ``number`` - Sender pool number.
-* ``from_key``
+Packaged into a `Packets` for transfer:
 
-    * ``key`` - Sender signing public key.
+* ``packet`` - Unary list of single signed packet.
 
-* ``phase`` - Phase 1 identifier.
-* ``message``
+A single `Signed` contains the data:
 
-    * ``key``
+* ``signature`` - Packet signature by sender.
+* ``packet``
 
-        * ``key`` - Sender encryption public key.
+    * ``session`` - Session identifier.
+    * ``number`` - Sender pool number.
+    * ``from_key``
+
+        * ``key`` - Sender signing public key.
+
+    * ``phase`` - Phase 1 identifier.
+    * ``message``
+
+        * ``key``
+
+            * ``key`` - Sender encryption public key.
