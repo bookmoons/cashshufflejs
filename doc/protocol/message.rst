@@ -129,3 +129,35 @@ A single `Signed` contains the data:
         * ``hash``
 
             * ``hash`` - Output list digest.
+
+Message 5
+^^^^^^^^^
+
+Broadcasts signature of the final Bitcoin Cash shuffle transaction.
+
+Packaged into a `Packets` for transfer:
+
+* ``packet`` - Unary list of single signed packet.
+
+A single `Signed` contains the data:
+
+* ``signature`` - Packet signature by sender.
+* ``packet``
+
+    * ``session`` - Session identifier.
+    * ``number`` - Sender pool number.
+    * ``from_key``
+
+        * ``key`` - Sender signing public key.
+
+    * ``phase`` - Phase 5 identifier.
+    * ``message``
+
+        * ``signatures`` - List of `InputSignature`.
+
+Each `InputSignature` contains a single input signature:
+
+* ``index`` - Input index.
+* ``signature``
+
+    * ``signature`` - Input signature.
