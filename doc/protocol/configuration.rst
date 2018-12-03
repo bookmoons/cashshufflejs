@@ -12,8 +12,6 @@ implementation:
 - For encryption strings are encoded to UTF-8 without BOM.
 - For signing packets are encoded to undelimited wire format.
 
-.. _CashShuffle: https://cashshuffle.com/
-.. _CoinShuffle: http://crypsys.mmci.uni-saarland.de/projects/CoinShuffle/
 .. _protobuf: https://developers.google.com/protocol-buffers/
 .. _protobuf wire format:
    https://developers.google.com/protocol-buffers/docs/encoding
