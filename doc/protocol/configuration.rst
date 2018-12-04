@@ -13,6 +13,8 @@ implementation:
   alphabet.
 - Message types are defined with protobuf_.
 - For signing packets are serialized to the `protobuf wire format`_.
+- Every set of sent messages is packaged in a single ``Packets`` containing a
+  list of ``Signed``. A single sent message is packaged in a unary list.
 - For wire transfer messages are serialized to the `protobuf wire format`_.
 - Messages on the wire are delimited using a separator scheme. Each wire
   message is terminated withe the Unicode character `U+23CE Return Symbol`_
