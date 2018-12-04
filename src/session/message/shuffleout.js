@@ -1,4 +1,4 @@
-import { bytesToBase64 } from '/aid/convert'
+import { transferEncodeShuffleOutput } from '/aid/code'
 import { Phase } from '/protocol'
 
 /**
@@ -34,8 +34,8 @@ function messageShuffleOutput ({
   output,
   nextShuffler
 }) {
-  const outputBase64 = bytesToBase64(output)
-  const messageObject = { str: outputBase64 }
+  const outputEncoded = transferEncodeShuffleOutput(output)
+  const messageObject = { str: outputEncoded }
   const fromKeyObject = { key: signingPublicKey }
   const toKeyObject = { key: nextShuffler }
   const packetObject = {
