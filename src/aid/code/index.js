@@ -12,3 +12,6 @@ export { default as transferDecodeKey } from './transfer/key/decode'
 export { default as transferDecodeSigned } from './transfer/signed/decode'
 export { default as transferEncodeKey } from './transfer/key/encode'
 export { default as transferEncodePackets } from './transfer/packets/encode'
+export {
+  default as transferEncodeShuffleOutput
+} from './transfer/shuffleout/encode'
