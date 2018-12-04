@@ -16,8 +16,7 @@ class InchanbinInchan extends Inchan {
     super()
     const priv = {
       inchanbin,
-      protocol,
-      Signed: protocol.Signed
+      protocol
     }
     privs.set(this, priv)
   }
