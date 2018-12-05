@@ -61,9 +61,12 @@ const output1 =
   '97l6mB/pRHB3FNr6hZRkKsssrRCMv5/ML435Xo+JzLQ+QnQjVvqmr6KGUlcM4cUPcoOe' +
   'czRKChXw8NUWnrfYYqheB5JlyS+zIYhBohXCZpGQfAJ7xg=='
 const invalidOutput =
-  'ArtnDVpFV3ICkIqUQJ8ekNMv6+27ngdP4gXgE/YuJhzWfvyxkxHrEQhiUVDlTcS4QN/0' +
-  'OWZEXfOws1R170zQb8nFsB++XK2YILubW1KPfZ2TFUT/zTKN6xiTXZiZGXm2tJg0p6Cz' +
-  'ZZZMs/XZWxiq77klhyXk7tOBHrFJqYHKDEZ2hyQ8epi7EO3bL6pMA4ICloONQ=='
+  'BrtnDVpFV3ICkIqUQJ8ekNMv6+27ngdP4gXgE/YuJhzWKu5CoMdtvUYS9JEnnnrOvqqm' +
+  'pfkyOao41+lo1GYwN8k3sppXZcyJfgx5M7lK0AkYzAsf+ffa4tPKhDmaBEjqPBL5szuh' +
+  'U0qHpar9HExkJywJSDrbmAl4ZX5XTiQijK6oWjm157hbIYl8x/CNDiqIVhdeThemoJDN' +
+  'TOXZVSKP8FBzu6RnXXmNKJvLN+HCnUhLIgDk+c6JWOEd6/cviE7BfEsuDcbygX41pJ3T' +
+  '97l6mB/pRHB3FNr6hZRkKsssrRCMv5/ML435Xo+JzLQ+QnQjVvqmr6KGUlcM4cUPcoOe' +
+  'czRKChXw8NUWnrfYYqheB5JlyS+zIYhBohXCZpGQfAJ7xg=='
 let protocol
 
 const validPacket1 = {

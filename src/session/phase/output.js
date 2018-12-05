@@ -1,6 +1,6 @@
 import shuffleList from 'crypto-secure-shuffle'
 import { ValueError } from '/error'
-import { cryptDecodeString } from '/aid/code'
+import { cryptDecodeString, transferDecodeShuffleOutput } from '/aid/code'
 import PrefixLogchan from '/logchan/prefix'
 import { defaultAttempts, defaultTimeout } from '../default'
 
@@ -91,9 +91,16 @@ async function broadcastOutput ({
     if (log) await log.send('Received encrypted output list')
 
     /* Extract output list items. */
-    const encryptedOutputList = priorOutputListPackets.map(
+    const encryptedOutputEncodedList = priorOutputListPackets.map(
       function iteratePriorOutputListPackets (packet) {
         return packet.message.str
+      }
+    )
+
+    /* Transfer decode output list items. */
+    const encryptedOutputList = encryptedOutputEncodedList.map(
+      function iterateEncryptedOutputEncodedList (item) {
+        return transferDecodeShuffleOutput(item)
       }
     )
 

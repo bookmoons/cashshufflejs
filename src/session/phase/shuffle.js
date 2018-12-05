@@ -1,7 +1,11 @@
 import shuffleList from 'crypto-secure-shuffle'
 import PrefixLogchan from '/logchan/prefix'
 import Signing from '/signing/bitcore'
-import { cryptDecodeBytes, cryptEncodeString } from '/aid/code'
+import {
+  cryptDecodeBytes,
+  cryptEncodeString,
+  transferDecodeShuffleOutput
+} from '/aid/code'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
@@ -127,9 +131,16 @@ async function shuffle ({
     if (log) await log.send('Received encrypted output list')
 
     /* Extract output list items. */
-    const encryptedOutputList = priorOutputListPackets.map(
+    const encryptedOutputEncodedList = priorOutputListPackets.map(
       function iteratePriorOutputListPackets (packet) {
         return packet.message.str
+      }
+    )
+
+    /* Transfer decode output list items. */
+    const encryptedOutputList = encryptedOutputEncodedList.map(
+      function iterateEncryptedOutputEncodedList (item) {
+        return transferDecodeShuffleOutput(item)
       }
     )
 

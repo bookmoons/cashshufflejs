@@ -1,13 +1,13 @@
 import { ValueError } from '/error'
-import { base64ToBytes, bytesToHex } from '/aid/convert'
+import { bytesToHex } from '/aid/convert'
 
 /**
  * Decrypt output list.
  *
  * @memberof module:cashshuffle/session.Session
  *
- * @param {Array<Base64>} encryptedOutputEncodedList - List of output address
- *     layered encryptions. Not modified.
+ * @param {Array<Uint8Array>} encryptedOutputList - List of output address
+ *     layered encryptions. Not modified. Items not modified.
  * @param {Crypto} crypto - Message encryptor. Assumed ready for use.
  *
  * @return {Array<Uint8Array>} Decrypted output list in same order.
@@ -17,13 +17,12 @@ import { base64ToBytes, bytesToHex } from '/aid/convert'
  * @throws {ValueError} If output list contains duplicates.
  *     Message `'output list duplicates'`.
  */
-async function decryptOutputList (encryptedOutputEncodedList, crypto) {
+async function decryptOutputList (encryptedOutputList, crypto) {
   const decryptedOutputList = []
   const decryptedItems = new Set()
-  for (const encryptedItemEncoded of encryptedOutputEncodedList) {
-    let encryptedItem, decryptedItem
+  for (const encryptedItem of encryptedOutputList) {
+    let decryptedItem
     try {
-      encryptedItem = base64ToBytes(encryptedItemEncoded)
       decryptedItem = await crypto.decryptBytes(encryptedItem)
     } catch (e) {
       // Decryption failure
@@ -35,7 +34,7 @@ async function decryptOutputList (encryptedOutputEncodedList, crypto) {
     if (decryptedItems.has(decryptedItemString)) {
       // Duplicate item
       const info = {
-        encryptedOutputEncodedList,
+        encryptedOutputList,
         decryptedOutputList,
         duplicate: decryptedItem
       }
