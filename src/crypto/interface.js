@@ -35,23 +35,6 @@
  */
 
 /**
- * Decrypt and decode to string ciphertext for active key pair.
- *
- * Generate or restore key pair prior to use.
- *
- * @method decryptString
- * @memberof module:cashshuffle/crypto~Crypto
- * @instance
- * @async
- *
- * @param {Base64} ciphertext - Ciphertext to decrypt.
- *
- * @return {string} Decrypted plaintext decoded to string.
- *
- * @throws {MissingValueError} If key pair has not been generated or restored.
- */
-
-/**
  * Encrypt bytes for public key.
  *
  * @method encrypt

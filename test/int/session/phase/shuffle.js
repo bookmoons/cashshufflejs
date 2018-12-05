@@ -7,6 +7,7 @@ import Outchanbin from 'outchanbin/nodestream'
 import PhaseReceiver from 'receiver/phase'
 import Signing from 'signing/bitcore'
 import { Phase, terminatorByteLength, terminatorNodeBuffer } from 'protocol'
+import { transferDecodeShuffleOutput } from 'aid/code'
 import { hexToBytes } from 'aid/convert'
 import { normalizeProtobufBytes } from 'aid/normalize'
 import { ValueError } from 'error'
@@ -289,8 +290,9 @@ test('output first', async t => {
     for (const signedPacketObject of signedPacketObjects) {
       const packetObject = signedPacketObject.packet
       const messageObject = packetObject.message
-      const outputItem = messageObject.str
-      await crypto2.decryptString(outputItem)
+      const outputItemEncoded = messageObject.str
+      const outputItem = transferDecodeShuffleOutput(outputItemEncoded)
+      await crypto2.decryptBytes(outputItem)
     }
   })
 })
@@ -339,8 +341,9 @@ test('output inner', async t => {
     for (const signedPacketObject of signedPacketObjects) {
       const packetObject = signedPacketObject.packet
       const messageObject = packetObject.message
-      const outputItem = messageObject.str
-      await crypto3.decryptString(outputItem)
+      const outputItemEncoded = messageObject.str
+      const outputItem = transferDecodeShuffleOutput(outputItemEncoded)
+      await crypto3.decryptBytes(outputItem)
     }
   })
 })
