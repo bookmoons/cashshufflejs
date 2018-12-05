@@ -1,7 +1,7 @@
 import shuffleList from 'crypto-secure-shuffle'
 import PrefixLogchan from '/logchan/prefix'
 import Signing from '/signing/bitcore'
-import { cryptEncodeString } from '/aid/code'
+import { cryptDecodeString, cryptEncodeString } from '/aid/code'
 import { base64ToBytes, bytesToBase64 } from '/aid/convert'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
@@ -136,9 +136,16 @@ async function shuffle ({
     )
 
     /* Decrypt output list. */
-    const decryptedOutputList = await this.decryptOutputList(
+    const decryptedOutputEncodedList = await this.decryptOutputList(
       encryptedOutputList,
       crypto
+    )
+
+    /* Decode output list. */
+    const decryptedOutputList = decryptedOutputEncodedList.map(
+      function iterateDecryptedOutputEncodedList (item) {
+        return cryptDecodeString(item)
+      }
     )
 
     /* Extend output list. */
