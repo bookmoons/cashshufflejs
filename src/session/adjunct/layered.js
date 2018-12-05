@@ -9,8 +9,6 @@ const mainnet = bitcore.Networks.mainnet
  * Perform layered encryption of message.
  *
  * Encrypts recursively for the provided public keys in the provided order.
- * Each cryptogram is encrypted as a `Base64` value.
- * Final result is a `Base64` value.
  *
  * @memberof module:cashshuffle/session.Session
  *
