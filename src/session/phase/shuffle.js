@@ -1,8 +1,7 @@
 import shuffleList from 'crypto-secure-shuffle'
 import PrefixLogchan from '/logchan/prefix'
 import Signing from '/signing/bitcore'
-import { cryptDecodeString, cryptEncodeString } from '/aid/code'
-import { base64ToBytes, bytesToBase64 } from '/aid/convert'
+import { cryptDecodeBytes, cryptEncodeString } from '/aid/code'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
@@ -110,11 +109,10 @@ async function shuffle ({
     reversedEncryptionPublicKeys,
     network
   )
-  const encryptedOutputAddressBase64 = bytesToBase64(encryptedOutputAddress)
 
   if (first) {
     /* Construct initial output list. */
-    outputList.push(encryptedOutputAddressBase64)
+    outputList.push(encryptedOutputAddress)
     if (log) await log.send('Constructed initial output list')
   } else { // Inner shuffler
     /* Gather output list messages from prior shuffler. */
@@ -144,14 +142,14 @@ async function shuffle ({
     /* Decode output list. */
     const decryptedOutputList = decryptedOutputEncodedList.map(
       function iterateDecryptedOutputEncodedList (item) {
-        return cryptDecodeString(item)
+        return cryptDecodeBytes(item)
       }
     )
 
     /* Extend output list. */
     const extendedOutputList = [
       ...decryptedOutputList,
-      encryptedOutputAddressBase64
+      encryptedOutputAddress
     ]
     if (log) await log.send('Added own output address to output list')
 
@@ -167,8 +165,7 @@ async function shuffle ({
   /* Unicast output list. */
   const signingPublicKey = await signingKeyPair.exportPublicKey()
   const ownSignedPackets = []
-  for (const outputBase64 of outputList) {
-    const output = base64ToBytes(outputBase64)
+  for (const output of outputList) {
     const ownPacket = await this.messageShuffleOutput({
       protocol,
       signingPublicKey,
