@@ -39,11 +39,11 @@ test('encrypt', async t => {
     testMessageEncoded,
     publicKeys
   )
-  const cryptogram2Encoded = await crypto3.decryptBytes(cryptogram3)
+  const cryptogram2Encoded = await crypto3.decrypt(cryptogram3)
   const cryptogram2 = cryptDecodeBytes(cryptogram2Encoded)
-  const cryptogram1Encoded = await crypto2.decryptBytes(cryptogram2)
+  const cryptogram1Encoded = await crypto2.decrypt(cryptogram2)
   const cryptogram1 = cryptDecodeBytes(cryptogram1Encoded)
-  const messageEncoded = await crypto1.decryptBytes(cryptogram1)
+  const messageEncoded = await crypto1.decrypt(cryptogram1)
   const message = cryptDecodeString(messageEncoded)
   t.is(message, testMessage)
 })

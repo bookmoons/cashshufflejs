@@ -292,7 +292,7 @@ test('output first', async t => {
       const messageObject = packetObject.message
       const outputItemEncoded = messageObject.str
       const outputItem = transferDecodeShuffleOutput(outputItemEncoded)
-      await crypto2.decryptBytes(outputItem)
+      await crypto2.decrypt(outputItem)
     }
   })
 })
@@ -343,7 +343,7 @@ test('output inner', async t => {
       const messageObject = packetObject.message
       const outputItemEncoded = messageObject.str
       const outputItem = transferDecodeShuffleOutput(outputItemEncoded)
-      await crypto3.decryptBytes(outputItem)
+      await crypto3.decrypt(outputItem)
     }
   })
 })

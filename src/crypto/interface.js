@@ -22,7 +22,7 @@
  *
  * Generate or restore key pair prior to use.
  *
- * @method decryptBytes
+ * @method decrypt
  * @memberof module:cashshuffle/crypto~Crypto
  * @instance
  * @async

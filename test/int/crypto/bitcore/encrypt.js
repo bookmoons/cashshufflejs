@@ -1,7 +1,7 @@
 import test from 'ava'
 import { hexToBytes } from 'aid/convert'
 import Crypto from 'crypto/bitcore/main'
-import decryptBytes from 'crypto/bitcore/decrypt/bytes'
+import decrypt from 'crypto/bitcore/decrypt'
 import exportPublicKey from 'crypto/bitcore/exportpub'
 import generateKeyPair from 'crypto/bitcore/generate'
 import encrypt from 'crypto/bitcore/encrypt'
@@ -12,7 +12,7 @@ const plaintext = Uint8Array.from([
 
 test.before(t => {
   Object.assign(Crypto.prototype, {
-    decryptBytes,
+    decrypt,
     exportPublicKey,
     generateKeyPair,
     encrypt
@@ -29,6 +29,6 @@ test('encrypt', async t => {
     plaintext,
     recipientPublicKey
   )
-  const decryptedPlaintext = await recipientCrypto.decryptBytes(ciphertext)
+  const decryptedPlaintext = await recipientCrypto.decrypt(ciphertext)
   t.deepEqual(decryptedPlaintext, plaintext)
 })

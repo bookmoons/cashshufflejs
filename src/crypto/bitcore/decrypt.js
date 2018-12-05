@@ -1,9 +1,9 @@
 import { MissingValueError } from '/error'
 import ECIES from '@bookmoons/bitcore-ecies-cash'
 import { bytesToNodeBuffer, nodeBufferToBytes } from '/aid/convert'
-import privs from '../privs'
+import privs from './privs'
 
-async function decryptBytes (ciphertext) {
+async function decrypt (ciphertext) {
   const priv = privs.get(this)
   if (!priv.keyPair) throw new MissingValueError('no key pair')
   const ciphertextNodeBuffer = bytesToNodeBuffer(ciphertext)
@@ -16,4 +16,4 @@ async function decryptBytes (ciphertext) {
   return plaintextBytes
 }
 
-export default decryptBytes
+export default decrypt

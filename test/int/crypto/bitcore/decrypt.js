@@ -1,7 +1,7 @@
 import test from 'ava'
 import Crypto from 'crypto/bitcore/main'
 import restoreKeyPair from 'crypto/bitcore/restore'
-import decryptBytes from 'crypto/bitcore/decrypt/bytes'
+import decrypt from 'crypto/bitcore/decrypt'
 
 const recipientPrivateKey =
   'bf7affa1c5a054114ab7be55e8fa67adce54df57918a179e098c3940a34023c2'
@@ -20,13 +20,13 @@ const correctPlaintext = Uint8Array.from([
 test.before(t => {
   Object.assign(Crypto.prototype, {
     restoreKeyPair,
-    decryptBytes
+    decrypt
   })
 })
 
 test('decrypt', async t => {
   const crypto = new Crypto()
   await crypto.restoreKeyPair(recipientPrivateKey)
-  const plaintext = await crypto.decryptBytes(ciphertext)
+  const plaintext = await crypto.decrypt(ciphertext)
   t.deepEqual(plaintext, correctPlaintext)
 })

@@ -23,7 +23,7 @@ async function decryptOutputList (encryptedOutputList, crypto) {
   for (const encryptedItem of encryptedOutputList) {
     let decryptedItem
     try {
-      decryptedItem = await crypto.decryptBytes(encryptedItem)
+      decryptedItem = await crypto.decrypt(encryptedItem)
     } catch (e) {
       // Decryption failure
       // TODO: Improve specificity of this detection.
