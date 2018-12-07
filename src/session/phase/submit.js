@@ -89,12 +89,15 @@ async function submit ({
   if (log) await log.send('Constructed shuffling transaction')
 
   /* Sign transaction. */
-  let signingPrivateKey = await signingKeyPair.exportPrivateKey()
-  const ownSignatures = await coin.signTransactionInputs(
-    transaction,
-    signingPrivateKey
-  )
-  signingPrivateKey = null
+  const ownSignatures = await (async function signTransaction () {
+    const signingPrivateKey = await signingKeyPair.exportPrivateKey()
+    const signingPrivateKeyHex = bytesToHex(signingPrivateKey)
+    const ownSignatures = await coin.signTransactionInputs(
+      transaction,
+      signingPrivateKeyHex
+    )
+    return ownSignatures
+  })()
 
   /* Broadcast signatures. */
   const signingPublicKey = await signingKeyPair.exportPublicKey()

@@ -42,7 +42,7 @@
  * @instance
  * @async
  *
- * @return {HexString} Private key.
+ * @return {Uint8Array} Private key.
  *
  * @throws {MissingValueError} If key pair has not been generated or restored.
  */

@@ -5,7 +5,6 @@ import exportPrivateKey from 'signing/bitcore/exportpriv'
 
 const keySizeBits = 256
 const keySizeBytes = keySizeBits / 8 // 8 bits per byte
-const keySizeChars = keySizeBytes * 2 // Byte encoded in 2 chars
 
 test.before(t => {
   Object.assign(Signing.prototype, {
@@ -21,16 +20,16 @@ test('missing key pair', async t => {
   })
 })
 
-test('string', async t => {
+test('bytes', async t => {
   const signing = new Signing()
   await signing.generateKeyPair()
   const privateKey = await signing.exportPrivateKey()
-  await t.is(typeof privateKey, 'string')
+  t.true(privateKey instanceof Uint8Array)
 })
 
 test('length', async t => {
   const signing = new Signing()
   await signing.generateKeyPair()
   const privateKey = await signing.exportPrivateKey()
-  await t.is(privateKey.length, keySizeChars)
+  t.is(privateKey.byteLength, keySizeBytes)
 })
