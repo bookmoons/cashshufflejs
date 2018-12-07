@@ -1,7 +1,6 @@
 import bitcore from 'bitcore-lib-cash'
 import { MissingValueError } from '/error'
 import { cryptEncodeBytes } from '/aid/code'
-import { hexToBytes } from '/aid/convert'
 
 const mainnet = bitcore.Networks.mainnet
 
@@ -14,8 +13,8 @@ const mainnet = bitcore.Networks.mainnet
  *
  * @param {Crypto} crypto - Message encryptor. Assumed ready for use.
  * @param {Uint8Array} message - Message to encrypt. Not modified.
- * @param {Iterable<HexString>} encryptionPublicKeys - Public keys to encrypt
- *     for in encryption order. Minimum 1 item.
+ * @param {Iterable<Uint8Array>} encryptionPublicKeys - Public keys to encrypt
+ *     for in encryption order. Minimum 1 item. Items not modified.
  * @param {bitcore.Network} [network=<mainnet>] - Bitcoin Cash network.
  *     Not modified.
  *
@@ -38,7 +37,7 @@ async function encryptLayered (
 /**
  * @param {Crypto} crypto - Message encryptor. Assumed ready for use.
  * @param {Uint8Array} message - Message to encrypt. Not modified.
- * @param {Array<HexString>} recipients - Public keys to encrypt for in
+ * @param {Array<Uint8Array>} recipients - Public keys to encrypt for in
  *     encryption order. Minimum 1 item.
  * @param {bitcore.Network} network - Bitcoin Cash network. Not modified.
  *
@@ -51,10 +50,9 @@ async function encryptMessage (
   network
 ) {
   const recipient = recipients.shift()
-  const recipientBytes = hexToBytes(recipient)
   const cryptogram = await crypto.encrypt(
     message,
-    recipientBytes,
+    recipient,
     network
   )
   return cryptogram
@@ -64,7 +62,7 @@ async function encryptMessage (
  * @param {Crypto} crypto - Message encryptor. Assumed ready for use.
  * @param {Uint8Array} layer - Bytes to encrypt. Previous encryption result.
  *     Not modified.
- * @param {Array<HexString>} recipients - Public keys to encrypt for in
+ * @param {Array<Uint8Array>} recipients - Public keys to encrypt for in
  *     encryption order.
  * @param {bitcore.Network} network - Bitcoin Cash network. Not modified.
  *
@@ -79,11 +77,10 @@ async function encryptLayers (
 ) {
   if (!recipients.length) return layer
   const recipient = recipients.shift()
-  const recipientBytes = hexToBytes(recipient)
   const layerEncoded = cryptEncodeBytes(layer)
   const cryptogram = await crypto.encrypt(
     layerEncoded,
-    recipientBytes,
+    recipient,
     network
   )
   return encryptLayers(crypto, cryptogram, recipients, network)

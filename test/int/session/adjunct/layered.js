@@ -5,6 +5,7 @@ import {
   cryptDecodeString,
   cryptEncodeString
 } from 'aid/code'
+import { hexToBytes } from 'aid/convert'
 import encryptLayered from 'session/adjunct/layered'
 
 const testMessage = 'bitcoincash:qpeuavv8256ce3dte2znha05ytjzajztx548p3c7ca'
@@ -17,13 +18,16 @@ const privateKeyString2 =
   'bbf4ae924b160d1144e32d8946670d154cf43de92333861d771772b9d9d71397'
 const privateKeyString3 =
   '3d7dd073c2fe1f89aabb920d4caac3c1099b2f9b7db8defb43dcc1da33cc7038'
-const publicKeyString1 =
+const publicKey1Hex =
   '03fe2e132190de7a26a4e33306fbec43538d33f3bb09fa236f03da62ef21daa285'
-const publicKeyString2 =
+const publicKey1 = hexToBytes(publicKey1Hex)
+const publicKey2Hex =
   '03a2f0652372e87d17bc84819cf67e1dec350f45ddccfcb152c2c69051b7c3bfba'
-const publicKeyString3 =
+const publicKey2 = hexToBytes(publicKey2Hex)
+const publicKey3Hex =
   '024142f0b7d9e7586223b7c71de23fab51d796882f81785265d5e3bc2fce2e21ae'
-const publicKeys = [ publicKeyString1, publicKeyString2, publicKeyString3 ]
+const publicKey3 = hexToBytes(publicKey3Hex)
+const publicKeys = [ publicKey1, publicKey2, publicKey3 ]
 
 test('encrypt', async t => {
   const ownCrypto = new Crypto()

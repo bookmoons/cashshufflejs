@@ -6,6 +6,7 @@ import {
   cryptEncodeString,
   transferDecodeShuffleOutput
 } from '/aid/code'
+import { hexToBytes } from '/aid/convert'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
@@ -86,7 +87,12 @@ async function shuffle ({
   log = log ? new PrefixLogchan('P2: ', log) : null
 
   const outputList = []
-  const reversedEncryptionPublicKeys = [ ...encryptionPublicKeys ].reverse()
+  const encryptionPublicKeysBytes = [ ...encryptionPublicKeys ].map(
+    function normalizeEncryptionPublicKeys (item) {
+      return hexToBytes(item)
+    }
+  )
+  const reversedEncryptionPublicKeys = encryptionPublicKeysBytes.reverse()
 
   /* Generate output key pair. */
   const outputKeyPair = await (async function generateOutputKeyPair () {
