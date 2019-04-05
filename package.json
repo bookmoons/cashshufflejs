@@ -23,7 +23,7 @@
         "@bookmoons/bitcore-message-cash": "^2.0.0",
         "base64-js": "^1.3.0",
         "bitcore-lib-cash": "^0.18.1",
-        "crypto-secure-shuffle": "^2.0.4",
+        "crypto-secure-shuffle": "^2.0.5",
         "enum": "^2.5.0",
         "long": "^4.0.0",
         "promised-read": "^2.0.1",
