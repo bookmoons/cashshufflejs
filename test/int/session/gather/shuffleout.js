@@ -1,18 +1,20 @@
 import test from 'ava'
 import { ExhaustionError, TimeoutError } from 'error'
 import PhaseReceiver from 'receiver/phase'
+import { hexToBytes } from 'aid/convert'
 import validateShuffleOutput from 'session/validate/shuffleout'
 import gatherShuffleOutput from 'session/gather/shuffleout'
 
 const attempts = 2
 const timeout = 500
-const shuffler1 =
+const shuffler1Hex =
   '03a8213dda332b827cf54c49ac9b3ad4566c293b5da40e7eea5e07c77fe0d5b32e'
-const shuffler2 =
+const shuffler2Hex =
   '03b726b7920ec51a575696b368be5470142434124ade29bcee744ae248365ee3b4'
-const shuffler3 =
+const shuffler3Hex =
   '036da9c411c438138a73224ebe382f4bfad63d496cf611e91da375d1ebb343ad43'
-const shufflers = [ shuffler1, shuffler2, shuffler3 ]
+const shuffler2 = hexToBytes(shuffler2Hex)
+const shufflers = [ shuffler1Hex, shuffler2Hex, shuffler3Hex ]
 const output1 =
   'A/Cee7rwlmmxzeM5TbC3LDQI7Qgm+Y15haPOzBSGB1071Zs6T8FR5uuJCTBrBJnGxqv4' +
   'ii6cXLpkVyrcKsK+epO9J6F9V0qkt1Ic0OR32Be5W2ddGr13HQIFS+RltmeACikqq120' +
@@ -22,13 +24,13 @@ const output2 =
   'EGaJuaoyTQEH8VTwy3ZXvBNbDGY9FTBEpexYbOleNW1dUl6mVkTXOVd9Inf2Vdy3HD4L' +
   'SirOU6qgW01YiBRx6lO3raZrP+mQxTiceI1YehOw56r1rgT6ELISZzpRtQ=='
 const validPacket1 = {
-  fromKey: { key: shuffler2 },
-  toKey: { key: shuffler3 },
+  fromKey: { key: shuffler2Hex },
+  toKey: { key: shuffler3Hex },
   message: { str: output1 }
 }
 const validPacket2 = {
-  fromKey: { key: shuffler2 },
-  toKey: { key: shuffler3 },
+  fromKey: { key: shuffler2Hex },
+  toKey: { key: shuffler3Hex },
   message: { str: output2 }
 }
 const invalidPacket = {}
@@ -45,7 +47,7 @@ test('1 attempt', async t => {
   const session = produceSession()
   const receiver = new PhaseReceiver(shufflers)
   const inboxes = receiver.shufflerInboxes
-  const inbox = inboxes.get(shuffler2)
+  const inbox = inboxes.get(shuffler2Hex)
   const gatherShuffleOutputPromise = session.gatherShuffleOutput({
     attempts,
     timeout,
@@ -66,7 +68,7 @@ test('2 attempts', async t => {
   const session = produceSession()
   const receiver = new PhaseReceiver(shufflers)
   const inboxes = receiver.shufflerInboxes
-  const inbox = inboxes.get(shuffler2)
+  const inbox = inboxes.get(shuffler2Hex)
   const gatherShuffleOutputPromise = session.gatherShuffleOutput({
     attempts,
     timeout,
@@ -89,7 +91,7 @@ test('exhaust', async t => {
   const session = produceSession()
   const receiver = new PhaseReceiver(shufflers)
   const inboxes = receiver.shufflerInboxes
-  const inbox = inboxes.get(shuffler2)
+  const inbox = inboxes.get(shuffler2Hex)
   const gatherShuffleOutputPromise = session.gatherShuffleOutput({
     attempts,
     timeout,

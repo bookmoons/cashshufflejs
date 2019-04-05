@@ -72,7 +72,7 @@ async function shuffle ({
   first,
   last,
   precedingShufflersCount,
-  priorShuffler,
+  priorShuffler: priorShufflerHex,
   nextShuffler,
   encryptionPublicKeys,
   crypto,
@@ -126,6 +126,7 @@ async function shuffle ({
     if (log) await log.send('Constructed initial output list')
   } else { // Inner shuffler
     /* Gather output list messages from prior shuffler. */
+    const priorShuffler = hexToBytes(priorShufflerHex)
     const priorOutputListPackets = await this.gatherShuffleOutput({
       attempts,
       timeout,

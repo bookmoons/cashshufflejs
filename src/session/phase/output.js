@@ -1,6 +1,7 @@
 import shuffleList from 'crypto-secure-shuffle'
 import { ValueError } from '/error'
 import { cryptDecodeString, transferDecodeShuffleOutput } from '/aid/code'
+import { hexToBytes } from '/aid/convert'
 import PrefixLogchan from '/logchan/prefix'
 import { defaultAttempts, defaultTimeout } from '../default'
 
@@ -63,7 +64,7 @@ async function broadcastOutput ({
   last,
   shufflersCount,
   precedingShufflersCount,
-  priorShuffler,
+  priorShuffler: priorShufflerHex,
   lastShuffler,
   outputAddress,
   crypto,
@@ -80,6 +81,7 @@ async function broadcastOutput ({
     // Last shuffler produces final output list
 
     /* Gather output list messages from prior shuffler. */
+    const priorShuffler = hexToBytes(priorShufflerHex)
     const priorOutputListPackets = await this.gatherShuffleOutput({
       attempts,
       timeout,
