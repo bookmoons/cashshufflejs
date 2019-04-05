@@ -50,7 +50,7 @@
         "tmp-promise": "^1.0.5"
     },
     "scripts": {
-        "lint-js": "standard",
+        "lint-js": "standard --verbose | snazzy",
         "lint": "npm-run-all lint-js",
         "demo:session": "cross-env NODE_PATH=src:test ava demo/session.js",
         "doc": "jsdoc -c .jsdoc.json --pedantic",
