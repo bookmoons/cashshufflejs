@@ -19,7 +19,6 @@
         "test": "test"
     },
     "dependencies": {
-        "@babel/polyfill": "^7.0.0",
         "@bookmoons/bitcore-ecies-cash": "^1.0.4",
         "@bookmoons/bitcore-message-cash": "^2.0.0",
         "base64-js": "^1.3.0",
@@ -34,6 +33,7 @@
     },
     "devDependencies": {
         "@babel/core": "^7.0.0",
+        "@babel/polyfill": "^7.0.0",
         "@babel/preset-env": "^7.0.0",
         "@babel/register": "^7.0.0",
         "ava": "1.0.0-beta.8",
