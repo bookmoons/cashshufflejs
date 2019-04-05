@@ -9,7 +9,8 @@ import { Phase } from '/protocol'
  * @prop {Uint8Array} signingPublicKey - Signing public key. Not modified.
  * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
- * @prop {HexString} encryptionPublicKey - Public key of encryption key pair.
+ * @prop {Uint8Array} encryptionPublicKey - Public key of encryption key pair.
+ *     Not modified.
  */
 
 /**
@@ -28,7 +29,8 @@ function messageAnnounce ({
   poolNumber,
   encryptionPublicKey
 }) {
-  const encryptionKeyObject = { key: encryptionPublicKey }
+  const encryptionPublicKeyEncoded = transferEncodeKey(encryptionPublicKey)
+  const encryptionKeyObject = { key: encryptionPublicKeyEncoded }
   const messageObject = { key: encryptionKeyObject }
   const signingPublicKeyEncoded = transferEncodeKey(signingPublicKey)
   const fromKeyObject = { key: signingPublicKeyEncoded }

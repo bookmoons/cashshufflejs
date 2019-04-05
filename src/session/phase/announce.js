@@ -75,7 +75,8 @@ async function announce ({
   /* Broadcast encryption public key. */
   const signingPublicKeyHex = await signingKeyPair.exportPublicKey()
   const signingPublicKey = hexToBytes(signingPublicKeyHex)
-  const encryptionPublicKey = await encryptionKeyPair.exportPublicKey()
+  const encryptionPublicKeyHex = await encryptionKeyPair.exportPublicKey()
+  const encryptionPublicKey = hexToBytes(encryptionPublicKeyHex)
   const ownPacket = await this.messageAnnounce({
     protocol,
     signingPublicKey,

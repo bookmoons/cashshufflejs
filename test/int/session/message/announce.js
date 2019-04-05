@@ -9,15 +9,16 @@ const poolNumber = 3
 const signingPublicKeyHex =
   '02fb043436476ebd0391350016a6003f9e02f97e96a9ece386aac2d2060158b377'
 const signingPublicKey = hexToBytes(signingPublicKeyHex)
-const encryptionPublicKey =
+const encryptionPublicKeyHex =
   '0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798'
+const encryptionPublicKey = hexToBytes(encryptionPublicKeyHex)
 const expectedPacketObject = {
   session: sessionId,
   number: poolNumber,
   fromKey: { key: signingPublicKeyHex },
   phase: Phase.Announcement.value,
   message: {
-    key: { key: encryptionPublicKey }
+    key: { key: encryptionPublicKeyHex }
   }
 }
 let protocol
