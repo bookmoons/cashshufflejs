@@ -1,7 +1,7 @@
 import bitcore from 'bitcore-lib-cash'
 import { InadequateError, ValueError } from '/error'
 import PrefixLogchan from '/logchan/prefix'
-import { bytesToHex } from '/aid/convert'
+import { bytesToHex, hexToBytes } from '/aid/convert'
 import { normalizeProtobufBytes } from '/aid/normalize'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
@@ -100,10 +100,11 @@ async function submit ({
   })()
 
   /* Broadcast signatures. */
-  const signingPublicKey = await signingKeyPair.exportPublicKey()
+  const signingPublicKeyHex = await signingKeyPair.exportPublicKey()
+  const signingPublicKey = hexToBytes(signingPublicKeyHex)
   const ownPacket = await this.messageSignature({
     protocol,
-    signingPublicKey,
+    signingPublicKey: signingPublicKeyHex,
     sessionId,
     poolNumber,
     signatures: ownSignatures
@@ -192,7 +193,7 @@ async function submit ({
   // TODO: Is there a danger of detecting the shuffle spend here?
   const shufflerTotal = amount + fee
   const shufflerInboxes = receiver.shufflerInboxes
-  shufflerInboxes.delete(signingPublicKey)
+  shufflerInboxes.delete(signingPublicKeyHex)
   const publicKeyStrings = [ ...shufflerInboxes.keys() ]
   for (const publicKeyString of publicKeyStrings) {
     const publicKey = new bitcore.PublicKey(publicKeyString, { network })

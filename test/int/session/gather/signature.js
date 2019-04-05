@@ -8,13 +8,14 @@ import gatherSignature from 'session/gather/signature'
 
 const attempts = 2
 const timeout = 500
-const shuffler1 =
+const shuffler1Hex =
   '03a8213dda332b827cf54c49ac9b3ad4566c293b5da40e7eea5e07c77fe0d5b32e'
-const shuffler2 =
+const shuffler2Hex =
   '03b726b7920ec51a575696b368be5470142434124ade29bcee744ae248365ee3b4'
-const shuffler3 =
+const shuffler3Hex =
   '036da9c411c438138a73224ebe382f4bfad63d496cf611e91da375d1ebb343ad43'
-const shufflers = [ shuffler1, shuffler2, shuffler3 ]
+const shuffler1 = hexToBytes(shuffler1Hex)
+const shufflers = [ shuffler1Hex, shuffler2Hex, shuffler3Hex ]
 const index2 = Long.fromString('1', true, 10)
 const signature2 = hexToBytes('1234')
 const inputSignature2 = {
@@ -22,7 +23,7 @@ const inputSignature2 = {
   signature: { signature: signature2 }
 }
 const validPacket2 = {
-  fromKey: { key: shuffler2 },
+  fromKey: { key: shuffler2Hex },
   message: { signatures: [ inputSignature2 ] }
 }
 const index3 = Long.fromString('2', true, 10)
@@ -32,7 +33,7 @@ const inputSignature3 = {
   signature: { signature: signature3 }
 }
 const validPacket3 = {
-  fromKey: { key: shuffler3 },
+  fromKey: { key: shuffler3Hex },
   message: { signatures: [ inputSignature3 ] }
 }
 const invalidPacket = {}
@@ -55,14 +56,14 @@ test('1 attempt', async t => {
     signingPublicKey: shuffler1,
     receiver
   })
-  const inbox2 = inboxes.get(shuffler2)
+  const inbox2 = inboxes.get(shuffler2Hex)
   inbox2.add(validPacket2)
-  const inbox3 = inboxes.get(shuffler3)
+  const inbox3 = inboxes.get(shuffler3Hex)
   inbox3.add(validPacket3)
   const shufflerPackets = await gatherSignaturePromise
-  const shuffler2Packet = shufflerPackets.get(shuffler2)
+  const shuffler2Packet = shufflerPackets.get(shuffler2Hex)
   t.deepEqual(shuffler2Packet, validPacket2)
-  const shuffler3Packet = shufflerPackets.get(shuffler3)
+  const shuffler3Packet = shufflerPackets.get(shuffler3Hex)
   t.deepEqual(shuffler3Packet, validPacket3)
 })
 
@@ -76,15 +77,15 @@ test('2 attempts', async t => {
     signingPublicKey: shuffler1,
     receiver
   })
-  const inbox2 = inboxes.get(shuffler2)
+  const inbox2 = inboxes.get(shuffler2Hex)
   inbox2.add(validPacket2)
-  const inbox3 = inboxes.get(shuffler3)
+  const inbox3 = inboxes.get(shuffler3Hex)
   inbox3.add(invalidPacket)
   inbox3.add(validPacket3)
   const shufflerPackets = await gatherSignaturePromise
-  const shuffler2Packet = shufflerPackets.get(shuffler2)
+  const shuffler2Packet = shufflerPackets.get(shuffler2Hex)
   t.deepEqual(shuffler2Packet, validPacket2)
-  const shuffler3Packet = shufflerPackets.get(shuffler3)
+  const shuffler3Packet = shufflerPackets.get(shuffler3Hex)
   t.deepEqual(shuffler3Packet, validPacket3)
 })
 
@@ -115,10 +116,10 @@ test('exhaust', async t => {
     signingPublicKey: shuffler1,
     receiver
   })
-  const inbox2 = inboxes.get(shuffler2)
+  const inbox2 = inboxes.get(shuffler2Hex)
   inbox2.add(invalidPacket)
   inbox2.add(validPacket2)
-  const inbox3 = inboxes.get(shuffler3)
+  const inbox3 = inboxes.get(shuffler3Hex)
   inbox3.add(invalidPacket)
   inbox3.add(invalidPacket)
   try {
