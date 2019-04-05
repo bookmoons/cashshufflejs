@@ -1,4 +1,5 @@
 import { ExhaustionError, MissingValueError } from '/error'
+import { bytesToHex } from '/aid/convert'
 import Fetcher from '/fetcher/each'
 import { defaultAttempts, defaultTimeout } from '../default'
 
@@ -9,7 +10,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {number} [attempts=<default>] - Maximum attempts. Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {HexString} signingPublicKey - Shuffler signing public key.
+ * @prop {Uint8Array} signingPublicKey - Shuffler signing public key.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=] - Receiver to discard messages to.
  */
@@ -36,8 +37,9 @@ async function gatherDigest ({
   receiver,
   discarder = null
 }) {
+  const signingPublicKeyHex = bytesToHex(signingPublicKey)
   const shufflerInboxes = receiver.shufflerInboxes
-  shufflerInboxes.delete(signingPublicKey)
+  shufflerInboxes.delete(signingPublicKeyHex)
   const shufflersCount = shufflerInboxes.size
   const shufflerPackets = new Map()
   for (let remaining = attempts; remaining > 0; remaining--) {
