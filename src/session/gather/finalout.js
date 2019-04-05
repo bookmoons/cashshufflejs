@@ -1,4 +1,5 @@
 import PersistFetcher from '/fetcher/persist'
+import { bytesToHex } from '/aid/convert'
 import { defaultAttempts, defaultTimeout } from '../default'
 
 /**
@@ -8,7 +9,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {number} [attempts=<default>] - Maximum attempts. Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {HexString} lastShuffler - Signing public key of last shuffler.
+ * @prop {Uint8Array} lastShuffler - Signing public key of last shuffler.
  * @prop {number} shufflersCount - Count of shufflers.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=] - Discarded message handler.
@@ -37,7 +38,8 @@ async function gatherFinalOutput ({
 }) {
   const self = this
   const shufflerInboxes = receiver.shufflerInboxes
-  const inbox = shufflerInboxes.get(lastShuffler)
+  const lastShufflerHex = bytesToHex(lastShuffler)
+  const inbox = shufflerInboxes.get(lastShufflerHex)
   const evaluator = async function evaluateFinalOutputMessage (packet) {
     try { await self.validateFinalOutput(packet) } catch (e) { return e }
   }

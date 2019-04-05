@@ -65,7 +65,7 @@ async function broadcastOutput ({
   shufflersCount,
   precedingShufflersCount,
   priorShuffler: priorShufflerHex,
-  lastShuffler,
+  lastShuffler: lastShufflerHex,
   outputAddress,
   crypto,
   outchan,
@@ -167,6 +167,7 @@ async function broadcastOutput ({
     // Nonlast shuffler verifies own output address in final output list
 
     /* Gather final output list messages from last shuffler. */
+    const lastShuffler = hexToBytes(lastShufflerHex)
     const finalOutputListPackets = await this.gatherFinalOutput({
       attempts,
       timeout,
