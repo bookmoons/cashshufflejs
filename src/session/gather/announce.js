@@ -5,6 +5,7 @@ import {
   MissingValueError,
   ValueError
 } from '/error'
+import { bytesToHex } from 'aid/convert'
 import Fetcher from '/fetcher/each'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
@@ -15,7 +16,8 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  * @prop {number} [attempts=<default>] - Maximum attempts. Positive integer.
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
- * @prop {HexString} signingPublicKey - Shuffler signing public key.
+ * @prop {UInt8Array} signingPublicKey - Shuffler signing public key.
+ *     Not modified.
  * @prop {number} amount - Amount to shuffle in satoshis.
  * @prop {number} fee - Shuffler fee amount in satoshis.
  *     The produced transaction will charge this fee to each shuffler.
@@ -59,9 +61,10 @@ async function gatherAnnounce ({
   discarder = null,
   network = defaultNetwork
 }) {
+  const signingPublicKeyHex = bytesToHex(signingPublicKey)
   const shufflerTotal = amount + fee
   const shufflerInboxes = receiver.shufflerInboxes
-  shufflerInboxes.delete(signingPublicKey)
+  shufflerInboxes.delete(signingPublicKeyHex)
   const shufflersCount = shufflerInboxes.size
   const shufflerPackets = new Map()
   for (let remaining = attempts; remaining > 0; remaining--) {
