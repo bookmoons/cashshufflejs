@@ -1,6 +1,6 @@
 import Crypto from '/crypto/bitcore'
 import PrefixLogchan from '/logchan/prefix'
-import { hexToBytes } from 'aid/convert'
+import { hexToBytes } from '/aid/convert'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**

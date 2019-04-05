@@ -5,7 +5,7 @@ import {
   MissingValueError,
   ValueError
 } from '/error'
-import { bytesToHex } from 'aid/convert'
+import { bytesToHex } from '/aid/convert'
 import Fetcher from '/fetcher/each'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
