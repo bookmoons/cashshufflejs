@@ -11,6 +11,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
  * @prop {Uint8Array} signingPublicKey - Shuffler signing public key.
+ *     Not modified.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=] - Receiver to discard messages to.
  */

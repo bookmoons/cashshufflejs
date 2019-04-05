@@ -10,6 +10,7 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {number} [timeout=<default>] - Network operation timeout
  *     in milliseconds.
  * @prop {Uint8Array} priorShuffler - Signing public key of prior shuffler.
+ *     Not modified.
  * @prop {number} precedingShufflersCount - Count of preceding shufflers.
  * @prop {PhaseReceiver} receiver - Phase message receiver.
  * @prop {Receiver} [discarder=] - Receiver to discard messages to.
