@@ -78,7 +78,7 @@ async function announce ({
   const encryptionPublicKey = await encryptionKeyPair.exportPublicKey()
   const ownPacket = await this.messageAnnounce({
     protocol,
-    signingPublicKey: signingPublicKeyHex,
+    signingPublicKey,
     sessionId,
     poolNumber,
     encryptionPublicKey
