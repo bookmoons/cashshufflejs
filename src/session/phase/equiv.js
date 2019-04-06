@@ -1,7 +1,6 @@
 import { ValueError } from '/error'
 import PrefixLogchan from '/logchan/prefix'
 import { bytesEqual } from '/aid/bytes'
-import { hexToBytes } from '/aid/convert'
 import { hashInput } from '/aid/input'
 import { normalizeProtobufBytes } from '/aid/normalize'
 import { defaultAttempts, defaultTimeout } from '../default'
@@ -64,8 +63,7 @@ async function checkEquivocation ({
   const ownDigest = await crypto.hash(input.hash)
 
   /* Broadcast digest. */
-  const signingPublicKeyHex = await signingKeyPair.exportPublicKey()
-  const signingPublicKey = hexToBytes(signingPublicKeyHex)
+  const signingPublicKey = await signingKeyPair.exportPublicKey()
   const ownPacket = await this.messageDigest({
     protocol,
     signingPublicKey,

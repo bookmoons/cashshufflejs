@@ -1,7 +1,6 @@
 import shuffleList from 'crypto-secure-shuffle'
 import { ValueError } from '/error'
 import { cryptDecodeString, transferDecodeShuffleOutput } from '/aid/code'
-import { hexToBytes } from '/aid/convert'
 import PrefixLogchan from '/logchan/prefix'
 import { defaultAttempts, defaultTimeout } from '../default'
 
@@ -132,8 +131,7 @@ async function broadcastOutput ({
     if (log) await log.send('Shuffled output list')
 
     /* Broadcast final output list. */
-    const signingPublicKeyHex = await signingKeyPair.exportPublicKey()
-    const signingPublicKey = hexToBytes(signingPublicKeyHex)
+    const signingPublicKey = await signingKeyPair.exportPublicKey()
     const ownSignedPackets = []
     for (const outputAddress of shuffledOutputList) {
       const ownPacket = await this.messageFinalOutput({

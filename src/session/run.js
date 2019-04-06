@@ -5,7 +5,7 @@ import {
   NotImplementedError,
   ValueError
 } from '/error'
-import { hexToBytes } from '/aid/convert'
+import { bytesToHex, hexToBytes } from '/aid/convert'
 import { Phase } from '/protocol'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from './default'
 
@@ -85,7 +85,8 @@ async function run ({
 
   // Shuffler variables
   const signingPublicKey = await signingKeyPair.exportPublicKey()
-  const ownShufflerIndex = shufflersOrdered.indexOf(signingPublicKey)
+  const signingPublicKeyHex = bytesToHex(signingPublicKey)
+  const ownShufflerIndex = shufflersOrdered.indexOf(signingPublicKeyHex)
   if (ownShufflerIndex === -1) {
     throw new MissingValueError(
       { info: { signingPublicKey } },
@@ -103,9 +104,8 @@ async function run ({
   const nextShufflerIndex = last ? null : ownShufflerIndex + 1
   const nextShufflerHex = last ? null : shufflersOrdered[nextShufflerIndex]
   const nextShuffler = last ? null : hexToBytes(nextShufflerHex)
-  const lastShufflerHex =
-    last ? signingPublicKey : shufflersOrdered[lastShufflerIndex]
-  const lastShuffler = hexToBytes(lastShufflerHex)
+  const lastShuffler =
+    last ? signingPublicKey : hexToBytes(shufflersOrdered[lastShufflerIndex])
   if (log) {
     const message = 'Shuffling with ' + shufflersCount + ' shufflers'
     await log.send(message)
@@ -151,7 +151,7 @@ async function run ({
   const ownEncryptionPublicKey = await encryptionKeyPair.exportPublicKey()
   for (const shuffler of shufflersOrdered) {
     const encryptionPublicKey =
-      shuffler === signingPublicKey
+      shuffler === signingPublicKeyHex
         ? ownEncryptionPublicKey
         : encryptionPublicKeys.get(shuffler)
     encryptionPublicKeysOrdered.push(encryptionPublicKey)

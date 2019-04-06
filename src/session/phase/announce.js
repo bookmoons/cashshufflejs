@@ -1,6 +1,6 @@
 import Crypto from '/crypto/bitcore'
 import PrefixLogchan from '/logchan/prefix'
-import { hexToBytes } from '/aid/convert'
+import { bytesToHex, hexToBytes } from '/aid/convert'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
@@ -73,8 +73,7 @@ async function announce ({
   await encryptionKeyPair.generateKeyPair(network)
 
   /* Broadcast encryption public key. */
-  const signingPublicKeyHex = await signingKeyPair.exportPublicKey()
-  const signingPublicKey = hexToBytes(signingPublicKeyHex)
+  const signingPublicKey = await signingKeyPair.exportPublicKey()
   const encryptionPublicKeyHex = await encryptionKeyPair.exportPublicKey()
   const encryptionPublicKey = hexToBytes(encryptionPublicKeyHex)
   const ownPacket = await this.messageAnnounce({
@@ -117,6 +116,7 @@ async function announce ({
 
   /* Return encryption keys. */
   const shufflerInboxes = receiver.shufflerInboxes
+  const signingPublicKeyHex = bytesToHex(signingPublicKey)
   shufflerInboxes.delete(signingPublicKeyHex)
   const signingKeys = [ ...shufflerInboxes.keys() ]
   const encryptionPublicKeys = new Map()

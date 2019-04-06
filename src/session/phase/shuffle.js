@@ -180,8 +180,7 @@ async function shuffle ({
   }
 
   /* Unicast output list. */
-  const signingPublicKeyHex = await signingKeyPair.exportPublicKey()
-  const signingPublicKey = hexToBytes(signingPublicKeyHex)
+  const signingPublicKey = await signingKeyPair.exportPublicKey()
   const ownSignedPackets = []
   for (const output of outputList) {
     const ownPacket = await this.messageShuffleOutput({
