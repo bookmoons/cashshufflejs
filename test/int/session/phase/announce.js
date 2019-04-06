@@ -25,8 +25,9 @@ const amount = 5
 const fee = 1
 const sessionId = hexToBytes('1234')
 const poolNumber = 3
-const signingPrivateKey =
+const signingPrivateKeyHex =
   'b4386d0019b43055341ca3452445cee2805d952fcea1dbb3e7556186df11b958'
+const signingPrivateKey = hexToBytes(signingPrivateKeyHex)
 const shuffler1 =
   '02fb043436476ebd0391350016a6003f9e02f97e96a9ece386aac2d2060158b377'
 const shuffler2 =

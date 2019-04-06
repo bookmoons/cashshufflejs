@@ -1,10 +1,12 @@
 import test from 'ava'
+import { hexToBytes } from 'aid/convert'
 import loadProtocol from 'helper/loadprot'
 import Signing from 'signing/bitcore'
 import packageSignedPackets from 'session/util/packs'
 
-const signingPrivateKey =
+const signingPrivateKeyHex =
   'ad6110ba1413c6b9f4f1538c86fd5809e8a7e638905a75c95ade5d02afb54931'
+const signingPrivateKey = hexToBytes(signingPrivateKeyHex)
 const testKey = 'Test key'
 const testMessage1 = 'Test message 1'
 const testMessage2 = 'Test message 2'

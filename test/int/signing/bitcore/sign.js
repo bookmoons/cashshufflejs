@@ -1,14 +1,14 @@
 import test from 'ava'
 import bitcore from 'bitcore-lib-cash'
-import { bytesToBase64 } from 'aid/convert'
+import { bytesToBase64, hexToBytes } from 'aid/convert'
 import Message from '@bookmoons/bitcore-message-cash'
 import Signing from 'signing/bitcore/main'
 import restoreKeyPair from 'signing/bitcore/restore'
 import sign from 'signing/bitcore/sign'
 
-const privateKeyString =
-    '00000000000000000000000000000000000000000000000000' +
-    '00000000000001'
+const privateKeyHex =
+  '0000000000000000000000000000000000000000000000000000000000000001'
+const privateKeyBytes = hexToBytes(privateKeyHex)
 const message = 'Test message'
 
 test.before(t => {
@@ -20,9 +20,9 @@ test.before(t => {
 
 test('sign', async t => {
   const signing = new Signing()
-  await signing.restoreKeyPair(privateKeyString)
+  await signing.restoreKeyPair(privateKeyBytes)
   const signature = await signing.sign(message)
-  const privateKey = new bitcore.PrivateKey(privateKeyString)
+  const privateKey = new bitcore.PrivateKey(privateKeyHex)
   const address = privateKey.toAddress()
   const verifier = new Message(message)
   const signatureBase64 = bytesToBase64(signature)

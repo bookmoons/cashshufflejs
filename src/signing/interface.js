@@ -85,7 +85,7 @@
  * @instance
  * @async
  *
- * @param {HexString} privateKeyString - Private key.
+ * @param {Uint8Array} privateKey - Private key. Not modified.
  * @param [network=<mainnet>] - Network to restore for.
  *     Type implementation defined. Not modified.
  */

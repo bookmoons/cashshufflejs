@@ -1,10 +1,12 @@
 import test from 'ava'
+import { hexToBytes } from 'aid/convert'
 import Signing from 'signing/bitcore/main'
 import restoreKeyPair from 'signing/bitcore/restore'
 import address from 'signing/bitcore/address'
 
-const testPrivateKey =
+const testPrivateKeyHex =
   '78100d2fe6681f3063eefff3b5a5e02a11a90600cd13153c304641c40c53e444'
+const testPrivateKey = hexToBytes(testPrivateKeyHex)
 const expectedAddress =
   'bitcoincash:qzcyfu3a5r50cctsppnlh8kmjwe20xxx2vvqvgzgas'
 

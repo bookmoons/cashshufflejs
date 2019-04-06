@@ -26,12 +26,15 @@ const sessionId = hexToBytes('1234')
 const poolNumber1 = 3
 const poolNumber2 = 7
 const poolNumber3 = 9
-const signingPrivateKey1 =
+const signingPrivateKey1Hex =
   'bf4354ccb69609d3faa567f5c963c8cbf7a51e1e0d52245a3659eba85edfa9cf'
-const signingPrivateKey2 =
+const signingPrivateKey2Hex =
   '9d7fe9da900eab1dc61f43a6fc56de0f0c825b7bd12ebf026114b128602b72ea'
-const signingPrivateKey3 =
+const signingPrivateKey3Hex =
   '5c36158d65bce2d2f16272d11af8ec55cc3ee4e14e35f01df5d9d6c88ba0e345'
+const signingPrivateKey1 = hexToBytes(signingPrivateKey1Hex)
+const signingPrivateKey2 = hexToBytes(signingPrivateKey2Hex)
+const signingPrivateKey3 = hexToBytes(signingPrivateKey3Hex)
 const shuffler1 =
   '02a531fcc67d22625870997768d81b8d1dce9afb6e9e1b103c443151b736e37217'
 const shuffler2 =
