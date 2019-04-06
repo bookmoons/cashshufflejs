@@ -42,6 +42,7 @@ const signingPublicKey3Hex =
   '026e41a59fa68163abf6bec552fe48688ad7d342f2c047db7aa6acaf3d447709c5'
 const signingPublicKey1 = hexToBytes(signingPublicKey1Hex)
 const signingPublicKey2 = hexToBytes(signingPublicKey2Hex)
+const signingPublicKey3 = hexToBytes(signingPublicKey3Hex)
 const shufflers =
   [ signingPublicKey1Hex, signingPublicKey2Hex, signingPublicKey3Hex ]
 const encryptionPrivateKey1 =
@@ -179,7 +180,7 @@ test('return first', async t => {
     last: false,
     precedingShufflersCount: 0,
     priorShuffler: null,
-    nextShuffler: signingPublicKey2Hex,
+    nextShuffler: signingPublicKey2,
     encryptionPublicKeys: encryptionPublicKeys1,
     crypto,
     outchan,
@@ -212,7 +213,7 @@ test('return inner', async t => {
     last: false,
     precedingShufflersCount: 1,
     priorShuffler: signingPublicKey1,
-    nextShuffler: signingPublicKey3Hex,
+    nextShuffler: signingPublicKey3,
     encryptionPublicKeys: encryptionPublicKeys2,
     crypto,
     outchan,
@@ -272,7 +273,7 @@ test('output first', async t => {
     last: false,
     precedingShufflersCount: 0,
     priorShuffler: null,
-    nextShuffler: signingPublicKey2Hex,
+    nextShuffler: signingPublicKey2,
     encryptionPublicKeys: encryptionPublicKeys1,
     crypto,
     outchan,
@@ -323,7 +324,7 @@ test('output inner', async t => {
     last: false,
     precedingShufflersCount: 1,
     priorShuffler: signingPublicKey1,
-    nextShuffler: signingPublicKey3Hex,
+    nextShuffler: signingPublicKey3,
     encryptionPublicKeys: encryptionPublicKeys2,
     crypto,
     outchan,
@@ -374,7 +375,7 @@ test('decrypt failure', async t => {
     last: false,
     precedingShufflersCount: 1,
     priorShuffler: signingPublicKey1,
-    nextShuffler: signingPublicKey2Hex,
+    nextShuffler: signingPublicKey2,
     encryptionPublicKeys: encryptionPublicKeys2,
     crypto,
     outchan,
@@ -414,7 +415,7 @@ test('duplicate items', async t => {
     last: false,
     precedingShufflersCount: 2,
     priorShuffler: signingPublicKey1,
-    nextShuffler: signingPublicKey2Hex,
+    nextShuffler: signingPublicKey2,
     encryptionPublicKeys: encryptionPublicKeys2,
     crypto,
     outchan,

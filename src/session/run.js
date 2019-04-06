@@ -98,12 +98,11 @@ async function run ({
   const lastShufflerIndex = shufflersCount - 1
   const last = (ownShufflerIndex === lastShufflerIndex)
   const priorShufflerIndex = first ? null : ownShufflerIndex - 1
-  const priorShufflerHex =
-    first ? null : shufflersOrdered[priorShufflerIndex]
+  const priorShufflerHex = first ? null : shufflersOrdered[priorShufflerIndex]
   const priorShuffler = first ? null : hexToBytes(priorShufflerHex)
   const nextShufflerIndex = last ? null : ownShufflerIndex + 1
-  const nextShuffler =
-    last ? null : shufflersOrdered[nextShufflerIndex]
+  const nextShufflerHex = last ? null : shufflersOrdered[nextShufflerIndex]
+  const nextShuffler = last ? null : hexToBytes(nextShufflerHex)
   const lastShufflerHex =
     last ? signingPublicKey : shufflersOrdered[lastShufflerIndex]
   const lastShuffler = hexToBytes(lastShufflerHex)

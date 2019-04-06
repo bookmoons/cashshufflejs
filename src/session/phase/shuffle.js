@@ -27,8 +27,8 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  * @prop {number} precedingShufflersCount - Count of preceding shufflers.
  * @prop {Uint8Array} priorShuffler - Signing public key of prior shuffler.
  *     `null` for none. Not modified.
- * @prop {HexString} nextShuffler - Signing public key of next shuffler.
- *     `null` for none.
+ * @prop {Uint8Array} nextShuffler - Signing public key of next shuffler.
+ *     `null` for none. Not modified.
  * @prop {Iterable<HexString>} encryptionPublicKeys - Subsequent shuffler
  *     encryption public keys in shuffle order. Empty `Iterable` for none.
  * @prop {Crypto} crypto - Message encryptor. Assumed ready for use.
@@ -73,7 +73,7 @@ async function shuffle ({
   last,
   precedingShufflersCount,
   priorShuffler,
-  nextShuffler: nextShufflerHex,
+  nextShuffler,
   encryptionPublicKeys,
   crypto,
   outchan,
@@ -182,7 +182,6 @@ async function shuffle ({
   /* Unicast output list. */
   const signingPublicKeyHex = await signingKeyPair.exportPublicKey()
   const signingPublicKey = hexToBytes(signingPublicKeyHex)
-  const nextShuffler = hexToBytes(nextShufflerHex)
   const ownSignedPackets = []
   for (const output of outputList) {
     const ownPacket = await this.messageShuffleOutput({
