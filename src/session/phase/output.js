@@ -21,8 +21,8 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {boolean} last - Whether own client is last in shuffle order.
  * @prop {number} shufflersCount - Count of shufflers.
  * @prop {number} precedingShufflersCount - Count of preceding shufflers.
- * @prop {Uint8Array} priorShuffler - Signing public key of prior
- *     shuffler. Not modified.
+ * @prop {Uint8Array} priorShuffler - Signing public key of prior shuffler.
+ *     Not modified.
  * @prop {HexString} lastShuffler - Signing public key of last shuffler.
  * @prop {CashAddress} outputAddress - Own output address.
  * @prop {Crypto} crypto - Message encryptor. Assumed ready for use.
