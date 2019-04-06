@@ -51,13 +51,15 @@ const shufflers =
 const shufflersCount = shufflers.length
 const lastShuffler = signingPublicKey3
 /*
-const encryptionPrivateKey1 =
+const encryptionPrivateKey1Hex =
   '32ff3a7363f71e0bc7cfbb36947d219a97d35c7d667bb25ed39b1999e78ac915'
 */
-const encryptionPrivateKey2 =
+const encryptionPrivateKey2Hex =
   '13b41346a85e9dfd08b6cc77b15b1a5458d8a0caa7aa804c2c9bb611d812147c'
-const encryptionPrivateKey3 =
+const encryptionPrivateKey3Hex =
   '7f7ac27f3970e8232e14c3a800a06659b5a7cee587a4a33efe5c1ec5f1f53512'
+const encryptionPrivateKey2 = hexToBytes(encryptionPrivateKey2Hex)
+const encryptionPrivateKey3 = hexToBytes(encryptionPrivateKey3Hex)
 const output1 = 'bitcoincash:qrqpqsvcy94qfm3a8px0sxr5lmm825u3wv3l8fd6xf'
 const output2 = 'bitcoincash:qqvm3zp009x5pvaclc7tf3r7h5v2k2le0qxazfnv6w'
 const output3 = 'bitcoincash:qqqcrwfqh9jqpq8juwptrw384ltt2qyrcujwunn3v2'

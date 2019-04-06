@@ -1,10 +1,12 @@
 import test from 'ava'
+import { hexToBytes } from 'aid/convert'
 import Crypto from 'crypto/bitcore/main'
 import restoreKeyPair from 'crypto/bitcore/restore'
 import decrypt from 'crypto/bitcore/decrypt'
 
-const recipientPrivateKey =
+const recipientPrivateKeyHex =
   'bf7affa1c5a054114ab7be55e8fa67adce54df57918a179e098c3940a34023c2'
+const recipientPrivateKey = hexToBytes(recipientPrivateKeyHex)
 const ciphertext = Uint8Array.from([
   3, 71, 117, 200, 133, 192, 184, 47, 173, 65, 169, 49, 214, 143, 97, 140, 196,
   14, 167, 167, 16, 153, 208, 16, 192, 23, 245, 78, 177, 213, 20, 108, 204,

@@ -42,13 +42,15 @@ const signingPublicKey3 =
   '026e41a59fa68163abf6bec552fe48688ad7d342f2c047db7aa6acaf3d447709c5'
 const shufflers =
   [ signingPublicKey1, signingPublicKey2, signingPublicKey3 ]
-const encryptionPrivateKey1 =
+const encryptionPrivateKey1Hex =
   '32ff3a7363f71e0bc7cfbb36947d219a97d35c7d667bb25ed39b1999e78ac915'
-const encryptionPublicKey2 =
+const encryptionPublicKey2Hex =
   '0349357c0c89b0cd913ebdaf74a7ad337727c00b6001204f983efc72a368c4e4aa'
-const encryptionPublicKey3 =
+const encryptionPublicKey3Hex =
   '02c8c46130f5a7d74d95456857fc47c4f6372ca4ae1659595a09e3d99596132130'
-const encryptionPublicKeys = [ encryptionPublicKey2, encryptionPublicKey3 ]
+const encryptionPrivateKey1 = hexToBytes(encryptionPrivateKey1Hex)
+const encryptionPublicKeys =
+  [ encryptionPublicKey2Hex, encryptionPublicKey3Hex ]
 const output1 = 'bitcoincash:qrqpqsvcy94qfm3a8px0sxr5lmm825u3wv3l8fd6xf'
 const output2 = 'bitcoincash:qqvm3zp009x5pvaclc7tf3r7h5v2k2le0qxazfnv6w'
 const output3 = 'bitcoincash:qqqcrwfqh9jqpq8juwptrw384ltt2qyrcujwunn3v2'
