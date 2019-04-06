@@ -104,8 +104,9 @@ async function run ({
   const nextShufflerIndex = last ? null : ownShufflerIndex + 1
   const nextShuffler =
     last ? null : shufflersOrdered[nextShufflerIndex]
-  const lastShuffler =
+  const lastShufflerHex =
     last ? signingPublicKey : shufflersOrdered[lastShufflerIndex]
+  const lastShuffler = hexToBytes(lastShufflerHex)
   if (log) {
     const message = 'Shuffling with ' + shufflersCount + ' shufflers'
     await log.send(message)

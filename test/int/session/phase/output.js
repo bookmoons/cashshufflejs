@@ -43,10 +43,11 @@ const signingPublicKey3Hex =
   '026e41a59fa68163abf6bec552fe48688ad7d342f2c047db7aa6acaf3d447709c5'
 const signingPublicKey1 = hexToBytes(signingPublicKey1Hex)
 const signingPublicKey2 = hexToBytes(signingPublicKey2Hex)
+const signingPublicKey3 = hexToBytes(signingPublicKey3Hex)
 const shufflers =
   [ signingPublicKey1Hex, signingPublicKey2Hex, signingPublicKey3Hex ]
 const shufflersCount = shufflers.length
-const lastShuffler = signingPublicKey3Hex
+const lastShuffler = signingPublicKey3
 /*
 const encryptionPrivateKey1 =
   '32ff3a7363f71e0bc7cfbb36947d219a97d35c7d667bb25ed39b1999e78ac915'
