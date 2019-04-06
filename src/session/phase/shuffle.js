@@ -25,8 +25,8 @@ import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
  * @prop {boolean} first - Whether own client is first in shuffle order.
  * @prop {boolean} last - Whether own client is last in shuffle order.
  * @prop {number} precedingShufflersCount - Count of preceding shufflers.
- * @prop {HexString} priorShuffler - Signing public key of prior
- *     shuffler. `null` for none.
+ * @prop {Uint8Array} priorShuffler - Signing public key of prior shuffler.
+ *     `null` for none. Not modified.
  * @prop {HexString} nextShuffler - Signing public key of next shuffler.
  *     `null` for none.
  * @prop {Iterable<HexString>} encryptionPublicKeys - Subsequent shuffler
@@ -72,7 +72,7 @@ async function shuffle ({
   first,
   last,
   precedingShufflersCount,
-  priorShuffler: priorShufflerHex,
+  priorShuffler,
   nextShuffler: nextShufflerHex,
   encryptionPublicKeys,
   crypto,
@@ -126,7 +126,6 @@ async function shuffle ({
     if (log) await log.send('Constructed initial output list')
   } else { // Inner shuffler
     /* Gather output list messages from prior shuffler. */
-    const priorShuffler = hexToBytes(priorShufflerHex)
     const priorOutputListPackets = await this.gatherShuffleOutput({
       attempts,
       timeout,

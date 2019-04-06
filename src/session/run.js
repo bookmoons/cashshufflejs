@@ -175,7 +175,7 @@ async function run ({
     first,
     last,
     precedingShufflersCount,
-    priorShuffler: priorShufflerHex,
+    priorShuffler,
     nextShuffler,
     encryptionPublicKeys: subsequentEncryptionPublicKeys,
     crypto: encryptionKeyPair,
