@@ -1,3 +1,4 @@
+import { bytesToHex } from '/aid/convert'
 import { Phase } from '/protocol'
 
 /**
@@ -5,7 +6,7 @@ import { Phase } from '/protocol'
  * @memberof module:cashshuffle/session.Session
  *
  * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
- * @prop {HexString} signingPublicKey - Signing public key.
+ * @prop {Uint8Array} signingPublicKey - Signing public key.
  * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Uint8Array} digest - Digest. Not modified.
@@ -31,7 +32,8 @@ function messageDigest ({
 }) {
   const hashObject = { hash: digest }
   const messageObject = { hash: hashObject }
-  const fromKeyObject = { key: signingPublicKey }
+  const signingPublicKeyHex = bytesToHex(signingPublicKey)
+  const fromKeyObject = { key: signingPublicKeyHex }
   const packetObject = {
     session: sessionId,
     number: poolNumber,

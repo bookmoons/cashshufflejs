@@ -68,7 +68,7 @@ async function checkEquivocation ({
   const signingPublicKey = hexToBytes(signingPublicKeyHex)
   const ownPacket = await this.messageDigest({
     protocol,
-    signingPublicKey: signingPublicKeyHex,
+    signingPublicKey,
     sessionId,
     poolNumber,
     digest: ownDigest
