@@ -73,7 +73,7 @@ async function shuffle ({
   last,
   precedingShufflersCount,
   priorShuffler: priorShufflerHex,
-  nextShuffler,
+  nextShuffler: nextShufflerHex,
   encryptionPublicKeys,
   crypto,
   outchan,
@@ -183,6 +183,7 @@ async function shuffle ({
   /* Unicast output list. */
   const signingPublicKeyHex = await signingKeyPair.exportPublicKey()
   const signingPublicKey = hexToBytes(signingPublicKeyHex)
+  const nextShuffler = hexToBytes(nextShufflerHex)
   const ownSignedPackets = []
   for (const output of outputList) {
     const ownPacket = await this.messageShuffleOutput({

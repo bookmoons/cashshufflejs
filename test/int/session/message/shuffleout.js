@@ -9,8 +9,9 @@ const poolNumber = 4
 const signingPublicKeyHex =
   '03f09e7bbaf09669b1cde3394db0b72c3408ed0826f98d7985a3cecc1486075d3b'
 const signingPublicKey = hexToBytes(signingPublicKeyHex)
-const nextShuffler =
+const nextShufflerHex =
   '023fd1952670be6e23cd120d3441ef696976a805147a8e034eb779e2d8b22102b9'
+const nextShuffler = hexToBytes(nextShufflerHex)
 const outputBase64 =
   'A/Cee7rwlmmxzeM5TbC3LDQI7Qgm+Y15haPOzBSGB1071Zs6T8FR5uuJCTBrBJnGxqv4' +
   'ii6cXLpkVyrcKsK+epO9J6F9V0qkt1Ic0OR32Be5W2ddGr13HQIFS+RltmeACikqq120' +
@@ -20,7 +21,7 @@ const expectedPacketObject = {
   session: sessionId,
   number: poolNumber,
   fromKey: { key: signingPublicKeyHex },
-  toKey: { key: nextShuffler },
+  toKey: { key: nextShufflerHex },
   phase: Phase.Shuffle.value,
   message: { str: outputBase64 }
 }

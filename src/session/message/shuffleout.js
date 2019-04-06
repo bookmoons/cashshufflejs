@@ -10,7 +10,7 @@ import { Phase } from '/protocol'
  * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Uint8Array} output - Single output address layered encryption.
- * @prop {HexString} nextShuffler - Signing public key of next shuffler.
+ * @prop {Uint8Array} nextShuffler - Signing public key of next shuffler.
  */
 
 /**
@@ -38,7 +38,8 @@ function messageShuffleOutput ({
   const messageObject = { str: outputEncoded }
   const signingPublicKeyEncoded = transferEncodeKey(signingPublicKey)
   const fromKeyObject = { key: signingPublicKeyEncoded }
-  const toKeyObject = { key: nextShuffler }
+  const nextShufflerEncoded = transferEncodeKey(nextShuffler)
+  const toKeyObject = { key: nextShufflerEncoded }
   const packetObject = {
     session: sessionId,
     number: poolNumber,
