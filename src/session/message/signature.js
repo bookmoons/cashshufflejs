@@ -8,7 +8,7 @@ import { hexToBytes } from '/aid/convert'
  * @memberof module:cashshuffle/session.Session
  *
  * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
- * @prop {Uint8Array} signingPublicKey - Signing public key.
+ * @prop {Uint8Array} signingPublicKey - Signing public key. Not modified.
  * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Iterable<Coin~InputSignature>} signatures - Signatures.

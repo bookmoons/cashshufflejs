@@ -6,11 +6,13 @@ import { Phase } from '/protocol'
  * @memberof module:cashshuffle/session.Session
  *
  * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
- * @prop {Uint8Array} signingPublicKey - Signing public key.
+ * @prop {Uint8Array} signingPublicKey - Signing public key. Not modified.
  * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Uint8Array} output - Single output address layered encryption.
+ *     Not modified.
  * @prop {Uint8Array} nextShuffler - Signing public key of next shuffler.
+ *     Not modified.
  */
 
 /**
