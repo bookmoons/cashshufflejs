@@ -35,16 +35,18 @@ const signingPrivateKey2 =
   '1d4341f3141fd3a329938d445a9f2fbd83e4faf5ed0d5dc86201782028881f52'
 const signingPrivateKey3 =
   '59e0c13c7752db8c63a54d8a111327ed4a3e40ef480107ebc9e9ab5bc2fe9419'
-const signingPublicKey1 =
+const signingPublicKey1Hex =
   '03bfe214b2d739c9373900c35f0533fae013f93c6b1eec1fb061a8b3e404f52d90'
-const signingPublicKey2 =
+const signingPublicKey2Hex =
   '0350efbed967151d023f4b9a8637fa01328d5851cc6e94f33ccdad659e6ff6ca57'
-const signingPublicKey3 =
+const signingPublicKey3Hex =
   '026e41a59fa68163abf6bec552fe48688ad7d342f2c047db7aa6acaf3d447709c5'
+const signingPublicKey1 = hexToBytes(signingPublicKey1Hex)
+const signingPublicKey2 = hexToBytes(signingPublicKey2Hex)
 const shufflers =
-  [ signingPublicKey1, signingPublicKey2, signingPublicKey3 ]
+  [ signingPublicKey1Hex, signingPublicKey2Hex, signingPublicKey3Hex ]
 const shufflersCount = shufflers.length
-const lastShuffler = signingPublicKey3
+const lastShuffler = signingPublicKey3Hex
 /*
 const encryptionPrivateKey1 =
   '32ff3a7363f71e0bc7cfbb36947d219a97d35c7d667bb25ed39b1999e78ac915'
@@ -70,44 +72,44 @@ let protocol
 const encryptedOutputListPacket1 = {
   session: sessionId,
   number: poolNumber,
-  fromKey: { key: signingPublicKey2 },
-  toKey: { key: signingPublicKey3 },
+  fromKey: { key: signingPublicKey2Hex },
+  toKey: { key: signingPublicKey3Hex },
   phase: Phase.Shuffle.value,
   message: { str: encryptedOutput1 }
 }
 const encryptedOutputListPacket2 = {
   session: sessionId,
   number: poolNumber,
-  fromKey: { key: signingPublicKey2 },
-  toKey: { key: signingPublicKey3 },
+  fromKey: { key: signingPublicKey2Hex },
+  toKey: { key: signingPublicKey3Hex },
   phase: Phase.Shuffle.value,
   message: { str: encryptedOutput2 }
 }
 const finalOutputListPacket1 = {
   session: sessionId,
   number: poolNumber,
-  fromKey: { key: signingPublicKey3 },
+  fromKey: { key: signingPublicKey3Hex },
   phase: Phase.Broadcast.value,
   message: { str: output1 }
 }
 const finalOutputListPacket2 = {
   session: sessionId,
   number: poolNumber,
-  fromKey: { key: signingPublicKey3 },
+  fromKey: { key: signingPublicKey3Hex },
   phase: Phase.Broadcast.value,
   message: { str: output2 }
 }
 const finalOutputListPacket3 = {
   session: sessionId,
   number: poolNumber,
-  fromKey: { key: signingPublicKey3 },
+  fromKey: { key: signingPublicKey3Hex },
   phase: Phase.Broadcast.value,
   message: { str: output3 }
 }
 const badOutputListPacket = {
   session: sessionId,
   number: poolNumber,
-  fromKey: { key: signingPublicKey3 },
+  fromKey: { key: signingPublicKey3Hex },
   phase: Phase.Broadcast.value,
   message: { str: badOutput }
 }
@@ -189,7 +191,7 @@ test('return last', async t => {
   const receiver = new PhaseReceiver(shufflers)
   const priorReceiver = new PhaseReceiver(shufflers)
   const inboxes = priorReceiver.shufflerInboxes
-  const inbox = inboxes.get(signingPublicKey2)
+  const inbox = inboxes.get(signingPublicKey2Hex)
   inbox.add(encryptedOutputListPacket1)
   inbox.add(encryptedOutputListPacket2)
   const { outputList } = await session.broadcastOutput({
@@ -225,7 +227,7 @@ test('return nonlast', async t => {
   const receiver = new PhaseReceiver(shufflers)
   const priorReceiver = new PhaseReceiver(shufflers)
   const inboxes = receiver.shufflerInboxes
-  const inbox = inboxes.get(signingPublicKey3)
+  const inbox = inboxes.get(signingPublicKey3Hex)
   inbox.add(finalOutputListPacket1)
   inbox.add(finalOutputListPacket2)
   inbox.add(finalOutputListPacket3)
@@ -262,7 +264,7 @@ test('output', async t => {
   const receiver = new PhaseReceiver(shufflers)
   const priorReceiver = new PhaseReceiver(shufflers)
   const inboxes = priorReceiver.shufflerInboxes
-  const inbox = inboxes.get(signingPublicKey2)
+  const inbox = inboxes.get(signingPublicKey2Hex)
   inbox.add(encryptedOutputListPacket1)
   inbox.add(encryptedOutputListPacket2)
   await session.broadcastOutput({
@@ -314,7 +316,7 @@ test('missing output', async t => {
   const outchan = new Outchan(outchanbin, protocol)
   const receiver = new PhaseReceiver(shufflers)
   const inboxes = receiver.shufflerInboxes
-  const inbox = inboxes.get(signingPublicKey3)
+  const inbox = inboxes.get(signingPublicKey3Hex)
   inbox.add(finalOutputListPacket1)
   inbox.add(badOutputListPacket)
   inbox.add(finalOutputListPacket3)

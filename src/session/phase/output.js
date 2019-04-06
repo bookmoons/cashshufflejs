@@ -21,8 +21,8 @@ import { defaultAttempts, defaultTimeout } from '../default'
  * @prop {boolean} last - Whether own client is last in shuffle order.
  * @prop {number} shufflersCount - Count of shufflers.
  * @prop {number} precedingShufflersCount - Count of preceding shufflers.
- * @prop {HexString} priorShuffler - Signing public key of prior
- *     shuffler.
+ * @prop {Uint8Array} priorShuffler - Signing public key of prior
+ *     shuffler. Not modified.
  * @prop {HexString} lastShuffler - Signing public key of last shuffler.
  * @prop {CashAddress} outputAddress - Own output address.
  * @prop {Crypto} crypto - Message encryptor. Assumed ready for use.
@@ -64,7 +64,7 @@ async function broadcastOutput ({
   last,
   shufflersCount,
   precedingShufflersCount,
-  priorShuffler: priorShufflerHex,
+  priorShuffler,
   lastShuffler: lastShufflerHex,
   outputAddress,
   crypto,
@@ -81,7 +81,6 @@ async function broadcastOutput ({
     // Last shuffler produces final output list
 
     /* Gather output list messages from prior shuffler. */
-    const priorShuffler = hexToBytes(priorShufflerHex)
     const priorOutputListPackets = await this.gatherShuffleOutput({
       attempts,
       timeout,

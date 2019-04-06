@@ -5,6 +5,7 @@ import {
   NotImplementedError,
   ValueError
 } from '/error'
+import { hexToBytes } from '/aid/convert'
 import { Phase } from '/protocol'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from './default'
 
@@ -97,8 +98,9 @@ async function run ({
   const lastShufflerIndex = shufflersCount - 1
   const last = (ownShufflerIndex === lastShufflerIndex)
   const priorShufflerIndex = first ? null : ownShufflerIndex - 1
-  const priorShuffler =
+  const priorShufflerHex =
     first ? null : shufflersOrdered[priorShufflerIndex]
+  const priorShuffler = first ? null : hexToBytes(priorShufflerHex)
   const nextShufflerIndex = last ? null : ownShufflerIndex + 1
   const nextShuffler =
     last ? null : shufflersOrdered[nextShufflerIndex]
@@ -172,7 +174,7 @@ async function run ({
     first,
     last,
     precedingShufflersCount,
-    priorShuffler,
+    priorShuffler: priorShufflerHex,
     nextShuffler,
     encryptionPublicKeys: subsequentEncryptionPublicKeys,
     crypto: encryptionKeyPair,
