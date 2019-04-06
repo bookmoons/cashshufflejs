@@ -1,5 +1,4 @@
 import test from 'ava'
-import { hexToBytes } from 'aid/convert'
 import Crypto from 'crypto/bitcore/main'
 import decrypt from 'crypto/bitcore/decrypt'
 import exportPublicKey from 'crypto/bitcore/exportpub'
@@ -23,8 +22,7 @@ test('encrypt', async t => {
   const senderCrypto = new Crypto()
   const recipientCrypto = new Crypto()
   await recipientCrypto.generateKeyPair()
-  const recipientPublicKeyHex = await recipientCrypto.exportPublicKey()
-  const recipientPublicKey = hexToBytes(recipientPublicKeyHex)
+  const recipientPublicKey = await recipientCrypto.exportPublicKey()
   const ciphertext = await senderCrypto.encrypt(
     plaintext,
     recipientPublicKey

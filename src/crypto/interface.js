@@ -75,7 +75,7 @@
  * @instance
  * @async
  *
- * @return {HexString} Public key.
+ * @return {Uint8Array} Public key.
  *
  * @throws {MissingValueError} If key pair has not been generated or restored.
  */

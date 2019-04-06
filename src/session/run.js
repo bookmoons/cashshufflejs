@@ -149,10 +149,11 @@ async function run ({
   // Prepare ordered encryption public keys
   const encryptionPublicKeysOrdered = []
   const ownEncryptionPublicKey = await encryptionKeyPair.exportPublicKey()
+  const ownEncryptionPublicKeyHex = bytesToHex(ownEncryptionPublicKey)
   for (const shuffler of shufflersOrdered) {
     const encryptionPublicKey =
       shuffler === signingPublicKeyHex
-        ? ownEncryptionPublicKey
+        ? ownEncryptionPublicKeyHex
         : encryptionPublicKeys.get(shuffler)
     encryptionPublicKeysOrdered.push(encryptionPublicKey)
   }

@@ -6,7 +6,6 @@ import exportPublicKey from 'crypto/bitcore/exportpub'
 // Compressed key size
 const keySizeBits = 257
 const keySizeBytes = Math.ceil(keySizeBits / 8) // 8 bits per byte
-const keySizeChars = keySizeBytes * 2 // Byte encoded in 2 chars
 
 test.before(t => {
   Object.assign(Crypto.prototype, {
@@ -22,16 +21,16 @@ test('missing key pair', async t => {
   })
 })
 
-test('string', async t => {
+test('bytes', async t => {
   const crypto = new Crypto()
   await crypto.generateKeyPair()
   const publicKey = await crypto.exportPublicKey()
-  await t.is(typeof publicKey, 'string')
+  t.true(publicKey instanceof Uint8Array)
 })
 
 test('length', async t => {
   const crypto = new Crypto()
   await crypto.generateKeyPair()
   const publicKey = await crypto.exportPublicKey()
-  await t.is(publicKey.length, keySizeChars)
+  t.is(publicKey.byteLength, keySizeBytes)
 })

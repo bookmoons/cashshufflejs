@@ -191,7 +191,7 @@ test('encryption key pair', async t => {
     receiver
   })
   const encryptionPublicKey = await encryptionKeyPair.exportPublicKey()
-  t.is(typeof encryptionPublicKey, 'string')
+  t.true(encryptionPublicKey instanceof Uint8Array)
 })
 
 test('fail', async t => {

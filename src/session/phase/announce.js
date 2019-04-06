@@ -1,6 +1,6 @@
 import Crypto from '/crypto/bitcore'
 import PrefixLogchan from '/logchan/prefix'
-import { bytesToHex, hexToBytes } from '/aid/convert'
+import { bytesToHex } from '/aid/convert'
 import { defaultAttempts, defaultNetwork, defaultTimeout } from '../default'
 
 /**
@@ -74,8 +74,7 @@ async function announce ({
 
   /* Broadcast encryption public key. */
   const signingPublicKey = await signingKeyPair.exportPublicKey()
-  const encryptionPublicKeyHex = await encryptionKeyPair.exportPublicKey()
-  const encryptionPublicKey = hexToBytes(encryptionPublicKeyHex)
+  const encryptionPublicKey = await encryptionKeyPair.exportPublicKey()
   const ownPacket = await this.messageAnnounce({
     protocol,
     signingPublicKey,
