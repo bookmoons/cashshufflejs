@@ -132,7 +132,8 @@ async function broadcastOutput ({
     if (log) await log.send('Shuffled output list')
 
     /* Broadcast final output list. */
-    const signingPublicKey = await signingKeyPair.exportPublicKey()
+    const signingPublicKeyHex = await signingKeyPair.exportPublicKey()
+    const signingPublicKey = hexToBytes(signingPublicKeyHex)
     const ownSignedPackets = []
     for (const outputAddress of shuffledOutputList) {
       const ownPacket = await this.messageFinalOutput({

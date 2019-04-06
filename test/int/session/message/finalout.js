@@ -6,13 +6,14 @@ import messageFinalOutput from 'session/message/finalout'
 
 const sessionId = hexToBytes('1234')
 const poolNumber = 8
-const signingPublicKey =
+const signingPublicKeyHex =
   '03f09e7bbaf09669b1cde3394db0b72c3408ed0826f98d7985a3cecc1486075d3b'
+const signingPublicKey = hexToBytes(signingPublicKeyHex)
 const outputAddress = 'bitcoincash:qrqpqsvcy94qfm3a8px0sxr5lmm825u3wv3l8fd6xf'
 const expectedPacketObject = {
   session: sessionId,
   number: poolNumber,
-  fromKey: { key: signingPublicKey },
+  fromKey: { key: signingPublicKeyHex },
   phase: Phase.Broadcast.value,
   message: { str: outputAddress }
 }

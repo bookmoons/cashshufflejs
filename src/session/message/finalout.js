@@ -1,3 +1,4 @@
+import { transferEncodeKey } from '/aid/code'
 import { Phase } from '/protocol'
 
 /**
@@ -5,7 +6,7 @@ import { Phase } from '/protocol'
  * @memberof module:cashshuffle/session.Session
  *
  * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
- * @prop {HexString} signingPublicKey - Signing public key.
+ * @prop {Uint8Array} signingPublicKey - Signing public key.
  * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Address} outputAddress - Output address.
@@ -32,7 +33,8 @@ function messageFinalOutput ({
   outputAddress
 }) {
   const messageObject = { str: outputAddress }
-  const fromKeyObject = { key: signingPublicKey }
+  const signingPublicKeyEncoded = transferEncodeKey(signingPublicKey)
+  const fromKeyObject = { key: signingPublicKeyEncoded }
   const packetObject = {
     session: sessionId,
     number: poolNumber,
