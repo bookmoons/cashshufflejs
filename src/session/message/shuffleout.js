@@ -1,4 +1,4 @@
-import { transferEncodeShuffleOutput } from '/aid/code'
+import { transferEncodeKey, transferEncodeShuffleOutput } from '/aid/code'
 import { Phase } from '/protocol'
 
 /**
@@ -6,7 +6,7 @@ import { Phase } from '/protocol'
  * @memberof module:cashshuffle/session.Session
  *
  * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
- * @prop {HexString} signingPublicKey - Signing public key.
+ * @prop {Uint8Array} signingPublicKey - Signing public key.
  * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Uint8Array} output - Single output address layered encryption.
@@ -36,7 +36,8 @@ function messageShuffleOutput ({
 }) {
   const outputEncoded = transferEncodeShuffleOutput(output)
   const messageObject = { str: outputEncoded }
-  const fromKeyObject = { key: signingPublicKey }
+  const signingPublicKeyEncoded = transferEncodeKey(signingPublicKey)
+  const fromKeyObject = { key: signingPublicKeyEncoded }
   const toKeyObject = { key: nextShuffler }
   const packetObject = {
     session: sessionId,

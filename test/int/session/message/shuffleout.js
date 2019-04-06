@@ -6,8 +6,9 @@ import messageShuffleOutput from 'session/message/shuffleout'
 
 const sessionId = hexToBytes('1234')
 const poolNumber = 4
-const signingPublicKey =
+const signingPublicKeyHex =
   '03f09e7bbaf09669b1cde3394db0b72c3408ed0826f98d7985a3cecc1486075d3b'
+const signingPublicKey = hexToBytes(signingPublicKeyHex)
 const nextShuffler =
   '023fd1952670be6e23cd120d3441ef696976a805147a8e034eb779e2d8b22102b9'
 const outputBase64 =
@@ -18,7 +19,7 @@ const output = base64ToBytes(outputBase64)
 const expectedPacketObject = {
   session: sessionId,
   number: poolNumber,
-  fromKey: { key: signingPublicKey },
+  fromKey: { key: signingPublicKeyHex },
   toKey: { key: nextShuffler },
   phase: Phase.Shuffle.value,
   message: { str: outputBase64 }
