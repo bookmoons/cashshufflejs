@@ -1,4 +1,4 @@
-import { bytesToHex } from '/aid/convert'
+import { transferEncodeKey } from '/aid/code'
 import { Phase } from '/protocol'
 
 /**
@@ -32,8 +32,8 @@ function messageDigest ({
 }) {
   const hashObject = { hash: digest }
   const messageObject = { hash: hashObject }
-  const signingPublicKeyHex = bytesToHex(signingPublicKey)
-  const fromKeyObject = { key: signingPublicKeyHex }
+  const signingPublicKeyEncoded = transferEncodeKey(signingPublicKey)
+  const fromKeyObject = { key: signingPublicKeyEncoded }
   const packetObject = {
     session: sessionId,
     number: poolNumber,
