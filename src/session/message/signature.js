@@ -1,4 +1,5 @@
 import Long from 'long'
+import { transferEncodeKey } from '/aid/code'
 import { Phase } from '/protocol'
 import { hexToBytes } from '/aid/convert'
 
@@ -7,7 +8,7 @@ import { hexToBytes } from '/aid/convert'
  * @memberof module:cashshuffle/session.Session
  *
  * @prop {protobufjs.Root} protocol - Protocol definition. Not modified.
- * @prop {HexString} signingPublicKey - Signing public key.
+ * @prop {Uint8Array} signingPublicKey - Signing public key.
  * @prop {Uint8Array} sessionId - Session identifier. Not modified.
  * @prop {number} poolNumber - Shuffler pool number.
  * @prop {Iterable<Coin~InputSignature>} signatures - Signatures.
@@ -44,7 +45,8 @@ function messageSignature ({
     inputSignatureObjects.push(inputSignatureObject)
   }
   const messageObject = { signatures: inputSignatureObjects }
-  const fromKeyObject = { key: signingPublicKey }
+  const signingPublicKeyEncoded = transferEncodeKey(signingPublicKey)
+  const fromKeyObject = { key: signingPublicKeyEncoded }
   const packetObject = {
     session: sessionId,
     number: poolNumber,

@@ -7,8 +7,9 @@ import messageSignature from 'session/message/signature'
 
 const sessionId = hexToBytes('1234')
 const poolNumber = 4
-const signingPublicKey =
+const signingPublicKeyHex =
   '03f09e7bbaf09669b1cde3394db0b72c3408ed0826f98d7985a3cecc1486075d3b'
+const signingPublicKey = hexToBytes(signingPublicKeyHex)
 const index1 = '0'
 const index1Encoded = Long.fromString(index1, true, 10)
 const index2 = '1'
@@ -34,7 +35,7 @@ const expectedSignaturesObject = [
 const expectedPacketObject = {
   session: sessionId,
   number: poolNumber,
-  fromKey: { key: signingPublicKey },
+  fromKey: { key: signingPublicKeyHex },
   phase: Phase.VerificationSubmission.value,
   message: { signatures: expectedSignaturesObject }
 }

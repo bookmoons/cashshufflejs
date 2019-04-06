@@ -104,7 +104,7 @@ async function submit ({
   const signingPublicKey = hexToBytes(signingPublicKeyHex)
   const ownPacket = await this.messageSignature({
     protocol,
-    signingPublicKey: signingPublicKeyHex,
+    signingPublicKey,
     sessionId,
     poolNumber,
     signatures: ownSignatures
